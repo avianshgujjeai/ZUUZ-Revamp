@@ -5,11 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ZUUZ — Book your 15-minute demo</title>
 <meta name="description" content="Pick a time. We'll connect to your CRM and one mailbox, and show you what's hiding in your team's email — live, on your data.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232563FF'%3E%3Cpath d='M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,0..100;1,9..144,300..500,0..100&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="icon" type="image/svg+xml"
-  href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232D5BFF'%3E%3Cpath d='M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z'/%3E%3C/svg%3E">
 <style>
   :root{
     --paper:#F4F1EA;
@@ -19,8 +18,10 @@
     --ink-mute:#7A776E;
     --line:#1110100D;
     --line-strong:#11101015;
-    --accent:#FF4A1C;
-    --accent-soft:#FFE6DC;
+    --accent:#2563FF;
+    --accent-hover:#1D4ED8;
+    --accent-soft:#DBEAFE;
+    --navy:#0E1F6B;
     --signal:#0F8B4F;
     --card:#FBF8F1;
     --shadow: 0 1px 0 rgba(17,17,16,.04), 0 12px 32px -16px rgba(17,17,16,.18);
@@ -36,8 +37,8 @@
     text-rendering:optimizeLegibility;
     overflow-x:hidden;
     background-image:
-      radial-gradient(circle at 20% 0%, rgba(255,74,28,0.05), transparent 50%),
-      radial-gradient(circle at 80% 30%, rgba(15,139,79,0.03), transparent 45%);
+      radial-gradient(circle at 20% 0%, rgba(37,99,255,0.05), transparent 50%),
+      radial-gradient(circle at 80% 30%, rgba(15,139,79,0.025), transparent 45%);
   }
 
   body::before{
@@ -46,6 +47,7 @@
   }
 
   ::selection{background:var(--accent);color:#fff}
+  a{color:inherit; text-decoration:none}
 
   .wrap{max-width:880px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
   @media (max-width:560px){.wrap{padding:0 20px}}
@@ -56,26 +58,14 @@
     border-bottom:1px solid var(--line);
   }
   .nav{display:flex;align-items:center;justify-content:space-between}
-  .brand{display:flex;align-items:center;gap:9px;text-decoration:none}
-  .brand-spark{
-    width:18px;height:18px;
-    color:#2D5BFF;
-    flex-shrink:0;
-    transform:translateY(-1px);
+  .brand{display:flex;align-items:center}
+  .logo-img{
+    height:30px; width:auto; display:block;
+    border-radius:5px;
+    box-shadow:0 1px 0 rgba(17,17,16,.06), 0 4px 12px -4px rgba(17,17,16,.18);
   }
-  .brand-text{
-    font-family:'Fraunces', serif;
-    font-weight:500;
-    font-size:22px;
-    letter-spacing:-0.03em;
-    font-variation-settings:"opsz" 144, "SOFT" 30;
-    color:var(--ink);
-    line-height:1;
-  }
-  .brand-large .brand-spark{width:22px;height:22px}
-  .brand-large .brand-text{font-size:26px}
   .nav-back{
-    color:var(--ink-mute); text-decoration:none; font-size:13px;
+    color:var(--ink-mute); font-size:13px;
     font-family:'JetBrains Mono', monospace; letter-spacing:0.05em;
     transition:color .2s;
   }
@@ -94,8 +84,7 @@
   .pulse{
     width:7px;height:7px;border-radius:50%; background:var(--signal);
     box-shadow:0 0 0 0 rgba(15,139,79,.6);
-    animation:pulse 2s infinite;
-    flex-shrink:0;
+    animation:pulse 2s infinite; flex-shrink:0;
   }
   @keyframes pulse{
     0%{box-shadow:0 0 0 0 rgba(15,139,79,.5)}
@@ -122,7 +111,7 @@
     margin-bottom:36px;
   }
 
-  /* BIG PRIMARY CTA */
+  /* BIG PRIMARY CTA BLOCK */
   .book-block{
     background:var(--ink); color:var(--paper);
     border-radius:var(--radius); padding:32px 32px;
@@ -134,7 +123,7 @@
   .book-block::before{
     content:""; position:absolute; top:-30%; right:-10%;
     width:50%; height:160%;
-    background:radial-gradient(ellipse, rgba(255,74,28,0.22), transparent 60%);
+    background:radial-gradient(ellipse, rgba(37,99,255,0.25), transparent 60%);
     pointer-events:none;
   }
   .book-text{position:relative; z-index:1}
@@ -151,12 +140,11 @@
     display:inline-flex; align-items:center; gap:10px;
     background:var(--accent); color:#fff;
     padding:18px 28px; border-radius:99px;
-    font-size:16px; font-weight:500; text-decoration:none;
+    font-size:16px; font-weight:500;
     transition:all .2s;
-    position:relative; z-index:1;
-    flex-shrink:0;
+    position:relative; z-index:1; flex-shrink:0;
   }
-  .book-cta:hover{transform:translateY(-2px); background:#FF6B42}
+  .book-cta:hover{transform:translateY(-2px); background:var(--accent-hover)}
   .book-cta::after{content:"→"; transition:transform .2s}
   .book-cta:hover::after{transform:translateX(3px)}
   @media (max-width:560px){
@@ -164,18 +152,17 @@
     .book-cta{width:100%; justify-content:center}
   }
 
-  /* WATCH FIRST link */
   .watch-link{
     margin-top:18px;
     display:flex; align-items:center; gap:8px;
-    color:var(--ink-soft); text-decoration:none;
+    color:var(--ink-soft);
     font-size:14px;
     transition:color .2s;
   }
   .watch-link:hover{color:var(--ink)}
   .watch-link span{border-bottom:1px solid currentColor; padding-bottom:1px}
 
-  /* LOOM EMBED */
+  /* LOOM */
   .video-frame{
     margin-top:48px;
     background:var(--card);
@@ -193,13 +180,9 @@
   .video-meta-left{display:flex; align-items:center; gap:10px}
   .video-aspect{
     position:relative; padding-bottom:56.25%; height:0;
-    border-radius:12px; overflow:hidden;
-    background:#000;
+    border-radius:12px; overflow:hidden; background:#000;
   }
-  .video-aspect iframe{
-    position:absolute; inset:0; width:100%; height:100%;
-    border:0;
-  }
+  .video-aspect iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
 
   /* WHAT YOU'LL SEE */
   .what-section{padding:80px 0 32px}
@@ -260,9 +243,7 @@
     display:grid; grid-template-columns:64px 1fr;
     gap:24px; align-items:start;
   }
-  @media (max-width:560px){
-    .founder{grid-template-columns:1fr; padding:28px 24px}
-  }
+  @media (max-width:560px){.founder{grid-template-columns:1fr; padding:28px 24px}}
   .founder-avatar{
     width:64px; height:64px; border-radius:50%;
     background:var(--ink); color:var(--paper);
@@ -285,16 +266,16 @@
   .second-cta{
     margin-top:64px; text-align:center; padding:24px 0;
   }
-  .second-cta a{
+  .second-cta a.primary{
     display:inline-flex; align-items:center; gap:10px;
     background:var(--ink); color:var(--paper);
     padding:18px 28px; border-radius:99px;
-    font-size:15px; font-weight:500; text-decoration:none;
+    font-size:15px; font-weight:500;
     transition:all .2s;
   }
-  .second-cta a:hover{background:#000; transform:translateY(-1px)}
-  .second-cta a::after{content:"→"; transition:transform .2s}
-  .second-cta a:hover::after{transform:translateX(3px)}
+  .second-cta a.primary:hover{background:#000; transform:translateY(-1px)}
+  .second-cta a.primary::after{content:"→"; transition:transform .2s}
+  .second-cta a.primary:hover::after{transform:translateX(3px)}
   .second-cta-note{
     margin-top:14px;
     font-family:'JetBrains Mono', monospace; font-size:11px;
@@ -319,6 +300,7 @@
     font-size:14px; color:var(--ink-soft);
     line-height:1.4;
   }
+  .foot-tagline span{color:var(--accent); font-style:normal; font-weight:500}
   .foot-bottom{
     padding-top:24px; border-top:1px solid var(--line);
     font-family:'JetBrains Mono', monospace; font-size:11px;
@@ -328,13 +310,11 @@
   .foot-bottom a{color:var(--ink-soft); text-decoration:none}
   .foot-bottom a:hover{color:var(--ink)}
 
-  /* reveal */
   .reveal{opacity:0; transform:translateY(20px); animation:reveal .8s ease forwards}
   .reveal:nth-child(1){animation-delay:.05s}
   .reveal:nth-child(2){animation-delay:.15s}
   .reveal:nth-child(3){animation-delay:.25s}
   .reveal:nth-child(4){animation-delay:.35s}
-  .reveal:nth-child(5){animation-delay:.45s}
   @keyframes reveal{to{opacity:1; transform:translateY(0)}}
 </style>
 </head>
@@ -343,10 +323,7 @@
 <header>
   <div class="wrap nav">
     <div class="brand">
-      <svg class="brand-spark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z"/>
-      </svg>
-      <span class="brand-text">ZUUZ</span>
+      <img class="logo-img" src="logo.png" alt="ZUUZ">
     </div>
     <a class="nav-back" href="/">← zuuz.ai</a>
   </div>
@@ -382,7 +359,6 @@
       </a>
     </div>
 
-    <!-- LOOM EMBED -->
     <div class="video-frame reveal" id="video">
       <div class="video-meta">
         <div class="video-meta-left">
@@ -434,7 +410,6 @@
       </div>
     </div>
 
-    <!-- FOUNDER -->
     <div class="founder">
       <div class="founder-avatar">AG</div>
       <div>
@@ -446,7 +421,7 @@
     </div>
 
     <div class="second-cta">
-      <a href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Pick a time</a>
+      <a class="primary" href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Pick a time</a>
       <div class="second-cta-note">
         Prefer email? <a href="mailto:hello@zuuz.ai">hello@zuuz.ai</a>
       </div>
@@ -459,13 +434,15 @@
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <div class="brand brand-large">
+        <div class="brand">
           <svg class="brand-spark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z"/>
           </svg>
           <span class="brand-text">ZUUZ</span>
         </div>
-        <div class="foot-tagline">Forged by Insight. Driven by Precision.</div>
+        <div class="foot-tagline">
+          Forged by <span>Insight</span>. Driven by <span>Precision</span>.
+        </div>
       </div>
     </div>
     <div class="foot-bottom">

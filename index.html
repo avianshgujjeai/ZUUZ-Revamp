@@ -5,11 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ZUUZ — Email signals become pipeline.</title>
 <meta name="description" content="Your reps don't update the CRM. ZUUZ does — automatically, from every email. Lead capture, qualification, RFP matching, and pipeline tracking from the inbox your team already uses.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232563FF'%3E%3Cpath d='M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,0..100;1,9..144,300..500,0..100&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="icon" type="image/svg+xml"
-  href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232D5BFF'%3E%3Cpath d='M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z'/%3E%3C/svg%3E">
 <style>
   :root{
     --paper:#F4F1EA;
@@ -19,8 +18,10 @@
     --ink-mute:#7A776E;
     --line:#1110100D;
     --line-strong:#11101015;
-    --accent:#FF4A1C;
-    --accent-soft:#FFE6DC;
+    --accent:#2563FF;        /* electric blue (was orange) */
+    --accent-hover:#1D4ED8;
+    --accent-soft:#DBEAFE;
+    --navy:#0E1F6B;
     --signal:#0F8B4F;
     --card:#FBF8F1;
     --shadow: 0 1px 0 rgba(17,17,16,.04), 0 12px 32px -16px rgba(17,17,16,.18);
@@ -37,8 +38,8 @@
     text-rendering:optimizeLegibility;
     overflow-x:hidden;
     background-image:
-      radial-gradient(circle at 20% 0%, rgba(255,74,28,0.04), transparent 50%),
-      radial-gradient(circle at 80% 30%, rgba(15,139,79,0.03), transparent 45%);
+      radial-gradient(circle at 20% 0%, rgba(37,99,255,0.04), transparent 50%),
+      radial-gradient(circle at 80% 30%, rgba(15,139,79,0.025), transparent 45%);
   }
 
   body::before{
@@ -47,6 +48,7 @@
   }
 
   ::selection{background:var(--accent);color:#fff}
+  a{color:inherit; text-decoration:none}
 
   .wrap{max-width:1180px;margin:0 auto;padding:0 32px;position:relative;z-index:2}
   @media (max-width:720px){.wrap{padding:0 20px}}
@@ -59,44 +61,17 @@
     border-bottom:1px solid var(--line);
   }
   .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .brand{display:flex;align-items:center;gap:9px;text-decoration:none}
-  .brand-spark{
-    width:18px;height:18px;
-    color:#2D5BFF;
-    flex-shrink:0;
-    transform:translateY(-1px);
-  }
-  .brand-text{
-    font-family:'Fraunces', serif;
-    font-weight:500;
-    font-size:22px;
-    letter-spacing:-0.03em;
-    font-variation-settings:"opsz" 144, "SOFT" 30;
-    color:var(--ink);
-    line-height:1;
-  }
-  .brand-large .brand-spark{width:22px;height:22px}
-  .brand-large .brand-text{font-size:26px}
-  .brand-mark{
-    width:26px;height:26px;border-radius:7px;
-    background:var(--ink); position:relative; overflow:hidden;
-    display:flex;align-items:center;justify-content:center;
-  }
-  .brand-mark::after{
-    content:""; position:absolute; inset:5px;
-    background:var(--accent); border-radius:3px;
-    transform:rotate(45deg) scale(.6);
-  }
-  .brand-mark::before{
-    content:""; position:absolute; width:6px;height:6px;
-    border-radius:50%; background:var(--paper);
-    z-index:2;
+  .brand{display:flex;align-items:center}
+  .logo-img{
+    height:30px; width:auto; display:block;
+    border-radius:5px;
+    box-shadow:0 1px 0 rgba(17,17,16,.06), 0 4px 12px -4px rgba(17,17,16,.18);
   }
   .nav-cta{
     display:inline-flex;align-items:center;gap:8px;
     background:var(--ink); color:var(--paper);
     padding:10px 18px; border-radius:999px;
-    font-size:13px; font-weight:500; text-decoration:none;
+    font-size:13px; font-weight:500;
     transition:transform .2s ease, background .2s;
   }
   .nav-cta:hover{transform:translateY(-1px); background:#000}
@@ -142,15 +117,29 @@
   .hero-sub{
     font-size:clamp(17px,1.4vw,20px); line-height:1.5;
     color:var(--ink-soft); max-width:58ch;
-    margin-bottom:40px;
+    margin-bottom:28px;
   }
+
+  /* Feature pills (from brochure) */
+  .feature-pills{
+    display:flex; flex-wrap:wrap; gap:8px; margin-bottom:36px;
+  }
+  .pill{
+    display:inline-flex; align-items:center; gap:7px;
+    background:var(--card); border:1px solid var(--line-strong);
+    padding:8px 14px; border-radius:999px;
+    font-size:13px; font-weight:500; color:var(--ink);
+    transition:transform .2s, border-color .2s;
+  }
+  .pill:hover{transform:translateY(-1px); border-color:var(--accent)}
+  .pill svg{width:14px; height:14px; color:var(--accent); flex-shrink:0}
 
   .cta-row{display:flex;gap:14px;flex-wrap:wrap; align-items:center}
   .btn-primary{
     display:inline-flex;align-items:center;gap:10px;
     background:var(--ink); color:var(--paper);
     padding:16px 24px; border-radius:999px;
-    font-size:15px; font-weight:500; text-decoration:none;
+    font-size:15px; font-weight:500;
     transition:all .2s;
   }
   .btn-primary:hover{background:#000;transform:translateY(-1px)}
@@ -158,8 +147,7 @@
   .btn-primary:hover::after{transform:translateX(3px)}
   .btn-ghost{
     display:inline-flex;align-items:center;gap:8px;
-    color:var(--ink); text-decoration:none;
-    padding:16px 8px; font-size:15px; font-weight:500;
+    color:var(--ink); padding:16px 8px; font-size:15px; font-weight:500;
     border-bottom:1px solid var(--ink); padding-bottom:6px;
   }
 
@@ -331,15 +319,23 @@
     content:"+"; position:absolute; left:0; top:0;
     color:var(--accent); font-weight:500; font-size:16px;
   }
+  .featured-badge{
+    position:absolute; top:-12px; left:36px;
+    background:var(--accent); color:#fff;
+    font-family:'JetBrains Mono',monospace; font-size:10px;
+    letter-spacing:0.16em; text-transform:uppercase;
+    padding:6px 12px; border-radius:99px;
+  }
   .price-cta{
     display:inline-flex; align-items:center; justify-content:center; gap:8px;
     padding:14px 20px; border-radius:99px;
     background:var(--ink); color:var(--paper);
-    text-decoration:none; font-size:14px; font-weight:500;
+    font-size:14px; font-weight:500;
     transition:transform .2s;
   }
   .price-cta:hover{transform:translateY(-1px)}
   .price-card.featured .price-cta{background:var(--accent); color:#fff}
+  .price-card.featured .price-cta:hover{background:var(--accent-hover)}
   .price-cta::after{content:"→"; transition:transform .2s}
   .price-cta:hover::after{transform:translateX(2px)}
   .pricing-foot{
@@ -390,7 +386,7 @@
     letter-spacing:0.02em;
   }
   .avatar.alt{background:var(--accent); color:#fff}
-  .avatar.alt2{background:#1F4937; color:var(--paper)}
+  .avatar.alt2{background:var(--navy); color:var(--paper)}
   .team-name{
     font-family:'Fraunces',serif; font-size:22px; font-weight:400;
     letter-spacing:-0.015em; line-height:1.1;
@@ -427,7 +423,7 @@
   .final::before{
     content:""; position:absolute; top:-30%; left:-10%;
     width:60%; height:160%;
-    background:radial-gradient(ellipse, rgba(255,74,28,0.18), transparent 60%);
+    background:radial-gradient(ellipse, rgba(37,99,255,0.22), transparent 60%);
     pointer-events:none;
   }
   .final h2{
@@ -440,7 +436,7 @@
   .final h2 em{font-style:italic; color:var(--accent)}
   .final p{
     color:rgba(244,241,234,0.7); max-width:48ch; margin:0 auto 36px;
-    font-size:17px; position:relative;
+    font-size:17px; line-height:1.5; position:relative;
   }
   .final-ctas{
     display:flex; gap:14px; justify-content:center; flex-wrap:wrap;
@@ -450,16 +446,15 @@
     display:inline-flex; align-items:center; gap:10px;
     background:var(--accent); color:#fff;
     padding:18px 28px; border-radius:99px;
-    font-size:15px; font-weight:500; text-decoration:none;
+    font-size:15px; font-weight:500;
     transition:all .2s;
   }
-  .final-primary:hover{transform:translateY(-2px); background:#FF6B42}
+  .final-primary:hover{transform:translateY(-2px); background:var(--accent-hover)}
   .final-primary::after{content:"→"; transition:transform .2s}
   .final-primary:hover::after{transform:translateX(3px)}
   .final-ghost{
     display:inline-flex; align-items:center; gap:8px;
-    color:var(--paper); text-decoration:none;
-    padding:18px 24px; border-radius:99px;
+    color:var(--paper); padding:18px 24px; border-radius:99px;
     border:1px solid rgba(244,241,234,0.25);
     font-size:15px; font-weight:500;
     transition:all .2s;
@@ -477,16 +472,17 @@
     flex-wrap:wrap; gap:32px;
     margin-bottom:48px;
   }
-  .foot-brand{display:flex; flex-direction:column; gap:14px; max-width:36ch}
+  .foot-brand-block{display:flex; flex-direction:column; gap:14px; max-width:36ch}
   .foot-tagline{
     font-family:'Fraunces',serif; font-style:italic; font-weight:300;
     font-size:15px; color:var(--ink-soft);
     line-height:1.4;
     font-variation-settings:"opsz" 24, "SOFT" 70;
   }
+  .foot-tagline span{color:var(--accent); font-style:normal; font-weight:500}
   .foot-links{display:flex; gap:32px; flex-wrap:wrap}
   .foot-links a{
-    color:var(--ink-soft); text-decoration:none; font-size:14px;
+    color:var(--ink-soft); font-size:14px;
     transition:color .2s;
   }
   .foot-links a:hover{color:var(--ink)}
@@ -512,10 +508,7 @@
 <header>
   <div class="wrap nav">
     <div class="brand">
-      <svg class="brand-spark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z"/>
-      </svg>
-      <span class="brand-text">ZUUZ</span>
+      <img class="logo-img" src="logo.png" alt="ZUUZ">
     </div>
     <a class="nav-cta" href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Book a demo</a>
   </div>
@@ -536,15 +529,30 @@
     </h1>
 
     <p class="hero-sub reveal">
-      Your reps don't update the CRM. ZUUZ does — automatically, from every email. Lead capture, qualification, RFP matching, proposals, and pipeline tracking, all from the inbox your team already uses.
+      Your reps don't update the CRM. ZUUZ does — automatically, from every email.
     </p>
+
+    <div class="feature-pills reveal">
+      <div class="pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Lead capture
+      </div>
+      <div class="pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+        Qualification
+      </div>
+      <div class="pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+        Pipeline tracking
+      </div>
+    </div>
 
     <div class="cta-row reveal">
       <a class="btn-primary" href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Book a 15-min demo</a>
       <a class="btn-ghost" href="#workflow">See the workflow ↓</a>
     </div>
 
-    <!-- LOOM EMBED -->
+    <!-- LOOM -->
     <div class="video-frame reveal">
       <div class="video-meta">
         <div class="video-meta-left">
@@ -570,7 +578,7 @@
     <div class="section-eyebrow">How it works</div>
     <h2 class="section-title">From email to <em>pipeline</em>, in five steps.</h2>
     <p class="section-sub">
-      One product. One job. Catch the sales-context signal in your team's inbox and turn it into clean, qualified pipeline — written to Salesforce, HubSpot, or Zoho with an audit trail on every action.
+      One product. One job. Catch every sales signal in your team's inbox and turn it into clean, qualified pipeline — written to Salesforce, HubSpot, or Zoho with an audit trail on every action.
     </p>
 
     <div class="workflow">
@@ -676,6 +684,7 @@
       </div>
 
       <div class="price-card featured">
+        <div class="featured-badge">Most popular</div>
         <div class="price-tier">Plus</div>
         <div class="price-amount">$3,000<span class="per">/mo</span></div>
         <div class="price-desc">Up to 15 reps. Full CRM writeback to Salesforce, HubSpot, or Zoho. Everything in the demo, in production.</div>
@@ -772,14 +781,16 @@
 <footer>
   <div class="wrap">
     <div class="foot-top">
-      <div class="foot-brand">
-        <div class="brand brand-large">
+      <div class="foot-brand-block">
+        <div class="brand">
           <svg class="brand-spark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z"/>
           </svg>
-          <span class="brand-text">ZUUZ</span>
+          <span class="brand-text" style="font-size:26px">ZUUZ</span>
         </div>
-        <div class="foot-tagline">Forged by Insight. Driven by Precision.</div>
+        <div class="foot-tagline">
+          Forged by <span>Insight</span>. Driven by <span>Precision</span>.
+        </div>
       </div>
       <div class="foot-links">
         <a href="#workflow">How it works</a>
