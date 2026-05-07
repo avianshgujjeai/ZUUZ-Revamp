@@ -58,11 +58,18 @@
     border-bottom:1px solid var(--line);
   }
   .nav{display:flex;align-items:center;justify-content:space-between}
-  .brand{display:flex;align-items:center}
-  .logo-img{
-    height:30px; width:auto; display:block;
-    border-radius:5px;
-    box-shadow:0 1px 0 rgba(17,17,16,.06), 0 4px 12px -4px rgba(17,17,16,.18);
+  .brand{display:flex;align-items:center;gap:9px}
+  .brand-spark{
+    width:18px; height:18px; color:var(--accent); flex-shrink:0;
+    transform:translateY(-1px);
+  }
+  .brand-text{
+    font-family:'Fraunces', serif;
+    font-weight:500; font-size:22px;
+    letter-spacing:-0.03em;
+    font-variation-settings:"opsz" 144, "SOFT" 30;
+    color:var(--navy);
+    line-height:1;
   }
   .nav-back{
     color:var(--ink-mute); font-size:13px;
@@ -323,7 +330,10 @@
 <header>
   <div class="wrap nav">
     <div class="brand">
-      <img class="logo-img" src="logo.png" alt="ZUUZ">
+      <svg class="brand-spark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z"/>
+      </svg>
+      <span class="brand-text">ZUUZ</span>
     </div>
     <a class="nav-back" href="/">← zuuz.ai</a>
   </div>
