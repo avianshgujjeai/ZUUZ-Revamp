@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZUUZ — Book your 15-minute demo</title>
+<meta name="description" content="Pick a time. We'll connect to your CRM and one mailbox, and show you what's hiding in your team's email — live, on your data.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,0..100;1,9..144,300..500,0..100&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F4F1EA;
+    --paper-warm:#EDE8DC;
+    --ink:#111110;
+    --ink-soft:#3A3A36;
+    --ink-mute:#7A776E;
+    --line:#1110100D;
+    --line-strong:#11101015;
+    --accent:#FF4A1C;
+    --accent-soft:#FFE6DC;
+    --signal:#0F8B4F;
+    --card:#FBF8F1;
+    --shadow: 0 1px 0 rgba(17,17,16,.04), 0 12px 32px -16px rgba(17,17,16,.18);
+    --radius:18px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--paper);color:var(--ink);}
+  body{
+    font-family:'Instrument Sans', system-ui, -apple-system, sans-serif;
+    font-size:16px; line-height:1.55; letter-spacing:-0.005em;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+    background-image:
+      radial-gradient(circle at 20% 0%, rgba(255,74,28,0.05), transparent 50%),
+      radial-gradient(circle at 80% 30%, rgba(15,139,79,0.03), transparent 45%);
+  }
+
+  body::before{
+    content:""; position:fixed; inset:0; pointer-events:none; z-index:1; opacity:.5;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.07 0 0 0 0 0.07 0 0 0 0 0.07 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  ::selection{background:var(--accent);color:#fff}
+
+  .wrap{max-width:880px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+  @media (max-width:560px){.wrap{padding:0 20px}}
+
+  /* HEADER */
+  header{
+    padding:24px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:10px}
+  .logo-img{
+    height:36px; width:auto; display:block;
+    border-radius:5px;
+    box-shadow:0 1px 0 rgba(17,17,16,.06), 0 4px 12px -4px rgba(17,17,16,.18);
+  }
+  .nav-back{
+    color:var(--ink-mute); text-decoration:none; font-size:13px;
+    font-family:'JetBrains Mono', monospace; letter-spacing:0.05em;
+    transition:color .2s;
+  }
+  .nav-back:hover{color:var(--ink)}
+
+  /* HERO */
+  .demo-hero{padding:64px 0 32px}
+  @media (max-width:560px){.demo-hero{padding:40px 0 24px}}
+
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:'JetBrains Mono', monospace; font-size:11px;
+    letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-mute);
+    margin-bottom:28px;
+  }
+  .pulse{
+    width:7px;height:7px;border-radius:50%; background:var(--signal);
+    box-shadow:0 0 0 0 rgba(15,139,79,.6);
+    animation:pulse 2s infinite;
+    flex-shrink:0;
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(15,139,79,.5)}
+    70%{box-shadow:0 0 0 8px rgba(15,139,79,0)}
+    100%{box-shadow:0 0 0 0 rgba(15,139,79,0)}
+  }
+
+  h1.hero-title{
+    font-family:'Fraunces', serif;
+    font-weight:400;
+    font-size:clamp(44px, 9vw, 80px);
+    line-height:0.98; letter-spacing:-0.035em;
+    font-variation-settings:"opsz" 144, "SOFT" 30;
+    margin-bottom:24px;
+  }
+  h1.hero-title em{
+    font-style:italic; color:var(--accent);
+    font-variation-settings:"opsz" 144, "SOFT" 80;
+    font-weight:300;
+  }
+  .hero-sub{
+    font-size:clamp(16px,1.4vw,18px); line-height:1.5;
+    color:var(--ink-soft); max-width:54ch;
+    margin-bottom:36px;
+  }
+
+  /* BIG PRIMARY CTA */
+  .book-block{
+    background:var(--ink); color:var(--paper);
+    border-radius:var(--radius); padding:32px 32px;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:20px; flex-wrap:wrap;
+    position:relative; overflow:hidden;
+    box-shadow:0 1px 0 rgba(17,17,16,.04), 0 16px 40px -20px rgba(17,17,16,.3);
+  }
+  .book-block::before{
+    content:""; position:absolute; top:-30%; right:-10%;
+    width:50%; height:160%;
+    background:radial-gradient(ellipse, rgba(255,74,28,0.22), transparent 60%);
+    pointer-events:none;
+  }
+  .book-text{position:relative; z-index:1}
+  .book-text-label{
+    font-family:'JetBrains Mono', monospace; font-size:10px;
+    letter-spacing:0.16em; text-transform:uppercase;
+    color:rgba(244,241,234,0.55); margin-bottom:6px;
+  }
+  .book-text-title{
+    font-family:'Fraunces', serif; font-size:24px;
+    font-weight:400; line-height:1.15; letter-spacing:-0.02em;
+  }
+  .book-cta{
+    display:inline-flex; align-items:center; gap:10px;
+    background:var(--accent); color:#fff;
+    padding:18px 28px; border-radius:99px;
+    font-size:16px; font-weight:500; text-decoration:none;
+    transition:all .2s;
+    position:relative; z-index:1;
+    flex-shrink:0;
+  }
+  .book-cta:hover{transform:translateY(-2px); background:#FF6B42}
+  .book-cta::after{content:"→"; transition:transform .2s}
+  .book-cta:hover::after{transform:translateX(3px)}
+  @media (max-width:560px){
+    .book-block{flex-direction:column; align-items:flex-start; padding:28px 24px}
+    .book-cta{width:100%; justify-content:center}
+  }
+
+  /* WATCH FIRST link */
+  .watch-link{
+    margin-top:18px;
+    display:flex; align-items:center; gap:8px;
+    color:var(--ink-soft); text-decoration:none;
+    font-size:14px;
+    transition:color .2s;
+  }
+  .watch-link:hover{color:var(--ink)}
+  .watch-link span{border-bottom:1px solid currentColor; padding-bottom:1px}
+
+  /* LOOM EMBED */
+  .video-frame{
+    margin-top:48px;
+    background:var(--card);
+    border:1px solid var(--line-strong);
+    border-radius:var(--radius);
+    padding:14px;
+    box-shadow:var(--shadow);
+  }
+  .video-meta{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:6px 12px 14px;
+    font-family:'JetBrains Mono', monospace; font-size:11px;
+    color:var(--ink-mute); letter-spacing:0.1em; text-transform:uppercase;
+  }
+  .video-meta-left{display:flex; align-items:center; gap:10px}
+  .video-aspect{
+    position:relative; padding-bottom:56.25%; height:0;
+    border-radius:12px; overflow:hidden;
+    background:#000;
+  }
+  .video-aspect iframe{
+    position:absolute; inset:0; width:100%; height:100%;
+    border:0;
+  }
+
+  /* WHAT YOU'LL SEE */
+  .what-section{padding:80px 0 32px}
+  @media (max-width:560px){.what-section{padding:56px 0 24px}}
+
+  .section-eyebrow{
+    font-family:'JetBrains Mono',monospace; font-size:11px;
+    text-transform:uppercase; letter-spacing:0.18em; color:var(--accent);
+    margin-bottom:20px; display:flex; align-items:center; gap:12px;
+  }
+  .section-eyebrow::before{
+    content:""; width:24px; height:1px; background:var(--accent);
+  }
+  h2.section-title{
+    font-family:'Fraunces', serif;
+    font-weight:400;
+    font-size:clamp(30px, 4vw, 44px);
+    line-height:1.05; letter-spacing:-0.03em;
+    font-variation-settings:"opsz" 144, "SOFT" 40;
+    margin-bottom:36px;
+  }
+  h2.section-title em{font-style:italic; color:var(--accent); font-weight:300}
+
+  .covers{
+    display:flex; flex-direction:column;
+    border-top:1px solid var(--line-strong);
+  }
+  .cover{
+    padding:24px 0;
+    border-bottom:1px solid var(--line-strong);
+    display:grid; grid-template-columns:60px 1fr;
+    gap:20px; align-items:start;
+  }
+  @media (max-width:560px){
+    .cover{grid-template-columns:48px 1fr; gap:16px; padding:20px 0}
+  }
+  .cover-num{
+    font-family:'Fraunces', serif; font-weight:300;
+    font-size:32px; line-height:1; color:var(--accent);
+    font-variation-settings:"opsz" 144, "SOFT" 80;
+    font-style:italic;
+  }
+  .cover-title{
+    font-family:'Fraunces', serif; font-weight:400;
+    font-size:20px; line-height:1.2; letter-spacing:-0.015em;
+    margin-bottom:6px;
+  }
+  .cover-body{
+    color:var(--ink-soft); font-size:14px; line-height:1.5;
+  }
+
+  /* FOUNDER */
+  .founder{
+    margin-top:64px; padding:36px 36px;
+    background:var(--card);
+    border:1px solid var(--line-strong);
+    border-radius:var(--radius);
+    display:grid; grid-template-columns:64px 1fr;
+    gap:24px; align-items:start;
+  }
+  @media (max-width:560px){
+    .founder{grid-template-columns:1fr; padding:28px 24px}
+  }
+  .founder-avatar{
+    width:64px; height:64px; border-radius:50%;
+    background:var(--ink); color:var(--paper);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Fraunces',serif; font-weight:500; font-size:22px;
+  }
+  .founder-quote{
+    font-family:'Fraunces', serif; font-style:italic; font-weight:300;
+    font-size:18px; line-height:1.45; color:var(--ink-soft);
+    font-variation-settings:"opsz" 60, "SOFT" 70;
+  }
+  .founder-by{
+    margin-top:12px;
+    font-family:'JetBrains Mono', monospace; font-size:11px;
+    letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-mute);
+  }
+  .founder-by strong{color:var(--ink); font-weight:500}
+
+  /* SECOND CTA */
+  .second-cta{
+    margin-top:64px; text-align:center; padding:24px 0;
+  }
+  .second-cta a{
+    display:inline-flex; align-items:center; gap:10px;
+    background:var(--ink); color:var(--paper);
+    padding:18px 28px; border-radius:99px;
+    font-size:15px; font-weight:500; text-decoration:none;
+    transition:all .2s;
+  }
+  .second-cta a:hover{background:#000; transform:translateY(-1px)}
+  .second-cta a::after{content:"→"; transition:transform .2s}
+  .second-cta a:hover::after{transform:translateX(3px)}
+  .second-cta-note{
+    margin-top:14px;
+    font-family:'JetBrains Mono', monospace; font-size:11px;
+    color:var(--ink-mute); letter-spacing:0.05em;
+  }
+  .second-cta-note a{color:var(--ink-soft); text-decoration:underline}
+
+  /* FOOTER */
+  footer{
+    padding:48px 0 32px;
+    border-top:1px solid var(--line);
+    margin-top:80px;
+  }
+  .foot-grid{
+    display:flex; justify-content:space-between; align-items:flex-start;
+    flex-wrap:wrap; gap:24px;
+    margin-bottom:32px;
+  }
+  .foot-brand{display:flex; flex-direction:column; gap:14px}
+  .foot-tagline{
+    font-family:'Fraunces',serif; font-style:italic; font-weight:300;
+    font-size:14px; color:var(--ink-soft);
+    line-height:1.4;
+  }
+  .foot-bottom{
+    padding-top:24px; border-top:1px solid var(--line);
+    font-family:'JetBrains Mono', monospace; font-size:11px;
+    color:var(--ink-mute); letter-spacing:0.05em;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
+  }
+  .foot-bottom a{color:var(--ink-soft); text-decoration:none}
+  .foot-bottom a:hover{color:var(--ink)}
+
+  /* reveal */
+  .reveal{opacity:0; transform:translateY(20px); animation:reveal .8s ease forwards}
+  .reveal:nth-child(1){animation-delay:.05s}
+  .reveal:nth-child(2){animation-delay:.15s}
+  .reveal:nth-child(3){animation-delay:.25s}
+  .reveal:nth-child(4){animation-delay:.35s}
+  .reveal:nth-child(5){animation-delay:.45s}
+  @keyframes reveal{to{opacity:1; transform:translateY(0)}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">
+      <img class="logo-img" src="logo.png" alt="ZUUZ">
+    </div>
+    <a class="nav-back" href="/">← zuuz.ai</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="demo-hero">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">
+        <span class="pulse"></span>
+        15-MINUTE LIVE DEMO
+      </div>
+    </div>
+
+    <h1 class="hero-title reveal">See ZUUZ <em>live</em>.</h1>
+
+    <p class="hero-sub reveal">
+      Pick a time below. We'll connect to your CRM and one mailbox, and show you what's hiding in your team's email — live, on your data, before you commit to anything.
+    </p>
+
+    <div class="reveal">
+      <div class="book-block">
+        <div class="book-text">
+          <div class="book-text-label">Book your slot</div>
+          <div class="book-text-title">Live demo with Avinash</div>
+        </div>
+        <a class="book-cta" href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Pick a time</a>
+      </div>
+
+      <a class="watch-link" href="#video">
+        Want to watch it first? <span>Play the 4-min walkthrough ↓</span>
+      </a>
+    </div>
+
+    <!-- LOOM EMBED -->
+    <div class="video-frame reveal" id="video">
+      <div class="video-meta">
+        <div class="video-meta-left">
+          <span class="pulse"></span>
+          PRODUCT WALKTHROUGH
+        </div>
+        <div>~ 4 MIN</div>
+      </div>
+      <div class="video-aspect">
+        <iframe
+          src="https://www.loom.com/embed/f5f03487a61b4c1c8ad191c61d2249d3?hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true"
+          frameborder="0"
+          webkitallowfullscreen mozallowfullscreen allowfullscreen
+          title="ZUUZ — Turn email signals into revenue"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU'LL SEE -->
+<section class="what-section">
+  <div class="wrap">
+    <div class="section-eyebrow">In 15 minutes</div>
+    <h2 class="section-title">Three things you'll <em>see</em>.</h2>
+
+    <div class="covers">
+      <div class="cover">
+        <div class="cover-num">01</div>
+        <div>
+          <div class="cover-title">A real email turning into a CRM record.</div>
+          <div class="cover-body">Watch ZUUZ read an email, extract the signals, qualify the lead, and write to Salesforce, HubSpot, or Zoho — in real time, on your data.</div>
+        </div>
+      </div>
+
+      <div class="cover">
+        <div class="cover-num">02</div>
+        <div>
+          <div class="cover-title">RFP analysis against your catalog.</div>
+          <div class="cover-body">Bring an RFP. We'll match it against your products, surface gaps, and draft the proposal — in seconds, not days.</div>
+        </div>
+      </div>
+
+      <div class="cover">
+        <div class="cover-num">03</div>
+        <div>
+          <div class="cover-title">Pipeline you didn't know you had.</div>
+          <div class="cover-body">We connect to one of your mailboxes and show you the live pipeline hiding in it — quotes, renewals, expansion signals, deals at risk.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOUNDER -->
+    <div class="founder">
+      <div class="founder-avatar">AG</div>
+      <div>
+        <div class="founder-quote">
+          I built Cloud Box Technologies from zero to $25M ARR. Every quarter, deals quietly died in someone's inbox. ZUUZ exists so that doesn't happen anymore. I'll run the demo myself — bring your hardest pipeline question.
+        </div>
+        <div class="founder-by"><strong>Avinash Gujje</strong>&nbsp;·&nbsp;Founder & CEO</div>
+      </div>
+    </div>
+
+    <div class="second-cta">
+      <a href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Pick a time</a>
+      <div class="second-cta-note">
+        Prefer email? <a href="mailto:hello@zuuz.ai">hello@zuuz.ai</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img class="logo-img" src="logo.png" alt="ZUUZ">
+        <div class="foot-tagline">Forged by Insight. Driven by Precision.</div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2026 ZUUZ, Inc.&nbsp;&nbsp;·&nbsp;&nbsp;Sunnyvale · Dubai · Hyderabad</div>
+      <div><a href="/">zuuz.ai</a></div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
