@@ -64,8 +64,8 @@ trust_signals:
 # CMS — unknown without codebase access. Defaults below are reasonable guesses.
 # Update once you confirm the actual stack.
 cms:
-  type: "unknown"   # TODO: confirm — likely Next.js or Astro based on site behavior
-  blog_directory: "/blog"          # recommended path; no blog exists today
+  type: "static-html"   # detected: flat static HTML (no framework), Vercel-deployed with cleanUrls
+  blog_directory: "/blog"          # recommended path; no blog exists today (create as /blog/{slug}.html, or move to a framework first)
   docs_directory: ""               # ZUUZ has no public docs site yet
   frontmatter_format: "yaml"
   date_format: "YYYY-MM-DD"
