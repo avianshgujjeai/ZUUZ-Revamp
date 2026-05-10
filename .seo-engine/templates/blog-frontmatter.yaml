@@ -1,0 +1,46 @@
+# Blog frontmatter template — ZUUZ
+# Enforces character limits and canonical URL pattern.
+# Adjust to match your actual CMS once confirmed.
+
+template: |
+  ---
+  title: "{title}"               # ≤ 60 chars
+  description: "{description}"   # ≤ 160 chars
+  date: "{date}"                 # YYYY-MM-DD
+  author: "Avinash Gujje"
+  tags: [{tags}]                 # 3-5 lowercase, hyphenated
+  category: "{category}"         # one of: ai-sales-inbox, rfp-automation, pipeline-visibility, ai-sales-agents
+  image: "/images/blog/{slug}.png"
+  canonical: "https://zuuz.ai/blog/{slug}"
+  cluster_id: "{cluster_id}"     # tc_ai_sales_inbox | tc_rfp_automation | tc_pipeline_visibility | tc_ai_sales_agents | ""
+  draft: false
+  ---
+
+validation:
+  title_max_chars: 60
+  description_max_chars: 160
+  slug_max_words: 5
+  slug_style: "kebab-case"
+  required_fields:
+    - title
+    - description
+    - date
+    - author
+    - canonical
+  recommended_fields:
+    - tags
+    - category
+    - image
+    - cluster_id
+
+example:
+  title: "RFP Automation for Distributors: From Inbox to Quote"
+  description: "How to turn bulk email RFPs into quotes automatically — with the Nesto 10:1 SKU matching story."
+  date: "2026-05-15"
+  author: "Avinash Gujje"
+  tags: ["rfp-automation", "distribution", "sku-matching", "ai-sales"]
+  category: "rfp-automation"
+  image: "/images/blog/rfp-automation-distributors.png"
+  canonical: "https://zuuz.ai/blog/rfp-automation-distributors"
+  cluster_id: "tc_rfp_automation"
+  draft: false

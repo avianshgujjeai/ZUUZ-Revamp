@@ -1,0 +1,124 @@
+# Blog structures by type — ZUUZ
+# Each type has its own voice. Voice variation matters: a comparison sounds
+# different from a tutorial. Don't write everything in one tone.
+
+structures:
+
+  # ─────────────────────────────────────────────────────────────────
+  comparison:
+    voice: "Analytical, data-driven, fair. Lead with competitor strengths."
+    word_count: [2000, 3000]
+    sections:
+      - "Hook — what buyer is actually trying to decide"
+      - "TL;DR table comparing the two on 6-8 axes"
+      - "Where {competitor} is strongest (be honest)"
+      - "Where ZUUZ is strongest (back with metric or customer example)"
+      - "Use cases each is best for"
+      - "Pricing comparison (with verification date)"
+      - "Decision framework — which buyer should pick which"
+      - "FAQ (from PAA)"
+      - "Soft CTA"
+    eeat_injection:
+      - "Customer testimonial from config.trust_signals — one from RA Technologies or Nesto"
+      - "Concrete metric (e.g. Nesto 10:1) where claim needs proof"
+      - "Verification dates on all competitor claims"
+    must_avoid:
+      - "Trash-talking the competitor"
+      - "Unverified competitor claims (always cite or caveat)"
+      - "Generic 'we're the best' assertions"
+
+  # ─────────────────────────────────────────────────────────────────
+  listicle:
+    voice: "Helpful curator. No artificial 'top N' tension."
+    word_count: [2500, 4000]
+    sections:
+      - "Hook — who this list is for"
+      - "Methodology (how you chose what's on the list)"
+      - "Each item: name, what it does, who it's for, where it shines, where it doesn't"
+      - "Comparison table"
+      - "Decision framework"
+      - "FAQ (from PAA)"
+      - "Soft CTA"
+    eeat_injection:
+      - "Author's experience evaluating these tools"
+      - "Customer example for the ZUUZ entry"
+    must_avoid:
+      - "Padding the list with weak alternatives just to hit a number"
+      - "Sales-y descriptions of ZUUZ that don't match how other tools are described"
+
+  # ─────────────────────────────────────────────────────────────────
+  tutorial:
+    voice: "Patient teacher. Use 'I' and 'you'. Share specific experience."
+    word_count: [1500, 2500]
+    sections:
+      - "Hook — what reader will be able to do by the end"
+      - "Prerequisites / context"
+      - "Step-by-step with screenshots where possible"
+      - "Common mistakes / gotchas"
+      - "Validation — how to know it worked"
+      - "Variations / extending the basic flow"
+      - "FAQ (from PAA)"
+      - "Soft CTA"
+    eeat_injection:
+      - "First-person experience: 'when I did this for {customer}…'"
+      - "Concrete metric in the validation section"
+    must_avoid:
+      - "Skipping the 'common mistakes' section — it's high-value"
+      - "Abstract steps with no concrete example"
+
+  # ─────────────────────────────────────────────────────────────────
+  how_to:
+    voice: "Problem-solver. Direct. No extra throat-clearing."
+    word_count: [1200, 2000]
+    sections:
+      - "Hook — the problem stated in one sentence"
+      - "Why this is hard (1 paragraph)"
+      - "Solution overview (the approach in 3-5 bullets)"
+      - "Step-by-step"
+      - "What 'done' looks like"
+      - "FAQ (from PAA)"
+      - "Soft CTA"
+    eeat_injection:
+      - "One concrete customer example"
+      - "One metric"
+    must_avoid:
+      - "Burying the answer below 800 words of throat-clearing"
+
+  # ─────────────────────────────────────────────────────────────────
+  review:
+    voice: "Honest reviewer. Admit drawbacks. Disclose any bias."
+    word_count: [2000, 3000]
+    sections:
+      - "Hook — what was tested and how"
+      - "Verdict in one sentence"
+      - "What worked well (3-5 specifics)"
+      - "What didn't work / annoyed me (3-5 specifics — REQUIRED)"
+      - "Pricing notes"
+      - "Who should use it / who shouldn't"
+      - "FAQ"
+      - "Disclosure (if applicable)"
+    eeat_injection:
+      - "Methodology — how the review was conducted"
+      - "Time spent / sample size"
+    must_avoid:
+      - "Hiding negatives. Even ZUUZ self-reviews need real drawbacks listed."
+
+  # ─────────────────────────────────────────────────────────────────
+  thought_leadership:
+    voice: "Opinionated, take-a-stand. First-person founder voice."
+    word_count: [1500, 2500]
+    sections:
+      - "Hook — a contrarian or under-discussed observation"
+      - "The conventional view"
+      - "Why the conventional view is incomplete"
+      - "What's actually going on (with evidence)"
+      - "What follows from that"
+      - "How ZUUZ fits (naturally, not forced)"
+      - "Soft CTA or 'what to read next'"
+    eeat_injection:
+      - "Personal experience — Cloud Box $0-$25M ARR backstory where relevant"
+      - "Specific customer example, not generic"
+    must_avoid:
+      - "Hedging the take into mush"
+      - "Generic 'AI is changing everything' framing"
+      - "Forcing ZUUZ into every paragraph"

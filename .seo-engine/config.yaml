@@ -1,0 +1,168 @@
+# SEO Content Engine — ZUUZ
+# Generated: 2026-05-10 by Claude (acting as SEO expert)
+# Read this file before every content task. Edit anytime.
+
+project:
+  name: "ZUUZ"
+  tagline: "Turn customer emails into closed sales"
+  description: >
+    ZUUZ is an AI sales-inbox agent. It reads every inbound email in a sales mailbox,
+    extracts buying signals (source, intent, urgency, industry, budget, requester, ask),
+    qualifies the lead as the conversation progresses, drafts the reply, matches RFPs
+    against the customer's product catalog, and writes pipeline back to Salesforce,
+    HubSpot, or Zoho — with an audit trail on every AI action and human approval gates
+    by default.
+  website: "https://zuuz.ai"
+  target_audience:
+    primary: "B2B sales leaders and founders running inbound-heavy sales motions"
+    secondary: "Sales ops, CRM admins, and revenue leaders in distribution, IT services, and retail distribution"
+    technical_level: "mixed"
+
+# Author — Avinash is the founder voice and origin-story spine of the brand
+author:
+  name: "Avinash Gujje"
+  title: "Founder & CEO, ZUUZ"
+  bio: >
+    Built Cloud Box Technologies from $0 to $25M ARR. Spent ten years watching CRM
+    run two weeks behind reality. Founded ZUUZ to fix it.
+  website: "https://zuuz.ai"
+  social_links:
+    email: "hello@zuuz.ai"
+
+# Trust signals — used to inject E-E-A-T into every blog
+trust_signals:
+  review_links:
+    g2: ""              # TODO: add as soon as listed
+    trustpilot: ""
+    capterra: ""        # TODO: high priority — distributors and IT services check Capterra
+    product_hunt: ""    # TODO: launch when ready
+    rightfeature: ""
+    canny: ""
+    other: []
+
+  testimonials:
+    - id: "tst_ra_technologies"
+      source: "RA Technologies (IT Services)"
+      claim: "$120K of pipeline surfaced in the first 30 days — leads and active conversations their CRM had never seen, captured directly from the sales mailbox."
+      use_in: ["inbox cluster", "lead qualification posts", "founder narrative"]
+    - id: "tst_cloud_box"
+      source: "Cloud Box Technologies (Tech Distribution)"
+      claim: "CRM was used for orders only. Inbound emails became leads. Leadership now sees pipeline in real time — quotes sent, deals in motion, all from one user."
+      use_in: ["distribution use-case", "pipeline visibility cluster"]
+    - id: "tst_nesto"
+      source: "Nesto (Distribution, SKU matching)"
+      claim: "Bulk orders arrive by email. ZUUZ matches customer requirements against thousands of SKUs in their catalog, prepares the quote, and tracks every line through to close. 10:1 SKU matching."
+      use_in: ["RFP cluster", "SKU matching content"]
+
+  metrics:
+    - "$120K of pipeline surfaced in 30 days at RA Technologies"
+    - "Founder built Cloud Box Technologies from $0 to $25M ARR"
+    - "10:1 SKU matching against thousands of catalog SKUs at Nesto"
+    - "3 customers running ZUUZ live in production — IT services, distribution, retail"
+    - "Pipeline visibility within 60 days on the Pro plan"
+
+# CMS — unknown without codebase access. Defaults below are reasonable guesses.
+# Update once you confirm the actual stack.
+cms:
+  type: "static-html"   # detected: flat static HTML (no framework), Vercel-deployed with cleanUrls
+  blog_directory: "/blog"          # recommended path; no blog exists today (create as /blog/{slug}.html, or move to a framework first)
+  docs_directory: ""               # ZUUZ has no public docs site yet
+  frontmatter_format: "yaml"
+  date_format: "YYYY-MM-DD"
+  slug_style: "kebab-case"
+  slug_max_words: 5
+  image_directory: "/public/images/blog"
+  frontmatter_schema:
+    required:
+      - title
+      - description
+      - date
+      - author
+    optional:
+      - tags
+      - category
+      - image
+      - canonical
+      - draft
+
+# Competitors — chosen for actual buyer comparison sets, not generic
+# "sales tool" lists. Apollo/ZoomInfo intentionally excluded (different category).
+competitors:
+  - name: "Lindy"
+    website: "https://www.lindy.ai"
+    id: "comp_lindy"
+    category: "AI sales agent platform"
+    why_listed: "Closest direct competitor — custom AI agents for sales tasks."
+  - name: "Regie.ai"
+    website: "https://www.regie.ai"
+    id: "comp_regie"
+    category: "AI BDR / sales agent"
+    why_listed: "AI BDR with sourcing + outreach. Buyers compare on agent quality."
+  - name: "HubSpot Sales Hub"
+    website: "https://www.hubspot.com/products/sales"
+    id: "comp_hubspot_sales"
+    category: "Incumbent CRM with AI"
+    why_listed: "SMB buyers default to HubSpot. ZUUZ writes into HubSpot — comparison is about replacement vs augmentation."
+  - name: "Salesforce Agentforce"
+    website: "https://www.salesforce.com/agentforce"
+    id: "comp_agentforce"
+    category: "Incumbent CRM with AI"
+    why_listed: "Enterprise buyers will compare to Agentforce/Einstein. ZUUZ's angle: no rip-and-replace, faster to value."
+  - name: "Conversica"
+    website: "https://www.conversica.com"
+    id: "comp_conversica"
+    category: "AI sales conversations"
+    why_listed: "Category veteran. Comparison content gets organic traffic from people evaluating both."
+
+seo:
+  primary_topics:
+    - "AI sales inbox"
+    - "email to CRM"
+    - "RFP automation"
+    - "inbound lead qualification"
+    - "AI sales agent"
+    - "SKU matching for distributors"
+    - "audit trail for AI sales agents"
+
+  brand_terms:
+    - "ZUUZ"
+    - "zuuz.ai"
+    - "zuuz ai"
+    - "ZUUZ AI"
+
+  # Avoid SERPs owned by 9-figure-ARR incumbents — not worth fighting
+  avoid_terms:
+    - "outbound prospecting"
+    - "cold email tool"
+    - "email marketing"
+    - "sales automation software"  # too broad, owned by HubSpot/Apollo/ZoomInfo
+    - "best CRM"
+
+  target_regions:
+    - "United States"
+    - "United Arab Emirates"
+    - "India"
+  language: "en"
+
+content:
+  min_word_count: 1500
+  max_word_count: 4000
+  default_author: "Avinash Gujje"
+  tone: "founder voice, opinionated, anti-fluff, specific. Avoids generic SaaS tone."
+  include_faq: true
+  include_toc: true
+  cta_text: "Book a 15-min demo"
+  cta_url: "https://cal.com/avinashgujje/15min"
+  max_posts_per_month: 4   # realistic cadence for a 3-customer company
+  requires_human_review: true
+
+technical_seo:
+  meta_description_max_chars: 160
+  title_tag_max_chars: 60
+  image_alt_text_required: true
+  canonical_url_pattern: "https://zuuz.ai/blog/{slug}"
+
+integrations:
+  seo_tool: "none"     # TODO: connect Ahrefs/Semrush MCP if available
+  analytics: "none"    # TODO: set up GA4 + Plausible + Search Console
+  search_console: false

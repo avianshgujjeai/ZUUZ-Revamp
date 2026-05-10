@@ -1,0 +1,233 @@
+last_updated: "2026-05-10"
+note: >
+  Four clusters total. Cluster 2 (RFP Automation) is ZUUZ's strongest wedge —
+  lowest competition, highest relevance, backed by Nesto's 10:1 metric. Build
+  there first. Cluster 4 (AI Sales Agents) is the highest-competition cluster
+  but has the highest commercial intent for the bottom-funnel comparison pages.
+  All pillar titles, slugs, and structures are PLANNED — finalize each only
+  after the user provides real SERP data per engine rules.
+
+clusters:
+
+  # ─────────────────────────────────────────────────────────
+  # CLUSTER 1: AI Sales Inbox (broadest, founder narrative)
+  # ─────────────────────────────────────────────────────────
+  - cluster_id: "tc_ai_sales_inbox"
+    name: "AI Sales Inbox"
+    description: >
+      The category ZUUZ wants to own — making the sales inbox readable by an
+      AI agent that turns it into pipeline. Founder narrative cluster.
+
+    pillar:
+      title: "The Sales Inbox Problem: Why Pipeline Dies Where Email Lives"
+      target_keyword: "AI sales inbox"
+      slug: "sales-inbox-problem"
+      status: "planned"
+      blog_slug: ""
+      serp_data_required: true
+      notes: "Pillar combines founder origin story + category definition + how-to + tools."
+
+    cluster_pages:
+      - title: "Email to CRM Automation: A Pragmatic Guide for B2B Sales"
+        target_keyword: "email to CRM"
+        slug: "email-to-crm-automation"
+        angle: "Not another 'set up Zapier' guide — covers what breaks at scale and how AI-led sync solves it."
+        status: "planned"
+        blog_slug: ""
+
+      - title: "How to Stop Deals Dying in Your Sales Inbox"
+        target_keyword: "deals dying in inbox"
+        slug: "deals-dying-inbox"
+        angle: "Founder origin story — concrete examples of pipeline lost in inboxes."
+        status: "planned"
+        blog_slug: ""
+
+      - title: "AI vs Manual: Extracting Lead Signals from Inbound Email"
+        target_keyword: "inbound lead qualification"
+        slug: "ai-lead-signal-extraction"
+        angle: "Field comparison with side-by-side examples of what AI catches that reps miss."
+        status: "planned"
+        blog_slug: ""
+
+      - title: "What ZUUZ Reads in an Inbound Email (Seven Signals)"
+        target_keyword: "AI lead qualification"
+        slug: "seven-email-signals"
+        angle: "Walks through source, intent, urgency, industry, budget, requester, ask — with real (anonymized) examples."
+        status: "planned"
+        blog_slug: ""
+
+    linking_rules:
+      - "Every cluster page MUST link to the pillar"
+      - "Pillar MUST link to all published cluster pages"
+      - "Cluster pages MAY cross-link when relevant (e.g. CRM page → signals page)"
+
+  # ─────────────────────────────────────────────────────────
+  # CLUSTER 2: RFP Automation (STRONGEST WEDGE)
+  # ─────────────────────────────────────────────────────────
+  - cluster_id: "tc_rfp_automation"
+    name: "RFP Automation for Distributors and IT Services"
+    description: >
+      ZUUZ's strongest defensible cluster. Backed by Nesto (distribution, 10:1
+      SKU matching) and likely the lowest-competition SERP among the four
+      clusters. Build this cluster first.
+
+    pillar:
+      title: "RFP Automation for Distributors: From Inbox to Quote in Hours"
+      target_keyword: "RFP automation for distributors"
+      slug: "rfp-automation-distributors"
+      status: "planned"
+      blog_slug: ""
+      serp_data_required: true
+      notes: >
+        Specialized pillar — distributor-specific. Validates with the Nesto
+        story. SERP for 'RFP automation' is mixed (some generalist software).
+        Need user-provided SERP data to choose: tool-page format vs guide format.
+
+    cluster_pages:
+      - title: "SKU Matching for Bulk Email RFPs: How 10:1 Looks in Practice"
+        target_keyword: "SKU matching automation"
+        slug: "sku-matching-rfp"
+        angle: "Walkthrough of the Nesto 10:1 metric — how it's calculated, why it matters."
+        status: "planned"
+        blog_slug: ""
+
+      - title: "Distributor RFP Workflow: From Inbox to Closed Order"
+        target_keyword: "RFP automation for distributors"
+        slug: "distributor-rfp-workflow"
+        angle: "5-step workflow specific to distribution — what reps do today, what AI takes off their desk."
+        status: "planned"
+        blog_slug: ""
+
+      - title: "How AI Flags Product Gaps in Customer RFPs Before You Quote"
+        target_keyword: "catalog matching for RFPs"
+        slug: "rfp-product-gap-flagging"
+        angle: "What 'flag risks before proposal goes out' actually means with examples."
+        status: "planned"
+        blog_slug: ""
+
+      - title: "RFP Response Time: Why Speed Beats Polish in B2B Distribution"
+        target_keyword: "RFP response time"
+        slug: "rfp-response-time"
+        angle: "Time-to-quote as the real win condition. Distribution-specific data and reasoning."
+        status: "planned"
+        blog_slug: ""
+
+    linking_rules:
+      - "Every cluster page MUST link to the pillar"
+      - "Pillar MUST link to all published cluster pages"
+      - "Distribution use-case pages MAY cross-link to the AI Sales Inbox pillar"
+
+  # ─────────────────────────────────────────────────────────
+  # CLUSTER 3: Pipeline Visibility (opinionated, founder-led)
+  # ─────────────────────────────────────────────────────────
+  - cluster_id: "tc_pipeline_visibility"
+    name: "Pipeline Visibility & CRM Truth"
+    description: >
+      Founder thought-leadership cluster. The 'why CRM runs two weeks behind
+      reality' narrative. Opinionated content that won't get linked by
+      competitors but will get linked by sales-ops/RevOps community.
+
+    pillar:
+      title: "Why Your CRM Runs Two Weeks Behind Reality (And What to Do About It)"
+      target_keyword: "why CRM data is wrong"
+      slug: "crm-two-weeks-behind"
+      status: "planned"
+      blog_slug: ""
+      serp_data_required: true
+      notes: "Highly opinionated pillar. Founder-led. Likely SERP is informational guides."
+
+    cluster_pages:
+      - title: "Renewal Signals You're Missing in Customer Email"
+        target_keyword: "renewal signal detection"
+        slug: "renewal-signals-email"
+        angle: "Lifts the 'one caught renewal pays back the year' line — concrete examples."
+        status: "planned"
+        blog_slug: ""
+
+      - title: "Upsell Detection from Inbound Customer Email"
+        target_keyword: "upsell signal email"
+        slug: "upsell-signals-email"
+        angle: "Lateral signals that reps miss because they're focused on the original deal."
+        status: "planned"
+        blog_slug: ""
+
+      - title: "Deals at Risk: Spotting Stale Accounts Before They Die"
+        target_keyword: "deals dying in inbox"
+        slug: "deals-at-risk"
+        angle: "How email patterns predict stalled deals — with patterns and what to do."
+        status: "planned"
+        blog_slug: ""
+
+      - title: "Sales Reports That Write Themselves: Audit-Trail Economics"
+        target_keyword: "sales reports automation"
+        slug: "sales-reports-audit-trail"
+        angle: "Reframes audit trails from compliance burden to reporting feature."
+        status: "planned"
+        blog_slug: ""
+
+    linking_rules:
+      - "Every cluster page MUST link to the pillar"
+      - "Pillar MUST link to all published cluster pages"
+
+  # ─────────────────────────────────────────────────────────
+  # CLUSTER 4: AI Sales Agents (broadest, highest competition)
+  # ─────────────────────────────────────────────────────────
+  - cluster_id: "tc_ai_sales_agents"
+    name: "AI Sales Agents (Buyer's Guide & Comparisons)"
+    description: >
+      Bottom-funnel comparison cluster. Highest commercial intent. Owns the
+      'evaluating multiple AI sales agents' searches. Highest competition for
+      the pillar but the comparison cluster pages can rank with much less effort.
+
+    pillar:
+      title: "AI Sales Agents: A 2026 Buyer's Guide for B2B Teams"
+      target_keyword: "AI sales agent"
+      slug: "ai-sales-agents-buyers-guide"
+      status: "planned"
+      blog_slug: ""
+      serp_data_required: true
+      notes: >
+        High-competition SERP. Need user SERP data to decide angle —
+        guide vs listicle vs scorecard. ZUUZ's unique angle is the audit-trail
+        + human-approval-gate axis that most agents skip.
+
+    cluster_pages:
+      - title: "ZUUZ vs Lindy: Choosing Your AI Sales Agent"
+        target_keyword: "ZUUZ vs Lindy"
+        slug: "zuuz-vs-lindy"
+        angle: "Honest comparison — kit-vs-product, generalist-vs-specialist. Lead with Lindy's strengths."
+        status: "planned"
+        blog_slug: ""
+
+      - title: "ZUUZ vs HubSpot Sales Hub: Replace vs Augment?"
+        target_keyword: "ZUUZ vs HubSpot Sales Hub"
+        slug: "zuuz-vs-hubspot-sales"
+        angle: "Reframes as augmentation — ZUUZ writes TO HubSpot. Different question than 'replace your CRM'."
+        status: "planned"
+        blog_slug: ""
+
+      - title: "ZUUZ vs Salesforce Agentforce: Enterprise AI for Sales"
+        target_keyword: "ZUUZ vs Salesforce Agentforce"
+        slug: "zuuz-vs-agentforce"
+        angle: "Time-to-value vs ecosystem depth. ZUUZ runs in days; Agentforce takes a quarter."
+        status: "planned"
+        blog_slug: ""
+
+      - title: "Human Approval Gates: Why Autonomous AI Scares Sales Leaders"
+        target_keyword: "human approval AI sales"
+        slug: "human-approval-ai-sales"
+        angle: "Thought-leadership piece. Counter-argument to fully autonomous agent hype."
+        status: "planned"
+        blog_slug: ""
+
+      - title: "Audit Trails for AI Sales Agents: What to Log and Why"
+        target_keyword: "audit trail for AI sales agents"
+        slug: "audit-trails-ai-sales"
+        angle: "Almost no one writes about this — clear SERP gap. Practical: what fields to log."
+        status: "planned"
+        blog_slug: ""
+
+    linking_rules:
+      - "Every cluster page MUST link to the pillar"
+      - "Pillar MUST link to all published cluster pages"
+      - "Comparison pages MAY link to each other (a buyer evaluating Lindy will also evaluate HubSpot)"

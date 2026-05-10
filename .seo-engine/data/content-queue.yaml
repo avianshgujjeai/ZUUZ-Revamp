@@ -1,0 +1,225 @@
+last_updated: "2026-05-10"
+note: >
+  Queue prioritized for a 3-customer company with strong distribution proof
+  (Nesto) but limited domain authority. Lead with RFP cluster (lowest
+  competition, strongest moat) and bottom-funnel comparison content (highest
+  intent). Founder-led thought leadership second. Pillar pages last — they
+  need real SERP data before drafting.
+
+queue:
+
+  - id: "q_001"
+    title: "RFP Automation for Distributors: From Inbox to Quote in Hours"
+    blog_type: "how_to"
+    content_type: "pillar"
+    cluster_id: "tc_rfp_automation"
+    target_keywords: ["RFP automation", "RFP automation for distributors"]
+    target_features: ["feat_rfp_analysis", "feat_catalog_matching", "feat_gap_flagging"]
+    unique_angle: >
+      Distributor-specific RFP workflow with Nesto's 10:1 SKU-matching metric.
+      Most 'RFP automation' content is generalist enterprise procurement;
+      this is for vendors RESPONDING to RFPs at distribution scale.
+    priority: "high"
+    priority_reason: "Cluster 2 pillar. ZUUZ's strongest wedge. Lowest SERP competition."
+    status: "planned"
+    estimated_word_count: 3000
+    eeat_plan: "Lead with Nesto 10:1 metric. Founder commentary on distributor pain. Embedded screenshot of catalog match output (request from product team)."
+    serp_analyzed: false
+    cannibalization_check: "passed"
+    notes: "Needs user-provided SERP data before drafting per engine rules."
+    depends_on: []
+    internal_link_targets: ["sku-matching-rfp", "distributor-rfp-workflow", "rfp-product-gap-flagging"]
+
+  - id: "q_002"
+    title: "ZUUZ vs Lindy: Choosing Your AI Sales Agent"
+    blog_type: "comparison"
+    content_type: "cluster"
+    cluster_id: "tc_ai_sales_agents"
+    target_keywords: ["ZUUZ vs Lindy", "Lindy alternative"]
+    target_features: ["feat_realtime_inbox_read", "feat_audit_trail", "feat_approval_gates", "feat_catalog_matching"]
+    unique_angle: >
+      Lindy is a generalist agent platform (kit you assemble). ZUUZ is the
+      sales-inbox workflow already assembled. Lead with Lindy's strengths
+      (4,000+ integrations, flexibility) — don't trash-talk.
+    priority: "high"
+    priority_reason: "Highest commercial intent. Direct competitor comparison."
+    status: "planned"
+    estimated_word_count: 2500
+    eeat_plan: "Cite RA Technologies $120K metric for ZUUZ-side proof. Acknowledge what Lindy does better."
+    serp_analyzed: false
+    cannibalization_check: "passed"
+    notes: "Verify Lindy's current sales-specific capability before drafting — competitor info may be stale."
+    depends_on: []
+    internal_link_targets: ["ai-sales-agents-buyers-guide", "zuuz-vs-hubspot-sales", "audit-trails-ai-sales"]
+
+  - id: "q_003"
+    title: "The Sales Inbox Problem: Why Pipeline Dies Where Email Lives"
+    blog_type: "thought_leadership"
+    content_type: "pillar"
+    cluster_id: "tc_ai_sales_inbox"
+    target_keywords: ["AI sales inbox", "sales inbox"]
+    target_features: ["feat_realtime_inbox_read", "feat_signal_extraction", "feat_auto_lead_creation"]
+    unique_angle: >
+      Founder origin story spine: $120K/month dies in inboxes silently.
+      Frames 'sales inbox' as a missing category, not a feature. Opinionated.
+    priority: "high"
+    priority_reason: "Cluster 1 pillar. Founder voice. Brand-building."
+    status: "planned"
+    estimated_word_count: 3000
+    eeat_plan: "Founder personal narrative. Cloud Box $0-$25M ARR backstory. RA Technologies $120K metric."
+    serp_analyzed: false
+    cannibalization_check: "passed"
+    notes: "Needs user-provided SERP data. Likely informational intent."
+    depends_on: []
+    internal_link_targets: ["email-to-crm-automation", "deals-dying-inbox", "seven-email-signals"]
+
+  - id: "q_004"
+    title: "SKU Matching for Bulk Email RFPs: How 10:1 Looks in Practice"
+    blog_type: "tutorial"
+    content_type: "cluster"
+    cluster_id: "tc_rfp_automation"
+    target_keywords: ["SKU matching automation", "SKU matching"]
+    target_features: ["feat_catalog_matching"]
+    unique_angle: >
+      Step-by-step walkthrough of how Nesto's 10:1 matching ratio is actually
+      calculated. Shows the math behind a metric most companies cite without
+      explaining.
+    priority: "high"
+    priority_reason: "Supports cluster 2 pillar. Concrete and uncopyable (Nesto case)."
+    status: "planned"
+    estimated_word_count: 1800
+    eeat_plan: "Nesto case study. Request anonymized screenshot of match output."
+    serp_analyzed: false
+    cannibalization_check: "passed"
+    notes: ""
+    depends_on: ["q_001"]
+    internal_link_targets: ["rfp-automation-distributors", "rfp-product-gap-flagging"]
+
+  - id: "q_005"
+    title: "Audit Trails for AI Sales Agents: What to Log and Why"
+    blog_type: "thought_leadership"
+    content_type: "cluster"
+    cluster_id: "tc_ai_sales_agents"
+    target_keywords: ["audit trail for AI sales agents", "AI sales governance"]
+    target_features: ["feat_audit_trail", "feat_approval_gates"]
+    unique_angle: >
+      Practical: what fields to log per AI action and why. Clear SERP gap —
+      almost no one writes about AI-sales-agent observability yet. Reframes
+      audit trails from compliance burden to reporting feature.
+    priority: "high"
+    priority_reason: "Clear SERP gap. ZUUZ's audit-trail story is a differentiator."
+    status: "planned"
+    estimated_word_count: 2000
+    eeat_plan: "Concrete log schema. Founder commentary on enterprise buyer questions."
+    serp_analyzed: false
+    cannibalization_check: "passed"
+    notes: ""
+    depends_on: []
+    internal_link_targets: ["ai-sales-agents-buyers-guide", "human-approval-ai-sales"]
+
+  - id: "q_006"
+    title: "Why Your CRM Runs Two Weeks Behind Reality (And What to Do About It)"
+    blog_type: "thought_leadership"
+    content_type: "pillar"
+    cluster_id: "tc_pipeline_visibility"
+    target_keywords: ["why CRM data is wrong", "CRM hygiene"]
+    target_features: ["feat_auto_lead_creation", "feat_bidirectional_sync", "feat_sales_reporting"]
+    unique_angle: >
+      Founder's lived-experience pillar. Cloud Box's $25M ARR was built while
+      CRM ran two weeks behind. Opinionated diagnosis + prescription. Not a
+      'tips for cleaner CRM' post — a structural argument.
+    priority: "medium"
+    priority_reason: "Cluster 3 pillar. Brand-defining but lower commercial intent than RFP/comparison."
+    status: "planned"
+    estimated_word_count: 2800
+    eeat_plan: "Founder personal narrative. Three customer examples."
+    serp_analyzed: false
+    cannibalization_check: "passed"
+    notes: "Needs user-provided SERP data."
+    depends_on: []
+    internal_link_targets: ["renewal-signals-email", "deals-at-risk", "sales-reports-audit-trail"]
+
+  - id: "q_007"
+    title: "Distributor RFP Workflow: From Inbox to Closed Order"
+    blog_type: "how_to"
+    content_type: "cluster"
+    cluster_id: "tc_rfp_automation"
+    target_keywords: ["RFP automation for distributors", "distributor sales workflow"]
+    target_features: ["feat_rfp_analysis", "feat_catalog_matching", "feat_quote_tracking"]
+    unique_angle: >
+      5-step workflow specific to distribution sales: receive RFP, parse line
+      items, match catalog, draft quote, track to close. Each step shows
+      'what reps do today' vs 'what ZUUZ does'.
+    priority: "medium"
+    priority_reason: "Strong cluster 2 supporting page."
+    status: "planned"
+    estimated_word_count: 2200
+    eeat_plan: "Cloud Box + Nesto distribution backstory."
+    serp_analyzed: false
+    cannibalization_check: "passed"
+    notes: ""
+    depends_on: ["q_001"]
+    internal_link_targets: ["rfp-automation-distributors", "sku-matching-rfp"]
+
+  - id: "q_008"
+    title: "ZUUZ vs HubSpot Sales Hub: Replace vs Augment?"
+    blog_type: "comparison"
+    content_type: "cluster"
+    cluster_id: "tc_ai_sales_agents"
+    target_keywords: ["ZUUZ vs HubSpot Sales Hub", "HubSpot AI alternative"]
+    target_features: ["feat_bidirectional_sync", "feat_realtime_inbox_read", "feat_rfp_analysis"]
+    unique_angle: >
+      Reframes the comparison: ZUUZ writes TO HubSpot, doesn't replace it.
+      Most 'vs HubSpot' content frames as zero-sum. This is augmentation.
+    priority: "medium"
+    priority_reason: "SMB buyer comparison. High intent but smaller search volume than 'sales agent'."
+    status: "planned"
+    estimated_word_count: 2500
+    eeat_plan: "Three customer examples showing ZUUZ + HubSpot pattern."
+    serp_analyzed: false
+    cannibalization_check: "passed"
+    notes: ""
+    depends_on: []
+    internal_link_targets: ["ai-sales-agents-buyers-guide", "zuuz-vs-lindy"]
+
+  - id: "q_009"
+    title: "Renewal Signals You're Missing in Customer Email"
+    blog_type: "how_to"
+    content_type: "cluster"
+    cluster_id: "tc_pipeline_visibility"
+    target_keywords: ["renewal signal detection", "customer renewal signals"]
+    target_features: ["feat_renewal_signals"]
+    unique_angle: >
+      Concrete examples of renewal-adjacent language patterns. The 'one caught
+      renewal pays back the year' line as the framing.
+    priority: "medium"
+    priority_reason: "Concrete and useful. Supports cluster 3."
+    status: "planned"
+    estimated_word_count: 1800
+    eeat_plan: "Anonymized email examples. Founder commentary."
+    serp_analyzed: false
+    cannibalization_check: "passed"
+    notes: ""
+    depends_on: []
+    internal_link_targets: ["crm-two-weeks-behind", "deals-at-risk"]
+
+  - id: "q_010"
+    title: "ZUUZ vs Salesforce Agentforce: Enterprise AI for Sales"
+    blog_type: "comparison"
+    content_type: "cluster"
+    cluster_id: "tc_ai_sales_agents"
+    target_keywords: ["ZUUZ vs Salesforce Agentforce", "Agentforce alternative"]
+    target_features: ["feat_bidirectional_sync", "feat_audit_trail", "feat_approval_gates"]
+    unique_angle: >
+      Time-to-value axis. ZUUZ runs in days; Agentforce is a Salesforce
+      implementation project. Lead with Agentforce's strengths.
+    priority: "medium"
+    priority_reason: "Enterprise buyer comparison. Lower volume, higher deal size."
+    status: "planned"
+    estimated_word_count: 2500
+    eeat_plan: "Audit trail differentiator. Customer examples."
+    serp_analyzed: false
+    cannibalization_check: "passed"
+    notes: ""
+    depends_on: []
+    internal_link_targets: ["ai-sales-agents-buyers-guide", "audit-trails-ai-sales"]

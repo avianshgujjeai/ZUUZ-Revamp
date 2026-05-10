@@ -1,0 +1,333 @@
+project: "ZUUZ"
+last_updated: "2026-05-10"
+generated_from: "https://zuuz.ai homepage (live site, May 2026)"
+note: >
+  ZUUZ has no public docs site yet. All features below are extracted from the
+  marketing site. When product docs ship, re-run feature extraction against
+  those — marketing copy underspecifies real capabilities.
+
+categories:
+  - id: "cat_inbox_intelligence"
+    name: "Inbox Intelligence"
+    description: "Reading, classifying, and acting on inbound sales email."
+    subcategories:
+      - id: "sub_signal_capture"
+        name: "Email Signal Capture"
+        features:
+          - id: "feat_realtime_inbox_read"
+            name: "Real-time inbound email reading"
+            description: "ZUUZ reads every inbound message in your sales mailbox the moment it arrives."
+            status: "available"
+            doc_refs:
+              - path: "homepage"
+                section: "How it works, step 01 — An email lands"
+            blog_refs: []
+            tags: ["inbox", "realtime", "core"]
+            notes: "The foundational hook. Every other feature depends on this."
+
+          - id: "feat_signal_extraction"
+            name: "Signal extraction from email body"
+            description: >
+              Source, intent, urgency, industry, budget, requester, and ask are
+              classified from every inbound email — no rep types anything in.
+            status: "available"
+            doc_refs:
+              - path: "homepage"
+                section: "How it works, step 02 — Signals get extracted"
+            blog_refs: []
+            tags: ["nlp", "classification", "core"]
+            notes: "Differentiator vs CRM data entry tools (Scratchpad, etc)."
+
+      - id: "sub_qualification"
+        name: "Lead Qualification"
+        features:
+          - id: "feat_auto_lead_creation"
+            name: "Automatic lead creation from email"
+            description: "Inbound emails become qualified leads in the CRM, written directly from the sales mailbox."
+            status: "available"
+            doc_refs:
+              - path: "homepage"
+                section: "Proof — RA Technologies, Cloud Box"
+            blog_refs: []
+            tags: ["lead-management", "crm"]
+            notes: ""
+
+          - id: "feat_progressive_qualification"
+            name: "Progressive lead qualification"
+            description: >
+              As the conversation continues, cold leads warm up. By the third or
+              fourth exchange, ZUUZ has the full requirement assembled — what
+              they're buying, when, why, and what's blocking them.
+            status: "available"
+            doc_refs:
+              - path: "homepage"
+                section: "How it works, step 03"
+            blog_refs: []
+            tags: ["qualification", "conversation"]
+            notes: "Differentiator vs single-message scoring tools."
+
+  - id: "cat_actions"
+    name: "Next-Action Drafting"
+    description: "What ZUUZ does after it understands the email."
+    subcategories:
+      - id: "sub_replies"
+        name: "Reply and Follow-up Drafting"
+        features:
+          - id: "feat_reply_draft"
+            name: "Reply suggestion"
+            description: "ZUUZ suggests the next reply for the rep, drafted in context of the conversation."
+            status: "available"
+            doc_refs:
+              - path: "homepage"
+                section: "How it works, step 04"
+            blog_refs: []
+            tags: ["drafting"]
+            notes: ""
+
+          - id: "feat_followup_sequence"
+            name: "Follow-up sequence proposal"
+            description: "Proposes a follow-up cadence based on conversation state and lead temperature."
+            status: "available"
+            doc_refs:
+              - path: "homepage"
+                section: "How it works, step 04"
+            blog_refs: []
+            tags: ["sequencing"]
+            notes: ""
+
+      - id: "sub_meetings"
+        name: "Meeting Scheduling"
+        features:
+          - id: "feat_meeting_scheduling"
+            name: "Meeting scheduling from rep's calendar"
+            description: "Pulls available meeting times directly from the rep's calendar and proposes them in replies."
+            status: "available"
+            doc_refs:
+              - path: "homepage"
+                section: "How it works, step 04 / Plus plan features"
+            blog_refs: []
+            tags: ["calendar", "meetings"]
+            notes: ""
+
+  - id: "cat_rfp_and_quoting"
+    name: "RFP & Quoting"
+    description: "ZUUZ's strongest wedge — turning bulk RFPs into quotes."
+    subcategories:
+      - id: "sub_rfp"
+        name: "RFP Handling"
+        features:
+          - id: "feat_rfp_analysis"
+            name: "RFP analysis"
+            description: "Parses customer RFPs received by email, identifies line items, requirements, and constraints."
+            status: "available"
+            doc_refs:
+              - path: "homepage"
+                section: "Plus plan / How it works step 04"
+            blog_refs: []
+            tags: ["rfp", "distribution", "differentiator"]
+            notes: "Highest-leverage feature for distributors. Lowest competitive SERP."
+
+          - id: "feat_catalog_matching"
+            name: "Product catalog matching"
+            description: >
+              Matches customer requirements in an RFP against the seller's product
+              catalog. Demonstrated at Nesto at ~10:1 SKU matching against thousands
+              of catalog SKUs.
+            status: "available"
+            doc_refs:
+              - path: "homepage"
+                section: "Plus plan / Proof — Nesto"
+            blog_refs: []
+            tags: ["rfp", "skus", "distribution"]
+            notes: "Concrete metric: 10:1 ratio at Nesto."
+
+          - id: "feat_gap_flagging"
+            name: "Gap and risk flagging on proposals"
+            description: "Identifies product gaps and risk areas in proposals before they go to the customer."
+            status: "available"
+            doc_refs:
+              - path: "homepage"
+                section: "How it works, step 04"
+            blog_refs: []
+            tags: ["rfp", "risk"]
+            notes: ""
+
+      - id: "sub_quoting"
+        name: "Quotes & Proposals"
+        features:
+          - id: "feat_quote_tracking"
+            name: "Quote, proposal & pipeline tracking"
+            description: "Every quote sent, discount given, and deal closed is captured with the source email attached."
+            status: "available"
+            doc_refs:
+              - path: "homepage"
+                section: "Plus plan features"
+            blog_refs: []
+            tags: ["quoting", "audit"]
+            notes: ""
+
+  - id: "cat_crm_integration"
+    name: "CRM Integration"
+    description: "How ZUUZ writes back to your system of record."
+    subcategories:
+      - id: "sub_crm_sync"
+        name: "CRM Sync"
+        features:
+          - id: "feat_bidirectional_sync"
+            name: "Bi-directional CRM sync"
+            description: "Bi-directional sync with Salesforce, HubSpot, or Zoho on the Plus plan."
+            status: "available"
+            doc_refs:
+              - path: "homepage"
+                section: "Plus plan features"
+            blog_refs: []
+            tags: ["crm", "salesforce", "hubspot", "zoho"]
+            notes: ""
+
+          - id: "feat_custom_crm_integrations"
+            name: "Custom CRM integrations"
+            description: "Custom integrations available on the Enterprise plan for non-standard CRM environments."
+            status: "available"
+            doc_refs:
+              - path: "homepage"
+                section: "Enterprise plan"
+            blog_refs: []
+            tags: ["crm", "enterprise"]
+            notes: ""
+
+  - id: "cat_pipeline_visibility"
+    name: "Pipeline Visibility & Reporting"
+    description: "What leadership sees once ZUUZ is running."
+    subcategories:
+      - id: "sub_signals"
+        name: "Lifecycle Signal Detection"
+        features:
+          - id: "feat_renewal_signals"
+            name: "Renewal signal detection"
+            description: "Identifies renewal contacts and renewal-related signals in customer email."
+            status: "available"
+            doc_refs:
+              - path: "homepage"
+                section: "Plus plan features"
+            blog_refs: []
+            tags: ["renewals", "retention"]
+            notes: "Founder pitch: 'One caught renewal pays back the year.'"
+
+          - id: "feat_upsell_signals"
+            name: "Upsell signal detection"
+            description: "Detects upsell opportunities in inbound customer email."
+            status: "available"
+            doc_refs:
+              - path: "homepage"
+                section: "Plus plan features"
+            blog_refs: []
+            tags: ["upsell", "expansion"]
+            notes: ""
+
+      - id: "sub_reporting"
+        name: "Sales Reporting"
+        features:
+          - id: "feat_sales_reporting"
+            name: "Automatic sales reporting"
+            description: "Deals at risk, stale accounts, and pipeline status — the sales report writes itself."
+            status: "available"
+            doc_refs:
+              - path: "homepage"
+                section: "Plus plan features / step 05"
+            blog_refs: []
+            tags: ["reporting", "deals-at-risk"]
+            notes: ""
+
+  - id: "cat_governance"
+    name: "Governance & Audit"
+    description: "How ZUUZ handles AI safety and accountability."
+    subcategories:
+      - id: "sub_governance"
+        name: "Approval & Audit"
+        features:
+          - id: "feat_audit_trail"
+            name: "Audit trail on every AI action"
+            description: "Every action ZUUZ takes — read, classify, draft, write to CRM — is logged with the source email attached."
+            status: "available"
+            doc_refs:
+              - path: "homepage"
+                section: "Pro plan features"
+            blog_refs: []
+            tags: ["audit", "governance", "differentiator"]
+            notes: "Strong angle vs autonomous AI agents that black-box their actions."
+
+          - id: "feat_approval_gates"
+            name: "Human approval gates by default"
+            description: "By default, AI actions require human approval before execution."
+            status: "available"
+            doc_refs:
+              - path: "homepage"
+                section: "Pro plan features"
+            blog_refs: []
+            tags: ["governance", "trust"]
+            notes: ""
+
+          - id: "feat_custom_approval_workflows"
+            name: "Custom approval workflows"
+            description: "Configurable approval workflows available on Enterprise plan."
+            status: "available"
+            doc_refs:
+              - path: "homepage"
+                section: "Enterprise plan"
+            blog_refs: []
+            tags: ["governance", "enterprise"]
+            notes: ""
+
+  - id: "cat_enterprise"
+    name: "Enterprise"
+    description: "Capabilities for larger teams and compliance environments."
+    subcategories:
+      - id: "sub_compliance"
+        name: "Compliance & Reliability"
+        features:
+          - id: "feat_soc2_iso"
+            name: "SOC 2 & ISO compliance"
+            description: "SOC 2 and ISO compliance available on Enterprise plan."
+            status: "available"
+            doc_refs:
+              - path: "homepage"
+                section: "Enterprise plan"
+            blog_refs: []
+            tags: ["compliance", "security", "enterprise"]
+            notes: "TODO: confirm certification status vs in-progress."
+
+          - id: "feat_sla_uptime"
+            name: "SLA-backed uptime"
+            description: "SLA-backed uptime on Enterprise plan."
+            status: "available"
+            doc_refs:
+              - path: "homepage"
+                section: "Enterprise plan"
+            blog_refs: []
+            tags: ["sla", "enterprise"]
+            notes: ""
+
+      - id: "sub_scale"
+        name: "Scale"
+        features:
+          - id: "feat_unlimited_reps_mailboxes"
+            name: "Unlimited reps and mailboxes"
+            description: "Enterprise tier supports unlimited reps and multiple mailboxes."
+            status: "available"
+            doc_refs:
+              - path: "homepage"
+                section: "Enterprise plan"
+            blog_refs: []
+            tags: ["enterprise", "scale"]
+            notes: ""
+
+          - id: "feat_dedicated_cs"
+            name: "Dedicated customer success"
+            description: "Dedicated customer success contact on Enterprise plan."
+            status: "available"
+            doc_refs:
+              - path: "homepage"
+                section: "Enterprise plan"
+            blog_refs: []
+            tags: ["enterprise", "support"]
+            notes: ""

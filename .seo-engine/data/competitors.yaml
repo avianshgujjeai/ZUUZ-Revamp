@@ -1,0 +1,188 @@
+last_updated: "2026-05-10"
+last_verified: "2026-05-10"
+note: >
+  All competitor feature support is marked supported: null and confidence:
+  unverified per engine rules. Never guess. To populate: visit each competitor's
+  pricing/feature pages, fill the matrix, set confidence to "verified_from_site"
+  with the verification date. Re-verify every 90 days.
+
+competitors:
+  - id: "comp_lindy"
+    name: "Lindy"
+    website: "https://www.lindy.ai"
+    category: "AI sales agent platform"
+    pricing_model: "tiered SaaS, per-seat / per-task — TODO verify current tiers"
+    strengths: >
+      Broad horizontal AI agent platform — not sales-specific. 4,000+ app
+      integrations. Strong outbound and call-handling story.
+    weaknesses: >
+      Generalist platform. Buyers building sales-inbox workflows need to
+      assemble it themselves. Less specialized in RFP and distribution use cases.
+    angle_against: >
+      ZUUZ is built end-to-end for the sales inbox + CRM writeback + RFP
+      matching. Lindy is a kit you assemble; ZUUZ is the workflow.
+    notes: "Most direct competitor by buyer mental model."
+
+  - id: "comp_regie"
+    name: "Regie.ai"
+    website: "https://www.regie.ai"
+    category: "AI BDR / sales agent"
+    pricing_model: "enterprise — TODO verify"
+    strengths: "AI BDR named Ava. Sourcing, enrichment, multi-channel outreach."
+    weaknesses: "Outbound-first. Less focus on inbox classification of inbound."
+    angle_against: >
+      Regie is outbound-led; ZUUZ is inbound-led. Most companies have BOTH
+      problems but they choose the wrong tool for the inbound side.
+    notes: ""
+
+  - id: "comp_hubspot_sales"
+    name: "HubSpot Sales Hub"
+    website: "https://www.hubspot.com/products/sales"
+    category: "Incumbent CRM with AI (Breeze)"
+    pricing_model: "tiered — Free / Starter / Professional / Enterprise"
+    strengths: "Massive distribution. Buyers already use it. Breeze AI gaining ground."
+    weaknesses: >
+      AI is bolted onto a CRM, not built around the inbox. Doesn't do RFP
+      catalog matching. Doesn't handle multi-CRM environments (you're locked in).
+    angle_against: >
+      ZUUZ writes TO HubSpot — not replacing it. Comparison content should
+      reframe this as augmentation, not zero-sum.
+    notes: "Buyers comparing here are SMB. Comparison post: high commercial intent."
+
+  - id: "comp_agentforce"
+    name: "Salesforce Agentforce"
+    website: "https://www.salesforce.com/agentforce"
+    category: "Incumbent CRM with AI"
+    pricing_model: "enterprise per-conversation / per-action"
+    strengths: "Integrated with Salesforce. Massive partner ecosystem."
+    weaknesses: >
+      Heavy implementation. Needs Salesforce admin work. Generic agent platform
+      that customer has to configure for their inbox workflow.
+    angle_against: >
+      ZUUZ writes TO Salesforce, runs in days not months, comes with the
+      inbox workflow pre-built.
+    notes: "Enterprise buyer comparison. Lower volume, higher intent."
+
+  - id: "comp_conversica"
+    name: "Conversica"
+    website: "https://www.conversica.com"
+    category: "AI sales conversations"
+    pricing_model: "enterprise SaaS"
+    strengths: "Category veteran. Long deployment track record. Marketing-led brand."
+    weaknesses: "Older architecture. Limited modern LLM capability vs 2026-era agents."
+    angle_against: >
+      Conversica is built for top-of-funnel email nurture. ZUUZ is built for
+      the whole pipeline from email to closed deal with CRM writeback.
+    notes: "Comparison posts mostly target enterprise readers."
+
+# Feature matrix — ZUUZ has the feature (from features.yaml). Competitors null.
+# Update each competitor row by visiting the relevant page on their site.
+feature_matrix:
+
+  - feature_id: "feat_realtime_inbox_read"
+    our_project:
+      supported: true
+      details: "Core capability. Reads every inbound message in real time."
+      tier: "Pro"
+    competitors:
+      comp_lindy:        { supported: null, details: "", tier: "unknown", confidence: "unverified", last_verified: "" }
+      comp_regie:        { supported: null, details: "", tier: "unknown", confidence: "unverified", last_verified: "" }
+      comp_hubspot_sales: { supported: null, details: "", tier: "unknown", confidence: "unverified", last_verified: "" }
+      comp_agentforce:   { supported: null, details: "", tier: "unknown", confidence: "unverified", last_verified: "" }
+      comp_conversica:   { supported: null, details: "", tier: "unknown", confidence: "unverified", last_verified: "" }
+
+  - feature_id: "feat_signal_extraction"
+    our_project:
+      supported: true
+      details: "Source, intent, urgency, industry, budget, requester, ask."
+      tier: "Pro"
+    competitors:
+      comp_lindy:        { supported: null, details: "", tier: "unknown", confidence: "unverified", last_verified: "" }
+      comp_regie:        { supported: null, details: "", tier: "unknown", confidence: "unverified", last_verified: "" }
+      comp_hubspot_sales: { supported: null, details: "", tier: "unknown", confidence: "unverified", last_verified: "" }
+      comp_agentforce:   { supported: null, details: "", tier: "unknown", confidence: "unverified", last_verified: "" }
+      comp_conversica:   { supported: null, details: "", tier: "unknown", confidence: "unverified", last_verified: "" }
+
+  - feature_id: "feat_progressive_qualification"
+    our_project:
+      supported: true
+      details: "Full requirement assembled by 3rd-4th exchange."
+      tier: "Pro"
+    competitors:
+      comp_lindy:        { supported: null, details: "", tier: "unknown", confidence: "unverified", last_verified: "" }
+      comp_regie:        { supported: null, details: "", tier: "unknown", confidence: "unverified", last_verified: "" }
+      comp_hubspot_sales: { supported: null, details: "", tier: "unknown", confidence: "unverified", last_verified: "" }
+      comp_agentforce:   { supported: null, details: "", tier: "unknown", confidence: "unverified", last_verified: "" }
+      comp_conversica:   { supported: null, details: "", tier: "unknown", confidence: "unverified", last_verified: "" }
+
+  - feature_id: "feat_rfp_analysis"
+    our_project:
+      supported: true
+      details: "RFP analysis — Plus plan."
+      tier: "Plus"
+    competitors:
+      comp_lindy:        { supported: null, details: "", tier: "unknown", confidence: "unverified", last_verified: "" }
+      comp_regie:        { supported: null, details: "", tier: "unknown", confidence: "unverified", last_verified: "" }
+      comp_hubspot_sales: { supported: null, details: "", tier: "unknown", confidence: "unverified", last_verified: "" }
+      comp_agentforce:   { supported: null, details: "", tier: "unknown", confidence: "unverified", last_verified: "" }
+      comp_conversica:   { supported: null, details: "", tier: "unknown", confidence: "unverified", last_verified: "" }
+
+  - feature_id: "feat_catalog_matching"
+    our_project:
+      supported: true
+      details: "Catalog matching demonstrated at Nesto (10:1 SKU matching ratio)."
+      tier: "Plus"
+    competitors:
+      comp_lindy:        { supported: null, details: "", tier: "unknown", confidence: "unverified", last_verified: "" }
+      comp_regie:        { supported: null, details: "", tier: "unknown", confidence: "unverified", last_verified: "" }
+      comp_hubspot_sales: { supported: null, details: "", tier: "unknown", confidence: "unverified", last_verified: "" }
+      comp_agentforce:   { supported: null, details: "", tier: "unknown", confidence: "unverified", last_verified: "" }
+      comp_conversica:   { supported: null, details: "", tier: "unknown", confidence: "unverified", last_verified: "" }
+
+  - feature_id: "feat_bidirectional_sync"
+    our_project:
+      supported: true
+      details: "Bi-directional sync with Salesforce, HubSpot, Zoho."
+      tier: "Plus"
+    competitors:
+      comp_lindy:        { supported: null, details: "", tier: "unknown", confidence: "unverified", last_verified: "" }
+      comp_regie:        { supported: null, details: "", tier: "unknown", confidence: "unverified", last_verified: "" }
+      comp_hubspot_sales: { supported: true, details: "Native to its own CRM only.", tier: "all", confidence: "verified_from_site", last_verified: "2026-05-10" }
+      comp_agentforce:   { supported: true, details: "Native to Salesforce only.", tier: "all", confidence: "verified_from_site", last_verified: "2026-05-10" }
+      comp_conversica:   { supported: null, details: "", tier: "unknown", confidence: "unverified", last_verified: "" }
+
+  - feature_id: "feat_audit_trail"
+    our_project:
+      supported: true
+      details: "Every AI action logged with source email attached. Differentiator."
+      tier: "Pro"
+    competitors:
+      comp_lindy:        { supported: null, details: "", tier: "unknown", confidence: "unverified", last_verified: "" }
+      comp_regie:        { supported: null, details: "", tier: "unknown", confidence: "unverified", last_verified: "" }
+      comp_hubspot_sales: { supported: null, details: "", tier: "unknown", confidence: "unverified", last_verified: "" }
+      comp_agentforce:   { supported: null, details: "", tier: "unknown", confidence: "unverified", last_verified: "" }
+      comp_conversica:   { supported: null, details: "", tier: "unknown", confidence: "unverified", last_verified: "" }
+
+  - feature_id: "feat_approval_gates"
+    our_project:
+      supported: true
+      details: "Human approval gates by default. Differentiator vs autonomous agents."
+      tier: "Pro"
+    competitors:
+      comp_lindy:        { supported: null, details: "", tier: "unknown", confidence: "unverified", last_verified: "" }
+      comp_regie:        { supported: null, details: "", tier: "unknown", confidence: "unverified", last_verified: "" }
+      comp_hubspot_sales: { supported: null, details: "", tier: "unknown", confidence: "unverified", last_verified: "" }
+      comp_agentforce:   { supported: null, details: "", tier: "unknown", confidence: "unverified", last_verified: "" }
+      comp_conversica:   { supported: null, details: "", tier: "unknown", confidence: "unverified", last_verified: "" }
+
+  - feature_id: "feat_renewal_signals"
+    our_project:
+      supported: true
+      details: "Renewal signal detection from customer email. Plus plan."
+      tier: "Plus"
+    competitors:
+      comp_lindy:        { supported: null, details: "", tier: "unknown", confidence: "unverified", last_verified: "" }
+      comp_regie:        { supported: null, details: "", tier: "unknown", confidence: "unverified", last_verified: "" }
+      comp_hubspot_sales: { supported: null, details: "", tier: "unknown", confidence: "unverified", last_verified: "" }
+      comp_agentforce:   { supported: null, details: "", tier: "unknown", confidence: "unverified", last_verified: "" }
+      comp_conversica:   { supported: null, details: "", tier: "unknown", confidence: "unverified", last_verified: "" }
