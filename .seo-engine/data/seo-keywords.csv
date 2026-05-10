@@ -1,0 +1,23 @@
+keyword,search_volume,keyword_difficulty,cpc,intent,funnel_stage,serp_features,content_format_needed,mapped_feature_ids,mapped_blog_slugs,cluster_id,content_type,priority,status,last_updated,source,notes
+AI sales inbox,0,0,0,informational,awareness,,,feat_realtime_inbox_read;feat_signal_extraction,,tc_ai_sales_inbox,pillar,high,planned,2026-05-10,seed,Strong founder narrative — sales inbox is a category ZUUZ can own.
+email to CRM,0,0,0,commercial,consideration,,,feat_bidirectional_sync;feat_auto_lead_creation,,tc_ai_sales_inbox,cluster,high,planned,2026-05-10,seed,Buyer-intent keyword. Map to cluster page on email-to-CRM automation.
+email to CRM automation,0,0,0,commercial,consideration,,,feat_bidirectional_sync,,tc_ai_sales_inbox,cluster,medium,planned,2026-05-10,seed,Long-tail variant of above.
+RFP automation,0,0,0,commercial,consideration,,,feat_rfp_analysis;feat_catalog_matching,,tc_rfp_automation,pillar,high,planned,2026-05-10,seed,ZUUZ's strongest wedge. Likely lower KD than sales-automation.
+RFP automation for distributors,0,0,0,commercial,decision,,,feat_rfp_analysis;feat_catalog_matching,,tc_rfp_automation,cluster,high,planned,2026-05-10,seed,Highly specific. Distribution buyers will search this.
+SKU matching automation,0,0,0,informational,consideration,,,feat_catalog_matching,,tc_rfp_automation,cluster,medium,planned,2026-05-10,seed,Niche but concrete. Backed by Nesto's 10:1 metric.
+catalog matching for RFPs,0,0,0,informational,consideration,,,feat_catalog_matching,,tc_rfp_automation,cluster,medium,planned,2026-05-10,seed,
+inbound lead qualification,0,0,0,informational,awareness,,,feat_progressive_qualification;feat_auto_lead_creation,,tc_ai_sales_inbox,cluster,medium,planned,2026-05-10,seed,
+AI lead qualification,0,0,0,commercial,consideration,,,feat_progressive_qualification,,tc_ai_sales_inbox,cluster,medium,planned,2026-05-10,seed,
+audit trail for AI sales agents,0,0,0,informational,consideration,,,feat_audit_trail;feat_approval_gates,,tc_ai_sales_agents,cluster,medium,planned,2026-05-10,seed,Unique angle — almost no one is writing about this yet.
+human approval AI sales,0,0,0,informational,consideration,,,feat_approval_gates,,tc_ai_sales_agents,cluster,medium,planned,2026-05-10,seed,Governance-first positioning.
+AI sales agent,0,0,0,commercial,consideration,,,,,tc_ai_sales_agents,pillar,high,planned,2026-05-10,seed,Broader cluster pillar. Lots of competition — needs strong unique angle.
+ZUUZ vs Lindy,0,0,0,commercial,decision,,,,,tc_ai_sales_agents,cluster,high,planned,2026-05-10,seed,High commercial intent. Direct competitor comparison.
+ZUUZ vs HubSpot Sales Hub,0,0,0,commercial,decision,,,,,tc_ai_sales_agents,cluster,medium,planned,2026-05-10,seed,
+ZUUZ vs Salesforce Agentforce,0,0,0,commercial,decision,,,,,tc_ai_sales_agents,cluster,medium,planned,2026-05-10,seed,
+ZUUZ vs Conversica,0,0,0,commercial,decision,,,,,tc_ai_sales_agents,cluster,low,planned,2026-05-10,seed,Lower priority — Conversica audience is smaller.
+why CRM data is wrong,0,0,0,informational,awareness,,,feat_auto_lead_creation;feat_bidirectional_sync,,tc_pipeline_visibility,pillar,high,planned,2026-05-10,seed,Founder voice piece. Opinionated. Pillar for visibility cluster.
+deals dying in inbox,0,0,0,informational,awareness,,,feat_realtime_inbox_read;feat_auto_lead_creation,,tc_pipeline_visibility,cluster,medium,planned,2026-05-10,seed,Founder origin story — natural fit.
+renewal signal detection,0,0,0,informational,consideration,,,feat_renewal_signals,,tc_pipeline_visibility,cluster,medium,planned,2026-05-10,seed,'One caught renewal pays back the year' is the hook.
+upsell signal email,0,0,0,informational,consideration,,,feat_upsell_signals,,tc_pipeline_visibility,cluster,low,planned,2026-05-10,seed,
+sales reports automation,0,0,0,informational,consideration,,,feat_sales_reporting,,tc_pipeline_visibility,cluster,low,planned,2026-05-10,seed,
+ZUUZ review,0,0,0,navigational,decision,,,,,,brand,medium,planned,2026-05-10,seed,Branded — own this SERP.
