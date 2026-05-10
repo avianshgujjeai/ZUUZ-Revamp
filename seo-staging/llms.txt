@@ -1,0 +1,47 @@
+# ZUUZ
+
+> ZUUZ reads every email in your sales inbox, qualifies the lead, drafts the reply, and tracks the deal — automatically. Live in production with 3 customers across distribution, IT services, and retail.
+
+ZUUZ is a sales-inbox AI agent. It reads every inbound message in a sales mailbox, extracts buying signals (source, intent, urgency, industry, budget, requester, ask), qualifies the lead as conversations progress, drafts replies and follow-ups, matches RFPs against the customer's product catalog, and writes pipeline back to Salesforce, HubSpot, or Zoho — with an audit trail on every AI action and human approval gates by default.
+
+## Product
+
+- [Homepage](https://zuuz.ai/): Product overview, customer proof, pricing, team.
+- [Book a demo](https://cal.com/avinashgujje/15min): 15-minute live demo on your CRM and one mailbox.
+
+## How it works
+
+1. **An email lands.** A demo request, RFP, renewal question, or any inbound message in the sales mailbox.
+2. **Signals are extracted.** Source, intent, urgency, industry, budget, requester, ask — classified automatically, no manual data entry.
+3. **The lead gets qualified.** Across the conversation, ZUUZ assembles what they're buying, when, why, and what's blocking them.
+4. **The next action is drafted.** Reply suggested, follow-up sequence proposed, meeting times pulled from the rep's calendar. For RFPs, the product catalog is matched against the requirement — gaps and risks flagged before the proposal goes out.
+5. **Pipeline is captured.** Quotes, discounts, closed deals, renewals, and upsell signals are written to the CRM in real time with the source email attached.
+
+## Customers (live in production)
+
+- **RA Technologies** (IT Services, 30 days): $120K of pipeline surfaced from inbound email their CRM had never captured.
+- **Cloud Box Technologies** (Tech Distribution, pilot): inbound emails became leads; leadership now sees pipeline in real time from one mailbox.
+- **Nesto** (Distribution, SKU matching): bulk orders arrive by email; ZUUZ matches requirements against thousands of SKUs, prepares the quote, and tracks every line through to close. 10:1 SKU matching ratio.
+
+## Pricing
+
+- **Pro — $1,500/mo.** Up to 5 reps. No CRM integration required. Email signal capture and classification, lead creation and qualification, audit trail on every AI action, human approval gates by default, pipeline visibility in 60 days.
+- **Plus — $3,000/mo (most popular).** Up to 15 reps. Everything in Pro plus bi-directional CRM sync (Salesforce, HubSpot, Zoho), RFP analysis and catalog matching, meeting scheduling from the rep's calendar, renewal and upsell signal detection, quote/proposal/pipeline tracking, sales reporting (deals at risk, stale accounts).
+- **Enterprise — Custom.** Unlimited reps and mailboxes, custom CRM integrations, dedicated customer success, SOC 2 and ISO compliance, custom approval workflows, SLA-backed uptime.
+
+## Team
+
+- **Avinash Gujje** — Founder & CEO. Built Cloud Box Technologies from $0 to $25M ARR. Founded ZUUZ to stop deals dying silently in inboxes.
+- **Jaya Veera** — Co-Founder & CTO. 17+ years in product engineering. Former Barclays and AWS. Architect of the AI platform powering ZUUZ.
+- **Prof. Prasanna Kumar** — Chief AI Advisor. Stanford professor. Author on AI and finance. Guides AI research direction and architecture.
+
+## Locations
+
+- Sunnyvale, California — HQ
+- Dubai — MENA
+- Hyderabad — Engineering
+
+## Contact
+
+- Email: hello@zuuz.ai
+- Demo: https://cal.com/avinashgujje/15min
