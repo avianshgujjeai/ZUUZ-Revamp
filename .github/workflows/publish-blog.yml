@@ -1,0 +1,44 @@
+name: Publish Blog Posts from Notion
+
+on:
+  schedule:
+    - cron: '0 13 * * *'
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Publish new posts
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DATABASE_ID: 63167023ebd64f8dbfb617e6de4a1fc7
+        run: python .github/scripts/publisher.py
+
+      - name: Commit and push new pages
+        run: |
+          git config user.name "zuuz-blog-bot"
+          git config user.email "bot@zuuz.ai"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Nothing new to publish."
+          else
+            git commit -m "feat(blog): auto-publish from Notion [skip ci]"
+            git push
+          fi
