@@ -16,7 +16,7 @@ export default async function handler(req, res) {
   try {
     // Email 1: Notify Avinash
     await resend.emails.send({
-      from: 'ZUUZ Leads <leads@zuuz.ai>',
+      from: 'ZUUZ <info@zuuz.ai>',
       to: process.env.LEAD_NOTIFICATION_EMAIL,
       subject: `New demo lead: ${email}`,
       html: `
