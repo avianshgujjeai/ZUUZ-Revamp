@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Track Renewals Across Multiple Products | ZUUZ</title>
+<meta name="description" content="Managing renewals across multiple vendors and product lines is a spreadsheet problem waiting to become a revenue problem. Here is a better system.">
+<meta name="author" content="Avinash Gujje">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.zuuz.ai/blog/track-renewals-multiple-products">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.zuuz.ai/blog/track-renewals-multiple-products">
+<meta property="og:title" content="How to Track Renewals Across Multiple Products | ZUUZ">
+<meta property="og:description" content="Managing renewals across multiple vendors and product lines is a spreadsheet problem waiting to become a revenue problem. Here is a better system.">
+<meta property="og:site_name" content="ZUUZ">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to Track Renewals Across Multiple Products | ZUUZ">
+<meta name="twitter:description" content="Multi-product renewal tracking is a spreadsheet problem waiting to become a revenue problem. A better system.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Track Renewals Across Multiple Products",
+  "description": "Managing renewals across multiple vendors and product lines is a spreadsheet problem waiting to become a revenue problem. Here is a better system.",
+  "url": "https://www.zuuz.ai/blog/track-renewals-multiple-products",
+  "datePublished": "2026-05-25",
+  "author": {"@type": "Person", "name": "Avinash Gujje"},
+  "publisher": {
+    "@type": "Organization",
+    "name": "ZUUZ, Inc.",
+    "url": "https://www.zuuz.ai"
+  }
+}
+</script>
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232563FF'%3E%3Cpath d='M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,0..100;1,9..144,300..500,0..100&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="/" class="brand">
+      <svg class="brand-spark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z"/>
+      </svg>
+      <span class="brand-text">ZUUZ</span>
+    </a>
+    <div class="nav-ctas">
+      <a class="nav-cta-ghost" href="https://buy.stripe.com/cNi6oHaWNeAU8QS457bZe00" rel="noopener">Start free trial</a>
+      <a class="nav-cta" href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Book a demo</a>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="wrap-narrow article-head">
+    <div class="article-eyebrow">Blog · Renewals</div>
+    <h1>How to Track Renewals Across <em>Multiple Products</em></h1>
+    <div class="article-meta">By Avinash Gujje · 2026-05-25 · 7 min read</div>
+  </div>
+
+  <div class="wrap-narrow article-body">
+    <p>If you sell more than one product, or resell more than one vendor, you have a renewal tracking problem. Maybe not today, maybe not at your current size, but the day is coming. One caught renewal pays back a year of effort on the system. One missed renewal costs more than most companies want to admit.</p>
+    <p>At Cloud Box, we resold dozens of OEM products across hundreds of customers. Renewals lived in a spreadsheet maintained by one person. When that person was on vacation, things slipped. Here is what I learned, and what a better system looks like.</p>
+
+    <h2>The multi-product renewal problem</h2>
+    <p>A single-product SaaS company has it easy. One contract per customer, one renewal date, one owner. Track it in the CRM, set a reminder ninety days out, done.</p>
+    <p>Multi-product is a different shape. A single customer might have three contracts with three end dates, plus support agreements on top, plus maintenance windows that renew separately, plus add-on licences bought mid-term that prorate to a different anniversary. The customer does not see this as separate renewals — they see one relationship. The vendor side has to track every line, every date, every owner.</p>
+    <p>Multiply that by hundreds of customers and you have a tracking problem that no single spreadsheet survives.</p>
+
+    <h2>What gets missed and why</h2>
+    <p>The classic missed renewal is not the big anniversary. Those get caught — the dollars are too obvious. What gets missed is the side product. The support contract on the firewall that was sold two years ago by a rep who has since left. The maintenance renewal on a small piece of hardware that the customer assumed was bundled. The mid-term add-on that prorated and now has a different end date than the parent contract.</p>
+    <p>These slip because nobody owns them clearly, the dollar value is below the threshold that triggers attention, and the only person who would have remembered is the customer — who only remembers when something breaks. By then you are renewing under duress, often at a discount, sometimes losing the line entirely to a competitor who showed up first.</p>
+
+    <h2>Renewal signals that live in email</h2>
+    <p>Here is the thing nobody admits. The earliest, strongest renewal signals do not live in your CRM. They live in the customer's email. Things like:</p>
+    <ul>
+      <li>"Our contract is up in October, can you send me a renewal quote?"</li>
+      <li>"We are reviewing vendors for the next cycle."</li>
+      <li>"Procurement is asking about pricing for next year."</li>
+      <li>"We will not need the second licence going forward."</li>
+      <li>"Can you confirm the end date on our support agreement?"</li>
+    </ul>
+    <p>Every one of these is buried in a thread the rep handles in two minutes, replies to, and forgets to log. The renewal date in the CRM stays whatever it was. The actual signal — the customer just opened the door to a conversation about next year — disappears.</p>
+
+    <h2>Building a renewal tracking system</h2>
+    <p>A working renewal system needs four things, in order of importance.</p>
+    <ul>
+      <li><strong>A single source of truth for end dates.</strong> Not a spreadsheet. The CRM, with every product line as a separate record, each with its own end date, owner, and amount. If your CRM cannot model this, fix the CRM first.</li>
+      <li><strong>Inbox-aware signal capture.</strong> Renewal mentions in email need to land on the right record automatically. Manual logging will not survive contact with a busy quarter.</li>
+      <li><strong>Time-based and signal-based alerts.</strong> Ninety-day, sixty-day, thirty-day calendar alerts are table stakes. Signal-based alerts — "customer mentioned renewal in an email today" — are what change outcomes.</li>
+      <li><strong>One owner per renewal.</strong> Even if a customer success manager and a sales rep both touch the account, one name is on the renewal. Shared ownership is no ownership.</li>
+    </ul>
+
+    <h2>What automated tracking changes</h2>
+    <p>When you connect the inbox to the CRM, renewals stop being a calendar problem and become a real-time problem. The system reads every inbound message, identifies renewal language, and surfaces it against the right contract record before the date matters. The rep sees "this customer brought up renewal six months early" instead of "this customer's date is in ninety days, time to reach out cold".</p>
+    <p>Early conversations close at better rates than late ones. Customers who bring up renewal themselves are buying. Customers you chase at sixty days are evaluating alternatives. The difference between those two motions is most of your renewal margin.</p>
+    <p>At Cloud Box, even catching one missed support renewal on a single OEM product line paid for the year of effort building the system. The math on this is not hard. If you sell multiple products to multiple customers, one caught renewal pays back the year. If you want to see what your inbox is already telling you about your renewals, <a href="/demo">Book a 15-min demo</a>. We will connect to one mailbox and your CRM and show you what is hiding in the threads.</p>
+
+    <div class="article-cta">
+      <h2>See what your inbox is <em>actually</em> doing.</h2>
+      <p>15 minutes, on your data. We'll show you the pipeline your CRM has never seen.</p>
+      <a class="cta-primary" href="/demo">Book a 15-min demo</a>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand-block">
+        <a href="/" class="brand">
+          <svg class="brand-spark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z"/>
+          </svg>
+          <span class="brand-text" style="font-size:26px">ZUUZ</span>
+        </a>
+        <div class="foot-tagline">Business happens in conversations.<br>Not in <span>software</span>.</div>
+      </div>
+      <div class="foot-links">
+        <a href="/#workflow">How it works</a>
+        <a href="/#proof">Customers</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#team">Team</a>
+        <a href="mailto:hello@zuuz.ai">Contact</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2026 ZUUZ, Inc.&nbsp;&nbsp;·&nbsp;&nbsp;Sunnyvale · Dubai · Hyderabad</div>
+      <div><a href="/privacy">Privacy</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="/terms">Terms</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="/security">Security</a></div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
