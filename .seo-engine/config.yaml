@@ -160,7 +160,7 @@ technical_seo:
   meta_description_max_chars: 160
   title_tag_max_chars: 60
   image_alt_text_required: true
-  canonical_url_pattern: "https://zuuz.ai/blog/{slug}"
+  canonical_url_pattern: "https://www.zuuz.ai/blog/{slug}"
 
 integrations:
   seo_tool: "none"     # TODO: connect Ahrefs/Semrush MCP if available

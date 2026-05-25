@@ -1,4 +1,13 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/solutions", "destination": "/", "permanent": true },
+    { "source": "/solutions/:path*", "destination": "/", "permanent": true },
+    { "source": "/products/:path*", "destination": "/", "permanent": true },
+    { "source": "/about/:path*", "destination": "/", "permanent": true },
+    { "source": "/customers/:path*", "destination": "/", "permanent": true },
+    { "source": "/resources/:path*", "destination": "/", "permanent": true },
+    { "source": "/sol-vp-cro", "destination": "/", "permanent": true }
+  ]
 }
