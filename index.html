@@ -459,13 +459,8 @@
   stripe-pricing-table{
     display:block;
     width:100%;
-    /* Force Stripe to use 4-column layout by making container wide enough */
-    min-width:min(1200px, 100vw);
-  }
-  @media(max-width:1200px){
-    stripe-pricing-table{
-      min-width:1200px;
-    }
+    /* Force Stripe to render 4 cards in a single row */
+    min-width:1400px;
   }
   .pricing-note{
     margin-top:20px;
