@@ -1,4 +1,29 @@
 {
-  "cleanUrls": true,
-  "trailingSlash": false
+  "redirects": [
+    {
+      "source": "/blog-email-to-crm-automation-for-it-companies.html",
+      "destination": "/blogs/email-to-crm-automation-for-it-companies.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog-missed-sales-leads-in-email-how-to-fix-it.html",
+      "destination": "/blogs/missed-sales-leads-in-email-how-to-fix-it.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog-renewal-tracking-software-for-vars-and-distributors.html",
+      "destination": "/blogs/renewal-tracking-software-for-vars-and-distributors.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog-salesforce-email-integration-for-it-sales-teams.html",
+      "destination": "/blogs/salesforce-email-integration-for-it-sales-teams.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog-hubspot-email-lead-capture-automation.html",
+      "destination": "/blogs/hubspot-email-lead-capture-automation.html",
+      "permanent": true
+    }
+  ]
 }
