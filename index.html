@@ -47,14 +47,14 @@
     },
     {
       "@type": "Offer",
-      "name": "Team-5",
+      "name": "Growth",
       "price": "349",
       "priceCurrency": "USD",
       "billingDuration": "P1M"
     },
     {
       "@type": "Offer",
-      "name": "Team-10",
+      "name": "Scale",
       "price": "649",
       "priceCurrency": "USD",
       "billingDuration": "P1M"
@@ -161,18 +161,19 @@
   .nav-cta:hover{transform:translateY(-1px); background:#000}
   .nav-cta::after{content:"→"; transition:transform .2s}
   .nav-cta:hover::after{transform:translateX(2px)}
+  .brand-logo{height:30px;width:auto;display:block;transition:opacity .2s;}
+  .brand-logo:hover{opacity:0.75;}
+  .brand-logo-footer{height:24px;opacity:0.8;}
+  .brand-logo-footer:hover{opacity:1;}
+  .nav-actions{display:flex;align-items:center;gap:8px;}
   .nav-trial{
-    display:inline-flex;align-items:center;gap:8px;
-    color:var(--ink); padding:10px 18px; border-radius:999px;
-    font-size:13px; font-weight:500;
-    border:1px solid var(--ink);
-    transition:transform .2s, background .2s, color .2s;
-    margin-right:8px;
+    display:inline-flex;align-items:center;
+    color:var(--ink);padding:10px 18px;border-radius:999px;
+    font-size:13px;font-weight:500;
+    border:1.5px solid var(--ink);
+    transition:background .2s,color .2s,transform .2s;
   }
-  .nav-trial:hover{
-    background:var(--ink); color:var(--paper);
-    transform:translateY(-1px);
-  }
+  .nav-trial:hover{background:var(--ink);color:var(--paper);transform:translateY(-1px);}
 
   /* HERO */
   .hero{padding:96px 0 64px; position:relative}
@@ -248,8 +249,9 @@
   }
   .cta-trust{
     font-family:'JetBrains Mono',monospace;
-    font-size:11px; letter-spacing:0.1em;
-    color:var(--ink-mute); margin-top:14px;
+    font-size:11px;letter-spacing:0.1em;
+    color:var(--ink-mute);margin-top:14px;
+    opacity:0;
   }
 
   /* LOOM EMBED */
@@ -447,20 +449,17 @@
   }
   .pricing-foot strong{color:var(--ink); font-weight:500}
   .pricing-table-wrap{
-    margin-top:56px;
-    width:100%;
+    margin-top:56px;width:100%;
+    overflow-x:auto;-webkit-overflow-scrolling:touch;
+    scrollbar-width:thin;scrollbar-color:var(--accent) transparent;
   }
-  stripe-pricing-table{
-    width:100%;
-    display:block;
-  }
+  .pricing-table-wrap::-webkit-scrollbar{height:3px;}
+  .pricing-table-wrap::-webkit-scrollbar-thumb{background:var(--accent);border-radius:2px;}
+  stripe-pricing-table{display:block;width:100%;min-width:1080px;}
   .pricing-note{
-    margin-top:20px;
-    font-family:'JetBrains Mono',monospace;
-    font-size:11px;
-    letter-spacing:0.08em;
-    color:var(--ink-mute);
-    text-align:center;
+    margin-top:20px;font-family:'JetBrains Mono',monospace;
+    font-size:11px;letter-spacing:0.08em;
+    color:var(--ink-mute);text-align:center;
   }
 
   /* TEAM */
@@ -619,16 +618,36 @@
 </head>
 <body>
 
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="zuuz-logo" viewBox="0 0 220 115">
+    <polygon points="2,4 58,4 58,14 22,68 58,68 58,78 2,78 2,68 38,14 2,14" fill="#0D2B6E"/>
+    <path d="M68,4 L68,52 Q68,78 90,78 Q112,78 112,52 L112,4 L100,4 L100,52 Q100,66 90,66 Q80,66 80,52 L80,4 Z" fill="#0D2B6E"/>
+    <path d="M120,4 L120,52 Q120,78 142,78 Q164,78 164,52 L164,4 L152,4 L152,52 Q152,66 142,66 Q132,66 132,52 L132,4 Z" fill="#0D2B6E"/>
+    <polygon points="172,4 218,4 218,14 182,68 218,68 218,78 172,78 172,68 208,14 172,14" fill="#0D2B6E"/>
+    <path d="M110,80 C110,80 108,86 102,91 C96,96 86,98 76,98 C86,98 96,100 102,105 C108,110 110,115 110,115 C110,115 112,110 118,105 C124,100 134,98 144,98 C134,98 124,96 118,91 C112,86 110,80 110,80 Z" fill="#0018FF"/>
+  </symbol>
+  <symbol id="zuuz-logo-white" viewBox="0 0 220 115">
+    <polygon points="2,4 58,4 58,14 22,68 58,68 58,78 2,78 2,68 38,14 2,14" fill="white"/>
+    <path d="M68,4 L68,52 Q68,78 90,78 Q112,78 112,52 L112,4 L100,4 L100,52 Q100,66 90,66 Q80,66 80,52 L80,4 Z" fill="white"/>
+    <path d="M120,4 L120,52 Q120,78 142,78 Q164,78 164,52 L164,4 L152,4 L152,52 Q152,66 142,66 Q132,66 132,52 L132,4 Z" fill="white"/>
+    <polygon points="172,4 218,4 218,14 182,68 218,68 218,78 172,78 172,68 208,14 172,14" fill="white"/>
+    <path d="M110,80 C110,80 108,86 102,91 C96,96 86,98 76,98 C86,98 96,100 102,105 C108,110 110,115 110,115 C110,115 112,110 118,105 C124,100 134,98 144,98 C134,98 124,96 118,91 C112,86 110,80 110,80 Z" fill="#0018FF"/>
+  </symbol>
+</svg>
+
 <header>
   <div class="wrap nav">
     <div class="brand">
-      <svg class="brand-spark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z"/>
-      </svg>
-      <span class="brand-text">ZUUZ</span>
+      <a href="/" aria-label="ZUUZ home">
+        <svg class="brand-logo" viewBox="0 0 220 115" aria-hidden="true">
+          <use href="#zuuz-logo"/>
+        </svg>
+      </a>
     </div>
-    <a class="nav-trial" href="https://buy.stripe.com/cNi6oHaWNeAU8QS457bZe00">Start free trial</a>
-    <a class="nav-cta" href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Book a demo</a>
+    <div class="nav-actions">
+      <a class="nav-trial" href="https://buy.stripe.com/cNi6oHaWNeAU8QS457bZe00">Start free trial</a>
+      <a class="nav-cta" href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Book a demo</a>
+    </div>
   </div>
 </header>
 
@@ -670,7 +689,7 @@
       <a class="btn-primary" href="https://buy.stripe.com/cNi6oHaWNeAU8QS457bZe00">Start free trial</a>
       <a class="btn-ghost" href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Book a demo</a>
     </div>
-    <p class="cta-trust reveal">30-day free trial &middot; No setup fee &middot; Cancel anytime</p>
+    <p class="cta-trust">30-day free trial &middot; No setup fee &middot; Cancel anytime</p>
 
     <!-- LOOM -->
     <div class="video-frame reveal">
@@ -850,7 +869,7 @@
     <p>15 minutes. We'll connect to your CRM and one mailbox, and show you what's hiding in your team's email — live, on your data, before you commit to anything.</p>
     <div class="final-ctas">
       <a class="final-primary" href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Book a demo</a>
-      <a class="final-ghost" href="mailto:hello@zuuz.ai">hello@zuuz.ai</a>
+      <a class="final-ghost" href="mailto:info@zuuz.ai">info@zuuz.ai</a>
     </div>
   </div>
 </div>
@@ -861,10 +880,9 @@
     <div class="foot-top">
       <div class="foot-brand-block">
         <div class="brand">
-          <svg class="brand-spark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z"/>
+          <svg class="brand-logo brand-logo-footer" viewBox="0 0 220 115" aria-hidden="true">
+            <use href="#zuuz-logo"/>
           </svg>
-          <span class="brand-text" style="font-size:26px">ZUUZ</span>
         </div>
         <div class="foot-tagline">
           Business happens in conversations.<br>
@@ -876,7 +894,7 @@
         <a href="#proof">Customers</a>
         <a href="#pricing">Pricing</a>
         <a href="#team">Team</a>
-        <a href="mailto:hello@zuuz.ai">Contact</a>
+        <a href="mailto:info@zuuz.ai">Contact</a>
       </div>
     </div>
     <div class="foot-bottom">
@@ -946,8 +964,7 @@ gsap.utils.toArray('.proof-headline').forEach(el=>{
     scrollTrigger:{trigger:el,start:'top 88%',toggleActions:'play none none none'}});
 });
 
-/* Pricing table — cinematic reveal */
-gsap.fromTo('.pricing-table-wrap',{opacity:0,y:48,scale:0.98},{opacity:1,y:0,scale:1,duration:1.2,ease:'power3.out',
+gsap.fromTo('.pricing-table-wrap',{opacity:0,y:48},{opacity:1,y:0,duration:1.0,ease:'power3.out',
   scrollTrigger:{trigger:'.pricing-table-wrap',start:'top 85%',toggleActions:'play none none none'}});
 
 /* Team cards — staggered */
@@ -973,7 +990,8 @@ gsap.to('.video-frame',{y:-20,ease:'none',
 /* Founder quote — fade in */
 gsap.fromTo('.founder-quote',{opacity:0,x:-24},{opacity:1,x:0,duration:1.0,ease:'power2.out',
   scrollTrigger:{trigger:'.founder-quote',start:'top 88%',toggleActions:'play none none none'}});
-
+gsap.fromTo('.pricing-note',{opacity:0},{opacity:1,duration:0.8,ease:'power1.out',
+  scrollTrigger:{trigger:'.pricing-note',start:'top 90%',toggleActions:'play none none none'}});
 </script>
 
 </body>
