@@ -450,9 +450,17 @@
     margin-top:56px;
     border-radius:var(--radius);
     overflow:hidden;
+    width:100%;
   }
   stripe-pricing-table{
     width:100%;
+    display:block;
+  }
+  .pricing-note{
+    margin-top:20px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;letter-spacing:0.08em;
+    color:var(--ink-mute);text-align:center;
   }
 
   /* TEAM */
@@ -782,12 +790,12 @@
     <div class="pricing-table-wrap">
       <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
       <stripe-pricing-table
-        pricing-table-id="prctbl_1TaoaIEBajZZFkrOWW1Bvnxf"
+        pricing-table-id="prctbl_1TbAKVEBajZZFkrOe1M7rZfU"
         publishable-key="pk_live_51TSvdPEBajZZFkrO7t47H8EzuO03wjQzX2sF96HIfjnOO7MBFjuuKIEt4RLwbSwJx8KWafVVJJ9zaPoDLhXFzJyN00hNilCk4n">
       </stripe-pricing-table>
     </div>
-    <p class="pricing-foot">
-      All plans include a 30-day free trial. Cancel anytime before day 30 and you will not be charged.
+    <p class="pricing-note">
+      All plans include a 30-day free trial &middot; Cancel anytime before day 30 and you will not be charged
     </p>
   </div>
 </section>
@@ -811,6 +819,12 @@
         <div class="team-name">Avinash Gujje</div>
         <div class="team-role">Founder · CEO</div>
         <div class="team-bio">Built Cloud Box Technologies from $0 to $25M ARR. Spent ten years watching CRM run two weeks behind reality. Founded ZUUZ to fix it.</div>
+      </div>
+      <div class="team-card">
+        <div class="avatar alt">JV</div>
+        <div class="team-name">Jaya Vera</div>
+        <div class="team-role">Co-Founder · CTO</div>
+        <div class="team-bio">Engineering leader. Architect of the ZUUZ intelligence layer. Built the systems that turn email signals into real pipeline automatically.</div>
       </div>
       <div class="team-card">
         <div class="avatar alt2">PK</div>
@@ -872,240 +886,92 @@
 </footer>
 
 <script>
-  /* Hero elements animate on page load */
-  gsap.fromTo('.hero .eyebrow',
-    { opacity:0, y:16 },
-    { opacity:1, y:0, duration:0.7, delay:0.1, ease:'power2.out' }
-  );
-  gsap.fromTo('.hero-title',
-    { opacity:0, y:32 },
-    { opacity:1, y:0, duration:1.0, delay:0.25, ease:'power3.out' }
-  );
-  gsap.fromTo('.hero-sub',
-    { opacity:0, y:24 },
-    { opacity:1, y:0, duration:0.9, delay:0.45, ease:'power2.out' }
-  );
-  gsap.fromTo('.cta-row',
-    { opacity:0, y:20 },
-    { opacity:1, y:0, duration:0.8, delay:0.6, ease:'power2.out' }
-  );
-  gsap.fromTo('.cta-trust',
-    { opacity:0 },
-    { opacity:1, duration:0.8, delay:0.85, ease:'power1.out' }
-  );
-  gsap.fromTo('.video-frame',
-    { opacity:0, y:40, scale:0.98 },
-    { opacity:1, y:0, scale:1, duration:1.1, delay:0.7, ease:'power3.out' }
-  );
-
-  /* ── Smooth scroll ── */
-  document.querySelectorAll('a[href^="#"]').forEach(a=>{
-    a.addEventListener('click', e=>{
-      const id = a.getAttribute('href');
-      if(id.length>1){
-        const t = document.querySelector(id);
-        if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth', block:'start'}); }
-      }
-    });
-  });
-
-  /* ── GSAP ScrollTrigger animations ── */
-  gsap.registerPlugin(ScrollTrigger);
-
-  /* 1 — Section headings: slide up + fade in */
-  gsap.utils.toArray('h2.section-title').forEach(el => {
-    gsap.fromTo(el,
-      { opacity: 0, y: 48 },
-      {
-        opacity: 1, y: 0,
-        duration: 1.1,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 88%',
-          toggleActions: 'play none none none'
-        }
-      }
-    );
-  });
-
-  /* 2 — Section eyebrows: fade + slight scale */
-  gsap.utils.toArray('.section-eyebrow').forEach(el => {
-    gsap.fromTo(el,
-      { opacity: 0, scaleX: 0.92, transformOrigin: 'left center' },
-      {
-        opacity: 1, scaleX: 1,
-        duration: 0.8,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 90%',
-          toggleActions: 'play none none none'
-        }
-      }
-    );
-  });
-
-  /* 3 — Workflow steps: staggered slide in from left */
-  gsap.utils.toArray('.step').forEach((el, i) => {
-    gsap.fromTo(el,
-      { opacity: 0, x: -40 },
-      {
-        opacity: 1, x: 0,
-        duration: 0.9,
-        delay: i * 0.08,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 90%',
-          toggleActions: 'play none none none'
-        }
-      }
-    );
-  });
-
-  /* 4 — Proof cards: scale up from slightly below */
-  gsap.utils.toArray('.proof-card').forEach((el, i) => {
-    gsap.fromTo(el,
-      { opacity: 0, y: 36, scale: 0.97 },
-      {
-        opacity: 1, y: 0, scale: 1,
-        duration: 0.85,
-        delay: i * 0.12,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 88%',
-          toggleActions: 'play none none none'
-        }
-      }
-    );
-  });
-
-  /* 5 — Pricing table: fade up with slight scale */
-  gsap.fromTo('.pricing-table-wrap',
-    { opacity: 0, y: 48, scale: 0.98 },
-    {
-      opacity: 1, y: 0, scale: 1,
-      duration: 1.1,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: '.pricing-table-wrap',
-        start: 'top 85%',
-        toggleActions: 'play none none none'
-      }
-    }
-  );
-
-  /* 6 — Team cards: staggered fade up */
-  gsap.utils.toArray('.team-card').forEach((el, i) => {
-    gsap.fromTo(el,
-      { opacity: 0, y: 32 },
-      {
-        opacity: 1, y: 0,
-        duration: 0.85,
-        delay: i * 0.15,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 90%',
-          toggleActions: 'play none none none'
-        }
-      }
-    );
-  });
-
-  /* 7 — Final CTA block: cinematic fade scale */
-  gsap.fromTo('.final',
-    { opacity: 0, y: 56, scale: 0.97 },
-    {
-      opacity: 1, y: 0, scale: 1,
-      duration: 1.2,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: '.final',
-        start: 'top 85%',
-        toggleActions: 'play none none none'
-      }
-    }
-  );
-
-  /* 8 — Section sub text: gentle fade up */
-  gsap.utils.toArray('.section-sub').forEach(el => {
-    gsap.fromTo(el,
-      { opacity: 0, y: 24 },
-      {
-        opacity: 1, y: 0,
-        duration: 0.9,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 90%',
-          toggleActions: 'play none none none'
-        }
-      }
-    );
-  });
-
-  /* 9 — Video frame: parallax depth on scroll */
-  gsap.to('.video-frame', {
-    y: -24,
-    ease: 'none',
-    scrollTrigger: {
-      trigger: '.video-frame',
-      start: 'top bottom',
-      end: 'bottom top',
-      scrub: 1.5
+/* ── Smooth scroll ── */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click', e=>{
+    const id = a.getAttribute('href');
+    if(id.length>1){
+      const t = document.querySelector(id);
+      if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth',block:'start'}); }
     }
   });
+});
 
-  /* 10 — Proof headlines: count-up style scale on enter */
-  gsap.utils.toArray('.proof-headline').forEach(el => {
-    gsap.fromTo(el,
-      { opacity: 0, scale: 0.85, y: 16 },
-      {
-        opacity: 1, scale: 1, y: 0,
-        duration: 1.0,
-        ease: 'back.out(1.4)',
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 88%',
-          toggleActions: 'play none none none'
-        }
-      }
-    );
-  });
+/* ── GSAP ── */
+gsap.registerPlugin(ScrollTrigger);
 
-  /* 11 — Locations: staggered fade in */
-  gsap.utils.toArray('.loc').forEach((el, i) => {
-    gsap.fromTo(el,
-      { opacity: 0, x: 20 },
-      {
-        opacity: 1, x: 0,
-        duration: 0.6,
-        delay: i * 0.1,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: '.locations',
-          start: 'top 90%',
-          toggleActions: 'play none none none'
-        }
-      }
-    );
-  });
+/* Hero — load sequence */
+gsap.fromTo('.eyebrow',{opacity:0,y:16},{opacity:1,y:0,duration:0.7,delay:0.1,ease:'power2.out'});
+gsap.fromTo('.hero-title',{opacity:0,y:32},{opacity:1,y:0,duration:1.0,delay:0.25,ease:'power3.out'});
+gsap.fromTo('.hero-sub',{opacity:0,y:24},{opacity:1,y:0,duration:0.9,delay:0.45,ease:'power2.out'});
+gsap.fromTo('.feature-pills',{opacity:0,y:16},{opacity:1,y:0,duration:0.7,delay:0.55,ease:'power2.out'});
+gsap.fromTo('.cta-row',{opacity:0,y:20},{opacity:1,y:0,duration:0.8,delay:0.65,ease:'power2.out'});
+gsap.fromTo('.cta-trust',{opacity:0},{opacity:1,duration:0.8,delay:0.9,ease:'power1.out'});
+gsap.fromTo('.video-frame',{opacity:0,y:40,scale:0.98},{opacity:1,y:0,scale:1,duration:1.1,delay:0.75,ease:'power3.out'});
 
-  /* 12 — Feature pills in hero: staggered on load */
-  gsap.utils.toArray('.pill').forEach((el, i) => {
-    gsap.fromTo(el,
-      { opacity: 0, y: 16 },
-      {
-        opacity: 1, y: 0,
-        duration: 0.6,
-        delay: 0.6 + i * 0.1,
-        ease: 'power2.out'
-      }
-    );
-  });
+/* Section headings */
+gsap.utils.toArray('h2.section-title').forEach(el=>{
+  gsap.fromTo(el,{opacity:0,y:44},{opacity:1,y:0,duration:1.1,ease:'power3.out',
+    scrollTrigger:{trigger:el,start:'top 88%',toggleActions:'play none none none'}});
+});
+
+/* Section eyebrows */
+gsap.utils.toArray('.section-eyebrow').forEach(el=>{
+  gsap.fromTo(el,{opacity:0,x:-20},{opacity:1,x:0,duration:0.7,ease:'power2.out',
+    scrollTrigger:{trigger:el,start:'top 90%',toggleActions:'play none none none'}});
+});
+
+/* Section subtitles */
+gsap.utils.toArray('.section-sub').forEach(el=>{
+  gsap.fromTo(el,{opacity:0,y:24},{opacity:1,y:0,duration:0.9,ease:'power2.out',
+    scrollTrigger:{trigger:el,start:'top 90%',toggleActions:'play none none none'}});
+});
+
+/* Workflow steps — staggered from left */
+gsap.utils.toArray('.step').forEach((el,i)=>{
+  gsap.fromTo(el,{opacity:0,x:-36},{opacity:1,x:0,duration:0.85,delay:i*0.07,ease:'power3.out',
+    scrollTrigger:{trigger:el,start:'top 92%',toggleActions:'play none none none'}});
+});
+
+/* Proof cards — scale up */
+gsap.utils.toArray('.proof-card').forEach((el,i)=>{
+  gsap.fromTo(el,{opacity:0,y:32,scale:0.97},{opacity:1,y:0,scale:1,duration:0.85,delay:i*0.12,ease:'power3.out',
+    scrollTrigger:{trigger:el,start:'top 88%',toggleActions:'play none none none'}});
+});
+
+/* Proof headlines — bounce in */
+gsap.utils.toArray('.proof-headline').forEach(el=>{
+  gsap.fromTo(el,{opacity:0,scale:0.82,y:12},{opacity:1,scale:1,y:0,duration:1.0,ease:'back.out(1.5)',
+    scrollTrigger:{trigger:el,start:'top 88%',toggleActions:'play none none none'}});
+});
+
+/* Pricing table — cinematic reveal */
+gsap.fromTo('.pricing-table-wrap',{opacity:0,y:48,scale:0.98},{opacity:1,y:0,scale:1,duration:1.2,ease:'power3.out',
+  scrollTrigger:{trigger:'.pricing-table-wrap',start:'top 85%',toggleActions:'play none none none'}});
+
+/* Team cards — staggered */
+gsap.utils.toArray('.team-card').forEach((el,i)=>{
+  gsap.fromTo(el,{opacity:0,y:28},{opacity:1,y:0,duration:0.8,delay:i*0.13,ease:'power2.out',
+    scrollTrigger:{trigger:el,start:'top 90%',toggleActions:'play none none none'}});
+});
+
+/* Locations — staggered right */
+gsap.utils.toArray('.loc').forEach((el,i)=>{
+  gsap.fromTo(el,{opacity:0,x:20},{opacity:1,x:0,duration:0.6,delay:i*0.1,ease:'power2.out',
+    scrollTrigger:{trigger:'.locations',start:'top 90%',toggleActions:'play none none none'}});
+});
+
+/* Final CTA — cinematic */
+gsap.fromTo('.final',{opacity:0,y:52,scale:0.97},{opacity:1,y:0,scale:1,duration:1.2,ease:'power3.out',
+  scrollTrigger:{trigger:'.final',start:'top 85%',toggleActions:'play none none none'}});
+
+/* Video — subtle parallax */
+gsap.to('.video-frame',{y:-20,ease:'none',
+  scrollTrigger:{trigger:'.video-frame',start:'top bottom',end:'bottom top',scrub:1.5}});
+
+/* Founder quote — fade in */
+gsap.fromTo('.founder-quote',{opacity:0,x:-24},{opacity:1,x:0,duration:1.0,ease:'power2.out',
+  scrollTrigger:{trigger:'.founder-quote',start:'top 88%',toggleActions:'play none none none'}});
 
 </script>
 
