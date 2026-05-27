@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — ZUUZ</title>
+<meta name="description" content="ZUUZ Privacy Policy — CBT Artificial Intelligence Technology INC DBA as ZUUZ.">
+<link rel="canonical" href="https://zuuz.ai/privacy">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232563FF'%3E%3Cpath d='M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,0..100;1,9..144,300..500,0..100&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4F1EA;
+  --ink:#111110;
+  --ink-soft:#3A3A36;
+  --ink-mute:#7A776E;
+  --line:#1110100D;
+  --line-strong:#11101015;
+  --accent:#2563FF;
+  --accent-hover:#1D4ED8;
+  --navy:#0E1F6B;
+  --card:#FBF8F1;
+  --radius:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--paper);color:var(--ink);}
+body{
+  font-family:'Instrument Sans',system-ui,-apple-system,sans-serif;
+  font-size:16px;line-height:1.6;letter-spacing:-0.005em;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.07 0 0 0 0 0.07 0 0 0 0 0.07 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+a{color:var(--accent);text-decoration:none;}
+a:hover{text-decoration:underline;}
+.wrap{max-width:780px;margin:0 auto;padding:0 32px;position:relative;z-index:2;}
+@media(max-width:640px){.wrap{padding:0 20px;}}
+
+/* HEADER */
+header{
+  position:sticky;top:0;z-index:50;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  background:rgba(244,241,234,0.78);
+  border-bottom:1px solid var(--line);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px;}
+.brand{display:flex;align-items:center;gap:9px;text-decoration:none;}
+.brand-spark{width:18px;height:18px;color:var(--accent);flex-shrink:0;transform:translateY(-1px);}
+.brand-text{
+  font-family:'Fraunces',serif;font-weight:500;font-size:22px;
+  letter-spacing:-0.03em;font-variation-settings:"opsz" 144,"SOFT" 30;
+  color:var(--navy);line-height:1;
+}
+.nav-back{
+  display:inline-flex;align-items:center;gap:6px;
+  color:var(--ink-mute);font-size:13px;font-weight:500;
+  transition:color .2s;
+}
+.nav-back:hover{color:var(--ink);text-decoration:none;}
+.nav-back::before{content:"←";transition:transform .2s;}
+.nav-back:hover::before{transform:translateX(-3px);}
+
+/* PAGE */
+.page{padding:64px 0 96px;}
+.doc-eyebrow{
+  font-family:'JetBrains Mono',monospace;font-size:11px;
+  text-transform:uppercase;letter-spacing:0.18em;color:var(--accent);
+  margin-bottom:16px;display:flex;align-items:center;gap:12px;
+}
+.doc-eyebrow::before{content:"";width:24px;height:1px;background:var(--accent);}
+.doc-title{
+  font-family:'Fraunces',serif;font-weight:400;
+  font-size:clamp(40px,5vw,64px);line-height:1.05;letter-spacing:-0.03em;
+  font-variation-settings:"opsz" 144,"SOFT" 40;
+  color:var(--navy);margin-bottom:12px;
+}
+.doc-meta{
+  font-family:'JetBrains Mono',monospace;font-size:12px;
+  color:var(--ink-mute);letter-spacing:0.05em;
+  margin-bottom:48px;padding-bottom:32px;
+  border-bottom:1px solid var(--line-strong);
+  display:flex;flex-wrap:wrap;gap:16px;
+}
+.doc-meta span{display:flex;align-items:center;gap:6px;}
+
+/* CONTENT */
+.doc-body{display:flex;flex-direction:column;gap:36px;}
+.doc-section{display:flex;flex-direction:column;gap:14px;}
+.doc-section h2{
+  font-family:'Fraunces',serif;font-weight:400;
+  font-size:clamp(22px,2.4vw,28px);line-height:1.2;letter-spacing:-0.02em;
+  color:var(--navy);
+  font-variation-settings:"opsz" 60,"SOFT" 30;
+}
+.doc-section p{
+  font-size:15px;line-height:1.65;color:var(--ink-soft);
+}
+.doc-section ul,
+.doc-section ol{
+  padding-left:22px;display:flex;flex-direction:column;gap:8px;
+}
+.doc-section li{
+  font-size:15px;line-height:1.65;color:var(--ink-soft);
+}
+.doc-section strong{color:var(--ink);font-weight:600;}
+.divider{height:1px;background:var(--line-strong);margin:4px 0;}
+
+/* COMPANY BLOCK */
+.company-block{
+  background:var(--card);border:1px solid var(--line-strong);
+  border-radius:12px;padding:24px 28px;
+  display:flex;flex-direction:column;gap:6px;
+}
+.company-block .label{
+  font-family:'JetBrains Mono',monospace;font-size:10px;
+  text-transform:uppercase;letter-spacing:0.14em;color:var(--ink-mute);
+  margin-bottom:4px;
+}
+.company-block p{font-size:14px;color:var(--ink-soft);line-height:1.5;}
+
+/* FOOTER */
+footer{
+  padding:48px 0 32px;border-top:1px solid var(--line);
+  margin-top:40px;
+}
+.foot-bottom{
+  display:flex;justify-content:space-between;flex-wrap:wrap;
+  gap:16px;
+  font-family:'JetBrains Mono',monospace;font-size:11px;
+  color:var(--ink-mute);letter-spacing:0.05em;
+}
+.foot-links-row{display:flex;gap:20px;}
+.foot-links-row a{color:var(--ink-mute);transition:color .2s;}
+.foot-links-row a:hover{color:var(--ink);text-decoration:none;}
+.foot-links-row a.active{color:var(--accent);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/">
+      <svg class="brand-spark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z"/>
+      </svg>
+      <span class="brand-text">ZUUZ</span>
+    </a>
+    <a class="nav-back" href="/">Back to zuuz.ai</a>
+  </div>
+</header>
+
+<div class="page">
+  <div class="wrap">
+
+    <div class="doc-eyebrow">Legal</div>
+    <h1 class="doc-title">Privacy Policy</h1>
+    <div class="doc-meta">
+      <span>Last Updated: March 27, 2026</span>
+      <span>Effective For: CBT Artificial Intelligence Technology INC DBA as "ZUUZ"</span>
+    </div>
+
+    <div class="doc-body">
+
+      <div class="company-block">
+        <div class="label">Company</div>
+        <p><strong>CBT Artificial Intelligence Technology INC</strong> doing business as "ZUUZ" ("Company," "we," "our," "us")</p>
+        <p>440N Wolfe Road, Sunnyvale, CA, USA 94085</p>
+        <p>Contact: <a href="mailto:info@zuuz.ai">info@zuuz.ai</a></p>
+      </div>
+
+      <div class="doc-section">
+        <p>Your privacy is important to us. This privacy statement explains the personal data ZUUZ collects, uses, stores, discloses, and protects when customers use the ZUUZ SaaS platform, websites, and services — how ZUUZ processes it, and for what purposes.</p>
+        <p>Zuuz offers SaaS Software Products which are used to help enterprises worldwide connect and improve their productivity. References to Zuuz products in this statement include Zuuz services, websites, apps, software, servers, and devices.</p>
+        <p>For individuals in the United States, please refer to the U.S. Privacy Data Notice and the Consumer Health Data Privacy Policy for additional information about the processing of your personal data, and your rights under applicable U.S. state data privacy laws.</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="doc-section">
+        <h2>Personal data we collect</h2>
+        <p>Zuuz collects data from you, through our interactions with you and through our products. This includes:</p>
+        <ul>
+          <li><strong>Information You Provide:</strong> Name, email, phone number, account login details, and billing details (processed through secure third-party processors).</li>
+          <li><strong>Customer Data Uploaded to the Platform:</strong> Operational data entered by users, files, documents, or integrations provided by customers. ZUUZ processes this data solely as a data processor on behalf of the customer.</li>
+          <li><strong>Automatically Collected Information:</strong> IP address, browser information, device IDs, usage events and logs, and cookies and tracking technologies.</li>
+        </ul>
+        <p>The data we collect depends on the context of your interactions with Zuuz and the choices you make, including your privacy settings and the products and features you use. We also obtain data about you from Zuuz affiliates, subsidiaries, and third parties.</p>
+        <p>You have choices when it comes to the technology you use and the data you share. When we ask you to provide personal data, you can decline. Many of our products require some personal data to provide you with a service. If you choose not to provide data required to provide you with a product or feature, you cannot use that product or feature.</p>
+        <p>For U.S. customers, we process data for: Contract fulfilment, Service delivery, Security and fraud prevention, and Consent (where applicable).</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="doc-section">
+        <h2>How we use personal data</h2>
+        <p>Zuuz uses the data we collect to provide you with rich, interactive experiences. In particular, we use data to:</p>
+        <ul>
+          <li>Provide our products and SaaS services, including updating, securing, and troubleshooting, as well as providing support.</li>
+          <li>Improve and develop features and performance of our products.</li>
+          <li>Authenticate users and provide customer service; send service-related communications; manage billing and accounts.</li>
+          <li>Personalize our products and make recommendations.</li>
+          <li>Advertise and market to you, including sending promotional communications, targeting advertising, and presenting relevant offers.</li>
+        </ul>
+        <p>We also use the data to operate our business, which includes analyzing our performance, meeting our legal obligations, developing our workforce, and doing research.</p>
+        <p>Our processing of personal data includes both automated and manual (human) methods of processing. Our automated methods often are related to and supported by our manual methods.</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="doc-section">
+        <h2>Reasons we share personal data</h2>
+        <p>We share your personal data with your consent or to complete any transaction or provide any product you have requested or authorized. We also share data with:</p>
+        <ul>
+          <li>Zuuz-controlled affiliates and subsidiaries</li>
+          <li>Vendors working on our behalf</li>
+          <li>Legal authorities when required by law or to respond to legal process</li>
+          <li>Others to protect our customers, protect lives, or maintain the security of our products</li>
+        </ul>
+        <p><strong>Zuuz confirms that it never sells personal information.</strong></p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="doc-section">
+        <h2>How to access and control your personal data</h2>
+        <p>You can control your personal data that Zuuz has obtained, and exercise your data protection rights, by contacting Zuuz or using various tools we provide. You may request:</p>
+        <ul>
+          <li>Access to your personal data</li>
+          <li>Correction of inaccurate data</li>
+          <li>Deletion of your data</li>
+          <li>Data export</li>
+        </ul>
+        <p>To exercise any of these rights, contact us at <a href="mailto:info@zuuz.ai">info@zuuz.ai</a>.</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="doc-section">
+        <h2>Data sharing and retention</h2>
+        <p>Zuuz may share data with:</p>
+        <ul>
+          <li>Cloud hosting providers (e.g., AWS, Azure, GCP)</li>
+          <li>Payment processors</li>
+          <li>Customer support tools</li>
+          <li>Legal authorities only when required by law</li>
+        </ul>
+        <p>Zuuz retains data only as long as necessary for Service delivery, Legal obligations, and Contractual obligations.</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="doc-section">
+        <h2>Cookies and similar technologies</h2>
+        <p>Cookies are small text files placed on your device to store data that can be recalled by a web server. We use cookies and similar technologies for storing and honoring your preferences and settings, enabling you to sign in, providing interest-based advertising, combating fraud, and analyzing how our products perform.</p>
+        <p>Third-party cookies may include Social Media cookies, Analytics cookies, Advertising cookies, and Required cookies used to perform essential website functions. Where required, we obtain your consent prior to placing optional cookies.</p>
+        <p>You have a variety of tools to control the data collected by cookies, web beacons, and similar technologies. You can use controls in your internet browser to limit how websites are able to use cookies and to withdraw your consent by clearing or blocking cookies.</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="doc-section">
+        <h2>Artificial Intelligence</h2>
+        <p>Zuuz leverages the power of artificial intelligence (AI) in many of our products and services, including by incorporating generative AI capabilities. Zuuz's deployment and use of AI is subject to Zuuz's AI Principles and Responsible AI Standard, and Zuuz's collection and use of personal data in developing and deploying AI features is consistent with the commitments outlined in this privacy statement.</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="doc-section">
+        <h2>Products provided by your organization</h2>
+        <p>If you use a Zuuz product with an account provided by an organization you are affiliated with, such as your work account, that organization can:</p>
+        <ul>
+          <li>Control and administer your Zuuz product and account, including controlling privacy-related settings.</li>
+          <li>Access and process your data, including interaction data, diagnostic data, and the contents of your communications and files associated with your Zuuz account.</li>
+        </ul>
+        <p>If you have questions about Zuuz's processing of your personal data in connection with providing products to your organization, please contact your organization's administrator.</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="doc-section">
+        <h2>Enterprise and developer products</h2>
+        <p>Enterprise and Developer Products are Zuuz products and related software offered to and designed primarily for use by organizations and developers, including:</p>
+        <ul>
+          <li>Cloud services and Online Services</li>
+          <li>Enterprise and developer tools and cloud-based services</li>
+          <li>Professional services such as onboarding, data migration, and data science services</li>
+        </ul>
+        <p>In the event of a conflict between this Zuuz privacy statement and the terms of any agreement between a customer and Zuuz for Enterprise and Developer Products, the terms of those agreements will control.</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="doc-section">
+        <h2>Children's privacy</h2>
+        <p>ZUUZ does not target or knowingly collect data from children under age 13.</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="doc-section">
+        <h2>International transfers</h2>
+        <p>Data may be processed in the United States. Customers outside the U.S. consent to transfer by using the service.</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="doc-section">
+        <h2>Updates to this policy</h2>
+        <p>We may update this policy; changes will be posted with a new revision date at the top of this page.</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="doc-section">
+        <h2>How to contact us</h2>
+        <div class="company-block">
+          <div class="label">Contact</div>
+          <p><strong>CBT Artificial Intelligence Technology INC DBA ZUUZ</strong></p>
+          <p>440N Wolfe Road, Sunnyvale, CA, USA 94085</p>
+          <p>Email: <a href="mailto:info@zuuz.ai">info@zuuz.ai</a></p>
+          <p>Website: <a href="https://zuuz.ai">zuuz.ai</a></p>
+        </div>
+      </div>
+
+    </div><!-- end doc-body -->
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-bottom">
+      <div>© 2026 ZUUZ, Inc. · Sunnyvale · Dubai · Hyderabad</div>
+      <div class="foot-links-row">
+        <a href="/privacy" class="active">Privacy</a>
+        <a href="/terms">Terms</a>
+        <span>Security</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Use — ZUUZ</title>
+<meta name="description" content="ZUUZ Terms of Use — the agreement governing your use of the ZUUZ platform and services.">
+<link rel="canonical" href="https://zuuz.ai/terms">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232563FF'%3E%3Cpath d='M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,0..100;1,9..144,300..500,0..100&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4F1EA;
+  --ink:#111110;
+  --ink-soft:#3A3A36;
+  --ink-mute:#7A776E;
+  --line:#1110100D;
+  --line-strong:#11101015;
+  --accent:#2563FF;
+  --accent-hover:#1D4ED8;
+  --navy:#0E1F6B;
+  --card:#FBF8F1;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--paper);color:var(--ink);}
+body{
+  font-family:'Instrument Sans',system-ui,-apple-system,sans-serif;
+  font-size:16px;line-height:1.6;letter-spacing:-0.005em;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.07 0 0 0 0 0.07 0 0 0 0 0.07 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+a{color:var(--accent);text-decoration:none;}
+a:hover{text-decoration:underline;}
+.wrap{max-width:780px;margin:0 auto;padding:0 32px;position:relative;z-index:2;}
+@media(max-width:640px){.wrap{padding:0 20px;}}
+header{
+  position:sticky;top:0;z-index:50;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  background:rgba(244,241,234,0.78);
+  border-bottom:1px solid var(--line);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px;}
+.brand{display:flex;align-items:center;gap:9px;text-decoration:none;}
+.brand-spark{width:18px;height:18px;color:var(--accent);flex-shrink:0;transform:translateY(-1px);}
+.brand-text{
+  font-family:'Fraunces',serif;font-weight:500;font-size:22px;
+  letter-spacing:-0.03em;font-variation-settings:"opsz" 144,"SOFT" 30;
+  color:var(--navy);line-height:1;
+}
+.nav-back{
+  display:inline-flex;align-items:center;gap:6px;
+  color:var(--ink-mute);font-size:13px;font-weight:500;transition:color .2s;
+}
+.nav-back:hover{color:var(--ink);text-decoration:none;}
+.nav-back::before{content:"←";transition:transform .2s;}
+.nav-back:hover::before{transform:translateX(-3px);}
+.page{padding:64px 0 96px;}
+.doc-eyebrow{
+  font-family:'JetBrains Mono',monospace;font-size:11px;
+  text-transform:uppercase;letter-spacing:0.18em;color:var(--accent);
+  margin-bottom:16px;display:flex;align-items:center;gap:12px;
+}
+.doc-eyebrow::before{content:"";width:24px;height:1px;background:var(--accent);}
+.doc-title{
+  font-family:'Fraunces',serif;font-weight:400;
+  font-size:clamp(40px,5vw,64px);line-height:1.05;letter-spacing:-0.03em;
+  font-variation-settings:"opsz" 144,"SOFT" 40;
+  color:var(--navy);margin-bottom:12px;
+}
+.doc-meta{
+  font-family:'JetBrains Mono',monospace;font-size:12px;
+  color:var(--ink-mute);letter-spacing:0.05em;
+  margin-bottom:48px;padding-bottom:32px;
+  border-bottom:1px solid var(--line-strong);
+  display:flex;flex-wrap:wrap;gap:16px;
+}
+.doc-body{display:flex;flex-direction:column;gap:36px;}
+.doc-section{display:flex;flex-direction:column;gap:14px;}
+.doc-section h2{
+  font-family:'Fraunces',serif;font-weight:400;
+  font-size:clamp(22px,2.4vw,28px);line-height:1.2;letter-spacing:-0.02em;
+  color:var(--navy);font-variation-settings:"opsz" 60,"SOFT" 30;
+}
+.doc-section p{font-size:15px;line-height:1.65;color:var(--ink-soft);}
+.doc-section ul,.doc-section ol{padding-left:22px;display:flex;flex-direction:column;gap:8px;}
+.doc-section li{font-size:15px;line-height:1.65;color:var(--ink-soft);}
+.doc-section strong{color:var(--ink);font-weight:600;}
+.doc-section .bold-block{
+  background:var(--card);border-left:3px solid var(--accent);
+  padding:14px 18px;border-radius:0 8px 8px 0;
+  font-size:14px;line-height:1.65;color:var(--ink-soft);
+}
+.doc-section .bold-block strong{color:var(--navy);}
+.divider{height:1px;background:var(--line-strong);margin:4px 0;}
+.company-block{
+  background:var(--card);border:1px solid var(--line-strong);
+  border-radius:12px;padding:24px 28px;
+  display:flex;flex-direction:column;gap:6px;
+}
+.company-block .label{
+  font-family:'JetBrains Mono',monospace;font-size:10px;
+  text-transform:uppercase;letter-spacing:0.14em;color:var(--ink-mute);margin-bottom:4px;
+}
+.company-block p{font-size:14px;color:var(--ink-soft);line-height:1.5;}
+footer{padding:48px 0 32px;border-top:1px solid var(--line);margin-top:40px;}
+.foot-bottom{
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
+  font-family:'JetBrains Mono',monospace;font-size:11px;
+  color:var(--ink-mute);letter-spacing:0.05em;
+}
+.foot-links-row{display:flex;gap:20px;}
+.foot-links-row a{color:var(--ink-mute);transition:color .2s;}
+.foot-links-row a:hover{color:var(--ink);text-decoration:none;}
+.foot-links-row a.active{color:var(--accent);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/">
+      <svg class="brand-spark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z"/>
+      </svg>
+      <span class="brand-text">ZUUZ</span>
+    </a>
+    <a class="nav-back" href="/">Back to zuuz.ai</a>
+  </div>
+</header>
+
+<div class="page">
+  <div class="wrap">
+
+    <div class="doc-eyebrow">Legal</div>
+    <h1 class="doc-title">Terms of Use</h1>
+    <div class="doc-meta">
+      <span>Last Updated: May 27, 2026</span>
+    </div>
+
+    <div class="doc-body">
+
+      <div class="doc-section">
+        <h2>Acceptance of terms</h2>
+        <p>The services that Zuuz provides to you are subject to the following Terms of Use ("TOU"). Zuuz reserves the right to update and modify the TOU at any time without notice to you. The most current version of the TOU can be reviewed by clicking on the "Terms of Use" hypertext link located at the bottom of our web pages.</p>
+        <p>When we make updates to the TOU, Zuuz will update the date at the top of this page. By using the website after a new version of the TOU has been posted, you agree to the terms of such new version.</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="doc-section">
+        <h2>Description of services</h2>
+        <p>Through its network of web properties, Zuuz provides you with access to a variety of resources, including developer tools, download areas, communication forums and product information (collectively "Services"). The Services, including any updates, enhancements, new features, and/or the addition of any new web properties, are subject to these TOU.</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="doc-section">
+        <h2>Definitions</h2>
+        <ul>
+          <li><strong>"Services"</strong> — Zuuz cloud software and related services</li>
+          <li><strong>"Customer"</strong> — The entity or individual using the service</li>
+          <li><strong>"Customer Data"</strong> — Data submitted to the platform by users</li>
+        </ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="doc-section">
+        <h2>Subscription &amp; billing</h2>
+        <p>Customer agrees to Zuuz billing plans which are paid monthly or annually. Fees are non-refundable unless legally required. Late payments may result in service suspension.</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="doc-section">
+        <h2>Personal and non-commercial use limitation</h2>
+        <p>Unless otherwise specified, the Services are for your personal and non-commercial use. You may not modify, copy, distribute, transmit, display, perform, reproduce, publish, license, create derivative works from, transfer, or sell any information, software, products or services obtained from the Services.</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="doc-section">
+        <h2>Content</h2>
+        <p>All content included in or made available through the Services — such as text, graphics, logos, icons, images, sounds, music, digital downloads, data compilations, software, and documents — is the exclusive property of Zuuz or its content suppliers and is protected by applicable trade dress, copyright, trademark, patent, and other intellectual property laws in the United States and internationally. All rights not expressly granted to you in this TOU are reserved and retained by Zuuz or its licensors, suppliers, publishers, rightsholders, or other content providers.</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="doc-section">
+        <h2>Software</h2>
+        <p>Any software that is made available to download from the Services ("Software") is the copyrighted work of Zuuz and/or its suppliers. Use of the Software is governed by the terms of the end user license agreement, if any, which accompanies or is included with the Software ("License Agreement").</p>
+        <p>The Software is made available for download solely for use by end users according to the License Agreement. Any reproduction or redistribution of the Software not in accordance with the License Agreement is expressly prohibited by law, and may result in severe civil and criminal penalties.</p>
+        <div class="bold-block">
+          <strong>Without limiting the foregoing, copying or reproduction of the software to any other server or location for further reproduction or redistribution is expressly prohibited, unless such reproduction or redistribution is expressly permitted by the license agreement accompanying such software.</strong>
+        </div>
+        <p>Third party scripts or code, linked to or referenced from this website, are licensed to you by the third parties that own such code, not by Zuuz.</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="doc-section">
+        <h2>Documents</h2>
+        <p>Permission to use Documents (such as white papers, press releases, datasheets and FAQs) from the Services is granted, provided that: (1) the copyright notice appears in all copies and that both the copyright notice and this permission notice appear; (2) use of such Documents is for informational and non-commercial or personal use only; and (3) no modifications of any Documents are made.</p>
+        <p>Elements of Zuuz websites are protected by trade dress, trademark, unfair competition, and other laws and may not be copied or imitated in whole or in part. No logo, graphic, sound or image from any Zuuz website may be copied or retransmitted unless expressly permitted by Zuuz.</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="doc-section">
+        <h2>Representations and warranties</h2>
+        <div class="bold-block">
+          <strong>Except as warranted in the license agreement, Zuuz corporation hereby disclaims all warranties and conditions with regard to the software, including all warranties and conditions of merchantability, whether express, implied or statutory, fitness for a particular purpose, title and non-infringement.</strong>
+        </div>
+        <div class="bold-block" style="margin-top:10px;">
+          <strong>Zuuz and/or its respective suppliers make no representations about the suitability of the information contained in the documents and related graphics published as part of the services for any purpose. All such documents and related graphics are provided "as is" without warranty of any kind.</strong>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="doc-section">
+        <h2>Limitation of liability</h2>
+        <div class="bold-block">
+          <strong>In no event shall Zuuz and/or its respective suppliers be liable for any special, indirect or consequential damages or any damages whatsoever resulting from loss of use, data or profits, whether in an action of contract, negligence or other tortious action, arising out of or in connection with the use or performance of software, documents, provision of or failure to provide services, or information available from the services.</strong>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="doc-section">
+        <h2>Member account, password, and security</h2>
+        <p>If any of the Services requires you to open an account, you must complete the registration process by providing us with current, complete and accurate information. You are entirely responsible for maintaining the confidentiality of your password and account.</p>
+        <p>You agree to notify Zuuz immediately of any unauthorized use of your account or any other breach of security. Zuuz will not be liable for any loss that you may incur as a result of someone else using your password or account, either with or without your knowledge.</p>
+        <p>You may not use anyone else's account at any time, without the permission of the account holder.</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="doc-section">
+        <h2>No unlawful or prohibited use</h2>
+        <p>As a condition of your use of the Services, you will not use the Services for any purpose that is unlawful or prohibited by these terms, conditions, and notices. You may not use the Services in any manner that could damage, disable, overburden, or impair any Zuuz server, or interfere with any other party's use and enjoyment of any Services.</p>
+        <p>You may not attempt to gain unauthorized access to any Services, other accounts, computer systems or networks connected to any Zuuz server, through hacking, password mining or any other means.</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="doc-section">
+        <h2>Use of services</h2>
+        <p>When using any Communication Services provided by ZUUZ, you agree that you will not:</p>
+        <ul>
+          <li>Use the Communication Services in connection with surveys, contests, pyramid schemes, chain letters, junk email, spamming or any duplicative or unsolicited messages.</li>
+          <li>Defame, abuse, harass, stalk, threaten or otherwise violate the legal rights of others.</li>
+          <li>Publish, post, upload, distribute or disseminate any inappropriate, profane, defamatory, obscene, indecent or unlawful topic, name, material or information.</li>
+          <li>Upload files that contain viruses, Trojan horses, worms, time bombs, corrupted files, or any other similar software or programs that may damage the operation of another's computer or property.</li>
+          <li>Advertise or offer to sell or buy any goods or services for any business purpose, unless such Communication Services specifically allows such messages.</li>
+          <li>Harvest or otherwise collect information about others, including e-mail addresses.</li>
+          <li>Violate any applicable laws or regulations.</li>
+          <li>Create a false identity for the purpose of misleading others.</li>
+          <li>Restrict or inhibit any other user from using and enjoying the Communication Services.</li>
+        </ul>
+        <p>Zuuz reserves the right to review materials posted to the Communication Services and to remove any materials in its sole discretion. Zuuz reserves the right to terminate your access to any or all of the Communication Services at any time, without notice, for any reason.</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="doc-section">
+        <h2>AI services</h2>
+        <p>"AI services" are services that are labeled or described by Zuuz as including, using, powered by, or being an Artificial Intelligence ("AI") system. When using AI services, you may not:</p>
+        <ul>
+          <li><strong>Reverse Engineering:</strong> Use the AI services to discover any underlying components of the models, algorithms, and systems.</li>
+          <li><strong>Extracting Data:</strong> Use web scraping, web harvesting, or web data extraction methods to extract data from the AI services.</li>
+          <li><strong>Limits on use of data:</strong> Use the AI services, or data from the AI services, to create, train, or improve (directly or indirectly) any other AI service.</li>
+        </ul>
+        <p>As part of providing the AI services, Zuuz will process and store your inputs to the service as well as output from the service, for purposes of monitoring for and preventing abusive or harmful uses or outputs of the service.</p>
+        <p>You are solely responsible for responding to any third-party claims regarding your use of the AI services in compliance with applicable laws.</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="doc-section">
+        <h2>Materials provided to Zuuz</h2>
+        <p>Zuuz does not claim ownership of the materials you provide to Zuuz (including feedback and suggestions) or post, upload, input or submit to any Services. However, by posting your Submission you are granting Zuuz, its affiliated companies and necessary sublicensees permission to use your Submission in connection with the operation of their Internet businesses, including the license rights to: copy, distribute, transmit, publicly display, publicly perform, reproduce, edit, translate and reformat your Submission.</p>
+        <p>No compensation will be paid with respect to the use of your Submission. Zuuz is under no obligation to post or use any Submission you may provide and Zuuz may remove any Submission at any time in its sole discretion.</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="doc-section">
+        <h2>Links to third party sites</h2>
+        <p>The links in this area will let you leave Zuuz's site. The linked sites are not under the control of Zuuz and Zuuz is not responsible for the contents of any linked site or any link contained in a linked site, or any changes or updates to such sites.</p>
+        <div class="bold-block">
+          <strong>Zuuz is not responsible for webcasting or any other form of transmission received from any linked site.</strong> Zuuz is providing these links to you only as a convenience, and the inclusion of any link does not imply endorsement by Zuuz of the site.
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="doc-section">
+        <h2>Unsolicited idea submission policy</h2>
+        <p>Zuuz or any of its employees do not accept or consider unsolicited ideas, including ideas for new advertising campaigns, new promotions, new products or technologies, processes, materials, marketing plans or new product names. Please do not send any original creative artwork, samples, demos, or other works.</p>
+        <p>If, despite our request that you not send us your ideas and materials, you still send them, please understand that Zuuz makes no assurances that your ideas and materials will be treated as confidential or proprietary.</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="doc-section">
+        <h2>Governing law and dispute resolution</h2>
+        <div class="bold-block">
+          This agreement is governed by the Laws of the State of Texas. Any disputes raised are subject to arbitration in Texas unless otherwise required by law.
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="doc-section">
+        <h2>Contact us</h2>
+        <div class="company-block">
+          <div class="label">Contact</div>
+          <p><strong>ZUUZ, Inc.</strong></p>
+          <p>440N Wolfe Road, Sunnyvale, CA, USA 94085</p>
+          <p>Email: <a href="mailto:info@zuuz.ai">info@zuuz.ai</a></p>
+          <p>Website: <a href="https://zuuz.ai">zuuz.ai</a></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-bottom">
+      <div>© 2026 ZUUZ, Inc. · Sunnyvale · Dubai · Hyderabad</div>
+      <div class="foot-links-row">
+        <a href="/privacy">Privacy</a>
+        <a href="/terms" class="active">Terms</a>
+        <span>Security</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
