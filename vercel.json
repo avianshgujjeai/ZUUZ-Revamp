@@ -1,16 +1,10 @@
-(
+{
   "redirects": [
-
-
     {
       "source": "/demo",
       "destination": "https://cal.com/avinashgujje/15min",
       "permanent": false
     },
-    }
-
-{
-  "redirects": [
     {
       "source": "/blog-email-to-crm-automation-for-it-companies.html",
       "destination": "/blogs/email-to-crm-automation-for-it-companies.html",
