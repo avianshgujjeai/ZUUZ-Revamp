@@ -1,8 +1,6 @@
-#In the file vercel.json in the repo root, find this line:
 
   "redirects": [
 
-#Add this as the FIRST item in the redirects array, before the existing blog redirects:
 
     {
       "source": "/demo",
@@ -10,7 +8,6 @@
       "permanent": false
     },
 
-#Do not change anything else. Commit with message: "feat: add /demo redirect to Cal.com"
 
 {
   "redirects": [
