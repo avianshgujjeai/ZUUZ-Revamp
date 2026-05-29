@@ -1,5 +1,6 @@
 {
   "cleanUrls": true,
+  "trailingSlash": false,
   "redirects": [
     {
       "source": "/demo",
@@ -30,6 +31,12 @@
       "source": "/blog-hubspot-email-lead-capture-automation.html",
       "destination": "/blogs/hubspot-email-lead-capture-automation.html",
       "permanent": true
-    }
+    },
+    { "source": "/solutions", "destination": "/", "permanent": true },
+    { "source": "/solutions/:path*", "destination": "/", "permanent": true },
+    { "source": "/products/:path*", "destination": "/", "permanent": true },
+    { "source": "/about/:path*", "destination": "/", "permanent": true },
+    { "source": "/customers/:path*", "destination": "/", "permanent": true },
+    { "source": "/sol-vp-cro", "destination": "/", "permanent": true }
   ]
 }
