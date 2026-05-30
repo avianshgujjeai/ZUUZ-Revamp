@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://zuuz.ai/sitemap.xml
+Sitemap: https://www.zuuz.ai/sitemap.xml
