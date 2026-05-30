@@ -135,6 +135,22 @@ article h1 em{
   margin:32px 0;font-style:italic;color:var(--ink-soft);
   font-family:'Fraunces',serif;font-size:20px;line-height:1.5;
 }
+.article-body table{
+  width:100%;border-collapse:collapse;margin:28px 0;
+  font-size:15px;line-height:1.5;
+}
+.article-body th,.article-body td{
+  text-align:left;padding:12px 14px;
+  border-bottom:1px solid var(--line-strong);
+  color:var(--ink-soft);
+}
+.article-body th{
+  font-family:'JetBrains Mono',monospace;font-size:11px;
+  text-transform:uppercase;letter-spacing:0.08em;
+  color:var(--ink);background:var(--paper-warm);
+  border-bottom:1px solid var(--ink);
+}
+.article-body tr:last-child td{border-bottom:none}
 
 /* ARTICLE CTA BOX */
 .article-cta{
