@@ -85,4 +85,46 @@
     <lastmod>2026-05-27</lastmod>
   </url>
 
+  <url>
+    <loc>https://www.zuuz.ai/blogs</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-05-29</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.zuuz.ai/resources</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-05-29</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.zuuz.ai/resources/case-studies/ra-technologies</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-05-29</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.zuuz.ai/privacy</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <lastmod>2026-05-29</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.zuuz.ai/terms</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <lastmod>2026-05-29</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.zuuz.ai/security</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <lastmod>2026-05-29</lastmod>
+  </url>
+
 </urlset>
