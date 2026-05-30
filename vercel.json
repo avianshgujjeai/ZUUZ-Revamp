@@ -3,11 +3,6 @@
   "trailingSlash": false,
   "redirects": [
     {
-      "source": "https://zuuz.ai/:path*",
-      "destination": "https://www.zuuz.ai/:path*",
-      "permanent": true
-    },
-    {
       "source": "/demo",
       "destination": "https://cal.com/avinashgujje/15min",
       "permanent": true
