@@ -3,40 +3,79 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "https://zuuz.ai/:path*",
+      "destination": "https://www.zuuz.ai/:path*",
+      "permanent": true
+    },
+    {
       "source": "/demo",
       "destination": "https://cal.com/avinashgujje/15min",
-      "permanent": false
+      "permanent": true
+    },
+    {
+      "source": "/schedule-demo",
+      "destination": "https://cal.com/avinashgujje/15min",
+      "permanent": true
+    },
+    {
+      "source": "/careers",
+      "destination": "/",
+      "permanent": true
     },
     {
       "source": "/blog-email-to-crm-automation-for-it-companies.html",
-      "destination": "/blogs/email-to-crm-automation-for-it-companies.html",
+      "destination": "/blogs/email-to-crm-automation-for-it-companies",
       "permanent": true
     },
     {
       "source": "/blog-missed-sales-leads-in-email-how-to-fix-it.html",
-      "destination": "/blogs/missed-sales-leads-in-email-how-to-fix-it.html",
+      "destination": "/blogs/missed-sales-leads-in-email-how-to-fix-it",
       "permanent": true
     },
     {
       "source": "/blog-renewal-tracking-software-for-vars-and-distributors.html",
-      "destination": "/blogs/renewal-tracking-software-for-vars-and-distributors.html",
+      "destination": "/blogs/renewal-tracking-software-for-vars-and-distributors",
       "permanent": true
     },
     {
       "source": "/blog-salesforce-email-integration-for-it-sales-teams.html",
-      "destination": "/blogs/salesforce-email-integration-for-it-sales-teams.html",
+      "destination": "/blogs/salesforce-email-integration-for-it-sales-teams",
       "permanent": true
     },
     {
       "source": "/blog-hubspot-email-lead-capture-automation.html",
-      "destination": "/blogs/hubspot-email-lead-capture-automation.html",
+      "destination": "/blogs/hubspot-email-lead-capture-automation",
       "permanent": true
     },
-    { "source": "/solutions", "destination": "/", "permanent": true },
-    { "source": "/solutions/:path*", "destination": "/", "permanent": true },
-    { "source": "/products/:path*", "destination": "/", "permanent": true },
-    { "source": "/about/:path*", "destination": "/", "permanent": true },
-    { "source": "/customers/:path*", "destination": "/", "permanent": true },
-    { "source": "/sol-vp-cro", "destination": "/", "permanent": true }
+    {
+      "source": "/solutions",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/products/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/about/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/customers/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/sol-vp-cro",
+      "destination": "/",
+      "permanent": true
+    }
   ]
 }

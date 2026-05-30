@@ -5,84 +5,7 @@
     <loc>https://www.zuuz.ai/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <lastmod>2026-05-27</lastmod>
-  </url>
-
-  <url>
-    <loc>https://www.zuuz.ai/demo</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <lastmod>2026-05-27</lastmod>
-  </url>
-
-  <url>
-    <loc>https://www.zuuz.ai/blogs/email-to-crm-automation-for-it-companies.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-05-27</lastmod>
-  </url>
-
-  <url>
-    <loc>https://www.zuuz.ai/blogs/email-lead-qualification-automation.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-05-27</lastmod>
-  </url>
-
-  <url>
-    <loc>https://www.zuuz.ai/blogs/how-to-track-renewals-across-multiple-products.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-05-27</lastmod>
-  </url>
-
-  <url>
-    <loc>https://www.zuuz.ai/blogs/hubspot-email-lead-capture-automation.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-05-27</lastmod>
-  </url>
-
-  <url>
-    <loc>https://www.zuuz.ai/blogs/it-sales-pipeline-visibility-tools.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-05-27</lastmod>
-  </url>
-
-  <url>
-    <loc>https://www.zuuz.ai/blogs/missed-sales-leads-in-email-how-to-fix-it.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-05-27</lastmod>
-  </url>
-
-  <url>
-    <loc>https://www.zuuz.ai/blogs/renewal-tracking-software-for-vars-and-distributors.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-05-27</lastmod>
-  </url>
-
-  <url>
-    <loc>https://www.zuuz.ai/blogs/salesforce-email-integration-for-it-sales-teams.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-05-27</lastmod>
-  </url>
-
-  <url>
-    <loc>https://www.zuuz.ai/blogs/why-your-crm-pipeline-is-wrong.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-05-27</lastmod>
-  </url>
-
-  <url>
-    <loc>https://www.zuuz.ai/blogs/zuuz-vs-manual-crm-entry.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-05-27</lastmod>
+    <lastmod>2026-05-29</lastmod>
   </url>
 
   <url>
@@ -93,10 +16,73 @@
   </url>
 
   <url>
-    <loc>https://www.zuuz.ai/resources</loc>
+    <loc>https://www.zuuz.ai/blogs/email-lead-qualification-automation</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <lastmod>2026-05-29</lastmod>
+    <priority>0.8</priority>
+    <lastmod>2026-05-25</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.zuuz.ai/blogs/email-to-crm-automation-for-it-companies</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-05-25</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.zuuz.ai/blogs/how-to-track-renewals-across-multiple-products</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-05-25</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.zuuz.ai/blogs/hubspot-email-lead-capture-automation</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-05-25</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.zuuz.ai/blogs/it-sales-pipeline-visibility-tools</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-05-25</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.zuuz.ai/blogs/missed-sales-leads-in-email-how-to-fix-it</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-05-25</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.zuuz.ai/blogs/renewal-tracking-software-for-vars-and-distributors</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-05-25</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.zuuz.ai/blogs/salesforce-email-integration-for-it-sales-teams</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-05-25</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.zuuz.ai/blogs/why-your-crm-pipeline-is-wrong</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-05-25</lastmod>
+  </url>
+
+  <url>
+    <loc>https://www.zuuz.ai/blogs/zuuz-vs-manual-crm-entry</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-05-25</lastmod>
   </url>
 
   <url>
@@ -115,13 +101,6 @@
 
   <url>
     <loc>https://www.zuuz.ai/terms</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-    <lastmod>2026-05-29</lastmod>
-  </url>
-
-  <url>
-    <loc>https://www.zuuz.ai/security</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
     <lastmod>2026-05-29</lastmod>
