@@ -1225,5 +1225,119 @@ if(vf){
 }
 </script>
 
+<!-- Lead capture modal -->
+<div id="lead-modal" style="display:none; position:fixed; inset:0; background:rgba(17,17,16,0.55); backdrop-filter:blur(6px); z-index:1000; align-items:center; justify-content:center; padding:20px;">
+  <div style="background:#FAFAF7; border-radius:18px; padding:40px 36px; max-width:440px; width:100%; box-shadow:0 24px 64px -16px rgba(17,17,16,0.4); position:relative; font-family:'Instrument Sans', sans-serif;">
+    <button id="lead-modal-close" aria-label="Close" style="position:absolute; top:16px; right:16px; background:none; border:none; cursor:pointer; color:#7A776E; font-size:20px; line-height:1; padding:8px;">×</button>
+
+    <div style="font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#2563FF; margin-bottom:16px;">
+      Quick question
+    </div>
+
+    <h3 style="font-family:'Instrument Serif', serif; font-weight:400; font-size:28px; line-height:1.15; letter-spacing:-0.02em; color:#0F0F0E; margin:0 0 12px;">
+      Want a walkthrough on <em style="color:#2563FF;">your</em> data?
+    </h3>
+
+    <p style="color:#3A3A36; font-size:15px; line-height:1.5; margin:0 0 24px;">
+      Drop your email. I'll personally send you a calendar link and run the demo on your mailbox in 15 minutes.
+    </p>
+
+    <form id="lead-form">
+      <input
+        type="email"
+        id="lead-email"
+        required
+        placeholder="you@company.com"
+        style="width:100%; padding:14px 16px; border:1px solid #11101015; border-radius:10px; font-size:15px; font-family:inherit; background:#fff; margin-bottom:12px; outline:none; box-sizing:border-box;"
+      >
+      <button type="submit" id="lead-submit" style="width:100%; background:#0F0F0E; color:#FAFAF7; border:none; padding:14px 24px; border-radius:999px; font-size:15px; font-weight:500; cursor:pointer; font-family:inherit; transition:transform 0.2s;">
+        Send me the demo link →
+      </button>
+    </form>
+
+    <div id="lead-success" style="display:none; text-align:center; padding:8px 0;">
+      <div style="color:#0F8B4F; font-size:32px; margin-bottom:12px;">✓</div>
+      <div style="font-family:'Instrument Serif', serif; font-size:20px; color:#0F0F0E; margin-bottom:8px;">Got it.</div>
+      <div style="color:#3A3A36; font-size:14px;">Check your inbox — I just sent you a booking link.</div>
+    </div>
+
+    <div id="lead-error" style="display:none; color:#B91C1C; font-size:13px; margin-top:12px; text-align:center;"></div>
+
+    <div style="margin-top:20px; padding-top:16px; border-top:1px solid #11101010; font-size:12px; color:#7A776E; text-align:center;">
+      No spam. Avinash replies personally.
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const modal = document.getElementById('lead-modal');
+  const closeBtn = document.getElementById('lead-modal-close');
+  const form = document.getElementById('lead-form');
+  const emailInput = document.getElementById('lead-email');
+  const submitBtn = document.getElementById('lead-submit');
+  const successEl = document.getElementById('lead-success');
+  const errorEl = document.getElementById('lead-error');
+
+  let modalShown = false;
+
+  function showModal() {
+    if (modalShown || sessionStorage.getItem('zuuz_lead_seen') === 'true') return;
+    modalShown = true;
+    modal.style.display = 'flex';
+    setTimeout(() => emailInput.focus(), 200);
+  }
+
+  function closeModal() {
+    modal.style.display = 'none';
+    sessionStorage.setItem('zuuz_lead_seen', 'true');
+  }
+
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+
+  // Trigger after 168 seconds (~70% of a 4-minute video)
+  setTimeout(showModal, 168000);
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = emailInput.value.trim();
+    if (!email || !email.includes('@')) return;
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+    errorEl.style.display = 'none';
+
+    try {
+      const res = await fetch('/api/capture-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      });
+
+      if (!res.ok) throw new Error('Submission failed');
+
+      // Show success state
+      form.style.display = 'none';
+      successEl.style.display = 'block';
+      sessionStorage.setItem('zuuz_lead_seen', 'true');
+
+      // Auto-close after 4 seconds so the video continues
+      setTimeout(closeModal, 4000);
+
+      // Track in GA4 if available
+      if (typeof gtag === 'function') {
+        gtag('event', 'lead_captured', { source: 'video_modal' });
+      }
+    } catch (err) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send me the demo link →';
+      errorEl.textContent = 'Something went wrong. Please try again or email avinash@zuuz.ai directly.';
+      errorEl.style.display = 'block';
+    }
+  });
+})();
+</script>
+
 </body>
 </html>
