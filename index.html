@@ -460,6 +460,62 @@
   }
   .pricing-foot strong{color:var(--ink); font-weight:500}
 
+  /* ROI CALCULATOR */
+  .roi-calc{margin-top:72px; padding-top:56px; border-top:1px solid var(--line-strong)}
+  .roi-head{text-align:center; max-width:640px; margin:0 auto 36px}
+  .roi-head .section-eyebrow{justify-content:center}
+  .roi-head .section-eyebrow::before{display:none}
+  .roi-head h3{
+    font-family:'Fraunces', serif; font-weight:700;
+    font-size:clamp(28px,4vw,42px); letter-spacing:-0.02em;
+    line-height:1.1; margin-bottom:14px;
+  }
+  .roi-head h3 em{font-style:italic; color:var(--accent); font-weight:300}
+  .roi-head p{color:var(--ink-soft); font-size:15px; line-height:1.6; margin:0 auto}
+  .roi-panel{
+    background:var(--card); border:1px solid var(--line-strong);
+    border-radius:20px; padding:32px;
+  }
+  .roi-panel-label,.roi-hero-label,.roi-stat-label{
+    font-family:'JetBrains Mono', monospace; font-size:11px;
+    letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-mute);
+  }
+  .roi-panel-label{margin-bottom:24px}
+  .roi-inputs{display:grid; grid-template-columns:repeat(3,1fr); gap:28px 40px}
+  @media(max-width:760px){.roi-inputs{grid-template-columns:1fr 1fr}}
+  @media(max-width:480px){.roi-inputs{grid-template-columns:1fr}}
+  .roi-field-top{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:4px}
+  .roi-field-label{font-size:14px; font-weight:500; color:var(--ink)}
+  .roi-field-val{font-size:14px; font-weight:700; color:var(--accent); font-variant-numeric:tabular-nums}
+  .roi-field-hint{font-size:12px; color:var(--ink-mute); margin-bottom:8px}
+  .roi-field input[type=range]{width:100%; accent-color:var(--accent); cursor:pointer; height:2px; margin:0}
+  .roi-field-minmax{display:flex; justify-content:space-between; margin-top:6px; font-size:11px; color:var(--ink-mute)}
+  .roi-hero{background:var(--ink); border-radius:20px; padding:40px 48px; margin-top:20px}
+  .roi-hero-label{color:rgba(244,241,234,0.5); margin-bottom:12px}
+  .roi-hero-num{
+    font-family:'Instrument Sans', sans-serif; font-weight:800;
+    font-size:clamp(48px,9vw,88px); color:var(--accent);
+    line-height:1; letter-spacing:-0.04em; font-variant-numeric:tabular-nums;
+  }
+  .roi-hero-sub{margin-top:16px; font-size:14px; color:rgba(244,241,234,0.6); max-width:500px; line-height:1.6}
+  .roi-stats{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:16px}
+  @media(max-width:760px){.roi-stats{grid-template-columns:1fr}}
+  .roi-stat{background:var(--card); border:1px solid var(--line-strong); border-radius:20px; padding:28px}
+  .roi-stat-label{margin-bottom:16px}
+  .roi-stat-num{
+    font-family:'Instrument Sans', sans-serif; font-weight:800; font-size:48px;
+    color:var(--ink); line-height:1; letter-spacing:-0.04em; font-variant-numeric:tabular-nums;
+  }
+  .roi-stat-unit{margin-top:8px; font-size:14px; color:var(--ink-soft)}
+  .roi-stat-note{margin-top:16px; font-size:12px; color:var(--ink-mute); line-height:1.6}
+  .roi-stat-note strong{color:var(--accent); font-weight:600}
+  .roi-rfp{display:flex; align-items:baseline; gap:12px}
+  .roi-rfp .old{color:#C9C6BD; text-decoration:line-through; text-decoration-color:#D8D5CC}
+  .roi-rfp .arr{color:var(--ink-mute); font-size:18px}
+  .roi-assump{margin-top:24px; font-size:12px; color:var(--ink-mute)}
+  .roi-assump summary{cursor:pointer; font-family:'JetBrains Mono', monospace; letter-spacing:0.04em}
+  .roi-assump ul{margin-top:12px; padding-left:18px; list-style:disc; display:flex; flex-direction:column; gap:6px; line-height:1.5}
+
   /* TEAM */
   .team-intro{
     display:grid; grid-template-columns:1.1fr 1fr; gap:64px;
@@ -798,7 +854,7 @@
       </ul>
     </nav>
     <div class="nav-actions">
-      <a class="nav-trial" href="https://buy.stripe.com/cNi6oHaWNeAU8QS457bZe00">Start free trial</a>
+      <a class="nav-trial" href="https://buy.stripe.com/cNi6oHaWNeAU8QS457bZe00">Start 30-day free trial</a>
       <a class="nav-cta" href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Book a demo</a>
     </div>
   </div>
@@ -839,7 +895,7 @@
     </div>
 
     <div class="cta-row">
-      <a class="btn-primary" href="https://buy.stripe.com/cNi6oHaWNeAU8QS457bZe00">Start free trial</a>
+      <a class="btn-primary" href="https://buy.stripe.com/cNi6oHaWNeAU8QS457bZe00">Start 30-day free trial</a>
       <a class="btn-ghost" href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Book a demo</a>
     </div>
     <p class="cta-trust">30-day free trial &middot; No setup fee &middot; Cancel anytime</p>
@@ -978,7 +1034,7 @@
           <li>Renewal radar · 90-day history</li>
         </ul>
         <button class="price-more-link" onclick="toggleMore('solo-extra',this)" aria-expanded="false">See all features <span class="arr">→</span></button>
-        <a class="price-cta" href="https://buy.stripe.com/cNi6oHaWNeAU8QS457bZe00">Start free trial</a>
+        <a class="price-cta" href="https://buy.stripe.com/cNi6oHaWNeAU8QS457bZe00">Start 30-day free trial</a>
       </div>
 
       <!-- Team-3 hidden — available on request via info@zuuz.ai -->
@@ -993,7 +1049,7 @@
           <li>12-month history</li>
           <li>Onboarding call included</li>
         </ul>
-        <a class="price-cta" href="https://buy.stripe.com/bJefZh8OF78sgjk6dfbZe01">Start free trial</a>
+        <a class="price-cta" href="https://buy.stripe.com/bJefZh8OF78sgjk6dfbZe01">Start 30-day free trial</a>
       </div>
 
       <div class="price-card featured">
@@ -1014,7 +1070,7 @@
           <li>Priority support</li>
         </ul>
         <button class="price-more-link" onclick="toggleMore('growth-extra',this)" aria-expanded="false">See all features <span class="arr">→</span></button>
-        <a class="price-cta" href="https://buy.stripe.com/eVq5kD6GxcsMc34cBDbZe02">Start free trial</a>
+        <a class="price-cta" href="https://buy.stripe.com/eVq5kD6GxcsMc34cBDbZe02">Start 30-day free trial</a>
       </div>
 
       <div class="price-card">
@@ -1034,7 +1090,7 @@
           <li>Dedicated CSM</li>
         </ul>
         <button class="price-more-link" onclick="toggleMore('scale-extra',this)" aria-expanded="false">See all features <span class="arr">→</span></button>
-        <a class="price-cta" href="https://buy.stripe.com/6oU3cvgh71O80km7hjbZe03">Start free trial</a>
+        <a class="price-cta" href="https://buy.stripe.com/6oU3cvgh71O80km7hjbZe03">Start 30-day free trial</a>
       </div>
 
       <div class="price-card">
@@ -1060,6 +1116,107 @@
 
     <div class="pricing-foot">
       All plans include a 30-day free trial &middot; Cancel anytime &middot; Annual billing saves 2 months
+    </div>
+
+    <!-- ROI CALCULATOR -->
+    <div class="roi-calc">
+      <div class="roi-head">
+        <div class="section-eyebrow">Revenue impact calculator</div>
+        <h3>What is your revenue team <em>leaving behind?</em></h3>
+        <p>Deal signals expire in inboxes every day. Adjust the numbers below to see exactly how much revenue is escaping your pipeline.</p>
+      </div>
+
+      <div class="roi-panel">
+        <div class="roi-panel-label">Your team</div>
+        <div class="roi-inputs">
+
+          <div class="roi-field">
+            <div class="roi-field-top">
+              <span class="roi-field-label">Sales reps</span>
+              <span class="roi-field-val" id="roi-reps-val">25</span>
+            </div>
+            <input type="range" id="roi-reps" min="5" max="200" step="5" value="25">
+            <div class="roi-field-minmax"><span>5</span><span>200</span></div>
+          </div>
+
+          <div class="roi-field">
+            <div class="roi-field-top">
+              <span class="roi-field-label">Inbound leads / month</span>
+              <span class="roi-field-val" id="roi-leads-val">120</span>
+            </div>
+            <div class="roi-field-hint">Emails, referrals, form fills</div>
+            <input type="range" id="roi-leads" min="10" max="1000" step="10" value="120">
+            <div class="roi-field-minmax"><span>10</span><span>1000</span></div>
+          </div>
+
+          <div class="roi-field">
+            <div class="roi-field-top">
+              <span class="roi-field-label">Average deal value</span>
+              <span class="roi-field-val" id="roi-deal-val">$45K</span>
+            </div>
+            <input type="range" id="roi-deal" min="5" max="500" step="5" value="45">
+            <div class="roi-field-minmax"><span>$5K</span><span>$500K</span></div>
+          </div>
+
+          <div class="roi-field">
+            <div class="roi-field-top">
+              <span class="roi-field-label">Current win rate</span>
+              <span class="roi-field-val" id="roi-win-val">22%</span>
+            </div>
+            <input type="range" id="roi-win" min="5" max="60" step="1" value="22">
+            <div class="roi-field-minmax"><span>5%</span><span>60%</span></div>
+          </div>
+
+          <div class="roi-field">
+            <div class="roi-field-top">
+              <span class="roi-field-label">CRM admin hrs / rep / week</span>
+              <span class="roi-field-val" id="roi-crm-val">6 hrs</span>
+            </div>
+            <div class="roi-field-hint">Data entry, logging, record updates</div>
+            <input type="range" id="roi-crm" min="1" max="20" step="1" value="6">
+            <div class="roi-field-minmax"><span>1 hr</span><span>20 hrs</span></div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="roi-hero">
+        <div class="roi-hero-label">Revenue escaping your pipeline right now</div>
+        <div class="roi-hero-num" id="roi-revenue">$0</div>
+        <p class="roi-hero-sub">per year. Not pipeline at risk — pipeline that does not exist in your CRM yet. These are deals your team never sees because the signal never left the inbox.</p>
+      </div>
+
+      <div class="roi-stats">
+        <div class="roi-stat">
+          <div class="roi-stat-label">Deals slipping through</div>
+          <div class="roi-stat-num" id="roi-deals">0</div>
+          <div class="roi-stat-unit">deals / year never reaching your CRM</div>
+          <div class="roi-stat-note">Buying signals buried in email threads — intent phrases, RFP forwards, company mentions — with no CRM visibility.</div>
+        </div>
+        <div class="roi-stat">
+          <div class="roi-stat-label">Selling hours lost</div>
+          <div class="roi-stat-num" id="roi-hours">0</div>
+          <div class="roi-stat-unit">hrs / year on CRM admin, not selling</div>
+          <div class="roi-stat-note">ZUUZ frees <strong id="roi-freed">0 hours</strong> of those hours — redirected to pipeline, follow-up, and close.</div>
+        </div>
+        <div class="roi-stat">
+          <div class="roi-stat-label">RFP response time</div>
+          <div class="roi-rfp"><span class="roi-stat-num old">14</span><span class="arr">→</span><span class="roi-stat-num">3</span></div>
+          <div class="roi-stat-unit">days to respond to an RFP</div>
+          <div class="roi-stat-note">Competitors using AI respond in 3 days. Two-week windows are already closed by the time your team opens the document.</div>
+        </div>
+      </div>
+
+      <details class="roi-assump">
+        <summary>Calculation assumptions</summary>
+        <ul>
+          <li>35% of inbound lead signals are missed — buried in email, not captured in CRM, or not followed up in time</li>
+          <li>Revenue escaping = missed deals × win rate × average deal value</li>
+          <li>CRM admin time reduced by 65% via automated email signal extraction and bi-directional CRM sync</li>
+          <li>RFP response reduced from 14 to 3 days via document ingestion and automated draft generation</li>
+          <li>Estimates are directional. Actual results vary by team size, inbound volume, and CRM maturity.</li>
+        </ul>
+      </details>
     </div>
   </div>
 </section>
@@ -1166,6 +1323,41 @@ function toggleMore(id, btn) {
     textNode.textContent = open ? 'Show less ' : 'See all features ';
   });
 }
+
+/* ROI calculator */
+(function(){
+  var reps=document.getElementById('roi-reps'),
+      leads=document.getElementById('roi-leads'),
+      deal=document.getElementById('roi-deal'),
+      win=document.getElementById('roi-win'),
+      crm=document.getElementById('roi-crm');
+  if(!reps) return;
+  function money(e){
+    return e>=1e6 ? '$'+(e/1e6).toFixed(1)+'M'
+         : e>=1e3 ? '$'+Math.round(e/1e3)+'K'
+         : '$'+Math.round(e);
+  }
+  function update(){
+    var r=+reps.value, l=+leads.value, d=+deal.value, w=+win.value, c=+crm.value;
+    document.getElementById('roi-reps-val').textContent = r;
+    document.getElementById('roi-leads-val').textContent = l;
+    document.getElementById('roi-deal-val').textContent = '$'+d+'K';
+    document.getElementById('roi-win-val').textContent = w+'%';
+    document.getElementById('roi-crm-val').textContent = c+' hrs';
+
+    var missedDeals = Math.round(0.35 * l * 12);
+    var revenue = (w/100) * missedDeals * (d*1000);
+    var totalHrs = r * c * 52;
+    var freed = Math.round(0.65 * totalHrs);
+
+    document.getElementById('roi-revenue').textContent = money(revenue);
+    document.getElementById('roi-deals').textContent = missedDeals.toLocaleString();
+    document.getElementById('roi-hours').textContent = totalHrs.toLocaleString();
+    document.getElementById('roi-freed').textContent = freed.toLocaleString()+' hours';
+  }
+  [reps,leads,deal,win,crm].forEach(function(el){ el.addEventListener('input', update); });
+  update();
+})();
 
 /* Smooth scroll */
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
