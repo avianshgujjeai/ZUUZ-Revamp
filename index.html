@@ -775,6 +775,46 @@
   }
   .nav-links a:hover { color: var(--ink); }
   @media (max-width: 960px) { .nav-links { display: none; } }
+
+  /* ── Pricing dropdown ─────────────────────────────── */
+  .nav-dropdown { position: relative; }
+  .nav-dropdown > a { display: flex; align-items: center; gap: 3px; cursor: default; }
+  .nav-caret { font-size: 9px; opacity: 0.5; transition: transform 0.15s; }
+  .nav-dropdown:hover .nav-caret { transform: rotate(180deg); opacity: 1; }
+
+  .nav-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    left: -12px;
+    min-width: 192px;
+    background: #fff;
+    border: 1px solid rgba(17,17,16,0.1);
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    overflow: hidden;
+    z-index: 200;
+  }
+  .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+
+  .nav-dropdown-menu a {
+    display: block;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #111110;
+    text-decoration: none;
+    transition: background 0.1s;
+  }
+  .nav-dropdown-menu a:hover { background: #f7f6f3; }
+
+  .nav-dropdown-menu a.nav-dropdown-highlight {
+    color: #2563FF;
+    font-weight: 600;
+    background: #f0f4ff;
+    border-top: 1px solid rgba(17,17,16,0.06);
+  }
+  .nav-dropdown-menu a.nav-dropdown-highlight:hover { background: #e4ecff; }
 </style>
 </head>
 <body>
@@ -791,14 +831,20 @@
       <ul class="nav-links">
         <li><a href="/#workflow">How it works</a></li>
         <li><a href="/#proof">Customers</a></li>
-        <li><a href="/#pricing">Pricing</a></li>
+        <li class="nav-dropdown">
+          <a href="/#pricing">Pricing <span class="nav-caret">▾</span></a>
+          <div class="nav-dropdown-menu">
+            <a href="/#pricing">Pricing plans</a>
+            <a href="/roi-calculator" class="nav-dropdown-highlight">ROI Calculator ↗</a>
+          </div>
+        </li>
         <li><a href="/#team">Team</a></li>
         <li><a href="mailto:info@zuuz.ai">Contact</a></li>
         <li><a href="/blogs">Blogs</a></li>
       </ul>
     </nav>
     <div class="nav-actions">
-      <a class="nav-trial" href="https://buy.stripe.com/cNi6oHaWNeAU8QS457bZe00">Start free trial</a>
+      <a class="nav-trial" href="https://buy.stripe.com/cNi6oHaWNeAU8QS457bZe00">Start 30-day free trial</a>
       <a class="nav-cta" href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Book a demo</a>
     </div>
   </div>
@@ -839,7 +885,7 @@
     </div>
 
     <div class="cta-row">
-      <a class="btn-primary" href="https://buy.stripe.com/cNi6oHaWNeAU8QS457bZe00">Start free trial</a>
+      <a class="btn-primary" href="https://buy.stripe.com/cNi6oHaWNeAU8QS457bZe00">Start 30-day free trial</a>
       <a class="btn-ghost" href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Book a demo</a>
     </div>
     <p class="cta-trust">30-day free trial &middot; No setup fee &middot; Cancel anytime</p>
@@ -978,7 +1024,7 @@
           <li>Renewal radar · 90-day history</li>
         </ul>
         <button class="price-more-link" onclick="toggleMore('solo-extra',this)" aria-expanded="false">See all features <span class="arr">→</span></button>
-        <a class="price-cta" href="https://buy.stripe.com/cNi6oHaWNeAU8QS457bZe00">Start free trial</a>
+        <a class="price-cta" href="https://buy.stripe.com/cNi6oHaWNeAU8QS457bZe00">Start 30-day free trial</a>
       </div>
 
       <!-- Team-3 hidden — available on request via info@zuuz.ai -->
@@ -993,7 +1039,7 @@
           <li>12-month history</li>
           <li>Onboarding call included</li>
         </ul>
-        <a class="price-cta" href="https://buy.stripe.com/bJefZh8OF78sgjk6dfbZe01">Start free trial</a>
+        <a class="price-cta" href="https://buy.stripe.com/bJefZh8OF78sgjk6dfbZe01">Start 30-day free trial</a>
       </div>
 
       <div class="price-card featured">
@@ -1014,7 +1060,7 @@
           <li>Priority support</li>
         </ul>
         <button class="price-more-link" onclick="toggleMore('growth-extra',this)" aria-expanded="false">See all features <span class="arr">→</span></button>
-        <a class="price-cta" href="https://buy.stripe.com/eVq5kD6GxcsMc34cBDbZe02">Start free trial</a>
+        <a class="price-cta" href="https://buy.stripe.com/eVq5kD6GxcsMc34cBDbZe02">Start 30-day free trial</a>
       </div>
 
       <div class="price-card">
@@ -1034,7 +1080,7 @@
           <li>Dedicated CSM</li>
         </ul>
         <button class="price-more-link" onclick="toggleMore('scale-extra',this)" aria-expanded="false">See all features <span class="arr">→</span></button>
-        <a class="price-cta" href="https://buy.stripe.com/6oU3cvgh71O80km7hjbZe03">Start free trial</a>
+        <a class="price-cta" href="https://buy.stripe.com/6oU3cvgh71O80km7hjbZe03">Start 30-day free trial</a>
       </div>
 
       <div class="price-card">
