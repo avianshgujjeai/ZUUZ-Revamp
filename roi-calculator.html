@@ -3,15 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Message received — ZUUZ</title>
+<title>ROI Calculator — Revenue gap analysis | ZUUZ</title>
 <meta name="description" content="ZUUZ reads every email in your sales inbox, qualifies the lead, drafts the reply, and tracks the deal — automatically. In production with 4 customers across distribution, IT services, and retail.">
 <meta name="author" content="ZUUZ, Inc.">
-<meta name="robots" content="noindex">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.zuuz.ai/roi-calculator">
 
 <!-- Open Graph (LinkedIn, Facebook) -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://www.zuuz.ai/">
-<meta property="og:title" content="Message received — ZUUZ">
+<meta property="og:url" content="https://www.zuuz.ai/roi-calculator">
+<meta property="og:title" content="ROI Calculator — Revenue gap analysis | ZUUZ">
 <meta property="og:description" content="ZUUZ reads every email in your sales inbox, qualifies the lead, drafts the reply, and tracks the deal — automatically.">
 <meta property="og:image" content="https://www.zuuz.ai/uploads/zuuz-email-signals-drive-deals-crm.png">
 <meta property="og:image:width" content="1200">
@@ -20,8 +21,8 @@
 
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="https://www.zuuz.ai/">
-<meta name="twitter:title" content="Message received — ZUUZ">
+<meta name="twitter:url" content="https://www.zuuz.ai/roi-calculator">
+<meta name="twitter:title" content="ROI Calculator — Revenue gap analysis | ZUUZ">
 <meta name="twitter:description" content="ZUUZ reads every email in your sales inbox, qualifies the lead, drafts the reply, and tracks the deal — automatically.">
 <meta name="twitter:image" content="https://www.zuuz.ai/uploads/zuuz-email-signals-drive-deals-crm.png">
 
@@ -904,25 +905,32 @@
     color:var(--ink-mute); margin-top:4px;
   }
 
-  /* ── THANK-YOU PAGE ── */
-  .thanks-page{padding:120px 0; text-align:center}
-  .thanks-page .check{margin:0 auto 28px; display:block}
-  .thanks-page .section-title{max-width:none; margin-left:auto; margin-right:auto}
-  .thanks-page .section-sub{margin-left:auto; margin-right:auto}
-  .thanks-ctas{display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:36px}
-  .thanks-back{
+  /* ── ROI CALCULATOR PAGE ── */
+  .roi-page{padding:96px 0 80px}
+  .roi-page .roi-grid{margin-top:48px}
+  .roi-page .roi-stat-row{grid-template-columns:repeat(3,1fr)}
+  @media (max-width:880px){ .roi-page .roi-stat-row{grid-template-columns:1fr} }
+  .roi-rfp-num{font-size:26px; line-height:1.15}
+  .roi-rfp-num span{color:var(--accent)}
+  .roi-ghost{
     display:inline-flex; align-items:center; gap:8px;
     color:var(--ink); padding:16px 24px; border-radius:99px;
     border:1.5px solid rgba(17,17,16,0.22);
     font-size:15px; font-weight:500;
     transition:border-color .2s, transform .2s;
   }
-  .thanks-back:hover{border-color:var(--ink); transform:translateY(-1px)}
+  .roi-ghost:hover{border-color:var(--ink); transform:translateY(-1px)}
+  .roi-assumptions{
+    margin-top:28px; border-top:1px solid var(--line-strong); padding-top:20px;
+    font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--ink-mute);
+  }
+  .roi-assumptions summary{cursor:pointer; font-weight:500; letter-spacing:0.04em; color:var(--ink-soft)}
+  .roi-assumptions p{margin-top:12px; line-height:1.7; letter-spacing:0.02em}
 
 </style>
 </head>
 <body>
-
+<style>.nav-links a[href="/roi-calculator"]{color:var(--accent)}</style>
 <header>
   <div class="wrap nav">
     <div class="brand">
@@ -953,22 +961,134 @@
     </div>
   </div>
 </header>
-<!-- THANK YOU -->
-<section class="thanks-page">
+<!-- ROI CALCULATOR PAGE -->
+<section class="roi-page">
   <div class="wrap">
-    <svg class="check" width="72" height="72" viewBox="0 0 24 24" fill="none"
-         stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <circle cx="12" cy="12" r="10"></circle>
-      <path d="m8 12 3 3 5-6"></path>
-    </svg>
-    <h2 class="section-title">Message received.</h2>
-    <p class="section-sub">We'll get back to you within one business day.</p>
-    <div class="thanks-ctas">
-      <a class="final-primary" href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Book a demo</a>
-      <a class="thanks-back" href="/">&larr; Back to home</a>
+    <div class="section-eyebrow">ROI Calculator</div>
+    <h2 class="section-title">Calculate your revenue <em>gap</em>.</h2>
+    <p class="section-sub">Drag the sliders to your team's actual numbers.</p>
+
+    <div class="roi-grid">
+      <!-- Sliders -->
+      <div class="roi-controls">
+        <div class="roi-field">
+          <div class="roi-field-head">
+            <label for="roi-reps">Sales reps</label>
+            <span class="roi-val" id="roi-reps-val">25</span>
+          </div>
+          <input type="range" class="roi-slider" id="roi-reps" min="5" max="200" step="1" value="25">
+        </div>
+        <div class="roi-field">
+          <div class="roi-field-head">
+            <label for="roi-leads">Inbound leads / month</label>
+            <span class="roi-val" id="roi-leads-val">120</span>
+          </div>
+          <input type="range" class="roi-slider" id="roi-leads" min="10" max="1000" step="1" value="120">
+        </div>
+        <div class="roi-field">
+          <div class="roi-field-head">
+            <label for="roi-deal">Average deal value</label>
+            <span class="roi-val" id="roi-deal-val">$45K</span>
+          </div>
+          <input type="range" class="roi-slider" id="roi-deal" min="5" max="500" step="1" value="45">
+        </div>
+        <div class="roi-field">
+          <div class="roi-field-head">
+            <label for="roi-winrate">Current win rate</label>
+            <span class="roi-val" id="roi-winrate-val">22%</span>
+          </div>
+          <input type="range" class="roi-slider" id="roi-winrate" min="5" max="60" step="1" value="22">
+        </div>
+        <div class="roi-field">
+          <div class="roi-field-head">
+            <label for="roi-crmhrs">CRM admin hours / rep / week</label>
+            <span class="roi-val" id="roi-crmhrs-val">6 hrs</span>
+          </div>
+          <input type="range" class="roi-slider" id="roi-crmhrs" min="1" max="20" step="1" value="6">
+        </div>
+      </div>
+
+      <!-- Live outputs -->
+      <div class="roi-outputs">
+        <div class="roi-hero-card">
+          <div class="roi-hero-label">Revenue escaping pipeline / year</div>
+          <div class="roi-hero-num" id="roi-revenue">$5M</div>
+        </div>
+
+        <div class="roi-stat-row">
+          <div class="roi-stat">
+            <div class="roi-stat-num" id="roi-deals">504</div>
+            <div class="roi-stat-label">Deals lost annually</div>
+          </div>
+          <div class="roi-stat">
+            <div class="roi-stat-num" id="roi-hours">7,800</div>
+            <div class="roi-stat-label">Selling hours lost / year</div>
+          </div>
+          <div class="roi-stat">
+            <div class="roi-stat-num roi-rfp-num">14 days <span>&rarr;</span> 3 days</div>
+            <div class="roi-stat-label">RFP response time with ZUUZ</div>
+          </div>
+        </div>
+
+        <div class="roi-cta-row">
+          <a class="final-primary" href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Book a demo</a>
+          <a class="roi-ghost" href="https://buy.stripe.com/cNi6oHaWNeAU8QS457bZe00">Start 30-day free trial</a>
+        </div>
+
+        <div class="roi-foot">30-day free trial &middot; No setup fee &middot; Cancel anytime</div>
+
+        <details class="roi-assumptions">
+          <summary>Assumptions &amp; methodology</summary>
+          <p>35% of inbound signals go unlogged &middot; Revenue = missed deals &times; win rate &times; deal value &middot; CRM hours reduced 65% with ZUUZ automation &middot; Results are directional estimates</p>
+        </details>
+      </div>
     </div>
   </div>
 </section>
+
+<script>
+/* ROI calculator — vanilla JS, no dependencies */
+(function () {
+  var reps    = document.getElementById('roi-reps');
+  var leads   = document.getElementById('roi-leads');
+  var deal    = document.getElementById('roi-deal');
+  var winrate = document.getElementById('roi-winrate');
+  var crmhrs  = document.getElementById('roi-crmhrs');
+  if (!reps) return;
+
+  function money(n) {
+    if (n >= 1e6) {
+      var m = n / 1e6;
+      return '$' + (m >= 10 ? Math.round(m) : (Math.round(m * 10) / 10).toString().replace(/\.0$/, '')) + 'M';
+    }
+    if (n >= 1e3) return '$' + Math.round(n / 1e3) + 'K';
+    return '$' + Math.round(n);
+  }
+
+  function update() {
+    var r = +reps.value, l = +leads.value, d = +deal.value, w = +winrate.value, c = +crmhrs.value;
+
+    document.getElementById('roi-reps-val').textContent    = r;
+    document.getElementById('roi-leads-val').textContent   = l;
+    document.getElementById('roi-deal-val').textContent    = '$' + d + 'K';
+    document.getElementById('roi-winrate-val').textContent = w + '%';
+    document.getElementById('roi-crmhrs-val').textContent  = c + ' hrs';
+
+    var dealsLost = Math.round(0.35 * l * 12);
+    var revenue   = (0.35 * l * 12) * (w / 100) * (d * 1000);
+    var hoursLost = r * c * 52;
+
+    document.getElementById('roi-revenue').textContent = money(revenue);
+    document.getElementById('roi-deals').textContent   = dealsLost.toLocaleString('en-US');
+    document.getElementById('roi-hours').textContent   = hoursLost.toLocaleString('en-US');
+  }
+
+  [reps, leads, deal, winrate, crmhrs].forEach(function (el) {
+    el.addEventListener('input', update);
+  });
+  update();
+})();
+</script>
 <footer>
   <div class="wrap">
     <div class="foot-top">

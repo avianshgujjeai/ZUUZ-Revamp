@@ -3,22 +3,80 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact ZUUZ — Get in touch</title>
-<meta name="description" content="Get in touch with the ZUUZ team. We'll get back to you within one business day.">
+<title>Contact — ZUUZ</title>
+<meta name="description" content="ZUUZ reads every email in your sales inbox, qualifies the lead, drafts the reply, and tracks the deal — automatically. In production with 4 customers across distribution, IT services, and retail.">
 <meta name="author" content="ZUUZ, Inc.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.zuuz.ai/contact">
 
+<!-- Open Graph (LinkedIn, Facebook) -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.zuuz.ai/contact">
-<meta property="og:title" content="Contact ZUUZ — Get in touch">
-<meta property="og:description" content="Get in touch with the ZUUZ team. We'll get back to you within one business day.">
+<meta property="og:title" content="Contact — ZUUZ">
+<meta property="og:description" content="ZUUZ reads every email in your sales inbox, qualifies the lead, drafts the reply, and tracks the deal — automatically.">
+<meta property="og:image" content="https://www.zuuz.ai/uploads/zuuz-email-signals-drive-deals-crm.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:site_name" content="ZUUZ">
 
+<!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Contact ZUUZ — Get in touch">
-<meta name="twitter:description" content="Get in touch with the ZUUZ team. We'll get back to you within one business day.">
+<meta name="twitter:url" content="https://www.zuuz.ai/contact">
+<meta name="twitter:title" content="Contact — ZUUZ">
+<meta name="twitter:description" content="ZUUZ reads every email in your sales inbox, qualifies the lead, drafts the reply, and tracks the deal — automatically.">
+<meta name="twitter:image" content="https://www.zuuz.ai/uploads/zuuz-email-signals-drive-deals-crm.png">
 
+<!-- Schema.org structured data for Google -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.zuuz.ai/#organization",
+      "name": "ZUUZ, Inc.",
+      "legalName": "ZUUZ, Inc.",
+      "url": "https://www.zuuz.ai",
+      "logo": "https://www.zuuz.ai/og-image.png",
+      "description": "ZUUZ turns customer emails into closed sales by reading every inbound sales email, qualifying leads, drafting replies, and writing pipeline to CRM automatically.",
+      "foundingDate": "2024",
+      "email": "info@zuuz.ai",
+      "address": [
+        {"@type": "PostalAddress", "addressLocality": "Sunnyvale", "addressRegion": "CA", "addressCountry": "US"},
+        {"@type": "PostalAddress", "addressLocality": "Dubai", "addressCountry": "AE"},
+        {"@type": "PostalAddress", "addressLocality": "Hyderabad", "addressCountry": "IN"}
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/company/zuuz-ai",
+        "https://twitter.com/zuuzai"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.zuuz.ai/#website",
+      "url": "https://www.zuuz.ai",
+      "name": "ZUUZ",
+      "description": "Turn customer emails into closed sales",
+      "publisher": {"@id": "https://www.zuuz.ai/#organization"}
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://www.zuuz.ai/#product",
+      "name": "ZUUZ",
+      "description": "ZUUZ reads every email in your sales inbox, qualifies the lead, drafts the reply, and tracks the deal automatically.",
+      "url": "https://www.zuuz.ai",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "publisher": {"@id": "https://www.zuuz.ai/#organization"},
+      "offers": [
+        {"@type": "Offer", "name": "Solo", "price": "99", "priceCurrency": "USD", "billingDuration": "P1M"},
+        {"@type": "Offer", "name": "Growth", "price": "349", "priceCurrency": "USD", "billingDuration": "P1M"},
+        {"@type": "Offer", "name": "Scale", "price": "649", "priceCurrency": "USD", "billingDuration": "P1M"}
+      ]
+    }
+  ]
+}
+</script>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232563FF'%3E%3Cpath d='M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -848,43 +906,47 @@
   }
 
   /* ── CONTACT PAGE ── */
-  .nav-links a.active{color:var(--ink)}
-  .contact-section{padding:96px 0 80px}
-  .contact-wrap{max-width:680px}
-  .contact-form{display:flex; flex-direction:column; gap:22px; margin-top:48px}
-  .form-field{display:flex; flex-direction:column; gap:8px}
-  .form-field label{font-family:'Instrument Sans',sans-serif; font-size:14px; font-weight:500; color:var(--ink-soft)}
-  .form-field label .optional{color:var(--ink-mute); font-weight:400}
+  .contact-page{padding:96px 0 80px}
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start; margin-top:8px}
+  @media (max-width:880px){ .contact-grid{grid-template-columns:1fr; gap:40px} }
+  .contact-demo-link{
+    display:inline-flex; align-items:center; gap:6px; margin-top:8px;
+    font-size:15px; font-weight:500; color:var(--accent);
+    border-bottom:1px solid transparent; transition:border-color .2s;
+  }
+  .contact-demo-link:hover{border-bottom-color:var(--accent)}
+  .contact-trust{
+    margin-top:36px; display:flex; flex-direction:column; gap:10px;
+    font-family:'JetBrains Mono',monospace; font-size:12px;
+    color:var(--ink-mute); letter-spacing:0.04em;
+  }
+  .contact-form{display:flex; flex-direction:column; gap:20px}
+  .contact-field{display:flex; flex-direction:column}
+  .contact-field label{font-size:13px; font-weight:500; color:var(--ink-soft); margin-bottom:8px; display:block}
   .contact-form input, .contact-form textarea{
-    width:100%; font-family:'Instrument Sans',sans-serif; font-size:15px; color:var(--ink);
-    background:var(--card); border:1px solid rgba(17,17,16,0.15); border-radius:8px;
-    padding:0 16px; transition:border-color .2s, box-shadow .2s;
+    width:100%; font-family:'Instrument Sans',sans-serif; font-size:15px;
+    padding:14px 18px; border:1px solid rgba(17,17,16,0.18); border-radius:10px;
+    background:var(--card); color:var(--ink); outline:none;
+    transition:border-color .2s, box-shadow .2s;
   }
-  .contact-form input{height:48px}
-  .contact-form textarea{padding:14px 16px; min-height:128px; resize:vertical; line-height:1.55}
+  .contact-form textarea{resize:vertical; line-height:1.55}
   .contact-form input:focus, .contact-form textarea:focus{
-    outline:none; border-color:var(--accent); box-shadow:0 0 0 3px rgba(37,99,255,0.10);
+    border-color:var(--accent); box-shadow:0 0 0 3px rgba(37,99,255,0.1);
   }
-  .contact-form input:user-invalid, .contact-form textarea:user-invalid{
-    border-color:#dc2626; box-shadow:0 0 0 3px rgba(220,38,38,0.10);
-  }
+  .contact-form input::placeholder, .contact-form textarea::placeholder{color:var(--ink-mute)}
   .contact-submit{
-    border:none; cursor:pointer; font-family:'Instrument Sans',sans-serif;
-    margin-top:8px; align-self:flex-start;
+    width:100%; display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    background:var(--ink); color:var(--paper); border:none; cursor:pointer;
+    padding:16px 24px; border-radius:99px; font-size:15px; font-weight:500;
+    font-family:'Instrument Sans',sans-serif; margin-top:4px;
+    transition:transform .2s, background .2s;
   }
-  /* Thank-you page */
-  .thanks-section{padding:120px 0; text-align:center}
-  .thanks-section .section-title{margin-left:auto; margin-right:auto; max-width:none}
-  .thanks-section .section-sub{margin-left:auto; margin-right:auto}
-  .thanks-back{
-    display:inline-flex; align-items:center; gap:8px; margin-top:32px;
-    background:var(--ink); color:var(--paper); padding:14px 24px; border-radius:99px;
-    font-size:14px; font-weight:500; transition:transform .2s, background .2s;
-  }
-  .thanks-back:hover{transform:translateY(-1px); background:#000}
+  .contact-submit:hover{background:#000; transform:translateY(-1px)}
+
 </style>
 </head>
 <body>
+<style>.nav-links a[href="/contact"]{color:var(--accent)}</style>
 <header>
   <div class="wrap nav">
     <div class="brand">
@@ -905,7 +967,7 @@
           </div>
         </li>
         <li><a href="/#team">Team</a></li>
-        <li><a href="/contact" class="active">Contact</a></li>
+        <li><a href="/contact">Contact</a></li>
         <li><a href="/blogs">Blogs</a></li>
       </ul>
     </nav>
@@ -915,46 +977,56 @@
     </div>
   </div>
 </header>
+<!-- CONTACT PAGE -->
+<section class="contact-page">
+  <div class="wrap contact-grid">
+    <!-- Left: intro -->
+    <div class="contact-left">
+      <div class="section-eyebrow">Get in touch</div>
+      <h2 class="section-title">Talk to a <em>human</em>.</h2>
+      <p class="section-sub">We'll get back to you within one business day. Or book a 15-minute demo directly.</p>
+      <a class="contact-demo-link" href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Book a demo instead &rarr;</a>
+      <div class="contact-trust">
+        <div>info@zuuz.ai</div>
+        <div>Sunnyvale &middot; Dubai &middot; Hyderabad</div>
+        <div>30-day free trial &middot; No setup fee</div>
+      </div>
+    </div>
 
-<!-- CONTACT -->
-<section class="contact-section">
-  <div class="wrap contact-wrap">
-    <div class="section-eyebrow">Contact</div>
-    <h2 class="section-title">Get in touch.</h2>
-    <p class="section-sub">We'll get back to you within one business day.</p>
+    <!-- Right: form -->
+    <div class="contact-right">
+      <form class="contact-form" action="https://formsubmit.co/info@zuuz.ai" method="POST">
+        <input type="hidden" name="_subject" value="New enquiry — ZUUZ website">
+        <input type="hidden" name="_next" value="https://www.zuuz.ai/contact-thanks">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
-    <form class="contact-form" action="https://formsubmit.co/info@zuuz.ai" method="POST">
-      <input type="hidden" name="_subject" value="New contact form submission — ZUUZ website">
-      <input type="hidden" name="_next" value="https://www.zuuz.ai/contact-thanks">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="text" name="_honey" style="display:none">
+        <div class="contact-field">
+          <label for="cf-name">Full name</label>
+          <input type="text" id="cf-name" name="name" placeholder="Your name" autocomplete="name" required>
+        </div>
+        <div class="contact-field">
+          <label for="cf-email">Work email</label>
+          <input type="email" id="cf-email" name="email" placeholder="you@company.com" autocomplete="email" required>
+        </div>
+        <div class="contact-field">
+          <label for="cf-company">Company</label>
+          <input type="text" id="cf-company" name="company" placeholder="Company name" autocomplete="organization" required>
+        </div>
+        <div class="contact-field">
+          <label for="cf-message">What are you trying to solve?</label>
+          <textarea id="cf-message" name="message" rows="5" placeholder="Tell us about your sales team, inbox volume, and what's slipping through the cracks." required></textarea>
+        </div>
+        <div class="contact-field">
+          <label for="cf-source">How did you hear about ZUUZ?</label>
+          <input type="text" id="cf-source" name="source" placeholder="LinkedIn, referral, Google…">
+        </div>
 
-      <div class="form-field">
-        <label for="cf-name">Full name</label>
-        <input type="text" id="cf-name" name="name" autocomplete="name" required>
-      </div>
-      <div class="form-field">
-        <label for="cf-email">Work email</label>
-        <input type="email" id="cf-email" name="email" autocomplete="email" required>
-      </div>
-      <div class="form-field">
-        <label for="cf-company">Company</label>
-        <input type="text" id="cf-company" name="company" autocomplete="organization" required>
-      </div>
-      <div class="form-field">
-        <label for="cf-message">What are you trying to solve?</label>
-        <textarea id="cf-message" name="message" rows="4" required></textarea>
-      </div>
-      <div class="form-field">
-        <label for="cf-source">How did you hear about ZUUZ? <span class="optional">(optional)</span></label>
-        <input type="text" id="cf-source" name="how_heard">
-      </div>
-
-      <button type="submit" class="nav-cta contact-submit">Send message</button>
-    </form>
+        <button type="submit" class="contact-submit">Send message &rarr;</button>
+      </form>
+    </div>
   </div>
 </section>
-
 <footer>
   <div class="wrap">
     <div class="foot-top">
@@ -971,11 +1043,11 @@
         </div>
       </div>
       <div class="foot-links">
-        <a href="/#workflow">How it works</a>
-        <a href="/#proof">Customers</a>
-        <a href="/#pricing">Pricing</a>
-        <a href="/#team">Team</a>
-        <a href="/contact">Contact</a>
+        <a href="#workflow">How it works</a>
+        <a href="#proof">Customers</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#team">Team</a>
+        <a href="mailto:info@zuuz.ai">Contact</a>
       </div>
     </div>
     <div class="foot-bottom">
