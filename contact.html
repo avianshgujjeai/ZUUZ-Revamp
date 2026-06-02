@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZUUZ — Turn customer emails into closed sales</title>
+<title>Contact — ZUUZ</title>
 <meta name="description" content="ZUUZ reads every email in your sales inbox, qualifies the lead, drafts the reply, and tracks the deal — automatically. In production with 4 customers across distribution, IT services, and retail.">
 <meta name="author" content="ZUUZ, Inc.">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://www.zuuz.ai/">
+<link rel="canonical" href="https://www.zuuz.ai/contact">
 
 <!-- Open Graph (LinkedIn, Facebook) -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://www.zuuz.ai/">
-<meta property="og:title" content="ZUUZ — Turn customer emails into closed sales">
+<meta property="og:url" content="https://www.zuuz.ai/contact">
+<meta property="og:title" content="Contact — ZUUZ">
 <meta property="og:description" content="ZUUZ reads every email in your sales inbox, qualifies the lead, drafts the reply, and tracks the deal — automatically.">
 <meta property="og:image" content="https://www.zuuz.ai/uploads/zuuz-email-signals-drive-deals-crm.png">
 <meta property="og:image:width" content="1200">
@@ -21,8 +21,8 @@
 
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="https://www.zuuz.ai/">
-<meta name="twitter:title" content="ZUUZ — Turn customer emails into closed sales">
+<meta name="twitter:url" content="https://www.zuuz.ai/contact">
+<meta name="twitter:title" content="Contact — ZUUZ">
 <meta name="twitter:description" content="ZUUZ reads every email in your sales inbox, qualifies the lead, drafts the reply, and tracks the deal — automatically.">
 <meta name="twitter:image" content="https://www.zuuz.ai/uploads/zuuz-email-signals-drive-deals-crm.png">
 
@@ -904,10 +904,49 @@
     font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.06em;
     color:var(--ink-mute); margin-top:4px;
   }
+
+  /* ── CONTACT PAGE ── */
+  .contact-page{padding:96px 0 80px}
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start; margin-top:8px}
+  @media (max-width:880px){ .contact-grid{grid-template-columns:1fr; gap:40px} }
+  .contact-demo-link{
+    display:inline-flex; align-items:center; gap:6px; margin-top:8px;
+    font-size:15px; font-weight:500; color:var(--accent);
+    border-bottom:1px solid transparent; transition:border-color .2s;
+  }
+  .contact-demo-link:hover{border-bottom-color:var(--accent)}
+  .contact-trust{
+    margin-top:36px; display:flex; flex-direction:column; gap:10px;
+    font-family:'JetBrains Mono',monospace; font-size:12px;
+    color:var(--ink-mute); letter-spacing:0.04em;
+  }
+  .contact-form{display:flex; flex-direction:column; gap:20px}
+  .contact-field{display:flex; flex-direction:column}
+  .contact-field label{font-size:13px; font-weight:500; color:var(--ink-soft); margin-bottom:8px; display:block}
+  .contact-form input, .contact-form textarea{
+    width:100%; font-family:'Instrument Sans',sans-serif; font-size:15px;
+    padding:14px 18px; border:1px solid rgba(17,17,16,0.18); border-radius:10px;
+    background:var(--card); color:var(--ink); outline:none;
+    transition:border-color .2s, box-shadow .2s;
+  }
+  .contact-form textarea{resize:vertical; line-height:1.55}
+  .contact-form input:focus, .contact-form textarea:focus{
+    border-color:var(--accent); box-shadow:0 0 0 3px rgba(37,99,255,0.1);
+  }
+  .contact-form input::placeholder, .contact-form textarea::placeholder{color:var(--ink-mute)}
+  .contact-submit{
+    width:100%; display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    background:var(--ink); color:var(--paper); border:none; cursor:pointer;
+    padding:16px 24px; border-radius:99px; font-size:15px; font-weight:500;
+    font-family:'Instrument Sans',sans-serif; margin-top:4px;
+    transition:transform .2s, background .2s;
+  }
+  .contact-submit:hover{background:#000; transform:translateY(-1px)}
+
 </style>
 </head>
 <body>
-
+<style>.nav-links a[href="/contact"]{color:var(--accent)}</style>
 <header>
   <div class="wrap nav">
     <div class="brand">
@@ -938,449 +977,56 @@
     </div>
   </div>
 </header>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="wrap">
-    <div class="">
-      <div class="eyebrow">
-        <span class="pulse"></span>
-        Live in production with 4 customers
+<!-- CONTACT PAGE -->
+<section class="contact-page">
+  <div class="wrap contact-grid">
+    <!-- Left: intro -->
+    <div class="contact-left">
+      <div class="section-eyebrow">Get in touch</div>
+      <h2 class="section-title">Talk to a <em>human</em>.</h2>
+      <p class="section-sub">We'll get back to you within one business day. Or book a 15-minute demo directly.</p>
+      <a class="contact-demo-link" href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Book a demo instead &rarr;</a>
+      <div class="contact-trust">
+        <div>info@zuuz.ai</div>
+        <div>Sunnyvale &middot; Dubai &middot; Hyderabad</div>
+        <div>30-day free trial &middot; No setup fee</div>
       </div>
     </div>
 
-    <h1 class="hero-title">
-      Turn customer emails into <em>closed sales.</em>
-    </h1>
+    <!-- Right: form -->
+    <div class="contact-right">
+      <form class="contact-form" action="https://formsubmit.co/info@zuuz.ai" method="POST">
+        <input type="hidden" name="_subject" value="New enquiry — ZUUZ website">
+        <input type="hidden" name="_next" value="https://www.zuuz.ai/contact-thanks">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
-    <p class="hero-sub">
-      ZUUZ reads every email in your sales inbox, qualifies the lead,
-      drafts the reply, and tracks the deal — automatically.
-    </p>
-
-    <div class="feature-pills">
-      <div class="pill">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        Lead capture
-      </div>
-      <div class="pill">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-        Qualification
-      </div>
-      <div class="pill">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
-        Pipeline tracking
-      </div>
-    </div>
-
-    <div class="cta-row">
-      <a class="btn-primary" href="https://buy.stripe.com/cNi6oHaWNeAU8QS457bZe00">Start 30-day free trial</a>
-      <a class="btn-ghost" href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Book a demo</a>
-    </div>
-    <p class="cta-trust">30-day free trial &middot; No setup fee &middot; Cancel anytime</p>
-
-    <!-- LOOM -->
-    <div class="video-frame">
-      <div class="video-meta">
-        <div class="video-meta-left">
-          <span class="pulse"></span>
-          PRODUCT WALKTHROUGH
+        <div class="contact-field">
+          <label for="cf-name">Full name</label>
+          <input type="text" id="cf-name" name="name" placeholder="Your name" autocomplete="name" required>
         </div>
-        <div>~ 4 MIN</div>
-      </div>
-      <div class="video-aspect">
-        <iframe
-          src="https://www.loom.com/embed/cc72a79f26254342ad98c6d7995de574?hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true"
-          frameborder="0"
-          webkitallowfullscreen mozallowfullscreen allowfullscreen
-          title="ZUUZ — Turn email signals into revenue"></iframe>
-      </div>
+        <div class="contact-field">
+          <label for="cf-email">Work email</label>
+          <input type="email" id="cf-email" name="email" placeholder="you@company.com" autocomplete="email" required>
+        </div>
+        <div class="contact-field">
+          <label for="cf-company">Company</label>
+          <input type="text" id="cf-company" name="company" placeholder="Company name" autocomplete="organization" required>
+        </div>
+        <div class="contact-field">
+          <label for="cf-message">What are you trying to solve?</label>
+          <textarea id="cf-message" name="message" rows="5" placeholder="Tell us about your sales team, inbox volume, and what's slipping through the cracks." required></textarea>
+        </div>
+        <div class="contact-field">
+          <label for="cf-source">How did you hear about ZUUZ?</label>
+          <input type="text" id="cf-source" name="source" placeholder="LinkedIn, referral, Google…">
+        </div>
+
+        <button type="submit" class="contact-submit">Send message &rarr;</button>
+      </form>
     </div>
   </div>
 </section>
-
-<!-- WORKFLOW -->
-<section id="workflow">
-  <div class="wrap">
-    <div class="section-eyebrow">How it works</div>
-    <h2 class="section-title">From email to <em>pipeline</em>, in five steps.</h2>
-    <p class="section-sub">
-      One product. One job. Catch every sales signal in your team's inbox and turn it into clean, qualified pipeline — written to Salesforce, HubSpot, or Zoho with an audit trail on every action.
-    </p>
-
-    <div class="workflow">
-      <div class="step">
-        <div class="step-num">01</div>
-        <div class="step-content">
-          <h3>An email lands.</h3>
-          <p>A customer asks for a demo. A prospect sends an RFP. A renewal contact replies with a question. ZUUZ reads every inbound message in your sales mailbox the moment it arrives.</p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-num">02</div>
-        <div class="step-content">
-          <h3>Signals get extracted.</h3>
-          <p>Source, intent, urgency, industry, budget, who's asking, what they want. Every signal in the message is classified and surfaced — no rep has to type anything in.</p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-num">03</div>
-        <div class="step-content">
-          <h3>The lead gets qualified.</h3>
-          <p>As the conversation progresses, cold leads warm up. By the third or fourth exchange, ZUUZ has the full requirement assembled — what they're buying, when, why, and what's blocking them.</p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-num">04</div>
-        <div class="step-content">
-          <h3>The next action is drafted.</h3>
-          <p>Reply suggested. Follow-up sequence proposed. Meeting times pulled from the rep's calendar. For RFPs, your product catalog is matched against the customer's requirement — gaps and risks flagged before the proposal goes out.</p>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-num">05</div>
-        <div class="step-content">
-          <h3>Pipeline is captured.</h3>
-          <p>Quotes sent, discounts given, deals closed, renewals coming up, upsell signals — every line of pipeline lives in the CRM, in real time, with the source email attached. The sales report writes itself.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROOF -->
-<section id="proof">
-  <div class="wrap">
-    <div class="section-eyebrow">What we've proven</div>
-    <h2 class="section-title">Four companies running ZUUZ on <em>live pipeline</em>.</h2>
-    <p class="section-sub">
-      Not slides. Not pilots that never shipped. Four real customers, in production, with real numbers.
-    </p>
-
-    <div class="proof-grid">
-      <div class="proof-card">
-        <div class="proof-meta">IT Services · 30 days</div>
-        <div class="proof-customer">RA Technologies</div>
-        <div class="proof-headline">$120K</div>
-        <div class="proof-body">Pipeline surfaced in the first 30 days — leads and active conversations their CRM had never seen, captured directly from the sales mailbox.</div>
-        <a href="/resources/case-studies/ra-technologies" style="display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-size:13px;font-weight:500;color:var(--accent);transition:gap .2s;" onmouseover="this.style.gap='10px'" onmouseout="this.style.gap='6px'">Read the full case study →</a>
-      </div>
-
-      <div class="proof-card">
-        <div class="proof-meta">Tech Distribution · Pilot</div>
-        <div class="proof-customer">Cloud Box Technologies</div>
-        <div class="proof-headline">Pilot</div>
-        <div class="proof-body">CRM was used for orders only. Inbound emails became leads. Leadership now sees pipeline in real time — quotes sent, deals in motion, all from one user.</div>
-      </div>
-
-      <div class="proof-card">
-        <div class="proof-meta">Distribution · SKU matching</div>
-        <div class="proof-customer">Nesto</div>
-        <div class="proof-headline">10 : 1</div>
-        <div class="proof-body">Bulk orders arrive by email. ZUUZ matches customer requirements against thousands of SKUs in their catalog, prepares the quote, and tracks every line through to close.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRICING -->
-<section id="pricing">
-  <div class="wrap">
-    <div class="section-eyebrow">Pricing</div>
-    <h2 class="section-title">One recovered deal. <em>Pays for ZUUZ entirely.</em></h2>
-    <p class="section-sub">
-      Start where you are. Move up as the pipeline shows up. Skip the rest.
-    </p>
-
-    <div class="pricing-grid">
-
-      <div class="price-card">
-        <div class="price-tier">Solo</div>
-        <div class="price-amount">$99<span class="per">/mo</span></div>
-        <div class="price-desc">For founders and solo sellers. 1 mailbox. Never miss a deal again.</div>
-        <ul class="price-features">
-          <li>1 mailbox + 1 CRM</li>
-          <li>1,000 sales emails/mo</li>
-          <li>500 bulk replies drafted</li>
-        </ul>
-        <ul class="price-features price-extra" id="solo-extra">
-          <li>50 meetings summarized</li>
-          <li>50 deal risk monitoring</li>
-          <li>Renewal radar · 90-day history</li>
-        </ul>
-        <button class="price-more-link" onclick="toggleMore('solo-extra',this)" aria-expanded="false">See all features <span class="arr">→</span></button>
-        <a class="price-cta" href="https://buy.stripe.com/cNi6oHaWNeAU8QS457bZe00">Start 30-day free trial</a>
-      </div>
-
-      <!-- Team-3 hidden — available on request via info@zuuz.ai -->
-      <div class="price-card" style="display:none">
-        <div class="price-tier">Team-3</div>
-        <div class="price-amount">$249<span class="per">/mo</span></div>
-        <div class="price-desc">For small sales teams. Up to 3 reps. CRM sync and team pipeline visibility.</div>
-        <ul class="price-features">
-          <li>3 mailboxes connected</li>
-          <li>All CRMs supported</li>
-          <li>Team renewal dashboard</li>
-          <li>12-month history</li>
-          <li>Onboarding call included</li>
-        </ul>
-        <a class="price-cta" href="https://buy.stripe.com/bJefZh8OF78sgjk6dfbZe01">Start 30-day free trial</a>
-      </div>
-
-      <div class="price-card featured">
-        <div class="featured-badge">Most popular</div>
-        <div class="price-tier">Growth</div>
-        <div class="price-amount">$349<span class="per">/mo</span></div>
-        <div class="price-desc">For SMB sales teams. Up to 5 reps. Full CRM writeback and team pipeline visibility.</div>
-        <ul class="price-features">
-          <li>5 mailboxes + all CRMs</li>
-          <li>10,000 sales emails/mo</li>
-          <li>Unified Sales Assistant</li>
-        </ul>
-        <ul class="price-features price-extra" id="growth-extra">
-          <li>5,000 API calls/mo</li>
-          <li>500 meetings summarized</li>
-          <li>Renewal + upsell tracking</li>
-          <li>Voice call summaries</li>
-          <li>Priority support</li>
-        </ul>
-        <button class="price-more-link" onclick="toggleMore('growth-extra',this)" aria-expanded="false">See all features <span class="arr">→</span></button>
-        <a class="price-cta" href="https://buy.stripe.com/eVq5kD6GxcsMc34cBDbZe02">Start 30-day free trial</a>
-      </div>
-
-      <div class="price-card">
-        <div class="price-tier">Scale</div>
-        <div class="price-amount">$649<span class="per">/mo</span></div>
-        <div class="price-desc">For growing teams. Up to 10 reps. AI deal coach and enterprise search included.</div>
-        <ul class="price-features">
-          <li>10 mailboxes + all CRMs</li>
-          <li>15,000 sales emails/mo</li>
-          <li>AI deal coach + Agents</li>
-        </ul>
-        <ul class="price-features price-extra" id="scale-extra">
-          <li>10,000 API calls/mo</li>
-          <li>1,500 meetings summarized</li>
-          <li>Enterprise search</li>
-          <li>Advanced volume limits</li>
-          <li>Dedicated CSM</li>
-        </ul>
-        <button class="price-more-link" onclick="toggleMore('scale-extra',this)" aria-expanded="false">See all features <span class="arr">→</span></button>
-        <a class="price-cta" href="https://buy.stripe.com/6oU3cvgh71O80km7hjbZe03">Start 30-day free trial</a>
-      </div>
-
-      <div class="price-card">
-        <div class="price-tier">Enterprise</div>
-        <div class="price-amount">Custom</div>
-        <div class="price-desc">For larger teams. Unlimited mailboxes, compliance, white-label and SLA uptime.</div>
-        <ul class="price-features">
-          <li>Custom users + mailboxes</li>
-          <li>30,000+ sales emails/mo</li>
-          <li>SSO + audit logs</li>
-        </ul>
-        <ul class="price-features price-extra" id="ent-extra">
-          <li>Compliance exports + SLA</li>
-          <li>White-label option</li>
-          <li>Custom integrations</li>
-          <li>SLA-backed uptime</li>
-        </ul>
-        <button class="price-more-link" onclick="toggleMore('ent-extra',this)" aria-expanded="false">See all features <span class="arr">→</span></button>
-        <a class="price-cta" href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Contact sales</a>
-      </div>
-
-    </div>
-
-    <div class="pricing-foot">
-      All plans include a 30-day free trial &middot; Cancel anytime &middot; Annual billing saves 2 months
-    </div>
-  </div>
-</section>
-
-<!-- ROI CALCULATOR -->
-<section id="roi-calculator">
-  <div class="wrap">
-    <div class="section-eyebrow">ROI Calculator</div>
-    <h2 class="section-title">What is your revenue team leaving <em>behind</em>?</h2>
-    <p class="section-sub">
-      Drag the sliders to your team's real numbers. ZUUZ surfaces the pipeline
-      that's quietly slipping through the inbox — leads never logged, deals never forecast.
-    </p>
-
-    <div class="roi-grid">
-      <!-- Sliders -->
-      <div class="roi-controls">
-        <div class="roi-field">
-          <div class="roi-field-head">
-            <label for="roi-reps">Sales reps</label>
-            <span class="roi-val" id="roi-reps-val">25</span>
-          </div>
-          <input type="range" class="roi-slider" id="roi-reps" min="5" max="200" step="1" value="25">
-        </div>
-
-        <div class="roi-field">
-          <div class="roi-field-head">
-            <label for="roi-leads">Inbound leads / month</label>
-            <span class="roi-val" id="roi-leads-val">120</span>
-          </div>
-          <input type="range" class="roi-slider" id="roi-leads" min="10" max="1000" step="1" value="120">
-        </div>
-
-        <div class="roi-field">
-          <div class="roi-field-head">
-            <label for="roi-deal">Average deal value</label>
-            <span class="roi-val" id="roi-deal-val">$45K</span>
-          </div>
-          <input type="range" class="roi-slider" id="roi-deal" min="5" max="500" step="1" value="45">
-        </div>
-
-        <div class="roi-field">
-          <div class="roi-field-head">
-            <label for="roi-winrate">Current win rate</label>
-            <span class="roi-val" id="roi-winrate-val">22%</span>
-          </div>
-          <input type="range" class="roi-slider" id="roi-winrate" min="5" max="60" step="1" value="22">
-        </div>
-
-        <div class="roi-field">
-          <div class="roi-field-head">
-            <label for="roi-crmhrs">CRM admin hours / rep / week</label>
-            <span class="roi-val" id="roi-crmhrs-val">6 hrs</span>
-          </div>
-          <input type="range" class="roi-slider" id="roi-crmhrs" min="1" max="20" step="1" value="6">
-        </div>
-      </div>
-
-      <!-- Live outputs -->
-      <div class="roi-outputs">
-        <div class="roi-hero-card">
-          <div class="roi-hero-label">Revenue escaping pipeline / year</div>
-          <div class="roi-hero-num" id="roi-revenue">$5M</div>
-        </div>
-
-        <div class="roi-stat-row">
-          <div class="roi-stat">
-            <div class="roi-stat-num" id="roi-deals">504</div>
-            <div class="roi-stat-label">Deals lost annually</div>
-          </div>
-          <div class="roi-stat">
-            <div class="roi-stat-num" id="roi-hours">7,800</div>
-            <div class="roi-stat-label">Selling hours lost / year</div>
-          </div>
-        </div>
-
-        <div class="roi-cta-row">
-          <a class="roi-btn" href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Book a demo</a>
-          <a class="roi-link" href="/roi-calculator">Open full calculator →</a>
-        </div>
-
-        <div class="roi-foot">30-day free trial &middot; No setup fee &middot; Cancel anytime</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<script>
-/* ROI calculator — vanilla JS, no dependencies */
-(function () {
-  var reps    = document.getElementById('roi-reps');
-  var leads   = document.getElementById('roi-leads');
-  var deal    = document.getElementById('roi-deal');
-  var winrate = document.getElementById('roi-winrate');
-  var crmhrs  = document.getElementById('roi-crmhrs');
-  if (!reps) return;
-
-  function money(n) {
-    if (n >= 1e6) {
-      var m = n / 1e6;
-      return '$' + (m >= 10 ? Math.round(m) : (Math.round(m * 10) / 10).toString().replace(/\.0$/, '')) + 'M';
-    }
-    if (n >= 1e3) return '$' + Math.round(n / 1e3) + 'K';
-    return '$' + Math.round(n);
-  }
-
-  function update() {
-    var r = +reps.value, l = +leads.value, d = +deal.value, w = +winrate.value, c = +crmhrs.value;
-
-    document.getElementById('roi-reps-val').textContent    = r;
-    document.getElementById('roi-leads-val').textContent   = l;
-    document.getElementById('roi-deal-val').textContent    = '$' + d + 'K';
-    document.getElementById('roi-winrate-val').textContent = w + '%';
-    document.getElementById('roi-crmhrs-val').textContent  = c + ' hrs';
-
-    var dealsLost = Math.round(0.35 * l * 12);
-    var revenue   = (0.35 * l * 12) * (w / 100) * (d * 1000);
-    var hoursLost = r * c * 52;
-
-    document.getElementById('roi-revenue').textContent = money(revenue);
-    document.getElementById('roi-deals').textContent   = dealsLost.toLocaleString('en-US');
-    document.getElementById('roi-hours').textContent   = hoursLost.toLocaleString('en-US');
-  }
-
-  [reps, leads, deal, winrate, crmhrs].forEach(function (el) {
-    el.addEventListener('input', update);
-  });
-  update();
-})();
-</script>
-
-<!-- TEAM -->
-<section id="team">
-  <div class="wrap">
-    <div class="section-eyebrow">About us</div>
-
-    <div class="team-intro">
-      <h2 class="section-title">Built by people who <em>lived</em> the pain.</h2>
-      <div class="founder-quote">
-        I built Cloud Box Technologies from zero to $25M ARR. Every quarter, I'd find deals that had quietly died in someone's inbox — never made it to the CRM, never made it to the forecast. ZUUZ exists so that doesn't happen anymore.
-        <div class="founder-quote-by">— Avinash Gujje, Founder</div>
-      </div>
-    </div>
-
-    <div class="team">
-      <div class="team-card">
-        <div class="avatar">AG</div>
-        <div class="team-name">Avinash Gujje</div>
-        <div class="team-role">Founder · CEO</div>
-        <div class="team-bio">Built Cloud Box Technologies from $0 to $25M ARR. Spent ten years watching CRM run two weeks behind reality. Founded ZUUZ to fix it.</div>
-      </div>
-      <div class="team-card">
-        <div class="avatar alt">JV</div>
-        <div class="team-name">Jaya Vera</div>
-        <div class="team-role">Co-Founder · CTO</div>
-        <div class="team-bio">Engineering leader. Architect of the ZUUZ intelligence layer. Built the systems that turn email signals into real pipeline automatically.</div>
-      </div>
-      <div class="team-card">
-        <div class="avatar alt2">PK</div>
-        <div class="team-name">Prof. Prasanna Kumar</div>
-        <div class="team-role">Chief AI Advisor</div>
-        <div class="team-bio">Stanford professor. Author on AI and finance. Guides AI research direction and architecture strategy.</div>
-      </div>
-    </div>
-
-    <div class="locations">
-      <div class="loc"><strong>Sunnyvale</strong>&nbsp;HQ</div>
-      <div class="loc"><strong>Dubai</strong>&nbsp;MENA</div>
-      <div class="loc"><strong>Hyderabad</strong>&nbsp;Engineering</div>
-    </div>
-  </div>
-</section>
-
-<!-- FINAL CTA -->
-<div class="wrap" id="contact">
-  <div class="final">
-    <h2>See ZUUZ on <em>your</em> pipeline.</h2>
-    <p>15 minutes. We'll connect to your CRM and one mailbox, and show you what's hiding in your team's email — live, on your data, before you commit to anything.</p>
-    <div class="final-ctas">
-      <a class="final-primary" href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Book a demo</a>
-      <a class="final-ghost" href="mailto:info@zuuz.ai">info@zuuz.ai</a>
-    </div>
-  </div>
-</div>
-
-<!-- FOOTER -->
 <footer>
   <div class="wrap">
     <div class="foot-top">
@@ -1410,82 +1056,6 @@
     </div>
   </div>
 </footer>
-
-<script>
-
-function toggleMore(id, btn) {
-  var allExtras = ['solo-extra','growth-extra','scale-extra','ent-extra'];
-  var allBtns = document.querySelectorAll('.price-more-link');
-  var open = !document.getElementById(id).classList.contains('open');
-  allExtras.forEach(function(eid){
-    var el = document.getElementById(eid);
-    if(el){ el.classList.toggle('open', open); }
-  });
-  allBtns.forEach(function(b){
-    b.classList.toggle('open', open);
-    b.setAttribute('aria-expanded', open);
-    var textNode = b.firstChild;
-    textNode.textContent = open ? 'Show less ' : 'See all features ';
-  });
-}
-
-/* Smooth scroll */
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click',e=>{
-    const id=a.getAttribute('href');
-    if(id.length>1){const t=document.querySelector(id);if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}}
-  });
-});
-
-/* Scroll-reveal via IntersectionObserver */
-const css=document.createElement('style');
-css.textContent=`
-  .sr{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
-  .sr.sl{transform:translateX(-24px)}
-  .sr.sc{transform:scale(0.96)}
-  .sr.d1{transition-delay:.1s}.sr.d2{transition-delay:.18s}.sr.d3{transition-delay:.26s}
-  .sr.in{opacity:1!important;transform:none!important}
-`;
-document.head.appendChild(css);
-
-/* Apply to sections */
-[
-  ['h2.section-title','sr'],
-  ['.section-eyebrow','sr sl'],
-  ['.section-sub','sr d1'],
-  ['.proof-card','sr sc'],
-  ['.step','sr d1'],
-  ['.team-card','sr sc'],
-  ['.price-card','sr sc'],
-  ['.loc','sr d1'],
-  ['.final','sr sc'],
-  ['.founder-quote','sr sl'],
-  ['.pricing-foot','sr'],
-].forEach(([sel,cls])=>{
-  document.querySelectorAll(sel).forEach((el,i)=>{
-    cls.split(' ').forEach(c=>el.classList.add(c));
-    if(i>0&&i<3)el.classList.add('d'+i);
-  });
-});
-
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')});
-},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
-
-document.querySelectorAll('.sr').forEach(el=>obs.observe(el));
-
-/* Subtle parallax on video frame */
-const vf=document.querySelector('.video-frame');
-if(vf){
-  window.addEventListener('scroll',()=>{
-    const scrolled=window.scrollY;
-    const rect=vf.getBoundingClientRect();
-    if(rect.bottom>0&&rect.top<window.innerHeight){
-      vf.style.transform=`translateY(${scrolled*0.04}px)`;
-    }
-  },{passive:true});
-}
-</script>
 
 </body>
 </html>
