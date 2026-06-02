@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary SEO -->
+  <title>How to Track Renewals Across Multiple Products | ZUUZ</title>
+  <meta name="description" content="Learn how to track renewals across multiple products using email signals to catch SKU mismatches and co-term conflicts before contracts lapse." />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+  <link rel="canonical" href="https://www.zuuz.ai/blogs/how-to-track-renewals-across-multiple-products" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="How to Track Renewals Across Multiple Products | ZUUZ" />
+  <meta property="og:description" content="Learn how to track renewals across multiple products using email signals to catch SKU mismatches and co-term conflicts before contracts lapse." />
+  <meta property="og:url" content="https://www.zuuz.ai/blogs/how-to-track-renewals-across-multiple-products" />
+  <meta property="og:site_name" content="ZUUZ" />
+  <meta property="og:image" content="https://www.zuuz.ai/uploads/how-to-track-renewals-across-multiple-products-og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="How to track renewals across multiple products for IT distributors, VARs, and MSPs" />
+  <meta property="article:published_time" content="2026-05-25T00:00:00Z" />
+  <meta property="article:modified_time" content="2026-05-25T00:00:00Z" />
+  <meta property="article:author" content="Avinash Gujje" />
+  <meta property="article:section" content="Renewal and Churn Risk" />
+  <meta property="article:tag" content="renewal tracking" />
+  <meta property="article:tag" content="multi-product renewals" />
+  <meta property="article:tag" content="IT renewal management" />
+  <meta property="article:tag" content="VAR renewal software" />
+  <meta property="article:tag" content="renewal signals in email" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="How to Track Renewals Across Multiple Products | ZUUZ" />
+  <meta name="twitter:description" content="Learn how to track renewals across multiple products using a three-layer email signal system for IT teams, VARs, and distributors." />
+  <meta name="twitter:image" content="https://www.zuuz.ai/uploads/how-to-track-renewals-across-multiple-products-og.jpg" />
+  <meta name="twitter:image:alt" content="Multi-product renewal tracking for IT teams and distributors" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "https://www.zuuz.ai/blogs/how-to-track-renewals-across-multiple-products#article",
+        "headline": "How to Track Renewals Across Multiple Products",
+        "description": "Learn how to track renewals across multiple products using a three-layer email signal system. Covers SKU-level mismatch, co-term conflicts, and automated renewal monitoring for IT teams, VARs, and distributors.",
+        "url": "https://www.zuuz.ai/blogs/how-to-track-renewals-across-multiple-products",
+        "datePublished": "2026-05-25T00:00:00Z",
+        "dateModified": "2026-05-25T00:00:00Z",
+        "author": { "@id": "https://www.zuuz.ai/about#avinash-gujje" },
+        "publisher": { "@id": "https://www.zuuz.ai/#organization" },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://www.zuuz.ai/blogs/how-to-track-renewals-across-multiple-products"
+        },
+        "image": { "@id": "https://www.zuuz.ai/uploads/how-to-track-renewals-across-multiple-products-og.jpg#image" },
+        "keywords": [
+          "how to track renewals across multiple products",
+          "renewal tracking",
+          "multi-product renewals",
+          "IT renewal management",
+          "VAR renewal software",
+          "renewal signals in email",
+          "contract renewal tracking",
+          "multi-SKU renewal",
+          "renewal churn risk"
+        ],
+        "articleSection": "Renewal and Churn Risk",
+        "wordCount": 2600,
+        "inLanguage": "en-US",
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": [
+            ".article-head h1",
+            ".article-body",
+            ".article-takeaways"
+          ]
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://www.zuuz.ai/about#avinash-gujje",
+        "name": "Avinash Gujje",
+        "jobTitle": "CEO",
+        "worksFor": { "@id": "https://www.zuuz.ai/#organization" },
+        "url": "https://www.zuuz.ai/about",
+        "sameAs": ["https://www.linkedin.com/in/avinashgujje/"]
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://www.zuuz.ai/#organization",
+        "name": "ZUUZ",
+        "url": "https://www.zuuz.ai",
+        "description": "Agentic AI for Revenue Operations, the decision-and-execution layer on top of your CRM.",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.zuuz.ai/logo.png",
+          "width": 200,
+          "height": 60
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "url": "https://www.zuuz.ai/contact"
+        },
+        "sameAs": ["https://www.linkedin.com/company/zuuz-ai"]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.zuuz.ai/#website",
+        "url": "https://www.zuuz.ai",
+        "name": "ZUUZ",
+        "description": "Agentic AI for Revenue Operations",
+        "publisher": { "@id": "https://www.zuuz.ai/#organization" }
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://www.zuuz.ai/uploads/how-to-track-renewals-across-multiple-products-og.jpg#image",
+        "url": "https://www.zuuz.ai/uploads/how-to-track-renewals-across-multiple-products-og.jpg",
+        "width": 1200,
+        "height": 630,
+        "caption": "How to track renewals across multiple products for IT distributors, VARs, and MSPs",
+        "creditText": "ZUUZ",
+        "creator": { "@id": "https://www.zuuz.ai/#organization" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Why Do Multi-Product Renewals Fail More Often Than Single-Product Renewals?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Single-product renewals have one contract, one date, and one owner. Multi-product renewals involve multiple vendors, separate contract dates, and SKUs at different usage rates. Renewal discussions split across multiple email threads, often with different contacts on each. Most CRMs were designed for single-product SaaS and cannot model this complexity without significant manual configuration."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where Do Renewal Signals Most Often Get Missed?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Renewal signals get missed in email. Customers mention contract timelines, usage changes, and competitive evaluations casually in email threads 60 to 120 days before the renewal date. These signals exist in account manager and engineer inboxes long before they appear in any renewal dashboard or CRM record. No CRM renewal module reads email automatically."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What Is the Difference Between a Renewal Tracking Tool and a CRM Renewal Module?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A CRM renewal module records dates and stages that someone entered manually. A renewal tracking tool actively monitors for renewal signals in email, flags risk based on behavioral changes such as silence, competitor mentions, or pricing questions, and surfaces those signals before the renewal window closes. The core difference is passive record versus active monitoring."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How Do You Handle Co-Termed Contracts Across Multiple Vendors?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Co-term management requires reconciling renewal dates across vendors into a single account view, then identifying which contracts can be bundled for renegotiation. The signals that indicate a customer is open to co-terming, such as mentions of consolidating vendors or budget discussions, typically appear in email months before any formal renewal conversation. Tracking those signals is what prevents individually renewed contracts at list price."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Automated Renewal Tracking Require Reps to Change Their Email Habits?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Effective renewal tracking operates at the email account level, not at the rep behavior level. The system reads inbound and outbound email, classifies signals, and writes structured data to the CRM automatically. Reps continue working in email as they always have. The change is that the CRM receives structured renewal intelligence without manual data entry being required."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What SKU-Level Signals Should a Renewal Tracking System Capture?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A renewal tracking system should capture seat count changes, product tier modifications, module add or drop requests, quantity adjustments tied to team changes, and vendor-side renewal quotes with line items that differ from the original contract. Each of these signals indicates a mismatch between the pending renewal configuration and the customer's actual current usage."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.zuuz.ai" },
+          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.zuuz.ai/blogs" },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "How to Track Renewals Across Multiple Products",
+            "item": "https://www.zuuz.ai/blogs/how-to-track-renewals-across-multiple-products"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232563FF'%3E%3Cpath d='M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,0..100;1,9..144,300..500,0..100&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+/* ZUUZ blog styles, mirrors live /assets/site.css + blog components.
+   Source of truth for blog look and feel (matches https://www.zuuz.ai/blogs/). */
+:root{
+  --paper:#F4F1EA;
+  --paper-warm:#EDE8DC;
+  --ink:#111110;
+  --ink-soft:#3A3A36;
+  --ink-mute:#7A776E;
+  --line:#1110100D;
+  --line-strong:#11101018;
+  --accent:#2563FF;
+  --accent-hover:#1D4ED8;
+  --accent-soft:#DBEAFE;
+  --navy:#0E1F6B;
+  --signal:#0F8B4F;
+  --card:#FBF8F1;
+  --radius:18px;
+  --shadow:0 1px 0 rgba(17,17,16,.04),0 12px 32px -16px rgba(17,17,16,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--paper);color:var(--ink);}
+body{
+  font-family:'Instrument Sans',system-ui,-apple-system,sans-serif;
+  font-size:16px;line-height:1.6;letter-spacing:-0.005em;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden;
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.45;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.07 0 0 0 0 0.07 0 0 0 0 0.07 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+::selection{background:var(--accent);color:#fff}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* LAYOUT */
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px;position:relative;z-index:2}
+.wrap-narrow{max-width:720px;margin:0 auto;padding:0 32px;position:relative;z-index:2}
+@media(max-width:720px){.wrap,.wrap-narrow{padding:0 20px}}
+
+/* HEADER */
+header{
+  position:sticky;top:0;z-index:50;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  background:rgba(244,241,234,0.82);border-bottom:1px solid var(--line-strong);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:9px;color:inherit;text-decoration:none}
+.brand:hover{text-decoration:none}
+.brand-spark{width:18px;height:18px;color:var(--accent);flex-shrink:0;transform:translateY(-1px)}
+.brand-text{
+  font-family:'Fraunces',serif;font-weight:500;font-size:22px;letter-spacing:-0.03em;
+  font-variation-settings:"opsz" 144,"SOFT" 30;color:var(--navy);line-height:1;
+}
+.nav-ctas{display:flex;align-items:center;gap:8px}
+.nav-cta-ghost{
+  display:inline-flex;align-items:center;color:var(--ink);padding:10px 18px;border-radius:999px;
+  font-size:13px;font-weight:500;border:1.5px solid var(--ink);
+  transition:background .2s,color .2s,transform .2s;text-decoration:none;
+}
+.nav-cta-ghost:hover{background:var(--ink);color:var(--paper);transform:translateY(-1px);text-decoration:none}
+.nav-cta{
+  display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--paper);
+  padding:10px 18px;border-radius:999px;font-size:13px;font-weight:500;
+  transition:transform .2s ease,background .2s;text-decoration:none;
+}
+.nav-cta:hover{transform:translateY(-1px);background:#000;text-decoration:none}
+.nav-cta::after{content:"→";transition:transform .2s}
+.nav-cta:hover::after{transform:translateX(2px)}
+
+/* ARTICLE */
+article{padding:64px 0 80px}
+@media(max-width:720px){article{padding:40px 0 56px}}
+.article-head{margin-bottom:48px}
+.article-breadcrumb{
+  font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;
+  text-transform:uppercase;color:var(--ink-mute);margin-bottom:24px;
+}
+.article-breadcrumb a{color:var(--ink-mute);text-decoration:none}
+.article-breadcrumb a:hover{color:var(--accent)}
+.article-eyebrow{
+  font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:20px;display:flex;align-items:center;gap:10px;
+}
+.article-eyebrow::before{content:"";width:20px;height:1px;background:var(--accent)}
+article h1{
+  font-family:'Fraunces',serif;font-weight:400;font-size:clamp(36px,5vw,64px);
+  line-height:1.0;letter-spacing:-0.03em;font-variation-settings:"opsz" 144,"SOFT" 30;
+  margin-bottom:20px;color:var(--ink);
+}
+article h1 em{font-style:italic;color:var(--accent);font-weight:300;font-variation-settings:"opsz" 144,"SOFT" 80}
+.article-meta{
+  font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-mute);
+  letter-spacing:0.1em;text-transform:uppercase;border-top:1px solid var(--line-strong);
+  padding-top:16px;margin-top:16px;
+}
+.article-body{padding-top:8px}
+.article-body p{font-size:17px;line-height:1.7;color:var(--ink-soft);margin-bottom:24px;max-width:68ch}
+.article-body h2{
+  font-family:'Fraunces',serif;font-weight:400;font-size:clamp(24px,2.8vw,36px);
+  line-height:1.1;letter-spacing:-0.02em;font-variation-settings:"opsz" 60,"SOFT" 40;
+  color:var(--ink);margin:48px 0 16px;scroll-margin-top:84px;
+}
+.article-body h3{
+  font-family:'Fraunces',serif;font-weight:400;font-size:clamp(18px,1.8vw,24px);
+  line-height:1.2;color:var(--ink);margin:36px 0 12px;
+}
+.article-body a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.article-body a:hover{color:var(--accent-hover)}
+.article-body ul,.article-body ol{padding-left:24px;margin-bottom:24px}
+.article-body li{font-size:17px;line-height:1.7;color:var(--ink-soft);margin-bottom:8px}
+.article-body strong{color:var(--ink);font-weight:600}
+.article-body blockquote{
+  border-left:3px solid var(--accent);padding-left:20px;margin:32px 0;font-style:italic;
+  color:var(--ink-soft);font-family:'Fraunces',serif;font-size:20px;line-height:1.5;
+}
+.article-body table{width:100%;border-collapse:collapse;margin:28px 0;font-size:15px;line-height:1.5}
+.article-body th,.article-body td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line-strong);color:var(--ink-soft)}
+.article-body th{
+  font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;
+  color:var(--ink);background:var(--paper-warm);border-bottom:1px solid var(--ink);
+}
+.article-body tr:last-child td{border-bottom:none}
+
+/* KEY TAKEAWAYS */
+.article-takeaways{background:var(--card);border:1px solid var(--line-strong);border-radius:var(--radius);padding:28px 32px;margin:8px 0 40px;box-shadow:var(--shadow)}
+.article-takeaways .kt-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.article-takeaways .kt-label::before{content:"";width:20px;height:1px;background:var(--accent)}
+.article-takeaways ul{padding-left:20px;margin:0}
+.article-takeaways li{font-size:16px;line-height:1.6;color:var(--ink-soft);margin-bottom:10px}
+
+/* TOC */
+.article-toc{border-left:2px solid var(--line-strong);padding-left:22px;margin:40px 0}
+.article-toc .toc-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:14px}
+.article-toc ol{list-style:decimal;padding-left:18px;margin:0}
+.article-toc li{margin-bottom:9px;font-size:15px;color:var(--ink-mute)}
+.article-toc a{color:var(--ink-soft);text-decoration:none}
+.article-toc a:hover{color:var(--accent)}
+
+/* STAT CALLOUT */
+.article-stat{border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:24px 0;margin:40px 0}
+.article-stat .stat-num{font-family:'Fraunces',serif;font-weight:400;font-size:48px;line-height:1;color:var(--navy);font-variation-settings:"opsz" 144}
+.article-stat .stat-text{font-size:15px;color:var(--ink-soft);margin-top:10px;max-width:60ch}
+.article-stat .stat-text a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+
+/* CUSTOMER QUOTE CARD (image) */
+.article-quote-card{margin:48px 0;text-align:center}
+.article-quote-card img{max-width:460px;width:100%;height:auto;border-radius:var(--radius);box-shadow:var(--shadow)}
+.article-quote-card figcaption{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-mute);margin-top:14px}
+
+/* ARTICLE CTA BOX (dark card, blue pill) */
+.article-cta{
+  background:var(--ink);color:var(--paper);border-radius:var(--radius);padding:48px 40px;
+  margin:56px 0;text-align:center;position:relative;overflow:hidden;
+}
+@media(max-width:720px){.article-cta{padding:36px 24px}}
+.article-cta::before{
+  content:"";position:absolute;top:-40%;left:-10%;width:60%;height:180%;
+  background:radial-gradient(ellipse,rgba(37,99,255,0.25),transparent 60%);pointer-events:none;
+}
+.article-cta h2{
+  font-family:'Fraunces',serif;font-weight:300;font-size:clamp(24px,3vw,40px);line-height:1.1;
+  letter-spacing:-0.025em;color:#fff;margin-bottom:12px;font-variation-settings:"opsz" 144,"SOFT" 50;position:relative;
+}
+.article-cta h2 em{font-style:italic;color:var(--accent)}
+.article-cta p{color:rgba(244,241,234,0.7);font-size:16px;margin-bottom:28px;position:relative;max-width:54ch;margin-left:auto;margin-right:auto}
+.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative}
+.cta-primary{
+  display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;
+  padding:16px 28px;border-radius:999px;font-size:15px;font-weight:500;transition:all .2s;text-decoration:none;position:relative;
+}
+.cta-primary:hover{transform:translateY(-2px);background:var(--accent-hover);text-decoration:none}
+.cta-primary::after{content:"→";transition:transform .2s}
+.cta-primary:hover::after{transform:translateX(3px)}
+.cta-secondary{
+  display:inline-flex;align-items:center;gap:8px;background:transparent;color:#fff;
+  border:1.5px solid rgba(244,241,234,0.4);padding:16px 28px;border-radius:999px;
+  font-size:15px;font-weight:500;text-decoration:none;transition:all .2s;position:relative;
+}
+.cta-secondary:hover{background:rgba(244,241,234,0.1);border-color:rgba(244,241,234,0.7);text-decoration:none;transform:translateY(-2px)}
+
+.article-cta__spark{width:26px;height:26px;color:var(--accent);display:block;margin:0 auto 14px;position:relative}
+  /* FAQ */
+.article-faq{margin:56px 0}
+.article-faq > .faq-head{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(24px,2.8vw,36px);color:var(--ink);margin-bottom:8px;font-variation-settings:"opsz" 60,"SOFT" 40}
+.faq-item{border-top:1px solid var(--line-strong);padding:24px 0}
+.faq-item:last-child{border-bottom:1px solid var(--line-strong)}
+.faq-item h3{font-family:'Fraunces',serif;font-weight:400;font-size:21px;color:var(--ink);margin:0 0 10px}
+.faq-item p{font-size:16px;line-height:1.65;color:var(--ink-soft);margin:0}
+
+/* AUTHOR BIO */
+.article-author{display:flex;gap:18px;align-items:flex-start;background:var(--card);border:1px solid var(--line-strong);border-radius:var(--radius);padding:24px 28px;margin:48px 0}
+.article-author img{width:60px;height:60px;border-radius:999px;flex-shrink:0;object-fit:cover}
+.article-author .au-name{font-family:'Fraunces',serif;font-size:19px;color:var(--ink);margin-bottom:6px}
+.article-author p{font-size:15px;line-height:1.6;color:var(--ink-soft);margin:0}
+.article-author a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+
+/* RELATED */
+.article-related{margin:56px 0 0}
+.article-related .rel-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.article-related .rel-label::before{content:"";width:20px;height:1px;background:var(--accent)}
+.article-related ul{list-style:none;padding:0;margin:0;display:grid;gap:16px}
+.article-related a{font-family:'Fraunces',serif;font-size:20px;color:var(--ink);text-decoration:none;line-height:1.2}
+.article-related a:hover{color:var(--accent)}
+
+/* FOOTER */
+footer{padding:64px 0 32px;border-top:1px solid var(--line-strong)}
+.foot-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:32px;margin-bottom:48px}
+.foot-brand-block{display:flex;flex-direction:column;gap:14px;max-width:36ch}
+.foot-tagline{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:15px;color:var(--ink-soft);line-height:1.4;font-variation-settings:"opsz" 24,"SOFT" 70}
+.foot-tagline span{color:var(--accent);font-style:normal;font-weight:500}
+.foot-links{display:flex;gap:28px;flex-wrap:wrap;align-items:center}
+.foot-links a{color:var(--ink-soft);font-size:14px;transition:color .2s;text-decoration:none}
+.foot-links a:hover{color:var(--ink);text-decoration:none}
+.foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;padding-top:32px;border-top:1px solid var(--line-strong);font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-mute);letter-spacing:0.05em}
+.foot-bottom a{color:inherit;text-decoration:none;transition:color .2s}
+.foot-bottom a:hover{color:var(--ink)}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a href="https://www.zuuz.ai/" class="brand">
+      <svg class="brand-spark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z"/></svg>
+      <span class="brand-text">ZUUZ</span>
+    </a>
+    <div class="nav-ctas">
+      <a class="nav-cta-ghost" href="https://buy.stripe.com/cNi6oHaWNeAU8QS457bZe00" rel="noopener">Start free trial</a>
+      <a class="nav-cta" href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Book a demo</a>
+    </div>
+  </div>
+</header>
+<article>
+  <div class="wrap-narrow article-head">
+    <nav class="article-breadcrumb" aria-label="Breadcrumb"><a href="https://www.zuuz.ai/">Home</a> / <a href="https://www.zuuz.ai/blogs">Blog</a> / Renewal & Churn Risk</nav>
+    <div class="article-eyebrow">Blog · Renewal & Churn Risk</div>
+    <h1>How to Track Renewals Across <em>Multiple Products</em></h1>
+    <div class="article-meta">By Avinash Gujje · 2026 · 7 min read</div>
+  </div>
+  <div class="wrap-narrow article-body">
+
+    <div class="article-takeaways">
+      <div class="kt-label">Key Takeaways</div>
+      <ul>
+        <li>Multi-product businesses face compounding renewal risk every quarter as contracts split across spreadsheets, vendor portals, PSA tools, and a CRM that captures only what reps manually log.</li>
+        <li>Standard CRMs were designed for single-product SaaS. The moment hardware, software licenses, professional services, and managed services share the same account, the CRM stops functioning as a renewal system.</li>
+        <li>The six renewal signals that predict a lapse (contract date mentions, usage changes, competitive evaluations, procurement involvement, SKU modifications, and vendor renewal quotes) almost always appear in email 60 to 120 days ahead of the renewal date.</li>
+        <li>The system that works has three layers: ingest every account email into a unified timeline, extract renewal signals as structured contract fields, and reconcile against existing contracts to flag mismatches before they become surprises.</li>
+        <li>When renewal visibility extends to 90 days out with SKU-level detail, renewal rate, average renewal value, and forecast accuracy improve simultaneously because decisions are based on real customer signals rather than rep assumptions.</li>
+        <li>Customers stop evaluating alternatives when the renewal quote matches their actual usage. Sending last year's configuration sends them to a competitor.</li>
+      </ul>
+    </div>
+
+    <nav class="article-toc" aria-label="Table of contents">
+      <div class="toc-label">In this article</div>
+      <ol>
+        <li><a href="#multi-product-problem">The Multi-Product Renewal Problem</a></li>
+        <li><a href="#what-gets-missed">What Gets Missed and Why</a></li>
+        <li><a href="#signals-in-email">Six Email Signals That Predict a Lapse</a></li>
+        <li><a href="#tracking-system">The Three-Layer Tracking System</a></li>
+        <li><a href="#approach-comparison">Spreadsheet vs. CRM Module vs. Email-Native Tracking</a></li>
+        <li><a href="#what-changes">What Changes When Nothing Lapses</a></li>
+        <li><a href="#faq">Frequently Asked Questions</a></li>
+      </ol>
+    </nav>
+
+    <p>A single-product business has a renewals problem. A multi-product business has a renewals catastrophe waiting to happen. Every quarter, contracts lapse that should not have lapsed. Every quarter, someone in finance asks why a customer churned, and the answer is the same: nobody saw the renewal coming.</p>
+    <p>If a team sells more than one product, or resells more than one vendor, this is a revenue problem and it compounds. The signals that predict which renewals will slip are already in the inbox. The gap is a system problem, not a rep discipline problem.</p>
+    <p>This article covers how to track renewals across multiple products, why standard CRM renewal modules fail for multi-vendor accounts, what signals to watch for in email, and how automated reconciliation changes the outcome.</p>
+
+    <h2 id="multi-product-problem">The Multi-Product Renewal Problem</h2>
+    <p>One customer. Six contracts. Four vendors. Three account managers. Two renewal dates that do not align. That is a normal Tuesday at any distributor, MSP, or VAR. The customer does not think of it that way. They think: "we use your stuff." Internally, the renewal tracking is split across spreadsheets, vendor portals, PSA tools, and a CRM that captures maybe half of what actually happened.</p>
+    <p>The structural issue is that most CRMs were designed for single-product SaaS: one subscription, one renewal date, one owner. The moment a team sells hardware, software licenses, professional services, and managed services to the same account, the CRM stops being a renewal system. It becomes a deal-tracking system with no opinion on what is coming due.</p>
+    <p>According to <a href="https://www.salesforce.com/resources/research-and-insights/state-of-sales/" rel="noopener noreferrer" target="_blank">Salesforce's State of Sales research</a>, sales representatives spend an average of 28% of their week on administrative tasks including manual CRM data entry. In a multi-product environment, that administrative burden falls hardest on renewal tracking, which is lower-urgency than new business but higher-stakes when it fails.</p>
+    <p>So renewal tracking migrates to spreadsheets. Spreadsheets work for a quarter. Then somebody leaves, the file gets out of date, a customer switches procurement contacts, and a $40K license auto-renews to the wrong vendor configuration. The recurring revenue line takes a hit that shows up three months later as unexpected churn.</p>
+
+    <div class="article-cta">
+      <svg class="article-cta__spark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z"/></svg>
+      <h2>See the Pipeline Your CRM <em>Can't See.</em></h2>
+      <p>ZUUZ reads every inbound email, extracts the deal signal, and writes it to Salesforce, HubSpot, or Zoho. Book a 15-minute walkthrough on your own inbox.</p>
+      <div class="cta-row"><a class="cta-primary" href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Book a 15-min demo</a></div>
+    </div>
+
+    <h2 id="what-gets-missed">What Gets Missed and Why</h2>
+    <p>The things that get missed follow a pattern. Co-termed contracts that should have been renegotiated as a bundle instead renew individually at list price. Auto-renewal clauses on legacy contracts that no one revisited. SKU-level changes inside a renewal where the customer wanted to drop ten seats and add five of a different product, but the renewal was rebooked at the old configuration because no one pulled the email thread.</p>
+    <p>The reason these get missed is that the signal is almost always in email, not in a contract management tool. The customer writes "remind me when this is up" in a thread six months before the date. The vendor sends a renewal quote 90 days out with line items that need reconciling against the customer's actual usage. The procurement contact emails to renegotiate. None of this lands in the CRM unless someone manually puts it there.</p>
+    <p>Nobody does it consistently, because the workflow rewards closing new business, not maintaining existing accounts. The renewal becomes a fire drill 30 days out when the customer asks why the quote does not match what they are currently using.</p>
+    <p>This pattern is not a rep failure. It is a system design problem. The CRM was built to store what salespeople enter. It was not built to read email and extract renewal intelligence from unstructured text.</p>
+
+    <h2 id="signals-in-email">Six Email Signals That Predict a Lapse</h2>
+    <p>For any account approaching renewal, the signals appear in email 60 to 120 days in advance. Reading those threads with renewal tracking in mind reveals six categories of signal:</p>
+    <ul>
+      <li><strong>Contract date mentions:</strong> phrases like "our agreement runs through August" or "we are budgeting for next fiscal year" indicate the customer is thinking about the renewal timeline</li>
+      <li><strong>Usage changes:</strong> "we added two new offices" or "we are sunsetting that workflow" signals that the current configuration no longer matches actual usage</li>
+      <li><strong>Competitive evaluations:</strong> "we are looking at alternatives" or "send us a comparison against [vendor]" indicates the renewal is not yet secured</li>
+      <li><strong>Procurement involvement:</strong> when a procurement contact appears on an email thread, the renewal is being formalized at the organizational level</li>
+      <li><strong>SKU and quantity changes:</strong> "drop the analytics module," "add 20 more seats," or "we do not need the premium tier" signals that the pending renewal quote will be contested if it does not reflect the change</li>
+      <li><strong>Vendor-side renewal quotes:</strong> line items in the vendor's renewal PDF need to be matched against the original contract and current usage before the customer receives a quote</li>
+    </ul>
+    <p>Every one of these signals sits in a sales or account-management mailbox right now. They are not being read with renewal tracking in mind, because reps are reading email with quota in mind. The signals and the system are misaligned.</p>
+    <p>For more on how email signals get missed across the broader sales process, see <a href="https://www.zuuz.ai/blogs/missed-sales-leads-in-email-how-to-fix-it">why missed sales leads accumulate in email and what to do about it</a>.</p>
+
+    <h2 id="tracking-system">The Three-Layer Tracking System</h2>
+    <p>Tracking renewals across multiple products requires a system that operates on email natively, not one that waits for a rep to log a call. The system that works has three layers.</p>
+
+    <h3>Layer 1: Unified Account Email Timeline</h3>
+    <p>The first layer ingests every email that touches an account into a single conversation timeline. Not just emails that reps manually logged, but every email: forwards from distributors, replies from engineers, procurement queries from contacts not yet in the CRM, and vendor-side renewal quotes with line-item attachments. This creates a complete view of what has been said about an account, sorted by date and contact.</p>
+    <p>Without this layer, renewal tracking is always reactive. The account manager owns one email thread. The engineer owns another. The procurement contact communicated with someone who has since left. No single person has the full picture.</p>
+
+    <h3>Layer 2: Structured Renewal Signal Extraction</h3>
+    <p>The second layer extracts renewal-relevant signals from email text and converts them into structured fields tied to the correct contract record. This means reading a forwarded email that says "we are planning to cut five seats next renewal" and writing "quantity change: -5 seats, source: customer email, date: [date], tied to contract: [contract ID]" to the CRM record automatically.</p>
+    <p>This is where IT-specific language classification matters. "Co-term options for the refresh cycle," "renegotiating the ELA," and "the OEM quote came in high" are all renewal signals. Generic text processing misses them. Classification trained on IT distribution and VAR sales communication reads them correctly.</p>
+    <p>For companies already using CRM-to-email integration tools, <a href="https://www.zuuz.ai/blogs/email-to-crm-automation-for-it-companies">this breakdown of email-to-CRM automation for IT companies</a> explains what the different integration types capture and where each falls short for multi-product tracking.</p>
+
+    <h3>Layer 3: Contract Reconciliation and Mismatch Flagging</h3>
+    <p>The third layer reconciles extracted signals against existing contract records and flags mismatches before they reach the customer. A customer who emails to drop 10 seats but whose pending renewal quote still shows the original count is a mismatch that should be flagged 60 days before the invoice, not discovered when the customer pushes back on a quote they were not expecting.</p>
+    <p>This is what changes the renewal conversation. The account manager calls 60 days out with a quote that already reflects the customer's stated changes. The customer does not need to re-explain. They do not need to negotiate something that was already agreed to in email. The renewal closes faster and at the right configuration.</p>
+
+    <h3>How ZUUZ Implements This for Multi-SKU Accounts</h3>
+    <p>ZUUZ implements this three-layer system for accounts with significant product complexity. At Nesto, a distribution business operating thousands of SKUs across dozens of brands, bulk orders arrive by email in formats ranging from forwarded spreadsheets to free-text requests to scanned purchase orders. ZUUZ matches each line item against the catalog at a 10:1 efficiency ratio compared to manual quoting, prepares the quote, tracks each line through to close, and keeps the renewal trail visible end-to-end.</p>
+    <p>For renewals specifically, that 10:1 matching rate matters because a multi-SKU renewal is not one decision. It is 40 decisions, each a line item with a quantity, a price, and a customer-side owner who may or may not still be in the same role. Matching every email-borne signal against every line item is the only way to keep the renewal honest at scale.</p>
+    <p>RA Technologies, an IT services company in the US, saw $120K in renewal and pipeline signal surface from a 90-day email lookback when ZUUZ was first connected to their accounts. That signal existed in email. It was not in their CRM.</p>
+
+    <figure class="article-quote-card"><img src="https://www.zuuz.ai/uploads/customer-voice-bijju-unni-cloud-box-technologies-pipeline-visibility.png" alt="Bijju Unni · Cloud Box Technologies, customer result with ZUUZ" loading="lazy" width="460" height="460" /><figcaption>Bijju Unni · Cloud Box Technologies</figcaption></figure>
+
+    <div class="article-cta">
+      <svg class="article-cta__spark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z"/></svg>
+      <h2>Stop Losing Pipeline <em>in the Inbox.</em></h2>
+      <p>Connect your CRM in minutes and let ZUUZ capture the signals your team never logs. Start free, with no integration project required.</p>
+      <div class="cta-row"><a class="cta-primary" href="https://buy.stripe.com/cNi6oHaWNeAU8QS457bZe00" rel="noopener">Start free trial</a><a class="cta-secondary" href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Or book a demo</a></div>
+    </div>
+
+    <h2 id="approach-comparison">Spreadsheet vs. CRM Module vs. Email-Native Tracking</h2>
+    <p>Most teams cycle through three approaches to multi-product renewal tracking before settling on a system that actually holds. Understanding where each approach breaks down clarifies what to look for in a sustainable solution.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Tracking Approach</th>
+          <th>How It Works</th>
+          <th>Where It Breaks Down</th>
+          <th>Best Suited For</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Spreadsheet</strong></td>
+          <td>Manual entry of renewal dates, contacts, and contract values by the account manager or ops team</td>
+          <td>Person dependency; no signal capture; breaks on personnel change or scale; no SKU-level detail</td>
+          <td>Teams under 20 accounts with single-vendor relationships</td>
+        </tr>
+        <tr>
+          <td><strong>CRM Renewal Module</strong></td>
+          <td>Renewal dates and stages stored in CRM fields; alerts triggered by date proximity</td>
+          <td>Only records what reps manually entered; no email reading; no SKU-level reconciliation; misses 60-to-120-day signal window</td>
+          <td>Single-product SaaS businesses with one renewal per customer</td>
+        </tr>
+        <tr>
+          <td><strong>PSA / Contract Management Tool</strong></td>
+          <td>Contract records stored centrally; renewal dates tracked against signed agreements</td>
+          <td>Covers formal contracts only; misses informal signals in email; no behavioral risk scoring; no multi-vendor co-term view</td>
+          <td>Legal and finance teams tracking contract compliance</td>
+        </tr>
+        <tr>
+          <td><strong>Email-Native Tracking (AI-Assisted)</strong></td>
+          <td>System reads all account email, extracts renewal signals, reconciles against contracts, writes structured data to CRM</td>
+          <td>Requires email access and CRM connection; initial classification tuning needed for industry-specific language</td>
+          <td>Multi-product VARs, distributors, MSPs, and IT services firms with 50+ active accounts</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>The pattern is consistent across all three legacy approaches: they capture what was formally entered but miss what was informally communicated. For multi-product accounts where contract complexity is high, the gap between formal records and actual customer communication is where renewals get lost.</p>
+    <p>According to <a href="https://www.gartner.com/en/sales/insights/revenue-intelligence" rel="noopener noreferrer" target="_blank">Gartner's research on revenue intelligence</a>, organizations that automate the capture of buyer signals from email and call data see higher win rates and shorter sales cycles compared to those relying on manual CRM entry. The same principle applies directly to renewal tracking: signal capture speed determines whether a renewal is managed or recovered.</p>
+
+    <h2 id="what-changes">What Changes When Nothing Lapses</h2>
+    <p>When renewal visibility extends to 90 days with SKU-level detail intact, three things change simultaneously. Renewal rate increases because nothing slips through without a human reviewing it. Average renewal value increases because co-termed contracts get renegotiated as bundles rather than renewed one-off at list price. Forecast accuracy improves because the recurring revenue line is built on signals from the customer, not assumptions from the account manager.</p>
+    <p>The customer experience changes too. A renewal call 60 days out with a quote that already reflects the customer's stated usage changes does not generate friction. The customer does not need to re-explain what they told the account manager four months ago in an email. They do not need to negotiate something that was already discussed. The renewal closes faster.</p>
+    <p>A renewal call 15 days out with last year's configuration sends a different signal. The customer interprets it as evidence that the vendor is not paying attention. That interpretation is accurate. And it sends them to evaluate alternatives, even when they were not planning to.</p>
+    <p>For IT services and distribution teams building out their renewal operations, <a href="https://www.zuuz.ai/blogs/renewal-tracking-software-for-vars-and-distributors">this guide to renewal tracking software for VARs and distributors</a> covers the specific tool criteria and deployment patterns that apply to channel businesses.</p>
+    <p>The broader <a href="https://www.zuuz.ai/blogs/it-sales-pipeline-visibility-tools">pipeline visibility problem in IT sales</a> is closely related: when renewal signals are captured and written to the CRM, the pipeline forecast becomes a reflection of actual customer intent rather than a collection of rep estimates.</p>
+
+    <figure class="article-quote-card"><img src="https://www.zuuz.ai/uploads/avinash-gujje-quote-cost-of-doing-nothing-buried-signals.png" alt="Avinash Gujje, CEO of ZUUZ, on revenue signal intelligence" loading="lazy" width="600" height="600" /><figcaption>Avinash Gujje · CEO, ZUUZ</figcaption></figure>
+
+    <section class="article-faq">
+      <h2 class="faq-head" id="faq">Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <h3>Why Do Multi-Product Renewals Fail More Often Than Single-Product Renewals?</h3>
+        <p>Single-product renewals have one contract, one date, and one owner. Multi-product renewals involve multiple vendors, separate contract dates, and SKUs at different usage rates. Renewal discussions split across multiple email threads, often with different contacts at each vendor or customer touchpoint. Most CRMs were designed for single-product SaaS and cannot model this complexity without extensive manual configuration that rarely gets done consistently.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Where Do Renewal Signals Most Often Get Missed?</h3>
+        <p>Renewal signals get missed in email. Customers mention contract timelines, usage changes, and competitive evaluations in email threads 60 to 120 days before the renewal date. These signals exist in account manager and engineer inboxes long before they appear in any renewal dashboard or CRM record. No standard CRM renewal module reads email automatically, which is why the signals never make it to the forecast.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What Is the Difference Between a Renewal Tracking Tool and a CRM Renewal Module?</h3>
+        <p>A CRM renewal module records dates and pipeline stages that someone entered manually. A renewal tracking tool actively monitors for renewal signals in email, flags risk based on behavioral changes such as account silence, competitor name-drops, or pricing questions, and surfaces those signals before the renewal window closes. The core difference is passive record-keeping versus active signal monitoring.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How Do You Handle Co-Termed Contracts Across Multiple Vendors?</h3>
+        <p>Co-term management requires consolidating renewal dates across vendors into a single account view, then identifying which contracts can be bundled for renegotiation. The signals that indicate a customer is open to co-terming, including mentions of consolidating vendor relationships or annual budget discussions, typically appear in email months before any formal conversation. Tracking those signals prevents individually renewed contracts that close at list price instead of as negotiated bundles.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Does Automated Renewal Tracking Require Reps to Change Their Email Behavior?</h3>
+        <p>No. Effective renewal tracking operates at the email account level, not the rep behavior level. The system reads inbound and outbound email for every account, classifies renewal signals, and writes structured data to the CRM automatically. Reps continue working in email without any change to their workflow. The difference is that the CRM receives structured renewal intelligence without requiring manual data entry from the rep.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What SKU-Level Signals Should a Renewal Tracking System Capture?</h3>
+        <p>A renewal tracking system should capture seat count changes, product tier modifications, module add or drop requests, quantity adjustments tied to team restructuring, and vendor-side renewal quotes with line items that differ from the original contract configuration. Each signal indicates a mismatch between the pending renewal and the customer's actual current usage. Missing any one of them produces a renewal quote the customer will contest.</p>
+      </div>
+
+    </section>
+
+    <div class="article-author"><img src="https://www.zuuz.ai/uploads/avinash-gujje-headshot-zuuz-ceo.png" alt="Avinash Gujje, CEO of ZUUZ" loading="lazy" width="60" height="60" /><div><div class="au-name">Avinash Gujje</div><p>CEO of ZUUZ. He scaled Cloud Box Technologies from 0 to $25M ARR in IT services and distribution before building ZUUZ. <a href="https://www.linkedin.com/in/avinashgujje/" rel="noopener" target="_blank">Connect on LinkedIn</a></p></div></div>
+
+    <div class="article-cta">
+      <h2>See What Your Inbox Is <em>Actually</em> Doing.</h2>
+      <p>A 15-minute demo shows which renewals are already at risk in your team's inbox and how ZUUZ surfaces them to the right account owner. Works with Salesforce, HubSpot, and Zoho, with no data preparation required before the call.</p>
+      <div class="cta-row"><a class="cta-primary" href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Book a 15-min demo</a></div>
+    </div>
+
+    <section class="article-related">
+      <div class="rel-label">Related Reading</div>
+      <ul>
+        <li><a href="https://www.zuuz.ai/blogs/renewal-tracking-software-for-vars-and-distributors">Renewal Tracking Software for VARs and Distributors</a></li>
+        <li><a href="https://www.zuuz.ai/blogs/email-to-crm-automation-for-it-companies">Email-to-CRM Automation for IT Companies</a></li>
+        <li><a href="https://www.zuuz.ai/blogs/missed-sales-leads-in-email-how-to-fix-it">Missed Sales Leads in Email: Why It Happens and How to Fix It</a></li>
+      </ul>
+    </section>
+
+  </div>
+</article>
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand-block">
+        <a href="https://www.zuuz.ai/" class="brand">
+          <svg class="brand-spark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z"/></svg>
+          <span class="brand-text">ZUUZ</span>
+        </a>
+        <p class="foot-tagline">Forged by Insight. <span>Driven by Precision.</span></p>
+      </div>
+      <div class="foot-links">
+        <a href="https://www.zuuz.ai/blogs">Blog</a>
+        <a href="https://www.zuuz.ai/about">About</a>
+        <a href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Book a demo</a>
+        <a href="https://buy.stripe.com/cNi6oHaWNeAU8QS457bZe00" rel="noopener">Start free trial</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ZUUZ, Inc. · Sunnyvale · Dubai · Hyderabad</span>
+      <span>Forged by Insight · Driven by Precision</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
