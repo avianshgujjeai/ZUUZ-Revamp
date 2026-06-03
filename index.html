@@ -37,12 +37,18 @@
       "name": "ZUUZ, Inc.",
       "legalName": "ZUUZ, Inc.",
       "url": "https://www.zuuz.ai",
-      "logo": "https://www.zuuz.ai/og-image.png",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.zuuz.ai/uploads/zuuz-email-signals-drive-deals-crm.png",
+        "width": 1200,
+        "height": 630
+      },
       "description": "ZUUZ turns customer emails into closed sales by reading every inbound sales email, qualifying leads, drafting replies, and writing pipeline to CRM automatically.",
       "foundingDate": "2024",
       "email": "info@zuuz.ai",
+      "telephone": "+1-469-347-3394",
       "address": [
-        {"@type": "PostalAddress", "addressLocality": "Sunnyvale", "addressRegion": "CA", "addressCountry": "US"},
+        {"@type": "PostalAddress", "streetAddress": "440N Wolfe Rd", "addressLocality": "Sunnyvale", "addressRegion": "CA", "addressCountry": "US"},
         {"@type": "PostalAddress", "addressLocality": "Dubai", "addressCountry": "AE"},
         {"@type": "PostalAddress", "addressLocality": "Hyderabad", "addressCountry": "IN"}
       ],
@@ -66,12 +72,107 @@
       "description": "ZUUZ reads every email in your sales inbox, qualifies the lead, drafts the reply, and tracks the deal automatically.",
       "url": "https://www.zuuz.ai",
       "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "CRM & Sales Automation",
       "operatingSystem": "Web",
       "publisher": {"@id": "https://www.zuuz.ai/#organization"},
       "offers": [
-        {"@type": "Offer", "name": "Solo", "price": "99", "priceCurrency": "USD", "billingDuration": "P1M"},
-        {"@type": "Offer", "name": "Growth", "price": "349", "priceCurrency": "USD", "billingDuration": "P1M"},
-        {"@type": "Offer", "name": "Scale", "price": "649", "priceCurrency": "USD", "billingDuration": "P1M"}
+        {"@type": "Offer", "name": "Solo", "price": "99", "priceCurrency": "USD", "billingDuration": "P1M", "url": "https://buy.stripe.com/cNi6oHaWNeAU8QS457bZe00"},
+        {"@type": "Offer", "name": "Team-3", "price": "249", "priceCurrency": "USD", "billingDuration": "P1M", "url": "https://buy.stripe.com/bJefZh8OF78sgjk6dfbZe01"},
+        {"@type": "Offer", "name": "Growth", "price": "349", "priceCurrency": "USD", "billingDuration": "P1M", "url": "https://buy.stripe.com/eVq5kD6GxcsMc34cBDbZe02"},
+        {"@type": "Offer", "name": "Scale", "price": "649", "priceCurrency": "USD", "billingDuration": "P1M", "url": "https://buy.stripe.com/6oU3cvgh71O80km7hjbZe03"}
+      ]
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://www.zuuz.ai/#product-video",
+      "name": "ZUUZ Product Walkthrough",
+      "description": "A 4-minute walkthrough showing how ZUUZ reads sales emails, qualifies leads, drafts replies, and captures pipeline to Salesforce, HubSpot, or Zoho automatically.",
+      "duration": "PT4M",
+      "thumbnailUrl": "https://www.zuuz.ai/uploads/zuuz-email-signals-drive-deals-crm.png",
+      "uploadDate": "2025-07-01",
+      "embedUrl": "https://www.loom.com/embed/cc72a79f26254342ad98c6d7995de574",
+      "publisher": {"@id": "https://www.zuuz.ai/#organization"}
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.zuuz.ai/#avinash-gujje",
+      "name": "Avinash Gujje",
+      "jobTitle": "Founder & CEO",
+      "description": "Built Cloud Box Technologies from $0 to $25M ARR. Spent ten years watching CRM run two weeks behind reality. Founded ZUUZ to fix it.",
+      "worksFor": {"@id": "https://www.zuuz.ai/#organization"},
+      "sameAs": ["https://www.linkedin.com/in/avinashgujje"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.zuuz.ai/#jaya-vera",
+      "name": "Jaya Vera",
+      "jobTitle": "Co-Founder & CTO",
+      "description": "Engineering leader. Architect of the ZUUZ intelligence layer. Built the systems that turn email signals into real pipeline automatically.",
+      "worksFor": {"@id": "https://www.zuuz.ai/#organization"}
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.zuuz.ai/#prasanna-kumar",
+      "name": "Prasanna Kumar",
+      "honorificPrefix": "Prof.",
+      "jobTitle": "Chief AI Advisor",
+      "description": "Stanford professor and author on AI and finance. Guides ZUUZ AI research direction and architecture strategy.",
+      "affiliation": {
+        "@type": "CollegeOrUniversity",
+        "name": "Stanford University"
+      },
+      "worksFor": {"@id": "https://www.zuuz.ai/#organization"}
+    }
+,
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.zuuz.ai/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does ZUUZ read all of our emails?",
+          "acceptedAnswer": {"@type": "Answer", "text": "No. ZUUZ connects via official Microsoft Graph or Google Workspace OAuth APIs and runs a sales-email classification filter before anything is processed. Only emails matching sales patterns are passed to the pipeline engine. Personal, HR, finance, and legal threads are never read or stored. You choose which mailboxes and folders are in scope."}
+        },
+        {
+          "@type": "Question",
+          "name": "Will ZUUZ email a customer without our approval?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Never. ZUUZ drafts replies and CRM updates — it never sends or writes autonomously. Every action is queued for your team to review and approve. Nothing goes out until a human approves it. A full audit log records every proposal and approval."}
+        },
+        {
+          "@type": "Question",
+          "name": "We already use HubSpot or Salesforce. Do we need to replace it?",
+          "acceptedAnswer": {"@type": "Answer", "text": "No replacement needed. ZUUZ writes into your existing CRM. RA Technologies ran HubSpot for two years before connecting ZUUZ, which surfaced $120K in pipeline in the first 30 days on top of the same HubSpot instance."}
+        },
+        {
+          "@type": "Question",
+          "name": "How long does setup take?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Under one week for most teams. You connect one mailbox and one CRM. No IT project, no data migration, no custom code required. Most customers see surfaced pipeline within the first 72 hours."}
+        },
+        {
+          "@type": "Question",
+          "name": "How is ZUUZ different from Gong or Clari?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Gong records calls for enterprises paying $100K+ per year. Clari forecasts revenue for large sales organizations. Both require deals to already be in the CRM. ZUUZ starts earlier: it reads inbound email, qualifies the lead, and writes the deal to your CRM before a rep touches anything — at a fraction of the cost, for SMB teams of 20-200 people."}
+        },
+        {
+          "@type": "Question",
+          "name": "What does the 30-day free trial include?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Full access to every feature on your chosen plan, connected to your actual mailbox and CRM, running on your live sales data. No demo environment, no sample data, no credit card until you're ready. Cancel with one click if you don't see pipeline surfaced in 30 days."}
+        },
+        {
+          "@type": "Question",
+          "name": "Our reps don't update the CRM. Will that change?",
+          "acceptedAnswer": {"@type": "Answer", "text": "That is exactly the problem ZUUZ solves without requiring reps to change behavior. ZUUZ reads the email, not the rep. It surfaces the signal, qualifies the lead, and proposes the CRM update automatically. Reps review and approve in seconds instead of doing data entry."}
+        },
+        {
+          "@type": "Question",
+          "name": "We're in a regulated industry. Is ZUUZ safe to use?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Yes. ZUUZ is SOC 2 Type I certified — independently audited, with security controls verified by a third-party assessor. The API-first design means ZUUZ only processes what you explicitly authorize: no full mailbox access, no password storage, no bulk email export. Enterprise plans include compliance exports, audit logs, and SSO."}
+        },
+        {
+          "@type": "Question",
+          "name": "What results should we expect?",
+          "acceptedAnswer": {"@type": "Answer", "text": "RA Technologies found $120K in pipeline in the first 30 days from their existing sales mailbox. Nesto reduced quote turnaround from days to hours using ZUUZ SKU matching. One recovered deal typically pays for a full year of ZUUZ."}
+        }
       ]
     }
   ]
@@ -575,6 +676,25 @@
     transition:all .2s;
   }
   .final-ghost:hover{background:rgba(244,241,234,0.08)}
+  .final-contact-strip{
+    display:flex;align-items:center;justify-content:center;
+    gap:20px;flex-wrap:wrap;
+    margin-top:28px;padding-top:24px;
+    border-top:1px solid rgba(244,241,234,0.12);
+    position:relative;
+  }
+  .final-contact-item{
+    display:inline-flex;align-items:center;gap:8px;
+    color:rgba(244,241,234,0.6);font-size:14px;
+    transition:color .2s;text-decoration:none;
+  }
+  .final-contact-item:hover{color:var(--paper)}
+  .final-contact-item svg{flex-shrink:0;opacity:0.7}
+  .final-contact-divider{
+    width:1px;height:16px;
+    background:rgba(244,241,234,0.2);
+  }
+  @media(max-width:560px){.final-contact-divider{display:none}.final-contact-strip{flex-direction:column;gap:14px}}
 
   /* FOOTER */
   footer{
@@ -815,6 +935,154 @@
     border-top: 1px solid rgba(17,17,16,0.06);
   }
   .nav-dropdown-menu a.nav-dropdown-highlight:hover { background: #e4ecff; }
+
+  /* ── ROI CALCULATOR ── */
+  #roi-calculator{background:var(--paper);}
+  .roi-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:56px;
+    margin-top:56px; align-items:start;
+  }
+  @media (max-width:880px){ .roi-grid{grid-template-columns:1fr; gap:40px} }
+
+  .roi-controls{display:flex; flex-direction:column; gap:30px}
+  .roi-field{display:flex; flex-direction:column; gap:14px}
+  .roi-field-head{display:flex; justify-content:space-between; align-items:baseline; gap:16px}
+  .roi-field-head label{
+    font-family:'Instrument Sans',sans-serif; font-size:15px; font-weight:500; color:var(--ink-soft);
+  }
+  .roi-val{
+    font-family:'JetBrains Mono',monospace; font-size:14px; font-weight:500;
+    color:var(--accent); letter-spacing:0.02em; white-space:nowrap;
+  }
+  .roi-slider{
+    -webkit-appearance:none; appearance:none; width:100%; height:4px;
+    border-radius:99px; background:var(--line-strong); outline:none; cursor:pointer;
+  }
+  .roi-slider::-webkit-slider-thumb{
+    -webkit-appearance:none; appearance:none; width:20px; height:20px; border-radius:50%;
+    background:var(--accent); border:3px solid var(--paper);
+    box-shadow:0 1px 6px rgba(37,99,255,0.4); transition:transform .15s;
+  }
+  .roi-slider::-webkit-slider-thumb:hover{transform:scale(1.15)}
+  .roi-slider::-moz-range-thumb{
+    width:20px; height:20px; border-radius:50%; background:var(--accent);
+    border:3px solid var(--paper); box-shadow:0 1px 6px rgba(37,99,255,0.4); cursor:pointer;
+  }
+
+  .roi-outputs{display:flex; flex-direction:column; gap:16px}
+  .roi-hero-card{
+    background:var(--ink); color:var(--paper);
+    border-radius:var(--radius); padding:40px 36px;
+    position:relative; overflow:hidden;
+  }
+  .roi-hero-card::before{
+    content:""; position:absolute; top:-40%; right:-10%; width:70%; height:180%;
+    background:radial-gradient(ellipse, rgba(37,99,255,0.25), transparent 60%);
+    pointer-events:none;
+  }
+  .roi-hero-label{
+    font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.16em;
+    text-transform:uppercase; color:rgba(244,241,234,0.7); margin-bottom:14px; position:relative;
+  }
+  .roi-hero-num{
+    font-family:'Fraunces',serif; font-weight:400; font-style:italic;
+    font-size:clamp(64px,7vw,84px); line-height:1; letter-spacing:-0.035em;
+    font-variation-settings:"opsz" 144, "SOFT" 40;
+    color:var(--accent); position:relative;
+  }
+  .roi-stat-row{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+  @media (max-width:480px){ .roi-stat-row{grid-template-columns:1fr} }
+  .roi-stat{
+    background:var(--card); border:1px solid var(--line-strong);
+    border-radius:var(--radius-sm); padding:24px;
+  }
+  .roi-stat-num{
+    font-family:'Fraunces',serif; font-weight:400; font-size:40px; line-height:1;
+    letter-spacing:-0.02em; color:var(--ink); margin-bottom:10px;
+    font-variation-settings:"opsz" 144;
+  }
+  .roi-stat-label{
+    font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.14em;
+    text-transform:uppercase; color:var(--ink-mute); line-height:1.5;
+  }
+  .roi-cta-row{display:flex; align-items:center; gap:24px; flex-wrap:wrap; margin-top:8px}
+  .roi-btn{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--ink); color:var(--paper);
+    padding:14px 24px; border-radius:99px; font-size:14px; font-weight:500;
+    transition:transform .2s, background .2s;
+  }
+  .roi-btn:hover{transform:translateY(-1px); background:#000}
+  .roi-btn::after{content:"→"; transition:transform .2s}
+  .roi-btn:hover::after{transform:translateX(2px)}
+  .roi-link{
+    font-size:14px; font-weight:500; color:var(--accent);
+    border-bottom:1px solid transparent; transition:border-color .2s;
+  }
+  .roi-link:hover{border-bottom-color:var(--accent)}
+  .roi-foot{
+    font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.06em;
+    color:var(--ink-mute); margin-top:4px;
+  }
+
+  /* ── WHY ZUUZ comparison table ── */
+  .compare-wrap{margin-top:56px;overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:var(--radius);border:1px solid var(--line-strong)}
+  .ctable{width:100%;border-collapse:collapse;font-size:13px;min-width:700px}
+  .ctable thead tr{background:var(--card)}
+  .ctable thead th{padding:16px 20px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;border-bottom:2px solid var(--line-strong);text-align:center;color:var(--ink-mute);font-weight:400;white-space:nowrap}
+  .ctable thead th:first-child{text-align:left;min-width:200px}
+  .ctable thead th.zuuz-h{background:var(--ink);color:var(--paper);min-width:130px}
+  .ctable tbody td{padding:14px 20px;border-bottom:1px solid var(--line);text-align:center;color:var(--ink-soft);font-size:13px;vertical-align:middle}
+  .ctable tbody td:first-child{text-align:left;font-weight:500;color:var(--ink);font-size:14px}
+  .ctable tbody td.zuuz-c{background:rgba(37,99,255,0.04);border-left:2px solid rgba(37,99,255,0.18);border-right:2px solid rgba(37,99,255,0.18);color:var(--ink);font-weight:500}
+  .ctable tbody tr:last-child td.zuuz-c{border-bottom:2px solid rgba(37,99,255,0.18)}
+  .tyes{color:#0F8B4F;font-weight:600;font-size:15px}
+  .tno{color:#DC2626;font-size:15px}
+  .tpart{color:var(--ink-mute);font-size:12px;font-style:italic}
+  .compare-note{font-size:12px;color:var(--ink-mute);margin-top:14px;font-family:'JetBrains Mono',monospace;letter-spacing:0.04em}
+  .why-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:32px;border:1px solid var(--line-strong);border-radius:var(--radius);overflow:hidden}
+  @media(max-width:880px){.why-cards{grid-template-columns:1fr}}
+  .why-card{padding:36px 32px;background:var(--card);border-right:1px solid var(--line-strong);display:flex;flex-direction:column;gap:12px}
+  .why-card:last-child{border-right:none}
+  @media(max-width:880px){.why-card{border-right:none;border-bottom:1px solid var(--line-strong)}}
+  @media(max-width:880px){.why-card:last-child{border-bottom:none}}
+  .why-card-num{font-family:'Fraunces',serif;font-size:44px;font-weight:300;font-style:italic;line-height:1;background:linear-gradient(135deg,var(--accent),rgba(37,99,255,0.3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .why-card h3{font-family:'Fraunces',serif;font-weight:400;font-size:20px;letter-spacing:-0.02em;line-height:1.2}
+  .why-card p{font-size:14px;color:var(--ink-soft);line-height:1.65}
+
+  /* ── DATA PRIVACY ── */
+  .priv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:56px;border:1px solid var(--line-strong);border-radius:var(--radius);overflow:hidden}
+  @media(max-width:720px){.priv-grid{grid-template-columns:1fr}}
+  .priv-step{padding:40px 32px;background:var(--card);border-right:1px solid var(--line-strong);display:flex;flex-direction:column;gap:16px;position:relative}
+  .priv-step:last-child{border-right:none}
+  @media(max-width:720px){.priv-step{border-right:none;border-bottom:1px solid var(--line-strong)}}
+  @media(max-width:720px){.priv-step:last-child{border-bottom:none}}
+  .priv-icon{width:48px;height:48px;border-radius:12px;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-bottom:4px}
+  .priv-step h3{font-family:'Fraunces',serif;font-weight:400;font-size:22px;letter-spacing:-0.02em;line-height:1.15}
+  .priv-step p{font-size:14px;color:var(--ink-soft);line-height:1.65}
+  .priv-label{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
+  .trust-strip{display:flex;flex-wrap:wrap;gap:0;margin-top:28px;border:1px solid var(--line-strong);border-radius:var(--radius-sm);overflow:hidden;background:var(--card)}
+  .trust-item{flex:1;min-width:160px;padding:20px 24px;border-right:1px solid var(--line-strong)}
+  .trust-item:last-child{border-right:none}
+  @media(max-width:720px){.trust-item{min-width:50%;border-bottom:1px solid var(--line-strong)}}
+  .trust-t{font-size:13px;font-weight:500;color:var(--ink);margin-bottom:5px;display:flex;align-items:center;gap:8px}
+  .trust-dot{width:7px;height:7px;border-radius:50%;background:var(--signal);flex-shrink:0}
+  .trust-d{font-size:12px;color:var(--ink-mute);line-height:1.5}
+
+  /* ── FAQ ── */
+  .faq-list{margin-top:56px;display:flex;flex-direction:column}
+  .faq-item{border-top:1px solid var(--line-strong)}
+  .faq-item:last-child{border-bottom:1px solid var(--line-strong)}
+  .faq-btn{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px 0;cursor:pointer;width:100%;text-align:left;background:none;border:none}
+  .faq-qt{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(16px,1.8vw,20px);letter-spacing:-0.015em;line-height:1.25;color:var(--ink);transition:color .2s}
+  .faq-btn:hover .faq-qt{color:var(--accent)}
+  .faq-icon{width:32px;height:32px;border-radius:50%;border:1.5px solid var(--line-strong);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--ink-mute);font-size:22px;font-weight:300;line-height:1;transition:all .25s;font-family:'Instrument Sans',sans-serif;background:var(--card)}
+  .faq-item.fopen .faq-icon{background:var(--accent);border-color:var(--accent);color:#fff;transform:rotate(45deg)}
+  .faq-item.fopen .faq-qt{color:var(--accent)}
+  .faq-body{display:none;padding:0 56px 24px 0}
+  .faq-item.fopen .faq-body{display:block}
+  .faq-body p{font-size:16px;color:var(--ink-soft);line-height:1.65;max-width:68ch}
+  .faq-body strong{color:var(--ink);font-weight:500}
 </style>
 </head>
 <body>
@@ -838,8 +1106,9 @@
             <a href="/roi-calculator" class="nav-dropdown-highlight">ROI Calculator ↗</a>
           </div>
         </li>
+        <li><a href="/#why-zuuz">Why ZUUZ</a></li>
         <li><a href="/#team">Team</a></li>
-        <li><a href="mailto:info@zuuz.ai">Contact</a></li>
+        <li><a href="/contact">Contact</a></li>
         <li><a href="/blogs">Blogs</a></li>
       </ul>
     </nav>
@@ -1110,6 +1379,421 @@
   </div>
 </section>
 
+<!-- ROI CALCULATOR -->
+<section id="roi-calculator">
+  <div class="wrap">
+    <div class="section-eyebrow">ROI Calculator</div>
+    <h2 class="section-title">What is your revenue team leaving <em>behind</em>?</h2>
+    <p class="section-sub">
+      Drag the sliders to your team's real numbers. ZUUZ surfaces the pipeline
+      that's quietly slipping through the inbox — leads never logged, deals never forecast.
+    </p>
+
+    <div class="roi-grid">
+      <!-- Sliders -->
+      <div class="roi-controls">
+        <div class="roi-field">
+          <div class="roi-field-head">
+            <label for="roi-reps">Sales reps</label>
+            <span class="roi-val" id="roi-reps-val">25</span>
+          </div>
+          <input type="range" class="roi-slider" id="roi-reps" min="5" max="200" step="1" value="25">
+        </div>
+
+        <div class="roi-field">
+          <div class="roi-field-head">
+            <label for="roi-leads">Inbound leads / month</label>
+            <span class="roi-val" id="roi-leads-val">120</span>
+          </div>
+          <input type="range" class="roi-slider" id="roi-leads" min="10" max="1000" step="1" value="120">
+        </div>
+
+        <div class="roi-field">
+          <div class="roi-field-head">
+            <label for="roi-deal">Average deal value</label>
+            <span class="roi-val" id="roi-deal-val">$45K</span>
+          </div>
+          <input type="range" class="roi-slider" id="roi-deal" min="5" max="500" step="1" value="45">
+        </div>
+
+        <div class="roi-field">
+          <div class="roi-field-head">
+            <label for="roi-winrate">Current win rate</label>
+            <span class="roi-val" id="roi-winrate-val">22%</span>
+          </div>
+          <input type="range" class="roi-slider" id="roi-winrate" min="5" max="60" step="1" value="22">
+        </div>
+
+        <div class="roi-field">
+          <div class="roi-field-head">
+            <label for="roi-crmhrs">CRM admin hours / rep / week</label>
+            <span class="roi-val" id="roi-crmhrs-val">6 hrs</span>
+          </div>
+          <input type="range" class="roi-slider" id="roi-crmhrs" min="1" max="20" step="1" value="6">
+        </div>
+      </div>
+
+      <!-- Live outputs -->
+      <div class="roi-outputs">
+        <div class="roi-hero-card">
+          <div class="roi-hero-label">Revenue escaping pipeline / year</div>
+          <div class="roi-hero-num" id="roi-revenue">$5M</div>
+        </div>
+
+        <div class="roi-stat-row">
+          <div class="roi-stat">
+            <div class="roi-stat-num" id="roi-deals">504</div>
+            <div class="roi-stat-label">Deals lost annually</div>
+          </div>
+          <div class="roi-stat">
+            <div class="roi-stat-num" id="roi-hours">7,800</div>
+            <div class="roi-stat-label">Selling hours lost / year</div>
+          </div>
+        </div>
+
+        <div class="roi-cta-row">
+          <a class="roi-btn" href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Book a demo</a>
+          <a class="roi-link" href="/roi-calculator">Open full calculator →</a>
+        </div>
+
+        <div class="roi-foot">30-day free trial &middot; No setup fee &middot; Cancel anytime</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+/* ROI calculator — vanilla JS, no dependencies */
+(function () {
+  var reps    = document.getElementById('roi-reps');
+  var leads   = document.getElementById('roi-leads');
+  var deal    = document.getElementById('roi-deal');
+  var winrate = document.getElementById('roi-winrate');
+  var crmhrs  = document.getElementById('roi-crmhrs');
+  if (!reps) return;
+
+  function money(n) {
+    if (n >= 1e6) {
+      var m = n / 1e6;
+      return '$' + (m >= 10 ? Math.round(m) : (Math.round(m * 10) / 10).toString().replace(/\.0$/, '')) + 'M';
+    }
+    if (n >= 1e3) return '$' + Math.round(n / 1e3) + 'K';
+    return '$' + Math.round(n);
+  }
+
+  function update() {
+    var r = +reps.value, l = +leads.value, d = +deal.value, w = +winrate.value, c = +crmhrs.value;
+
+    document.getElementById('roi-reps-val').textContent    = r;
+    document.getElementById('roi-leads-val').textContent   = l;
+    document.getElementById('roi-deal-val').textContent    = '$' + d + 'K';
+    document.getElementById('roi-winrate-val').textContent = w + '%';
+    document.getElementById('roi-crmhrs-val').textContent  = c + ' hrs';
+
+    var dealsLost = Math.round(0.35 * l * 12);
+    var revenue   = (0.35 * l * 12) * (w / 100) * (d * 1000);
+    var hoursLost = r * c * 52;
+
+    document.getElementById('roi-revenue').textContent = money(revenue);
+    document.getElementById('roi-deals').textContent   = dealsLost.toLocaleString('en-US');
+    document.getElementById('roi-hours').textContent   = hoursLost.toLocaleString('en-US');
+  }
+
+  [reps, leads, deal, winrate, crmhrs].forEach(function (el) {
+    el.addEventListener('input', update);
+  });
+  update();
+})();
+</script>
+
+
+<!-- WHY ZUUZ -->
+<section id="why-zuuz">
+  <div class="wrap">
+    <div class="section-eyebrow">Why ZUUZ</div>
+    <h2 class="section-title">Built for deals that <em>live in email.</em></h2>
+    <p class="section-sub">
+      Gong listens to enterprise calls. Clari forecasts enterprise revenue. Neither was built for the $50K renewal sitting in an account manager's inbox for six weeks. ZUUZ was.
+    </p>
+
+    <div class="compare-wrap">
+      <table class="ctable" aria-label="ZUUZ vs competitors comparison">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col" class="zuuz-h">ZUUZ</th>
+            <th scope="col">Gong</th>
+            <th scope="col">Clari</th>
+            <th scope="col">Outreach</th>
+            <th scope="col">Fireflies / Chorus</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Starting price</td>
+            <td class="zuuz-c">$99 / mo</td>
+            <td>~$100K / yr</td>
+            <td>~$100K / yr</td>
+            <td>~$100+ / user / mo</td>
+            <td>Free – $39 / user / mo</td>
+          </tr>
+          <tr>
+            <td>Works on your existing CRM</td>
+            <td class="zuuz-c"><span class="tyes">✓</span></td>
+            <td><span class="tpart">Partial</span></td>
+            <td><span class="tpart">Partial</span></td>
+            <td><span class="tpart">Partial</span></td>
+            <td><span class="tpart">Partial</span></td>
+          </tr>
+          <tr>
+            <td>Captures inbound email → pipeline</td>
+            <td class="zuuz-c"><span class="tyes">✓</span></td>
+            <td><span class="tno">✗</span></td>
+            <td><span class="tno">✗</span></td>
+            <td><span class="tno">✗</span></td>
+            <td><span class="tno">✗</span></td>
+          </tr>
+          <tr>
+            <td>SMB team fit (20–200 people)</td>
+            <td class="zuuz-c"><span class="tyes">✓</span></td>
+            <td><span class="tno">✗ Enterprise</span></td>
+            <td><span class="tno">✗ Enterprise</span></td>
+            <td><span class="tpart">Mid-market</span></td>
+            <td><span class="tpart">Some plans</span></td>
+          </tr>
+          <tr>
+            <td>Deploy in under 2 weeks</td>
+            <td class="zuuz-c"><span class="tyes">✓</span></td>
+            <td><span class="tno">✗ Months</span></td>
+            <td><span class="tno">✗ Months</span></td>
+            <td><span class="tpart">4–8 weeks</span></td>
+            <td><span class="tyes">✓</span></td>
+          </tr>
+          <tr>
+            <td>IT / VAR / Distribution depth</td>
+            <td class="zuuz-c"><span class="tyes">✓</span></td>
+            <td><span class="tno">✗</span></td>
+            <td><span class="tno">✗</span></td>
+            <td><span class="tno">✗</span></td>
+            <td><span class="tno">✗</span></td>
+          </tr>
+          <tr>
+            <td>Human approval before every action</td>
+            <td class="zuuz-c"><span class="tyes">✓ Always</span></td>
+            <td><span class="tpart">Some</span></td>
+            <td><span class="tpart">Some</span></td>
+            <td><span class="tpart">Some</span></td>
+            <td><span class="tyes">✓</span></td>
+          </tr>
+          <tr>
+            <td>30-day free trial, no credit card</td>
+            <td class="zuuz-c"><span class="tyes">✓</span></td>
+            <td><span class="tno">✗ Demo only</span></td>
+            <td><span class="tno">✗ Demo only</span></td>
+            <td><span class="tno">✗ Demo only</span></td>
+            <td><span class="tpart">Free tier</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="compare-note">* Pricing and features as of June 2026. Gong and Clari enterprise contracts typically require 12-month minimum commitments.</p>
+
+    <div class="why-cards">
+      <div class="why-card">
+        <div class="why-card-num">01</div>
+        <h3>No rip-and-replace</h3>
+        <p>ZUUZ writes into the Salesforce, HubSpot, or Zoho you already run. RA Technologies had used HubSpot for two years before ZUUZ surfaced $120K they had never seen — on top of the same CRM, with the same team.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-num">02</div>
+        <h3>Email-first, not call-first</h3>
+        <p>Gong and Chorus record calls. But 82% of buyer context in IT services, distribution, and insurance never reaches a call — it lives in email threads, RFPs, and renewal replies. That's what ZUUZ reads.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-num">03</div>
+        <h3>SMB-priced, founder-deployed</h3>
+        <p>You shouldn't need a six-month procurement cycle and a $100K contract to know what's in your own sales inbox. ZUUZ is live in under two weeks. One recovered deal pays for a full year.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DATA PRIVACY -->
+<section id="privacy">
+  <div class="wrap">
+    <div class="section-eyebrow">Data privacy</div>
+    <h2 class="section-title">We see your deals. <em>Nothing else.</em></h2>
+    <p class="section-sub">
+      OAuth connection. Sales-email filter. Human approval gate. Three layers — so the only thing ZUUZ ever touches is a live sales conversation.
+    </p>
+
+    <div class="priv-grid">
+      <div class="priv-step">
+        <div class="priv-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <div class="priv-label">Step 01</div>
+        <h3>OAuth, not credentials</h3>
+        <p>Connected via Microsoft Graph or Google Workspace APIs — the same standard as any calendar app. Your password never touches ZUUZ. Revoke access in one click from your Microsoft or Google settings.</p>
+      </div>
+      <div class="priv-step">
+        <div class="priv-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+        </div>
+        <div class="priv-label">Step 02</div>
+        <h3>Sales filter runs first</h3>
+        <p>Every email is classified before processing. RFPs, renewals, inbound inquiries — in. Personal, HR, legal, finance — never processed, never stored. You define which mailboxes and folders are in scope.</p>
+      </div>
+      <div class="priv-step">
+        <div class="priv-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+        </div>
+        <div class="priv-label">Step 03</div>
+        <h3>Nothing acts without you</h3>
+        <p>ZUUZ proposes — it never sends autonomously. Every CRM update and reply draft is queued for your team to approve. Nothing logs, nothing sends, until a human signs off.</p>
+      </div>
+    </div>
+
+    <div class="trust-strip">
+      <div class="trust-item">
+        <div class="trust-t"><span class="trust-dot"></span>SOC 2 Type I certified</div>
+        <div class="trust-d">Independently audited. Security controls verified by a third-party assessor.</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-t"><span class="trust-dot"></span>No password storage</div>
+        <div class="trust-d">OAuth tokens only. Revocable from your Microsoft or Google account at any time.</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-t"><span class="trust-dot"></span>Sales emails only</div>
+        <div class="trust-d">AI classifier runs first. Personal, legal, and HR emails are never touched.</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-t"><span class="trust-dot"></span>You define the scope</div>
+        <div class="trust-d">Choose which mailboxes and folders are in scope. Exclude anything you choose.</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-t"><span class="trust-dot"></span>Full audit trail</div>
+        <div class="trust-d">Every action logged: source email, what ZUUZ proposed, who approved it.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="section-eyebrow">Common questions</div>
+    <h2 class="section-title">Every objection, <em>answered straight.</em></h2>
+    <p class="section-sub">
+      The questions prospects ask before they start their trial.
+    </p>
+
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="faqToggle(this)" aria-expanded="false">
+          <span class="faq-qt">Does ZUUZ read all of our emails?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-body">
+          <p>No. ZUUZ connects via the official Microsoft Graph or Google Workspace OAuth API and runs a classification filter before anything is processed. <strong>Only emails that match sales patterns</strong> — inbound inquiries, RFPs, renewal threads, quote requests — are passed to the pipeline engine. Personal email, HR, finance, and legal threads are never read, never stored, never processed. You also choose exactly which mailboxes and folders are in scope.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="faqToggle(this)" aria-expanded="false">
+          <span class="faq-qt">Will ZUUZ email a customer without us approving it?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-body">
+          <p>Never. ZUUZ drafts — it does not send autonomously. Every reply suggestion, CRM update, and follow-up is queued for your team to review. <strong>Nothing goes out or gets written to your CRM until a human approves it.</strong> You get the leverage of AI without giving up control of your customer relationships. A full audit log records what ZUUZ proposed, who approved it, and when.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="faqToggle(this)" aria-expanded="false">
+          <span class="faq-qt">We already use HubSpot / Salesforce / Zoho. Do we need to replace it?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-body">
+          <p>No replacement needed. ZUUZ writes <em>into</em> your existing CRM — it doesn't compete with it. RA Technologies ran HubSpot for two years before they connected ZUUZ. In the first 30 days, ZUUZ surfaced $120K in pipeline <strong>on top of the same HubSpot instance</strong>, with the same team. Your CRM stores what reps type in. ZUUZ captures the 82% they never type in — and writes it there for you.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="faqToggle(this)" aria-expanded="false">
+          <span class="faq-qt">How long does setup take?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-body">
+          <p>Under one week for most teams. You connect one mailbox and one CRM. There's no IT project, no data migration, no custom code. The Growth plan and above include an onboarding call. Most customers see surfaced pipeline within the first 72 hours. RA Technologies found $120K in their first 30 days starting from a single mailbox connection.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="faqToggle(this)" aria-expanded="false">
+          <span class="faq-qt">How is this different from Gong or Clari?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-body">
+          <p>Gong records calls and analyzes conversation patterns for enterprises paying $100K+ per year. Clari forecasts revenue for large sales organizations with established pipeline data. <strong>Both tools require your reps to already be capturing deals in the CRM</strong> — they optimize what's there, they don't find what's missing. ZUUZ starts one step earlier: it reads the inbound email, qualifies the lead, and writes the deal to your CRM before a rep has touched anything. For IT services, distribution, and insurance teams where deals live in email threads rather than call recordings, ZUUZ solves a problem Gong and Clari weren't built for — at a fraction of the cost.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="faqToggle(this)" aria-expanded="false">
+          <span class="faq-qt">What industries does ZUUZ work best in?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-body">
+          <p>ZUUZ was built around the way deals actually happen in <strong>IT services and VAR</strong> (where RFPs, renewals, and vendor quotes arrive by email), <strong>distribution and wholesale</strong> (where bulk orders and SKU requests need to be matched and quoted fast), <strong>insurance</strong> (where renewal threads and policy conversations sit in account manager inboxes), and <strong>SaaS and professional services</strong> (where inbound trial requests and consulting inquiries need to reach pipeline without rep data entry). If your team sells by email and your CRM lags reality by two weeks, ZUUZ was built for you.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="faqToggle(this)" aria-expanded="false">
+          <span class="faq-qt">Our reps don't update the CRM. Will that change?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-body">
+          <p>That's exactly the problem ZUUZ solves — and you don't need reps to change their behavior for it to work. <strong>ZUUZ reads the email, not the rep.</strong> It surfaces the signal, qualifies the lead, and proposes the CRM update automatically. Your reps review and approve the proposal in seconds. They're not doing data entry anymore — they're approving what ZUUZ already drafted. Most teams see CRM completeness improve from below 40% to above 85% within the first month, without a single training session.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="faqToggle(this)" aria-expanded="false">
+          <span class="faq-qt">What does the 30-day free trial include?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-body">
+          <p>Full access to every feature on your chosen plan, connected to your actual mailbox and your actual CRM, running on your live sales data. <strong>No demo environment, no sample data, no credit card until you're ready.</strong> You'll see your own pipeline — deals that have been sitting in your inbox uncaptured — within the first week. If you don't see meaningful pipeline surfaced in 30 days, cancel with one click. No questions, no friction.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="faqToggle(this)" aria-expanded="false">
+          <span class="faq-qt">We're in a regulated industry. Is ZUUZ safe to use?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-body">
+          <p>Yes. <strong>ZUUZ is SOC 2 Type I certified</strong> — independently audited, with security controls verified by a third-party assessor. The API-first design means ZUUZ only processes what you explicitly authorize: no full mailbox access, no password storage, no bulk email export. The sales-email classifier filters out everything that isn't a sales conversation before it reaches the pipeline engine. For regulated sectors like insurance and financial services, you define exactly which mailboxes and folders are in scope and can exclude domains, senders, or subject patterns. Enterprise plans add compliance exports, audit logs, and SSO. Contact us at <a href="mailto:info@zuuz.ai" style="color:var(--accent)">info@zuuz.ai</a> to discuss your specific requirements before starting a trial.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="faqToggle(this)" aria-expanded="false">
+          <span class="faq-qt">What results should we expect?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-body">
+          <p>RA Technologies, an IT services firm, found <strong>$120K in pipeline in the first 30 days</strong> — leads and active conversations their CRM had never seen, surfaced from their existing sales mailbox. Nesto, a distribution company, reduced quote turnaround from days to hours using ZUUZ's SKU-matching against inbound bulk order emails. Cloud Box Technologies moved from using their CRM for order processing only to seeing live deal pipeline for the first time. Results depend on your email volume and deal size — the ROI Calculator on this page estimates your specific situation. One recovered deal typically pays for a full year of ZUUZ.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- TEAM -->
 <section id="team">
   <div class="wrap">
@@ -1161,6 +1845,17 @@
       <a class="final-primary" href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Book a demo</a>
       <a class="final-ghost" href="mailto:info@zuuz.ai">info@zuuz.ai</a>
     </div>
+    <div class="final-contact-strip">
+      <a class="final-contact-item" href="tel:+14693473394">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.39 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6.29 6.29l.98-.98a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +1 469 347 3394
+      </a>
+      <span class="final-contact-divider"></span>
+      <a class="final-contact-item" href="https://maps.google.com/?q=440N+Wolfe+Rd+Sunnyvale+CA" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        440N Wolfe Rd, Sunnyvale
+      </a>
+    </div>
   </div>
 </div>
 
@@ -1184,6 +1879,8 @@
         <a href="#workflow">How it works</a>
         <a href="#proof">Customers</a>
         <a href="#pricing">Pricing</a>
+        <a href="#why-zuuz">Why ZUUZ</a>
+        <a href="#faq">FAQ</a>
         <a href="#team">Team</a>
         <a href="mailto:info@zuuz.ai">Contact</a>
       </div>
@@ -1196,6 +1893,20 @@
 </footer>
 
 <script>
+
+
+function faqToggle(btn) {
+  var item = btn.parentElement;
+  var isOpen = item.classList.contains('fopen');
+  document.querySelectorAll('.faq-item.fopen').forEach(function(el) {
+    el.classList.remove('fopen');
+    el.querySelector('.faq-btn').setAttribute('aria-expanded', 'false');
+  });
+  if (!isOpen) {
+    item.classList.add('fopen');
+    btn.setAttribute('aria-expanded', 'true');
+  }
+}
 
 function toggleMore(id, btn) {
   var allExtras = ['solo-extra','growth-extra','scale-extra','ent-extra'];
