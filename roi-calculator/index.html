@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ROI Calculator — ZUUZ</title>
-<meta name="description" content="Calculate how much revenue your team is leaving in the inbox. ZUUZ ROI Calculator shows deals lost, hours wasted, and pipeline escaping your CRM.">
+<meta name="description" content="Calculate how much revenue your sales team is leaving in the inbox. Drag the sliders to see your real pipeline leak.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.zuuz.ai/roi-calculator">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.zuuz.ai/roi-calculator">
 <meta property="og:title" content="ROI Calculator — ZUUZ">
-<meta property="og:description" content="How much revenue is escaping your pipeline? Find out in 30 seconds.">
+<meta property="og:description" content="Calculate how much revenue your sales team is leaving in the inbox.">
 <meta property="og:image" content="https://www.zuuz.ai/uploads/zuuz-email-signals-drive-deals-crm.png">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232563FF'%3E%3Cpath d='M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,139 +19,159 @@
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
 <script defer src="/_vercel/insights/script.js"></script>
 <style>
-  :root{
-    --paper:#F4F1EA; --paper-warm:#EDE8DC; --ink:#111110;
-    --ink-soft:#3A3A36; --ink-mute:#7A776E;
-    --line:#1110100D; --line-strong:#11101015;
-    --accent:#2563FF; --accent-hover:#1D4ED8; --accent-soft:#DBEAFE;
-    --navy:#0E1F6B; --signal:#0F8B4F; --card:#FBF8F1;
-    --shadow:0 1px 0 rgba(17,17,16,.04),0 12px 32px -16px rgba(17,17,16,.18);
-    --radius:18px; --radius-sm:10px;
+:root{
+  --paper:#F4F1EA; --paper-warm:#EDE8DC; --ink:#111110;
+  --ink-soft:#3A3A36; --ink-mute:#7A776E;
+  --line:#1110100D; --line-strong:#11101015;
+  --accent:#2563FF; --accent-hover:#1D4ED8; --accent-soft:#DBEAFE;
+  --navy:#0E1F6B; --signal:#0F8B4F; --card:#FBF8F1;
+  --shadow:0 1px 0 rgba(17,17,16,.04),0 12px 32px -16px rgba(17,17,16,.18);
+  --radius:18px; --radius-sm:10px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--paper);color:var(--ink);}
+body{
+  font-family:'Instrument Sans',system-ui,-apple-system,sans-serif;
+  font-size:16px;line-height:1.55;letter-spacing:-0.005em;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+  background-image:
+    radial-gradient(ellipse 80% 40% at 20% -10%,rgba(37,99,255,0.06),transparent),
+    radial-gradient(ellipse 60% 30% at 80% 10%,rgba(15,139,79,0.03),transparent);
+}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.07 0 0 0 0 0.07 0 0 0 0 0.07 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+::selection{background:var(--accent);color:#fff}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px;position:relative;z-index:2}
+@media(max-width:720px){.wrap{padding:0 20px}}
+
+/* NAV */
+header{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(244,241,234,0.78);border-bottom:1px solid var(--line);}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:9px}
+.brand-spark{width:18px;height:18px;color:var(--accent);flex-shrink:0;transform:translateY(-1px)}
+.brand-text{font-family:'Fraunces',serif;font-weight:500;font-size:22px;letter-spacing:-0.03em;font-variation-settings:"opsz" 144,"SOFT" 30;color:var(--navy);line-height:1;}
+.nav-links{display:flex;align-items:center;gap:24px;list-style:none;margin:0;padding:0}
+.nav-links a{font-size:13px;font-weight:500;color:var(--ink-mute);transition:color .2s;white-space:nowrap}
+.nav-links a:hover,.nav-links a.active{color:var(--ink)}
+@media(max-width:960px){.nav-links{display:none}}
+.nav-actions{display:flex;align-items:center;gap:8px}
+.nav-trial{display:inline-flex;align-items:center;color:var(--ink);padding:10px 18px;border-radius:999px;font-size:13px;font-weight:500;border:1.5px solid var(--ink);transition:background .2s,color .2s,transform .2s;}
+.nav-trial:hover{background:var(--ink);color:var(--paper);transform:translateY(-1px)}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--paper);padding:10px 18px;border-radius:999px;font-size:13px;font-weight:500;transition:transform .2s,background .2s;}
+.nav-cta:hover{transform:translateY(-1px);background:#000}
+.nav-cta::after{content:"→";transition:transform .2s}
+.nav-cta:hover::after{transform:translateX(2px)}
+
+/* PAGE HERO */
+.page-hero{padding:80px 0 16px}
+@media(max-width:720px){.page-hero{padding:56px 0 8px}}
+.section-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.18em;color:var(--accent);margin-bottom:24px;display:flex;align-items:center;gap:12px;}
+.section-eyebrow::before{content:"";width:24px;height:1px;background:var(--accent);}
+h1.page-title{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(36px,5.2vw,68px);line-height:1.02;letter-spacing:-0.03em;font-variation-settings:"opsz" 144,"SOFT" 40;margin-bottom:20px;max-width:18ch;}
+h1.page-title em{font-style:italic;font-weight:300;background:linear-gradient(135deg,var(--accent) 0%,#1040ff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.page-sub{font-size:18px;line-height:1.5;color:var(--ink-soft);max-width:60ch;margin-bottom:0}
+
+/* ROI CALCULATOR */
+/* ── ROI CALCULATOR ── */
+  #roi-calculator{background:var(--paper);}
+  .roi-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:56px;
+    margin-top:56px; align-items:start;
   }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html,body{background:var(--paper);color:var(--ink);}
-  body{
-    font-family:'Instrument Sans',system-ui,-apple-system,sans-serif;
-    font-size:16px;line-height:1.55;letter-spacing:-0.005em;
-    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
-    overflow-x:hidden;
-    background-image:
-      radial-gradient(ellipse 80% 40% at 20% -10%,rgba(37,99,255,0.06),transparent),
-      radial-gradient(ellipse 60% 30% at 80% 10%,rgba(15,139,79,0.03),transparent);
+  @media (max-width:880px){ .roi-grid{grid-template-columns:1fr; gap:40px} }
+
+  .roi-controls{display:flex; flex-direction:column; gap:30px}
+  .roi-field{display:flex; flex-direction:column; gap:14px}
+  .roi-field-head{display:flex; justify-content:space-between; align-items:baseline; gap:16px}
+  .roi-field-head label{
+    font-family:'Instrument Sans',sans-serif; font-size:15px; font-weight:500; color:var(--ink-soft);
   }
-  body::before{
-    content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;
-    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.07 0 0 0 0 0.07 0 0 0 0 0.07 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  .roi-val{
+    font-family:'JetBrains Mono',monospace; font-size:14px; font-weight:500;
+    color:var(--accent); letter-spacing:0.02em; white-space:nowrap;
   }
-  ::selection{background:var(--accent);color:#fff}
-  a{color:inherit;text-decoration:none}
-  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;position:relative;z-index:2}
-  @media(max-width:720px){.wrap{padding:0 20px}}
+  .roi-slider{
+    -webkit-appearance:none; appearance:none; width:100%; height:4px;
+    border-radius:99px; background:var(--line-strong); outline:none; cursor:pointer;
+  }
+  .roi-slider::-webkit-slider-thumb{
+    -webkit-appearance:none; appearance:none; width:20px; height:20px; border-radius:50%;
+    background:var(--accent); border:3px solid var(--paper);
+    box-shadow:0 1px 6px rgba(37,99,255,0.4); transition:transform .15s;
+  }
+  .roi-slider::-webkit-slider-thumb:hover{transform:scale(1.15)}
+  .roi-slider::-moz-range-thumb{
+    width:20px; height:20px; border-radius:50%; background:var(--accent);
+    border:3px solid var(--paper); box-shadow:0 1px 6px rgba(37,99,255,0.4); cursor:pointer;
+  }
 
-  /* NAV */
-  header{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(244,241,234,0.78);border-bottom:1px solid var(--line);}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .brand{display:flex;align-items:center;gap:9px}
-  .brand-spark{width:18px;height:18px;color:var(--accent);flex-shrink:0;transform:translateY(-1px)}
-  .brand-text{font-family:'Fraunces',serif;font-weight:500;font-size:22px;letter-spacing:-0.03em;font-variation-settings:"opsz" 144,"SOFT" 30;color:var(--navy);line-height:1;}
-  .nav-links{display:flex;align-items:center;gap:24px;list-style:none;margin:0;padding:0}
-  .nav-links a{font-size:13px;font-weight:500;color:var(--ink-mute);transition:color .2s;white-space:nowrap}
-  .nav-links a:hover,.nav-links a.active{color:var(--ink)}
-  @media(max-width:960px){.nav-links{display:none}}
-  .nav-actions{display:flex;align-items:center;gap:8px}
-  .nav-trial{display:inline-flex;align-items:center;color:var(--ink);padding:10px 18px;border-radius:999px;font-size:13px;font-weight:500;border:1.5px solid var(--ink);transition:background .2s,color .2s,transform .2s;}
-  .nav-trial:hover{background:var(--ink);color:var(--paper);transform:translateY(-1px)}
-  .nav-cta{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--paper);padding:10px 18px;border-radius:999px;font-size:13px;font-weight:500;transition:transform .2s,background .2s;}
-  .nav-cta:hover{transform:translateY(-1px);background:#000}
-  .nav-cta::after{content:"→";transition:transform .2s}
-  .nav-cta:hover::after{transform:translateX(2px)}
-
-  /* PAGE HERO */
-  .page-hero{padding:80px 0 56px}
-  @media(max-width:720px){.page-hero{padding:56px 0 40px}}
-  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:24px;}
-  .pulse{width:7px;height:7px;border-radius:50%;background:var(--signal);box-shadow:0 0 0 0 rgba(15,139,79,.6);animation:pulse 2s infinite;flex-shrink:0;}
-  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(15,139,79,.5)}70%{box-shadow:0 0 0 8px rgba(15,139,79,0)}100%{box-shadow:0 0 0 0 rgba(15,139,79,0)}}
-  .page-title{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(42px,6vw,80px);line-height:0.97;letter-spacing:-0.035em;font-variation-settings:"opsz" 144,"SOFT" 30;margin-bottom:20px;}
-  .page-title em{font-style:italic;color:var(--accent);font-weight:300;background:linear-gradient(135deg,var(--accent) 0%,#1040ff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-  .page-sub{font-size:18px;color:var(--ink-soft);max-width:56ch;line-height:1.5}
-
-  /* ROI GRID */
-  .roi-section{padding:0 0 96px}
-  .roi-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;margin-top:56px;align-items:start;}
-  @media(max-width:880px){.roi-grid{grid-template-columns:1fr;gap:40px}}
-
-  /* SLIDERS */
-  .roi-controls{display:flex;flex-direction:column;gap:30px;background:var(--card);border:1px solid var(--line-strong);border-radius:var(--radius);padding:40px 36px;box-shadow:var(--shadow);}
-  @media(max-width:560px){.roi-controls{padding:28px 20px}}
-  .roi-controls-title{font-family:'Fraunces',serif;font-weight:400;font-size:22px;letter-spacing:-0.02em;margin-bottom:4px;}
-  .roi-controls-sub{font-size:13px;color:var(--ink-mute);margin-bottom:8px;}
-  .roi-field{display:flex;flex-direction:column;gap:12px}
-  .roi-field-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
-  .roi-field-head label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-mute);}
-  .roi-val{font-family:'Fraunces',serif;font-weight:500;font-size:18px;color:var(--accent);letter-spacing:-0.02em;white-space:nowrap;}
-  .roi-slider{-webkit-appearance:none;appearance:none;width:100%;height:4px;border-radius:2px;background:var(--line-strong);outline:none;cursor:pointer;}
-  .roi-slider::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--accent);cursor:pointer;transition:transform .15s,box-shadow .15s;box-shadow:0 2px 8px rgba(37,99,255,0.25);}
-  .roi-slider::-webkit-slider-thumb:hover{transform:scale(1.15);box-shadow:0 4px 14px rgba(37,99,255,0.35)}
-  .roi-slider::-moz-range-thumb{width:20px;height:20px;border:none;border-radius:50%;background:var(--accent);cursor:pointer;}
-  .slider-track{position:relative;height:4px;border-radius:2px;background:var(--line-strong);overflow:visible;}
-
-  /* OUTPUTS */
-  .roi-outputs{display:flex;flex-direction:column;gap:16px;position:sticky;top:84px;}
-  .roi-hero-card{background:var(--ink);color:var(--paper);border-radius:var(--radius);padding:36px 32px;position:relative;overflow:hidden;}
-  .roi-hero-card::before{content:"";position:absolute;top:-20%;right:-10%;width:55%;height:150%;background:radial-gradient(ellipse,rgba(37,99,255,0.3),transparent 60%);pointer-events:none;}
-  .roi-hero-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(244,241,234,0.55);margin-bottom:12px;position:relative;}
-  .roi-hero-num{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(52px,7vw,80px);line-height:1;letter-spacing:-0.04em;color:var(--paper);position:relative;transition:all .3s ease;}
-  .roi-hero-sub{font-size:13px;color:rgba(244,241,234,0.55);margin-top:10px;position:relative;font-family:'JetBrains Mono',monospace;letter-spacing:0.04em;}
-
-  .roi-stat-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  @media(max-width:480px){.roi-stat-row{grid-template-columns:1fr}}
-  .roi-stat{background:var(--card);border:1px solid var(--line-strong);border-radius:var(--radius-sm);padding:22px 20px;}
-  .roi-stat-num{font-family:'Fraunces',serif;font-weight:400;font-size:34px;color:var(--accent);letter-spacing:-0.03em;line-height:1;margin-bottom:6px;transition:all .3s ease;}
-  .roi-stat-label{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-mute);}
-
-  .roi-zuuz-cost{background:rgba(37,99,255,0.04);border:1px solid rgba(37,99,255,0.15);border-radius:var(--radius-sm);padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:16px;}
-  .roi-zuuz-lbl{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-mute);}
-  .roi-zuuz-val{font-family:'Fraunces',serif;font-size:18px;color:var(--accent);font-weight:500;white-space:nowrap;}
-  .roi-multiplier{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--signal);letter-spacing:0.06em;}
-
-  .roi-cta-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:4px;}
-  .roi-btn{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--paper);padding:14px 24px;border-radius:99px;font-size:14px;font-weight:500;transition:transform .2s,background .2s;}
-  .roi-btn:hover{transform:translateY(-1px);background:#000}
-  .roi-btn::after{content:"→";transition:transform .2s}
+  .roi-outputs{display:flex; flex-direction:column; gap:16px}
+  .roi-hero-card{
+    background:var(--ink); color:var(--paper);
+    border-radius:var(--radius); padding:40px 36px;
+    position:relative; overflow:hidden;
+  }
+  .roi-hero-card::before{
+    content:""; position:absolute; top:-40%; right:-10%; width:70%; height:180%;
+    background:radial-gradient(ellipse, rgba(37,99,255,0.25), transparent 60%);
+    pointer-events:none;
+  }
+  .roi-hero-label{
+    font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.16em;
+    text-transform:uppercase; color:rgba(244,241,234,0.7); margin-bottom:14px; position:relative;
+  }
+  .roi-hero-num{
+    font-family:'Fraunces',serif; font-weight:400; font-style:italic;
+    font-size:clamp(64px,7vw,84px); line-height:1; letter-spacing:-0.035em;
+    font-variation-settings:"opsz" 144, "SOFT" 40;
+    color:var(--accent); position:relative;
+  }
+  .roi-stat-row{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+  @media (max-width:480px){ .roi-stat-row{grid-template-columns:1fr} }
+  .roi-stat{
+    background:var(--card); border:1px solid var(--line-strong);
+    border-radius:var(--radius-sm); padding:24px;
+  }
+  .roi-stat-num{
+    font-family:'Fraunces',serif; font-weight:400; font-size:40px; line-height:1;
+    letter-spacing:-0.02em; color:var(--ink); margin-bottom:10px;
+    font-variation-settings:"opsz" 144;
+  }
+  .roi-stat-label{
+    font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.14em;
+    text-transform:uppercase; color:var(--ink-mute); line-height:1.5;
+  }
+  .roi-cta-row{display:flex; align-items:center; gap:24px; flex-wrap:wrap; margin-top:8px}
+  .roi-btn{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--ink); color:var(--paper);
+    padding:14px 24px; border-radius:99px; font-size:14px; font-weight:500;
+    transition:transform .2s, background .2s;
+  }
+  .roi-btn:hover{transform:translateY(-1px); background:#000}
+  .roi-btn::after{content:"→"; transition:transform .2s}
   .roi-btn:hover::after{transform:translateX(2px)}
-  .roi-trial{display:inline-flex;align-items:center;gap:6px;color:var(--accent);font-size:14px;font-weight:500;border-bottom:1.5px solid transparent;transition:border-color .2s;padding-bottom:1px;}
-  .roi-trial:hover{border-bottom-color:var(--accent)}
-  .roi-foot{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--ink-mute);letter-spacing:0.06em;}
+  .roi-link{
+    font-size:14px; font-weight:500; color:var(--accent);
+    border-bottom:1px solid transparent; transition:border-color .2s;
+  }
+  .roi-link:hover{border-bottom-color:var(--accent)}
+  .roi-foot{
+    font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.06em;
+    color:var(--ink-mute); margin-top:4px;
+  }
 
-  /* PROOF STRIP */
-  .proof-strip{background:var(--card);border:1px solid var(--line-strong);border-radius:var(--radius);padding:36px;margin:0 0 96px;display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
-  @media(max-width:720px){.proof-strip{grid-template-columns:1fr;gap:24px;padding:28px 20px}}
-  .proof-item{display:flex;flex-direction:column;gap:8px;}
-  .proof-num{font-family:'Fraunces',serif;font-size:36px;font-weight:400;color:var(--accent);letter-spacing:-0.03em;line-height:1;}
-  .proof-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-mute);}
-  .proof-note{font-size:13px;color:var(--ink-soft);line-height:1.5}
-
-  /* FOOTER */
-  footer{padding:64px 0 32px;border-top:1px solid var(--line);}
-  .foot-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:32px;margin-bottom:48px;}
-  .foot-brand-block{display:flex;flex-direction:column;gap:14px;max-width:36ch}
-  .foot-tagline{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:15px;color:var(--ink-soft);line-height:1.4;font-variation-settings:"opsz" 24,"SOFT" 70;}
-  .foot-tagline span{color:var(--accent);font-style:normal;font-weight:500}
-  .foot-links{display:flex;gap:32px;flex-wrap:wrap}
-  .foot-links a{color:var(--ink-soft);font-size:14px;transition:color .2s}
-  .foot-links a:hover{color:var(--ink)}
-  .foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;padding-top:32px;border-top:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-mute);letter-spacing:0.05em;}
-
-  /* Animations */
-  @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-  .page-hero .eyebrow{animation:fadeUp .6s ease .1s both}
-  .page-title{animation:fadeUp .8s ease .2s both}
-  .page-sub{animation:fadeUp .7s ease .35s both}
-  .roi-controls{animation:fadeUp .7s ease .3s both}
-  .roi-outputs{animation:fadeUp .8s ease .2s both}
-  @keyframes numFlash{0%{opacity:.4}100%{opacity:1}}
-  .num-flash{animation:numFlash .25s ease}
+/* FOOTER */
+footer{padding:64px 0 32px;border-top:1px solid var(--line);margin-top:80px;}
+.foot-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:32px;margin-bottom:48px;}
+.foot-brand-block{display:flex;flex-direction:column;gap:14px;max-width:36ch}
+.foot-tagline{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:15px;color:var(--ink-soft);line-height:1.4;font-variation-settings:"opsz" 24,"SOFT" 70;}
+.foot-tagline span{color:var(--accent);font-style:normal;font-weight:500}
+.foot-links{display:flex;gap:32px;flex-wrap:wrap}
+.foot-links a{color:var(--ink-soft);font-size:14px;transition:color .2s;}
+.foot-links a:hover{color:var(--ink)}
+.foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;padding-top:32px;border-top:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-mute);letter-spacing:0.05em;}
 </style>
 </head>
 <body>
@@ -185,142 +205,138 @@
 
 <section class="page-hero">
   <div class="wrap">
-    <div class="eyebrow"><span class="pulse"></span>Revenue Intelligence</div>
-    <h1 class="page-title">What's escaping<br>your <em>pipeline?</em></h1>
-    <p class="page-sub">Drag the sliders to your real numbers. See exactly how much revenue is hiding in your team's inbox — unlogged, untracked, unfollowed.</p>
+    <div class="section-eyebrow">ROI Calculator</div>
+    <h1 class="page-title">What is your revenue team leaving <em>behind?</em></h1>
+    <p class="page-sub">Drag the sliders to your team's real numbers. See exactly how much pipeline is quietly slipping through your inbox every year.</p>
   </div>
 </section>
 
-<div class="wrap roi-section">
+<!-- ROI CALCULATOR -->
+<section id="roi-calculator">
+  <div class="wrap">
+    <div class="section-eyebrow">ROI Calculator</div>
+    <h2 class="section-title">What is your revenue team leaving <em>behind</em>?</h2>
+    <p class="section-sub">
+      Drag the sliders to your team's real numbers. ZUUZ surfaces the pipeline
+      that's quietly slipping through the inbox — leads never logged, deals never forecast.
+    </p>
 
-  <!-- PROOF STRIP -->
-  <div class="proof-strip">
-    <div class="proof-item">
-      <div class="proof-num">$120K</div>
-      <div class="proof-label">Pipeline found in 30 days</div>
-      <div class="proof-note">RA Technologies — IT services firm. Leads their CRM had never seen.</div>
-    </div>
-    <div class="proof-item">
-      <div class="proof-num">10–12×</div>
-      <div class="proof-label">Faster renewal tracking</div>
-      <div class="proof-note">Cloud Box Technologies — moved from manual log to live pipeline overnight.</div>
-    </div>
-    <div class="proof-item">
-      <div class="proof-num">10:1</div>
-      <div class="proof-label">SKU match efficiency</div>
-      <div class="proof-note">Nesto distribution — bulk order emails processed in minutes, not days.</div>
+    <div class="roi-grid">
+      <!-- Sliders -->
+      <div class="roi-controls">
+        <div class="roi-field">
+          <div class="roi-field-head">
+            <label for="roi-reps">Sales reps</label>
+            <span class="roi-val" id="roi-reps-val">25</span>
+          </div>
+          <input type="range" class="roi-slider" id="roi-reps" min="5" max="200" step="1" value="25">
+        </div>
+
+        <div class="roi-field">
+          <div class="roi-field-head">
+            <label for="roi-leads">Inbound leads / month</label>
+            <span class="roi-val" id="roi-leads-val">120</span>
+          </div>
+          <input type="range" class="roi-slider" id="roi-leads" min="10" max="1000" step="1" value="120">
+        </div>
+
+        <div class="roi-field">
+          <div class="roi-field-head">
+            <label for="roi-deal">Average deal value</label>
+            <span class="roi-val" id="roi-deal-val">$45K</span>
+          </div>
+          <input type="range" class="roi-slider" id="roi-deal" min="5" max="500" step="1" value="45">
+        </div>
+
+        <div class="roi-field">
+          <div class="roi-field-head">
+            <label for="roi-winrate">Current win rate</label>
+            <span class="roi-val" id="roi-winrate-val">22%</span>
+          </div>
+          <input type="range" class="roi-slider" id="roi-winrate" min="5" max="60" step="1" value="22">
+        </div>
+
+        <div class="roi-field">
+          <div class="roi-field-head">
+            <label for="roi-crmhrs">CRM admin hours / rep / week</label>
+            <span class="roi-val" id="roi-crmhrs-val">6 hrs</span>
+          </div>
+          <input type="range" class="roi-slider" id="roi-crmhrs" min="1" max="20" step="1" value="6">
+        </div>
+      </div>
+
+      <!-- Live outputs -->
+      <div class="roi-outputs">
+        <div class="roi-hero-card">
+          <div class="roi-hero-label">Revenue escaping pipeline / year</div>
+          <div class="roi-hero-num" id="roi-revenue">$5M</div>
+        </div>
+
+        <div class="roi-stat-row">
+          <div class="roi-stat">
+            <div class="roi-stat-num" id="roi-deals">504</div>
+            <div class="roi-stat-label">Deals lost annually</div>
+          </div>
+          <div class="roi-stat">
+            <div class="roi-stat-num" id="roi-hours">7,800</div>
+            <div class="roi-stat-label">Selling hours lost / year</div>
+          </div>
+        </div>
+
+        <div class="roi-cta-row">
+          <a class="roi-btn" href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Book a demo</a>
+          <a class="roi-link" href="/roi-calculator">Open full calculator →</a>
+        </div>
+
+        <div class="roi-foot">30-day free trial &middot; No setup fee &middot; Cancel anytime</div>
+      </div>
     </div>
   </div>
+</section>
 
-  <!-- ROI GRID -->
-  <div class="roi-grid">
+<script>
+/* ROI calculator — vanilla JS, no dependencies */
+(function () {
+  var reps    = document.getElementById('roi-reps');
+  var leads   = document.getElementById('roi-leads');
+  var deal    = document.getElementById('roi-deal');
+  var winrate = document.getElementById('roi-winrate');
+  var crmhrs  = document.getElementById('roi-crmhrs');
+  if (!reps) return;
 
-    <!-- LEFT: SLIDERS -->
-    <div class="roi-controls">
-      <div>
-        <div class="roi-controls-title">Your team's numbers</div>
-        <div class="roi-controls-sub">Adjust each slider — outputs update instantly.</div>
-      </div>
+  function money(n) {
+    if (n >= 1e6) {
+      var m = n / 1e6;
+      return '$' + (m >= 10 ? Math.round(m) : (Math.round(m * 10) / 10).toString().replace(/\.0$/, '')) + 'M';
+    }
+    if (n >= 1e3) return '$' + Math.round(n / 1e3) + 'K';
+    return '$' + Math.round(n);
+  }
 
-      <div class="roi-field">
-        <div class="roi-field-head">
-          <label for="roi-reps">Sales reps</label>
-          <span class="roi-val" id="roi-reps-val">25</span>
-        </div>
-        <input type="range" class="roi-slider" id="roi-reps" min="1" max="200" step="1" value="25">
-      </div>
+  function update() {
+    var r = +reps.value, l = +leads.value, d = +deal.value, w = +winrate.value, c = +crmhrs.value;
 
-      <div class="roi-field">
-        <div class="roi-field-head">
-          <label for="roi-leads">Inbound leads / month</label>
-          <span class="roi-val" id="roi-leads-val">120</span>
-        </div>
-        <input type="range" class="roi-slider" id="roi-leads" min="10" max="2000" step="5" value="120">
-      </div>
+    document.getElementById('roi-reps-val').textContent    = r;
+    document.getElementById('roi-leads-val').textContent   = l;
+    document.getElementById('roi-deal-val').textContent    = '$' + d + 'K';
+    document.getElementById('roi-winrate-val').textContent = w + '%';
+    document.getElementById('roi-crmhrs-val').textContent  = c + ' hrs';
 
-      <div class="roi-field">
-        <div class="roi-field-head">
-          <label for="roi-deal">Average deal value</label>
-          <span class="roi-val" id="roi-deal-val">$45K</span>
-        </div>
-        <input type="range" class="roi-slider" id="roi-deal" min="5" max="1000" step="5" value="45">
-      </div>
+    var dealsLost = Math.round(0.35 * l * 12);
+    var revenue   = (0.35 * l * 12) * (w / 100) * (d * 1000);
+    var hoursLost = r * c * 52;
 
-      <div class="roi-field">
-        <div class="roi-field-head">
-          <label for="roi-winrate">Current win rate</label>
-          <span class="roi-val" id="roi-winrate-val">22%</span>
-        </div>
-        <input type="range" class="roi-slider" id="roi-winrate" min="5" max="60" step="1" value="22">
-      </div>
+    document.getElementById('roi-revenue').textContent = money(revenue);
+    document.getElementById('roi-deals').textContent   = dealsLost.toLocaleString('en-US');
+    document.getElementById('roi-hours').textContent   = hoursLost.toLocaleString('en-US');
+  }
 
-      <div class="roi-field">
-        <div class="roi-field-head">
-          <label for="roi-crmhrs">CRM admin hrs / rep / week</label>
-          <span class="roi-val" id="roi-crmhrs-val">6 hrs</span>
-        </div>
-        <input type="range" class="roi-slider" id="roi-crmhrs" min="1" max="20" step="1" value="6">
-      </div>
-
-      <div class="roi-field">
-        <div class="roi-field-head">
-          <label for="roi-plan">ZUUZ plan</label>
-          <span class="roi-val" id="roi-plan-val">Growth $349/mo</span>
-        </div>
-        <input type="range" class="roi-slider" id="roi-plan" min="0" max="3" step="1" value="2">
-        <div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--ink-mute);letter-spacing:0.08em;margin-top:-4px;">
-          <span>Solo $99</span><span>Team $249</span><span>Growth $349</span><span>Scale $649</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- RIGHT: OUTPUTS -->
-    <div class="roi-outputs">
-      <div class="roi-hero-card">
-        <div class="roi-hero-label">Revenue escaping pipeline / year</div>
-        <div class="roi-hero-num" id="roi-revenue">$5.6M</div>
-        <div class="roi-hero-sub">Based on 35% of inbound leads never reaching CRM</div>
-      </div>
-
-      <div class="roi-stat-row">
-        <div class="roi-stat">
-          <div class="roi-stat-num" id="roi-deals">504</div>
-          <div class="roi-stat-label">Deals lost / year</div>
-        </div>
-        <div class="roi-stat">
-          <div class="roi-stat-num" id="roi-hours">7,800</div>
-          <div class="roi-stat-label">Selling hrs lost / year</div>
-        </div>
-      </div>
-
-      <div class="roi-stat-row">
-        <div class="roi-stat">
-          <div class="roi-stat-num" id="roi-leads-lost">504</div>
-          <div class="roi-stat-label">Leads never logged</div>
-        </div>
-        <div class="roi-stat">
-          <div class="roi-stat-num" id="roi-payback">1.0×</div>
-          <div class="roi-stat-label">ROI multiplier</div>
-        </div>
-      </div>
-
-      <div class="roi-zuuz-cost">
-        <div>
-          <div class="roi-zuuz-lbl">ZUUZ annual cost</div>
-          <div class="roi-multiplier" id="roi-multiplier-lbl">One recovered deal covers it entirely</div>
-        </div>
-        <div class="roi-zuuz-val" id="roi-zuuz-annual">$4,188/yr</div>
-      </div>
-
-      <div class="roi-cta-row">
-        <a class="roi-btn" href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Book a demo</a>
-        <a class="roi-trial" href="https://buy.stripe.com/eVq5kD6GxcsMc34cBDbZe02">Start free trial →</a>
-      </div>
-      <div class="roi-foot">30-day free trial &middot; No credit card required &middot; Cancel anytime</div>
-    </div>
-
-  </div>
-</div>
+  [reps, leads, deal, winrate, crmhrs].forEach(function (el) {
+    el.addEventListener('input', update);
+  });
+  update();
+})();
+</script>
 
 <footer>
   <div class="wrap">
@@ -339,37 +355,30 @@
         <a href="/#proof">Customers</a>
         <a href="/#pricing">Pricing</a>
         <a href="/#why-zuuz">Why ZUUZ</a>
-        <a href="/roi-calculator">ROI Calculator</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/#team">Team</a>
         <a href="/contact">Contact</a>
       </div>
     </div>
     <div class="foot-bottom">
-      <div>© 2026 ZUUZ, Inc.&nbsp;&nbsp;·&nbsp;&nbsp;Sunnyvale · Dubai · Hyderabad</div>
+      <div>&copy; 2026 ZUUZ, Inc.&nbsp;&nbsp;&middot;&nbsp;&nbsp;Sunnyvale &middot; Dubai &middot; Hyderabad</div>
       <div>
-        <a href="/privacy" style="color:inherit;text-decoration:none;transition:color .2s" onmouseover="this.style.color='#2563FF'" onmouseout="this.style.color=''">Privacy</a>&nbsp;&nbsp;·&nbsp;&nbsp;
-        <a href="/terms" style="color:inherit;text-decoration:none;transition:color .2s" onmouseover="this.style.color='#2563FF'" onmouseout="this.style.color=''">Terms</a>&nbsp;&nbsp;·&nbsp;&nbsp;Security
+        <a href="/privacy" style="color:inherit;text-decoration:none;transition:color .2s" onmouseover="this.style.color='#2563FF'" onmouseout="this.style.color=''">Privacy</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+        <a href="/terms" style="color:inherit;text-decoration:none;transition:color .2s" onmouseover="this.style.color='#2563FF'" onmouseout="this.style.color=''">Terms</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;Security
       </div>
     </div>
   </div>
 </footer>
 
 <script>
+/* ROI calculator — vanilla JS, no dependencies */
 (function () {
-  var plans = [
-    { label: 'Solo $99/mo',    monthly: 99,  link: 'https://buy.stripe.com/cNi6oHaWNeAU8QS457bZe00' },
-    { label: 'Team $249/mo',   monthly: 249, link: 'https://buy.stripe.com/bJefZh8OF78sgjk6dfbZe01' },
-    { label: 'Growth $349/mo', monthly: 349, link: 'https://buy.stripe.com/eVq5kD6GxcsMc34cBDbZe02' },
-    { label: 'Scale $649/mo',  monthly: 649, link: 'https://buy.stripe.com/6oU3cvgh71O80km7hjbZe03' }
-  ];
-
-  var els = {
-    reps:    document.getElementById('roi-reps'),
-    leads:   document.getElementById('roi-leads'),
-    deal:    document.getElementById('roi-deal'),
-    winrate: document.getElementById('roi-winrate'),
-    crmhrs:  document.getElementById('roi-crmhrs'),
-    plan:    document.getElementById('roi-plan'),
-  };
+  var reps    = document.getElementById('roi-reps');
+  var leads   = document.getElementById('roi-leads');
+  var deal    = document.getElementById('roi-deal');
+  var winrate = document.getElementById('roi-winrate');
+  var crmhrs  = document.getElementById('roi-crmhrs');
+  if (!reps) return;
 
   function money(n) {
     if (n >= 1e6) {
@@ -380,58 +389,27 @@
     return '$' + Math.round(n);
   }
 
-  function flash(id) {
-    var el = document.getElementById(id);
-    el.classList.remove('num-flash');
-    void el.offsetWidth;
-    el.classList.add('num-flash');
-  }
-
   function update() {
-    var r = +els.reps.value;
-    var l = +els.leads.value;
-    var d = +els.deal.value;
-    var w = +els.winrate.value;
-    var c = +els.crmhrs.value;
-    var p = +els.plan.value;
+    var r = +reps.value, l = +leads.value, d = +deal.value, w = +winrate.value, c = +crmhrs.value;
 
-    // Labels
     document.getElementById('roi-reps-val').textContent    = r;
     document.getElementById('roi-leads-val').textContent   = l;
     document.getElementById('roi-deal-val').textContent    = '$' + d + 'K';
     document.getElementById('roi-winrate-val').textContent = w + '%';
     document.getElementById('roi-crmhrs-val').textContent  = c + ' hrs';
-    document.getElementById('roi-plan-val').textContent    = plans[p].label;
 
-    // Calculations
-    var captureGap  = 0.35; // 35% of leads never reach CRM
-    var leadsLost   = Math.round(captureGap * l * 12);
-    var revenue     = leadsLost * (w / 100) * (d * 1000);
-    var hoursLost   = r * c * 52;
-    var zuuzAnnual  = plans[p].monthly * 12;
-    var roiMult     = revenue > 0 ? Math.round(revenue / zuuzAnnual) : 0;
+    var dealsLost = Math.round(0.35 * l * 12);
+    var revenue   = (0.35 * l * 12) * (w / 100) * (d * 1000);
+    var hoursLost = r * c * 52;
 
-    // Outputs
-    document.getElementById('roi-revenue').textContent      = money(revenue);
-    document.getElementById('roi-deals').textContent        = leadsLost.toLocaleString('en-US');
-    document.getElementById('roi-hours').textContent        = hoursLost.toLocaleString('en-US');
-    document.getElementById('roi-leads-lost').textContent   = leadsLost.toLocaleString('en-US');
-    document.getElementById('roi-payback').textContent      = roiMult.toLocaleString('en-US') + '×';
-    document.getElementById('roi-zuuz-annual').textContent  = '$' + zuuzAnnual.toLocaleString('en-US') + '/yr';
-
-    var recoverDeals = Math.ceil(zuuzAnnual / (d * 1000));
-    document.getElementById('roi-multiplier-lbl').textContent =
-      recoverDeals <= 1
-        ? 'One recovered deal covers it entirely'
-        : recoverDeals + ' recovered deals covers full annual cost';
-
-    // Update trial CTA link to match plan
-    document.querySelector('.roi-trial').href = plans[p].link;
-
-    ['roi-revenue','roi-deals','roi-hours','roi-leads-lost','roi-payback'].forEach(flash);
+    document.getElementById('roi-revenue').textContent = money(revenue);
+    document.getElementById('roi-deals').textContent   = dealsLost.toLocaleString('en-US');
+    document.getElementById('roi-hours').textContent   = hoursLost.toLocaleString('en-US');
   }
 
-  Object.values(els).forEach(function(el){ el.addEventListener('input', update); });
+  [reps, leads, deal, winrate, crmhrs].forEach(function (el) {
+    el.addEventListener('input', update);
+  });
   update();
 })();
 </script>
