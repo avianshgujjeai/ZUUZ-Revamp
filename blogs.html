@@ -8,337 +8,163 @@
 <meta name="author" content="ZUUZ, Inc.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.zuuz.ai/blogs">
-
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.zuuz.ai/blogs">
 <meta property="og:title" content="Blog | ZUUZ">
 <meta property="og:description" content="Insights for sales teams who close in email.">
+<meta property="og:image" content="https://www.zuuz.ai/uploads/zuuz-email-signals-drive-deals-crm.png">
 <meta property="og:site_name" content="ZUUZ">
-
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232563FF'%3E%3Cpath d='M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,0..100;1,9..144,300..500,0..100&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+<script defer src="/_vercel/insights/script.js"></script>
 <style>
-  :root{
-    --paper:#F4F1EA;
-    --paper-warm:#EDE8DC;
-    --ink:#111110;
-    --ink-soft:#3A3A36;
-    --ink-mute:#7A776E;
-    --line:#1110100D;
-    --line-strong:#11101015;
-    --accent:#2563FF;
-    --accent-hover:#1D4ED8;
-    --accent-soft:#DBEAFE;
-    --navy:#0E1F6B;
-    --signal:#0F8B4F;
-    --card:#FBF8F1;
-    --shadow: 0 1px 0 rgba(17,17,16,.04), 0 12px 32px -16px rgba(17,17,16,.18);
-    --radius:18px;
-    --radius-sm:10px;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html,body{background:var(--paper);color:var(--ink);}
-  body{
-    font-family:'Instrument Sans', system-ui, -apple-system, sans-serif;
-    font-size:16px; line-height:1.55; letter-spacing:-0.005em;
-    -webkit-font-smoothing:antialiased;
-    text-rendering:optimizeLegibility;
-    overflow-x:hidden;
-    background-image:
-      radial-gradient(circle at 20% 0%, rgba(37,99,255,0.04), transparent 50%),
-      radial-gradient(circle at 80% 30%, rgba(15,139,79,0.025), transparent 45%);
-  }
-  body::before{
-    content:""; position:fixed; inset:0; pointer-events:none; z-index:1; opacity:.5;
-    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.07 0 0 0 0 0.07 0 0 0 0 0.07 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
-  ::selection{background:var(--accent);color:#fff}
-  a{color:inherit; text-decoration:none}
-
-  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;position:relative;z-index:2}
-  @media (max-width:720px){.wrap{padding:0 20px}}
-
-  /* HEADER */
-  header{
-    position:sticky; top:0; z-index:50;
-    backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
-    background:rgba(244,241,234,0.78);
-    border-bottom:1px solid var(--line);
-  }
-  .nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:24px}
-  .brand{display:flex;align-items:center;gap:9px}
-  .brand-spark{width:18px; height:18px; color:var(--accent); flex-shrink:0; transform:translateY(-1px);}
-  .brand-text{
-    font-family:'Fraunces', serif;
-    font-weight:500; font-size:22px;
-    letter-spacing:-0.03em;
-    font-variation-settings:"opsz" 144, "SOFT" 30;
-    color:var(--navy);
-    line-height:1;
-  }
-  .nav-links{display:flex;align-items:center;gap:24px;list-style:none;margin:0;padding:0;}
-  .nav-links a{font-size:13px;font-weight:500;color:var(--ink-mute);transition:color .2s;white-space:nowrap;}
-  .nav-links a:hover{color:var(--ink);}
-  @media (max-width:960px){.nav-links{display:none;}}
-  .nav-actions{display:flex;align-items:center;gap:8px;}
-  .nav-trial{
-    display:inline-flex;align-items:center;
-    color:var(--ink);padding:10px 18px;border-radius:999px;
-    font-size:13px;font-weight:500;
-    border:1.5px solid var(--ink);
-    transition:background .2s,color .2s,transform .2s;
-  }
-  .nav-trial:hover{background:var(--ink);color:var(--paper);transform:translateY(-1px);}
-  .nav-cta{
-    display:inline-flex;align-items:center;gap:8px;
-    background:var(--ink); color:var(--paper);
-    padding:10px 18px; border-radius:999px;
-    font-size:13px; font-weight:500;
-    transition:transform .2s ease, background .2s;
-  }
-  .nav-cta:hover{transform:translateY(-1px); background:#000}
-  .nav-cta::after{content:"→"; transition:transform .2s}
-  .nav-cta:hover::after{transform:translateX(2px)}
-
-  /* PAGE HERO */
-  .page-hero{padding:88px 0 48px; position:relative}
-  @media (max-width:720px){.page-hero{padding:56px 0 32px}}
-  .page-eyebrow{
-    font-family:'JetBrains Mono',monospace; font-size:11px;
-    text-transform:uppercase; letter-spacing:0.18em; color:var(--accent);
-    margin-bottom:20px; display:inline-flex; align-items:center; gap:12px;
-  }
-  .page-eyebrow::before{content:""; width:24px; height:1px; background:var(--accent);}
-  h1.page-title{
-    font-family:'Fraunces', serif; font-weight:400;
-    font-size:clamp(40px, 5.4vw, 72px); line-height:1.02;
-    letter-spacing:-0.03em;
-    font-variation-settings:"opsz" 144, "SOFT" 40;
-    margin-bottom:20px;
-    max-width:18ch;
-  }
-  h1.page-title em{font-style:italic; color:var(--accent); font-weight:300}
-  .page-sub{font-size:18px; line-height:1.5; color:var(--ink-soft); max-width:56ch;}
-
-  /* POSTS SECTION */
-  .posts-section{padding:48px 0 96px; position:relative}
-  .section-label{
-    font-family:'JetBrains Mono',monospace; font-size:11px;
-    text-transform:uppercase; letter-spacing:0.18em; color:var(--ink-mute);
-    margin-bottom:24px; display:flex; align-items:center; gap:12px;
-  }
-  .section-label::before{content:""; width:24px; height:1px; background:var(--ink-mute);}
-
-  .post-grid{
-    display:grid; grid-template-columns:repeat(3, 1fr);
-    gap:20px;
-  }
-  @media (max-width:960px){.post-grid{grid-template-columns:repeat(2, 1fr);}}
-  @media (max-width:640px){.post-grid{grid-template-columns:1fr;}}
-
-  .post-card{
-    background:var(--card);
-    border:1px solid var(--line-strong);
-    border-radius:var(--radius);
-    padding:32px 28px;
-    display:flex; flex-direction:column; gap:14px;
-    transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
-    min-height:240px;
-  }
-  .post-card:hover{
-    transform:translateY(-3px);
-    box-shadow:var(--shadow);
-    border-color:var(--ink-mute);
-  }
-  .post-meta{
-    font-family:'JetBrains Mono',monospace; font-size:10px;
-    letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-mute);
-  }
-  .post-title{
-    font-family:'Fraunces', serif; font-weight:400;
-    font-size:22px; line-height:1.2; letter-spacing:-0.015em;
-    color:var(--ink);
-  }
-  .post-desc{
-    color:var(--ink-soft); font-size:14px; line-height:1.55;
-  }
-  .post-link{
-    margin-top:auto; color:var(--accent); font-size:13px; font-weight:500;
-    display:inline-flex; align-items:center; gap:6px;
-    transition:gap .2s;
-  }
-  .post-link::after{content:"→"; transition:transform .2s}
-  .post-card:hover .post-link{gap:10px;}
-  .post-card:hover .post-link::after{transform:translateX(3px);}
-
-  /* FOOTER */
-  footer{padding:64px 0 32px; border-top:1px solid var(--line); margin-top:48px;}
-  .foot-top{display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:32px; margin-bottom:48px;}
-  .foot-brand-block{display:flex; flex-direction:column; gap:14px; max-width:36ch}
-  .foot-tagline{
-    font-family:'Fraunces',serif; font-style:italic; font-weight:300;
-    font-size:15px; color:var(--ink-soft); line-height:1.4;
-    font-variation-settings:"opsz" 24, "SOFT" 70;
-  }
-  .foot-tagline span{color:var(--accent); font-style:normal; font-weight:500}
-  .foot-links{display:flex; gap:32px; flex-wrap:wrap}
-  .foot-links a{color:var(--ink-soft); font-size:14px; transition:color .2s;}
-  .foot-links a:hover{color:var(--ink)}
-  .foot-bottom{
-    display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px;
-    padding-top:32px; border-top:1px solid var(--line);
-    font-family:'JetBrains Mono',monospace; font-size:11px;
-    color:var(--ink-mute); letter-spacing:0.05em;
-  }
-  .foot-bottom a{color:var(--ink-mute); transition:color .2s}
-  .foot-bottom a:hover{color:var(--ink)}
+:root{
+--paper:#F4F1EA;--paper-warm:#EDE8DC;--ink:#111110;--ink-soft:#3A3A36;
+--ink-mute:#7A776E;--line:#1110100D;--line-strong:#11101015;
+--accent:#2563FF;--accent-hover:#1D4ED8;--accent-soft:#DBEAFE;
+--navy:#0E1F6B;--signal:#0F8B4F;--card:#FBF8F1;
+--shadow:0 1px 0 rgba(17,17,16,.04),0 12px 32px -16px rgba(17,17,16,.18);
+--radius:18px;--radius-sm:10px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--paper);color:var(--ink);}
+body{font-family:'Instrument Sans',system-ui,-apple-system,sans-serif;font-size:16px;line-height:1.55;letter-spacing:-0.005em;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden;background-image:radial-gradient(circle at 20% 0%,rgba(37,99,255,0.04),transparent 50%),radial-gradient(circle at 80% 30%,rgba(15,139,79,0.025),transparent 45%);}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.07 0 0 0 0 0.07 0 0 0 0 0.07 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+::selection{background:var(--accent);color:#fff}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px;position:relative;z-index:2}
+@media(max-width:720px){.wrap{padding:0 20px}}
+header{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(244,241,234,0.78);border-bottom:1px solid var(--line);}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:24px}
+.brand{display:flex;align-items:center;gap:9px}
+.brand-spark{width:18px;height:18px;color:var(--accent);flex-shrink:0;transform:translateY(-1px);}
+.brand-text{font-family:'Fraunces',serif;font-weight:500;font-size:22px;letter-spacing:-0.03em;font-variation-settings:"opsz" 144,"SOFT" 30;color:var(--navy);line-height:1;}
+.nav-links{display:flex;align-items:center;gap:24px;list-style:none;margin:0;padding:0;}
+.nav-links a{font-size:13px;font-weight:500;color:var(--ink-mute);transition:color .2s;white-space:nowrap;}
+.nav-links a:hover,.nav-links a.active{color:var(--ink);}
+@media(max-width:960px){.nav-links{display:none;}}
+.nav-actions{display:flex;align-items:center;gap:8px;}
+.nav-trial{display:inline-flex;align-items:center;color:var(--ink);padding:10px 18px;border-radius:999px;font-size:13px;font-weight:500;border:1.5px solid var(--ink);transition:background .2s,color .2s,transform .2s;}
+.nav-trial:hover{background:var(--ink);color:var(--paper);transform:translateY(-1px);}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--paper);padding:10px 18px;border-radius:999px;font-size:13px;font-weight:500;transition:transform .2s,background .2s;}
+.nav-cta:hover{transform:translateY(-1px);background:#000}
+.nav-cta::after{content:"→";transition:transform .2s}
+.nav-cta:hover::after{transform:translateX(2px)}
+.page-hero{padding:88px 0 48px;position:relative}
+@media(max-width:720px){.page-hero{padding:56px 0 32px}}
+.page-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.18em;color:var(--accent);margin-bottom:20px;display:inline-flex;align-items:center;gap:12px;}
+.page-eyebrow::before{content:"";width:24px;height:1px;background:var(--accent);}
+h1.page-title{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(40px,5.4vw,72px);line-height:1.02;letter-spacing:-0.03em;font-variation-settings:"opsz" 144,"SOFT" 40;margin-bottom:20px;max-width:18ch;}
+h1.page-title em{font-style:italic;color:var(--accent);font-weight:300;background:linear-gradient(135deg,var(--accent) 0%,#1040ff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.page-sub{font-size:18px;line-height:1.5;color:var(--ink-soft);max-width:56ch;}
+.posts-section{padding:48px 0 96px;position:relative}
+.section-label{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.18em;color:var(--ink-mute);margin-bottom:24px;display:flex;align-items:center;gap:12px;}
+.section-label::before{content:"";width:24px;height:1px;background:var(--ink-mute);}
+.post-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+@media(max-width:960px){.post-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:640px){.post-grid{grid-template-columns:1fr;}}
+.post-card{background:var(--card);border:1px solid var(--line-strong);border-radius:var(--radius);padding:32px 28px;display:flex;flex-direction:column;gap:14px;transition:transform .2s,box-shadow .2s,border-color .2s;min-height:240px;}
+.post-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--ink-mute);}
+.post-meta{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-mute);}
+.post-title{font-family:'Fraunces',serif;font-weight:400;font-size:22px;line-height:1.2;letter-spacing:-0.015em;color:var(--ink);}
+.post-desc{color:var(--ink-soft);font-size:14px;line-height:1.55;}
+.post-link{margin-top:auto;color:var(--accent);font-size:13px;font-weight:500;display:inline-flex;align-items:center;gap:6px;transition:gap .2s;}
+.post-link::after{content:"→";transition:transform .2s}
+.post-card:hover .post-link{gap:10px;}
+.post-card:hover .post-link::after{transform:translateX(3px);}
+footer{padding:64px 0 32px;border-top:1px solid var(--line);margin-top:48px;}
+.foot-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:32px;margin-bottom:48px;}
+.foot-brand-block{display:flex;flex-direction:column;gap:14px;max-width:36ch}
+.foot-tagline{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:15px;color:var(--ink-soft);line-height:1.4;font-variation-settings:"opsz" 24,"SOFT" 70;}
+.foot-tagline span{color:var(--accent);font-style:normal;font-weight:500}
+.foot-links{display:flex;gap:32px;flex-wrap:wrap}
+.foot-links a{color:var(--ink-soft);font-size:14px;transition:color .2s;}
+.foot-links a:hover{color:var(--ink)}
+.foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;padding-top:32px;border-top:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-mute);letter-spacing:0.05em;}
+.foot-bottom a{color:var(--ink-mute);transition:color .2s}
+.foot-bottom a:hover{color:var(--ink)}
 </style>
 </head>
 <body>
 
 <header>
-  <div class="wrap nav">
-    <div class="brand">
-      <svg class="brand-spark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z"/>
-      </svg>
-      <span class="brand-text">ZUUZ</span>
-    </div>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="/#workflow">How it works</a></li>
-        <li><a href="/#proof">Customers</a></li>
-        <li><a href="/#pricing">Pricing</a></li>
-        <li><a href="/#team">Team</a></li>
-        <li><a href="mailto:info@zuuz.ai">Contact</a></li>
-        <li><a href="/blogs">Blogs</a></li>
-      </ul>
-    </nav>
-    <div class="nav-actions">
-      <a class="nav-trial" href="https://buy.stripe.com/cNi6oHaWNeAU8QS457bZe00">Start free trial</a>
-      <a class="nav-cta" href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Book a demo</a>
-    </div>
-  </div>
+<div class="wrap nav">
+<a class="brand" href="/">
+<svg class="brand-spark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+<path d="M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z"/>
+</svg>
+<span class="brand-text">ZUUZ</span>
+</a>
+<nav>
+<ul class="nav-links">
+<li><a href="/#workflow">How it works</a></li>
+<li><a href="/#why-zuuz">Why ZUUZ</a></li>
+<li><a href="/#proof">Customers</a></li>
+<li><a href="/#pricing">Pricing</a></li>
+<li><a href="/roi-calculator">ROI Calculator</a></li>
+<li><a href="/#team">Team</a></li>
+<li><a href="/contact">Contact</a></li>
+<li><a href="/blogs" class="active">Blogs</a></li>
+</ul>
+</nav>
+<div class="nav-actions">
+<a class="nav-trial" href="https://buy.stripe.com/cNi6oHaWNeAU8QS457bZe00">Start free trial</a>
+<a class="nav-cta" href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Book a demo</a>
+</div>
+</div>
 </header>
 
 <section class="page-hero">
-  <div class="wrap">
-    <div class="page-eyebrow">Blog</div>
-    <h1 class="page-title">Insights for sales teams<br>who close <em>in email.</em></h1>
-    <p class="page-sub">Guides and analysis for IT services, VARs, and distribution companies.</p>
-  </div>
+<div class="wrap">
+<div class="page-eyebrow">Blog</div>
+<h1 class="page-title">Insights for sales teams<br>who close <em>in email.</em></h1>
+<p class="page-sub">Guides and analysis for IT services, VARs, and distribution companies.</p>
+</div>
 </section>
 
 <section class="posts-section">
-  <div class="wrap">
-    <div class="section-label">All Posts</div>
-    <div class="post-grid">
-
-      <a class="post-card" href="/blogs/email-lead-qualification-automation">
-        <div class="post-meta">ZUUZ · BLOG</div>
-        <div class="post-title">Email Lead Qualification Automation</div>
-        <div class="post-desc">How to automatically score and qualify leads from inbound sales emails without manual rep input.</div>
-        <span class="post-link">Read post</span>
-      </a>
-
-      <a class="post-card" href="/blogs/email-to-crm-automation-for-it-companies">
-        <div class="post-meta">ZUUZ · BLOG</div>
-        <div class="post-title">Email to CRM Automation for IT Companies</div>
-        <div class="post-desc">Why IT services companies lose pipeline in email and how to automatically sync conversations to CRM.</div>
-        <span class="post-link">Read post</span>
-      </a>
-
-      <a class="post-card" href="/blogs/how-to-track-renewals-across-multiple-products">
-        <div class="post-meta">ZUUZ · BLOG</div>
-        <div class="post-title">How to Track Renewals Across Multiple Products</div>
-        <div class="post-desc">A practical system for monitoring renewal signals across a multi-product portfolio before they go quiet.</div>
-        <span class="post-link">Read post</span>
-      </a>
-
-      <a class="post-card" href="/blogs/hubspot-email-lead-capture-automation">
-        <div class="post-meta">ZUUZ · BLOG</div>
-        <div class="post-title">HubSpot Email Lead Capture Automation</div>
-        <div class="post-desc">Setting up automated lead capture from email into HubSpot without relying on manual CRM updates.</div>
-        <span class="post-link">Read post</span>
-      </a>
-
-      <a class="post-card" href="/blogs/it-sales-pipeline-visibility-tools">
-        <div class="post-meta">ZUUZ · BLOG</div>
-        <div class="post-title">IT Sales Pipeline Visibility Tools</div>
-        <div class="post-desc">The tools IT sales teams actually use to get real-time pipeline visibility from their inbox.</div>
-        <span class="post-link">Read post</span>
-      </a>
-
-      <a class="post-card" href="/blogs/missed-sales-leads-in-email-how-to-fix-it">
-        <div class="post-meta">ZUUZ · BLOG</div>
-        <div class="post-title">Missed Sales Leads in Email: How to Fix It</div>
-        <div class="post-desc">Why 40% of B2B leads never reach CRM and the fix that doesn't require reps to change behaviour.</div>
-        <span class="post-link">Read post</span>
-      </a>
-
-      <a class="post-card" href="/blogs/renewal-tracking-software-for-vars-and-distributors">
-        <div class="post-meta">ZUUZ · BLOG</div>
-        <div class="post-title">Renewal Tracking Software for VARs and Distributors</div>
-        <div class="post-desc">How VARs and distributors can track contract renewals automatically without a dedicated renewal team.</div>
-        <span class="post-link">Read post</span>
-      </a>
-
-      <a class="post-card" href="/blogs/salesforce-email-integration-for-it-sales-teams">
-        <div class="post-meta">ZUUZ · BLOG</div>
-        <div class="post-title">Salesforce Email Integration for IT Sales Teams</div>
-        <div class="post-desc">Getting Salesforce to reflect what actually happens in your IT sales team's inbox in real time.</div>
-        <span class="post-link">Read post</span>
-      </a>
-
-      <a class="post-card" href="/blogs/why-your-crm-pipeline-is-wrong">
-        <div class="post-meta">ZUUZ · BLOG</div>
-        <div class="post-title">Why Your CRM Pipeline Is Wrong</div>
-        <div class="post-desc">The structural reason CRM data always lags reality for sales teams who close deals over email.</div>
-        <span class="post-link">Read post</span>
-      </a>
-
-      <a class="post-card" href="/blogs/zuuz-vs-manual-crm-entry">
-        <div class="post-meta">ZUUZ · BLOG</div>
-        <div class="post-title">ZUUZ vs Manual CRM Entry</div>
-        <div class="post-desc">A direct comparison of what manual CRM entry costs versus automated inbox-to-pipeline capture.</div>
-        <span class="post-link">Read post</span>
-      </a>
-
-    </div>
-  </div>
+<div class="wrap">
+<div class="section-label">All Posts</div>
+<div class="post-grid">
+<a class="post-card" href="/blogs/email-lead-qualification-automation"><div class="post-meta">ZUUZ &middot; BLOG</div><div class="post-title">Email Lead Qualification Automation</div><div class="post-desc">How to automatically score and qualify leads from inbound sales emails without manual rep input.</div><span class="post-link">Read post</span></a>
+<a class="post-card" href="/blogs/email-to-crm-automation-for-it-companies"><div class="post-meta">ZUUZ &middot; BLOG</div><div class="post-title">Email to CRM Automation for IT Companies</div><div class="post-desc">Why IT services companies lose pipeline in email and how to automatically sync conversations to CRM.</div><span class="post-link">Read post</span></a>
+<a class="post-card" href="/blogs/how-to-track-renewals-across-multiple-products"><div class="post-meta">ZUUZ &middot; BLOG</div><div class="post-title">How to Track Renewals Across Multiple Products</div><div class="post-desc">A practical system for monitoring renewal signals across a multi-product portfolio before they go quiet.</div><span class="post-link">Read post</span></a>
+<a class="post-card" href="/blogs/hubspot-email-lead-capture-automation"><div class="post-meta">ZUUZ &middot; BLOG</div><div class="post-title">HubSpot Email Lead Capture Automation</div><div class="post-desc">Setting up automated lead capture from email into HubSpot without relying on manual CRM updates.</div><span class="post-link">Read post</span></a>
+<a class="post-card" href="/blogs/it-sales-pipeline-visibility-tools"><div class="post-meta">ZUUZ &middot; BLOG</div><div class="post-title">IT Sales Pipeline Visibility Tools</div><div class="post-desc">The tools IT sales teams actually use to get real-time pipeline visibility from their inbox.</div><span class="post-link">Read post</span></a>
+<a class="post-card" href="/blogs/missed-sales-leads-in-email-how-to-fix-it"><div class="post-meta">ZUUZ &middot; BLOG</div><div class="post-title">Missed Sales Leads in Email: How to Fix It</div><div class="post-desc">Why 40% of B2B leads never reach CRM and the fix that doesn't require reps to change behaviour.</div><span class="post-link">Read post</span></a>
+<a class="post-card" href="/blogs/renewal-tracking-software-for-vars-and-distributors"><div class="post-meta">ZUUZ &middot; BLOG</div><div class="post-title">Renewal Tracking Software for VARs and Distributors</div><div class="post-desc">How VARs and distributors can track contract renewals automatically without a dedicated renewal team.</div><span class="post-link">Read post</span></a>
+<a class="post-card" href="/blogs/salesforce-email-integration-for-it-sales-teams"><div class="post-meta">ZUUZ &middot; BLOG</div><div class="post-title">Salesforce Email Integration for IT Sales Teams</div><div class="post-desc">Getting Salesforce to reflect what actually happens in your IT sales team's inbox in real time.</div><span class="post-link">Read post</span></a>
+<a class="post-card" href="/blogs/why-your-crm-pipeline-is-wrong"><div class="post-meta">ZUUZ &middot; BLOG</div><div class="post-title">Why Your CRM Pipeline Is Wrong</div><div class="post-desc">The structural reason CRM data always lags reality for sales teams who close deals over email.</div><span class="post-link">Read post</span></a>
+<a class="post-card" href="/blogs/zuuz-vs-manual-crm-entry"><div class="post-meta">ZUUZ &middot; BLOG</div><div class="post-title">ZUUZ vs Manual CRM Entry</div><div class="post-desc">A direct comparison of what manual CRM entry costs versus automated inbox-to-pipeline capture.</div><span class="post-link">Read post</span></a>
+</div>
+</div>
 </section>
 
 <footer>
-  <div class="wrap">
-    <div class="foot-top">
-      <div class="foot-brand-block">
-        <div class="brand">
-          <svg class="brand-spark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z"/>
-          </svg>
-          <span class="brand-text" style="font-size:26px">ZUUZ</span>
-        </div>
-        <div class="foot-tagline">
-          Business happens in conversations.<br>
-          Not in <span>software</span>.
-        </div>
-      </div>
-      <div class="foot-links">
-        <a href="/#workflow">How it works</a>
-        <a href="/#proof">Customers</a>
-        <a href="/#pricing">Pricing</a>
-        <a href="/#team">Team</a>
-        <a href="mailto:info@zuuz.ai">Contact</a>
-      </div>
-    </div>
-    <div class="foot-bottom">
-      <div>© 2026 ZUUZ, Inc.&nbsp;&nbsp;·&nbsp;&nbsp;Sunnyvale · Dubai · Hyderabad</div>
-      <div><a href="/privacy">Privacy</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="/terms">Terms</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="/security">Security</a></div>
-    </div>
-  </div>
+<div class="wrap">
+<div class="foot-top">
+<div class="foot-brand-block">
+<a class="brand" href="/"><svg class="brand-spark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z"/></svg><span class="brand-text" style="font-size:26px">ZUUZ</span></a>
+<div class="foot-tagline">Business happens in conversations.<br>Not in <span>software</span>.</div>
+</div>
+<div class="foot-links">
+<a href="/#workflow">How it works</a>
+<a href="/#proof">Customers</a>
+<a href="/#pricing">Pricing</a>
+<a href="/#why-zuuz">Why ZUUZ</a>
+<a href="/#faq">FAQ</a>
+<a href="/#team">Team</a>
+<a href="/contact">Contact</a>
+</div>
+</div>
+<div class="foot-bottom">
+<div>&copy; 2026 ZUUZ, Inc.&nbsp;&nbsp;&middot;&nbsp;&nbsp;Sunnyvale &middot; Dubai &middot; Hyderabad</div>
+<div><a href="/privacy">Privacy</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="/terms">Terms</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="/security">Security</a></div>
+</div>
+</div>
 </footer>
 
 </body>
