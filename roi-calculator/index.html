@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ROI Calculator — ZUUZ</title>
-<meta name="description" content="Calculate how much revenue your sales team is leaving in the inbox. Drag the sliders to see your real pipeline leak.">
+<title>Sales Pipeline ROI Calculator | How Much Revenue Are You Losing? | ZUUZ</title>
+<meta name="description" content="Calculate the revenue your sales team is losing in their inbox. Enter your team size and deal value to see your exact pipeline leak — and how ZUUZ fixes it.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.zuuz.ai/roi-calculator">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.zuuz.ai/roi-calculator">
-<meta property="og:title" content="ROI Calculator — ZUUZ">
-<meta property="og:description" content="Calculate how much revenue your sales team is leaving in the inbox.">
+<meta property="og:title" content="Sales Pipeline ROI Calculator | ZUUZ">
+<meta property="og:description" content="Enter your team size and deal value to see your exact pipeline leak — and how ZUUZ fixes it.">
 <meta property="og:image" content="https://www.zuuz.ai/uploads/zuuz-email-signals-drive-deals-crm.png">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232563FF'%3E%3Cpath d='M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -214,78 +214,74 @@ footer{padding:64px 0 32px;border-top:1px solid var(--line);margin-top:80px;}
 <!-- ROI CALCULATOR -->
 <section id="roi-calculator">
   <div class="wrap">
-    <div class="section-eyebrow">ROI Calculator</div>
-    <h2 class="section-title">What is your revenue team leaving <em>behind</em>?</h2>
-    <p class="section-sub">
-      Drag the sliders to your team's real numbers. ZUUZ surfaces the pipeline
-      that's quietly slipping through the inbox — leads never logged, deals never forecast.
-    </p>
+    <p class="page-sub" style="margin-bottom:8px">Every inbound email carries buying signals. When they go unlogged, the
+      pipeline they represent quietly disappears. Enter your team's numbers to see the leak.</p>
 
     <div class="roi-grid">
       <!-- Sliders -->
       <div class="roi-controls">
         <div class="roi-field">
           <div class="roi-field-head">
-            <label for="roi-reps">Sales reps</label>
-            <span class="roi-val" id="roi-reps-val">25</span>
+            <label for="roi-reps">Number of sales reps</label>
+            <span class="roi-val" id="roi-reps-val">5</span>
           </div>
-          <input type="range" class="roi-slider" id="roi-reps" min="5" max="200" step="1" value="25">
+          <input type="range" class="roi-slider" id="roi-reps" min="1" max="50" step="1" value="5">
         </div>
 
         <div class="roi-field">
           <div class="roi-field-head">
-            <label for="roi-leads">Inbound leads / month</label>
-            <span class="roi-val" id="roi-leads-val">120</span>
+            <label for="roi-emails">Avg emails per rep / day</label>
+            <span class="roi-val" id="roi-emails-val">50</span>
           </div>
-          <input type="range" class="roi-slider" id="roi-leads" min="10" max="1000" step="1" value="120">
+          <input type="range" class="roi-slider" id="roi-emails" min="10" max="200" step="1" value="50">
+        </div>
+
+        <div class="roi-field">
+          <div class="roi-field-head">
+            <label for="roi-signal">% emails with pipeline signals</label>
+            <span class="roi-val" id="roi-signal-val">20%</span>
+          </div>
+          <input type="range" class="roi-slider" id="roi-signal" min="5" max="50" step="1" value="20">
         </div>
 
         <div class="roi-field">
           <div class="roi-field-head">
             <label for="roi-deal">Average deal value</label>
-            <span class="roi-val" id="roi-deal-val">$45K</span>
+            <span class="roi-val" id="roi-deal-val">$25K</span>
           </div>
-          <input type="range" class="roi-slider" id="roi-deal" min="5" max="500" step="1" value="45">
-        </div>
-
-        <div class="roi-field">
-          <div class="roi-field-head">
-            <label for="roi-winrate">Current win rate</label>
-            <span class="roi-val" id="roi-winrate-val">22%</span>
-          </div>
-          <input type="range" class="roi-slider" id="roi-winrate" min="5" max="60" step="1" value="22">
-        </div>
-
-        <div class="roi-field">
-          <div class="roi-field-head">
-            <label for="roi-crmhrs">CRM admin hours / rep / week</label>
-            <span class="roi-val" id="roi-crmhrs-val">6 hrs</span>
-          </div>
-          <input type="range" class="roi-slider" id="roi-crmhrs" min="1" max="20" step="1" value="6">
+          <input type="range" class="roi-slider" id="roi-deal" min="1" max="500" step="1" value="25">
         </div>
       </div>
 
       <!-- Live outputs -->
       <div class="roi-outputs">
         <div class="roi-hero-card">
-          <div class="roi-hero-label">Revenue escaping pipeline / year</div>
-          <div class="roi-hero-num" id="roi-revenue">$5M</div>
+          <div class="roi-hero-label">Revenue at risk / year</div>
+          <div class="roi-hero-num" id="roi-year">$99M</div>
         </div>
 
         <div class="roi-stat-row">
           <div class="roi-stat">
-            <div class="roi-stat-num" id="roi-deals">504</div>
-            <div class="roi-stat-label">Deals lost annually</div>
+            <div class="roi-stat-num" id="roi-signals">330</div>
+            <div class="roi-stat-label">Signals missed / month</div>
           </div>
           <div class="roi-stat">
-            <div class="roi-stat-num" id="roi-hours">7,800</div>
-            <div class="roi-stat-label">Selling hours lost / year</div>
+            <div class="roi-stat-num" id="roi-month">$8.3M</div>
+            <div class="roi-stat-label">Revenue at risk / month</div>
+          </div>
+          <div class="roi-stat">
+            <div class="roi-stat-num">$349<span style="font-size:16px;font-family:'Instrument Sans',sans-serif;color:var(--ink-mute)">/mo</span></div>
+            <div class="roi-stat-label">ZUUZ cost &middot; Growth plan</div>
+          </div>
+          <div class="roi-stat">
+            <div class="roi-stat-num" id="roi-multiple">23,639&times;</div>
+            <div class="roi-stat-label">ROI multiple</div>
           </div>
         </div>
 
         <div class="roi-cta-row">
-          <a class="roi-btn" href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Book a demo</a>
-          <a class="roi-link" href="/roi-calculator">Open full calculator →</a>
+          <a class="roi-btn" href="https://buy.stripe.com/cNi6oHaWNeAU8QS457bZe00">Start 30-day free trial</a>
+          <a class="roi-link" href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Book a demo &rarr;</a>
         </div>
 
         <div class="roi-foot">30-day free trial &middot; No setup fee &middot; Cancel anytime</div>
@@ -297,43 +293,43 @@ footer{padding:64px 0 32px;border-top:1px solid var(--line);margin-top:80px;}
 <script>
 /* ROI calculator — vanilla JS, no dependencies */
 (function () {
-  var reps    = document.getElementById('roi-reps');
-  var leads   = document.getElementById('roi-leads');
-  var deal    = document.getElementById('roi-deal');
-  var winrate = document.getElementById('roi-winrate');
-  var crmhrs  = document.getElementById('roi-crmhrs');
+  var reps   = document.getElementById('roi-reps');
+  var emails = document.getElementById('roi-emails');
+  var signal = document.getElementById('roi-signal');
+  var deal   = document.getElementById('roi-deal');
   if (!reps) return;
 
+  var ZUUZ_MONTHLY = 349;
+
   function money(n) {
-    if (n >= 1e6) {
-      var m = n / 1e6;
-      return '$' + (m >= 10 ? Math.round(m) : (Math.round(m * 10) / 10).toString().replace(/\.0$/, '')) + 'M';
-    }
+    if (n >= 1e9) { var b = n / 1e9; return '$' + (b >= 10 ? Math.round(b) : (Math.round(b * 10) / 10).toString().replace(/\.0$/, '')) + 'B'; }
+    if (n >= 1e6) { var m = n / 1e6; return '$' + (m >= 10 ? Math.round(m) : (Math.round(m * 10) / 10).toString().replace(/\.0$/, '')) + 'M'; }
     if (n >= 1e3) return '$' + Math.round(n / 1e3) + 'K';
     return '$' + Math.round(n);
   }
 
   function update() {
-    var r = +reps.value, l = +leads.value, d = +deal.value, w = +winrate.value, c = +crmhrs.value;
+    var r = +reps.value, e = +emails.value, s = +signal.value, dK = +deal.value;
+    var dealValue = dK * 1000;
 
-    document.getElementById('roi-reps-val').textContent    = r;
-    document.getElementById('roi-leads-val').textContent   = l;
-    document.getElementById('roi-deal-val').textContent    = '$' + d + 'K';
-    document.getElementById('roi-winrate-val').textContent = w + '%';
-    document.getElementById('roi-crmhrs-val').textContent  = c + ' hrs';
+    document.getElementById('roi-reps-val').textContent   = r;
+    document.getElementById('roi-emails-val').textContent = e;
+    document.getElementById('roi-signal-val').textContent = s + '%';
+    document.getElementById('roi-deal-val').textContent   = '$' + dK + 'K';
 
-    var dealsLost = Math.round(0.35 * l * 12);
-    var revenue   = (0.35 * l * 12) * (w / 100) * (d * 1000);
-    var hoursLost = r * c * 52;
+    // signals_missed = reps × emails/day × 22 working days × signal% × 0.3 unlogged
+    var signalsMissed = r * e * 22 * (s / 100) * 0.3;
+    var riskMonth = signalsMissed * dealValue;
+    var riskYear  = riskMonth * 12;
+    var roiMult   = riskMonth / ZUUZ_MONTHLY;
 
-    document.getElementById('roi-revenue').textContent = money(revenue);
-    document.getElementById('roi-deals').textContent   = dealsLost.toLocaleString('en-US');
-    document.getElementById('roi-hours').textContent   = hoursLost.toLocaleString('en-US');
+    document.getElementById('roi-signals').textContent  = Math.round(signalsMissed).toLocaleString('en-US');
+    document.getElementById('roi-month').textContent    = money(riskMonth);
+    document.getElementById('roi-year').textContent     = money(riskYear);
+    document.getElementById('roi-multiple').textContent = Math.round(roiMult).toLocaleString('en-US') + '×';
   }
 
-  [reps, leads, deal, winrate, crmhrs].forEach(function (el) {
-    el.addEventListener('input', update);
-  });
+  [reps, emails, signal, deal].forEach(function (el) { el.addEventListener('input', update); });
   update();
 })();
 </script>
@@ -369,50 +365,6 @@ footer{padding:64px 0 32px;border-top:1px solid var(--line);margin-top:80px;}
     </div>
   </div>
 </footer>
-
-<script>
-/* ROI calculator — vanilla JS, no dependencies */
-(function () {
-  var reps    = document.getElementById('roi-reps');
-  var leads   = document.getElementById('roi-leads');
-  var deal    = document.getElementById('roi-deal');
-  var winrate = document.getElementById('roi-winrate');
-  var crmhrs  = document.getElementById('roi-crmhrs');
-  if (!reps) return;
-
-  function money(n) {
-    if (n >= 1e6) {
-      var m = n / 1e6;
-      return '$' + (m >= 10 ? Math.round(m) : (Math.round(m * 10) / 10).toString().replace(/\.0$/, '')) + 'M';
-    }
-    if (n >= 1e3) return '$' + Math.round(n / 1e3) + 'K';
-    return '$' + Math.round(n);
-  }
-
-  function update() {
-    var r = +reps.value, l = +leads.value, d = +deal.value, w = +winrate.value, c = +crmhrs.value;
-
-    document.getElementById('roi-reps-val').textContent    = r;
-    document.getElementById('roi-leads-val').textContent   = l;
-    document.getElementById('roi-deal-val').textContent    = '$' + d + 'K';
-    document.getElementById('roi-winrate-val').textContent = w + '%';
-    document.getElementById('roi-crmhrs-val').textContent  = c + ' hrs';
-
-    var dealsLost = Math.round(0.35 * l * 12);
-    var revenue   = (0.35 * l * 12) * (w / 100) * (d * 1000);
-    var hoursLost = r * c * 52;
-
-    document.getElementById('roi-revenue').textContent = money(revenue);
-    document.getElementById('roi-deals').textContent   = dealsLost.toLocaleString('en-US');
-    document.getElementById('roi-hours').textContent   = hoursLost.toLocaleString('en-US');
-  }
-
-  [reps, leads, deal, winrate, crmhrs].forEach(function (el) {
-    el.addEventListener('input', update);
-  });
-  update();
-})();
-</script>
 
 </body>
 </html>
