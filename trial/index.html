@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Start Your Free Trial — ZUUZ</title>
-<meta name="description" content="Start your 30-day free trial. No credit card required. Pick your plan and get started in under 2 minutes.">
+<meta name="description" content="Start your 30-day free trial. No credit card required. Get started in under 2 minutes.">
 <meta name="robots" content="noindex">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232563FF'%3E%3Cpath d='M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,416 +14,333 @@
 :root{
   --paper:#F4F1EA;--ink:#111110;--ink-soft:#3A3A36;--ink-mute:#7A776E;
   --line:#1110100D;--line-strong:#11101018;
-  --accent:#2563FF;--accent-hover:#1D4ED8;--accent-soft:#DBEAFE;
+  --accent:#2563FF;--accent-soft:#DBEAFE;
   --navy:#0E1F6B;--signal:#0F8B4F;--card:#FBF8F1;--danger:#DC2626;
-  --shadow:0 1px 0 rgba(17,17,16,.04),0 12px 32px -16px rgba(17,17,16,.14);
-  --radius:18px;--radius-sm:10px;
+  --shadow:0 1px 0 rgba(17,17,16,.04),0 16px 40px -20px rgba(17,17,16,.16);
+  --radius:20px;--radius-sm:10px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{background:var(--paper);color:var(--ink);}
 body{
   font-family:'Instrument Sans',system-ui,sans-serif;
   font-size:16px;line-height:1.55;letter-spacing:-0.005em;
-  -webkit-font-smoothing:antialiased;
+  -webkit-font-smoothing:antialiased;min-height:100vh;
+  display:flex;flex-direction:column;
   background-image:
-    radial-gradient(ellipse 70% 40% at 15% -5%,rgba(37,99,255,0.06),transparent),
-    radial-gradient(ellipse 50% 30% at 85% 5%,rgba(15,139,79,0.03),transparent);
+    radial-gradient(ellipse 80% 50% at 10% -10%,rgba(37,99,255,0.07),transparent),
+    radial-gradient(ellipse 60% 40% at 90% 5%,rgba(15,139,79,0.04),transparent);
 }
 body::before{
-  content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.45;
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.4;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.07 0 0 0 0 0.07 0 0 0 0 0.07 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 ::selection{background:var(--accent);color:#fff}
 a{color:inherit;text-decoration:none}
-.wrap{max-width:1100px;margin:0 auto;padding:0 32px;position:relative;z-index:2}
-@media(max-width:640px){.wrap{padding:0 20px}}
 
 /* NAV */
-header{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(244,241,234,0.78);border-bottom:1px solid var(--line);}
-.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+header{position:relative;z-index:10;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(244,241,234,0.8);border-bottom:1px solid var(--line);}
+.nav{max-width:1100px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:64px;}
+@media(max-width:640px){.nav{padding:0 20px}}
 .brand{display:flex;align-items:center;gap:9px}
 .brand svg{width:18px;height:18px;color:var(--accent);flex-shrink:0}
 .brand-text{font-family:'Fraunces',serif;font-weight:500;font-size:22px;letter-spacing:-0.03em;font-variation-settings:"opsz" 144,"SOFT" 30;color:var(--navy);line-height:1}
-.nav-back{font-size:13px;color:var(--ink-mute);display:flex;align-items:center;gap:6px;transition:color .2s}
+.nav-back{font-size:13px;color:var(--ink-mute);display:flex;align-items:center;gap:5px;transition:color .2s}
 .nav-back:hover{color:var(--ink)}
-.nav-back::before{content:"←";transition:transform .2s}
-.nav-back:hover::before{transform:translateX(-2px)}
+.nav-back-arrow{transition:transform .2s;display:inline-block}
+.nav-back:hover .nav-back-arrow{transform:translateX(-3px)}
 
-/* LAYOUT */
-.page{display:grid;grid-template-columns:1fr 420px;gap:72px;padding:64px 0 96px;align-items:start;}
-@media(max-width:960px){.page{grid-template-columns:1fr;gap:48px;padding:48px 0 80px}}
+/* MAIN */
+main{flex:1;display:flex;align-items:center;justify-content:center;padding:48px 20px;position:relative;z-index:1}
 
-/* LEFT — PLAN PICKER */
-.left-col{}
-.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:20px;}
-.pulse{width:7px;height:7px;border-radius:50%;background:var(--signal);box-shadow:0 0 0 0 rgba(15,139,79,.6);animation:pulse 2s infinite;flex-shrink:0;}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(15,139,79,.5)}70%{box-shadow:0 0 0 8px rgba(15,139,79,0)}100%{box-shadow:0 0 0 0 rgba(15,139,79,0)}}
-.page-title{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(36px,5vw,56px);line-height:1;letter-spacing:-0.03em;font-variation-settings:"opsz" 144,"SOFT" 30;margin-bottom:12px;}
-.page-title em{font-style:italic;color:var(--accent);font-weight:300;background:linear-gradient(135deg,var(--accent),#1040ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.page-sub{font-size:16px;color:var(--ink-soft);margin-bottom:36px;max-width:48ch}
-
-/* PLAN CARDS */
-.plans{display:flex;flex-direction:column;gap:12px;margin-bottom:32px;}
-.plan-card{
-  background:var(--card);border:2px solid var(--line-strong);border-radius:var(--radius-sm);
-  padding:20px 22px;cursor:pointer;transition:border-color .2s,background .15s,transform .15s;
-  position:relative;
+/* CARD */
+.card{
+  background:var(--card);border:1px solid var(--line-strong);border-radius:var(--radius);
+  box-shadow:var(--shadow);width:100%;max-width:520px;padding:48px 44px;
 }
-.plan-card:hover{border-color:rgba(37,99,255,0.3);transform:translateX(2px)}
-.plan-card.selected{border-color:var(--accent);background:#fff}
-.plan-card.selected::after{
-  content:"✓";position:absolute;right:18px;top:50%;transform:translateY(-50%);
-  width:22px;height:22px;background:var(--accent);color:#fff;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;
-  display:grid;place-items:center;
-}
-.plan-badge{position:absolute;top:-1px;left:22px;background:var(--accent);color:#fff;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;padding:3px 10px;border-radius:0 0 6px 6px;}
-.plan-row{display:flex;align-items:center;justify-content:space-between;gap:16px;}
-.plan-name{font-family:'Fraunces',serif;font-size:18px;font-weight:500;letter-spacing:-0.02em;}
-.plan-price{font-family:'Fraunces',serif;font-size:22px;font-weight:400;color:var(--accent);letter-spacing:-0.03em;}
-.plan-price span{font-family:'Instrument Sans',sans-serif;font-size:13px;color:var(--ink-mute);font-weight:400;}
-.plan-desc{font-size:13px;color:var(--ink-mute);margin-top:6px;line-height:1.45;}
-.plan-features{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:10px;list-style:none;}
-.plan-features li{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.06em;color:var(--ink-soft);display:flex;align-items:center;gap:5px;}
-.plan-features li::before{content:"·";color:var(--accent);font-size:14px;}
+@media(max-width:600px){.card{padding:32px 24px}}
 
-/* TRUST STRIP */
-.trust-strip{display:flex;flex-wrap:wrap;gap:16px;align-items:center;}
-.trust-item{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-mute);display:flex;align-items:center;gap:6px;}
-.trust-item::before{content:"✓";color:var(--signal);font-weight:700;}
+/* HEADER */
+.card-eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:16px;}
+.pulse{width:6px;height:6px;border-radius:50%;background:var(--signal);animation:pulse 2s infinite;flex-shrink:0;}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(15,139,79,.5)}70%{box-shadow:0 0 0 7px rgba(15,139,79,0)}100%{box-shadow:0 0 0 0 rgba(15,139,79,0)}}
+.card-title{font-family:'Fraunces',serif;font-weight:400;font-size:36px;line-height:1.02;letter-spacing:-0.03em;font-variation-settings:"opsz" 144,"SOFT" 30;margin-bottom:8px;}
+.card-title em{font-style:italic;font-weight:300;color:var(--accent);background:linear-gradient(135deg,var(--accent),#1040ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.card-sub{font-size:14px;color:var(--ink-mute);margin-bottom:32px;line-height:1.5}
 
-/* RIGHT — FORM */
-.form-card{background:var(--card);border:1px solid var(--line-strong);border-radius:var(--radius);padding:36px 32px;box-shadow:var(--shadow);position:sticky;top:84px;}
-@media(max-width:640px){.form-card{padding:28px 20px}}
-.form-title{font-family:'Fraunces',serif;font-size:22px;font-weight:400;letter-spacing:-0.02em;margin-bottom:4px;}
-.form-plan-confirm{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;color:var(--accent);margin-bottom:24px;}
-.form-fields{display:flex;flex-direction:column;gap:16px;}
-.field{display:flex;flex-direction:column;gap:6px;}
-.field label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-mute);}
+/* FORM */
+.fields{display:flex;flex-direction:column;gap:14px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:480px){.row{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:5px}
+.field label{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-mute);}
 .field input,.field select{
-  width:100%;padding:12px 14px;border:1.5px solid var(--line-strong);border-radius:var(--radius-sm);
+  width:100%;padding:11px 13px;border:1.5px solid rgba(17,17,16,0.12);border-radius:var(--radius-sm);
   background:#fff;font-family:'Instrument Sans',sans-serif;font-size:15px;color:var(--ink);
-  outline:none;transition:border-color .2s,box-shadow .2s;
-  -webkit-appearance:none;appearance:none;
+  outline:none;transition:border-color .18s,box-shadow .18s;-webkit-appearance:none;appearance:none;
 }
-.field input:focus,.field select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(37,99,255,0.1);}
-.field input::placeholder{color:var(--ink-mute)}
-.field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-@media(max-width:480px){.field-row{grid-template-columns:1fr}}
+.field input:focus,.field select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(37,99,255,0.09)}
+.field input::placeholder{color:var(--ink-mute);opacity:.7}
 
+/* MAILBOX STEPPER */
+.mailbox-field{display:flex;flex-direction:column;gap:5px}
+.mailbox-field label{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-mute);}
+.mailbox-stepper{display:flex;align-items:center;gap:0;border:1.5px solid rgba(17,17,16,0.12);border-radius:var(--radius-sm);background:#fff;overflow:hidden;transition:border-color .18s,box-shadow .18s;}
+.mailbox-stepper:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px rgba(37,99,255,0.09)}
+.step-btn{width:44px;height:44px;border:none;background:none;font-size:20px;color:var(--ink-soft);cursor:pointer;flex-shrink:0;transition:background .15s,color .15s;display:grid;place-items:center;font-weight:300;}
+.step-btn:hover{background:rgba(37,99,255,0.05);color:var(--accent)}
+.step-btn:active{background:rgba(37,99,255,0.1)}
+.step-num{flex:1;text-align:center;font-family:'Fraunces',serif;font-size:22px;font-weight:400;color:var(--accent);letter-spacing:-0.02em;line-height:1;padding:0 4px;}
+.mailbox-hint{font-size:11px;color:var(--ink-mute);margin-top:4px;font-family:'JetBrains Mono',monospace;letter-spacing:0.04em;}
+.plan-suggest{display:inline-flex;align-items:center;gap:6px;background:var(--accent-soft);border-radius:6px;padding:3px 10px;font-size:11px;color:var(--accent);font-weight:600;transition:opacity .2s;}
+
+/* DIVIDER */
+.divider{height:1px;background:var(--line-strong);margin:4px 0}
+
+/* SUBMIT */
 .submit-btn{
-  width:100%;padding:16px 24px;background:var(--ink);color:var(--paper);
+  width:100%;padding:15px 24px;background:var(--ink);color:var(--paper);
   border:none;border-radius:99px;font-family:'Instrument Sans',sans-serif;
-  font-size:15px;font-weight:600;cursor:pointer;
+  font-size:15px;font-weight:600;cursor:pointer;margin-top:4px;
   display:flex;align-items:center;justify-content:center;gap:10px;
-  transition:background .2s,transform .2s;margin-top:8px;
-  position:relative;overflow:hidden;
+  transition:background .2s,transform .18s;
 }
 .submit-btn:hover:not(:disabled){background:#000;transform:translateY(-1px)}
-.submit-btn:disabled{opacity:0.7;cursor:not-allowed;transform:none}
-.submit-btn .arrow{transition:transform .2s}
+.submit-btn:disabled{opacity:.65;cursor:not-allowed;transform:none}
+.arrow{transition:transform .2s}
 .submit-btn:hover:not(:disabled) .arrow{transform:translateX(3px)}
-.submit-btn .spinner{display:none;width:18px;height:18px;border:2px solid rgba(255,255,255,0.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;}
+.spinner{display:none;width:17px;height:17px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .65s linear infinite;flex-shrink:0}
 @keyframes spin{to{transform:rotate(360deg)}}
-.submit-btn.loading .arrow{display:none}
+.submit-btn.loading .arrow,.submit-btn.loading .btn-text-after{display:none}
 .submit-btn.loading .spinner{display:block}
-.submit-btn.loading .btn-text::after{content:" ..."}
 
-.form-foot{font-size:12px;color:var(--ink-mute);text-align:center;margin-top:12px;line-height:1.5;}
-
-/* SUCCESS STATE */
-.success-state{display:none;text-align:center;padding:16px 0;}
-.success-icon{width:56px;height:56px;background:rgba(15,139,79,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:24px;}
-.success-title{font-family:'Fraunces',serif;font-size:24px;font-weight:400;letter-spacing:-0.02em;margin-bottom:8px;}
-.success-sub{font-size:14px;color:var(--ink-soft);line-height:1.55;margin-bottom:24px;}
-.success-next{background:var(--accent-soft);border-radius:var(--radius-sm);padding:16px 18px;text-align:left;}
-.success-next-title{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
-.success-steps{list-style:none;display:flex;flex-direction:column;gap:8px;}
-.success-steps li{font-size:13px;color:var(--ink-soft);display:flex;gap:10px;align-items:flex-start;}
-.success-steps li span{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);font-weight:700;flex-shrink:0;margin-top:1px;}
+/* TRUST */
+.trust{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 20px;margin-top:16px}
+.trust-item{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-mute);display:flex;align-items:center;gap:5px}
+.trust-item::before{content:"✓";color:var(--signal);font-weight:700}
 
 /* ERROR */
-.form-error{display:none;background:rgba(220,38,38,0.06);border:1px solid rgba(220,38,38,0.2);border-radius:var(--radius-sm);padding:12px 14px;font-size:13px;color:var(--danger);margin-top:4px;}
-.form-error.visible{display:block;}
+.form-error{display:none;background:rgba(220,38,38,0.06);border:1px solid rgba(220,38,38,0.18);border-radius:8px;padding:11px 14px;font-size:13px;color:var(--danger);margin-top:2px}
+.form-error.show{display:block}
 
-/* ANIMATIONS */
-@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-.eyebrow{animation:fadeUp .5s ease .1s both}
-.page-title{animation:fadeUp .6s ease .15s both}
-.page-sub{animation:fadeUp .6s ease .25s both}
-.plans{animation:fadeUp .6s ease .3s both}
-.trust-strip{animation:fadeUp .6s ease .4s both}
-.form-card{animation:fadeUp .7s ease .2s both}
+/* SUCCESS */
+.success{display:none;text-align:center;padding:8px 0}
+.success-ring{width:60px;height:60px;border-radius:50%;background:rgba(15,139,79,0.1);display:grid;place-items:center;margin:0 auto 20px;font-size:26px}
+.success-title{font-family:'Fraunces',serif;font-size:28px;font-weight:400;letter-spacing:-0.025em;margin-bottom:8px}
+.success-sub{font-size:14px;color:var(--ink-soft);line-height:1.6;margin-bottom:24px}
+.next-steps{background:var(--accent-soft);border-radius:var(--radius-sm);padding:18px 20px;text-align:left}
+.next-label{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.next-list{list-style:none;display:flex;flex-direction:column;gap:9px}
+.next-list li{font-size:13px;color:var(--ink-soft);display:flex;gap:10px;line-height:1.45}
+.next-list li b{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--accent);font-weight:700;flex-shrink:0;margin-top:2px}
+
+/* Animate in */
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.card{animation:fadeUp .55s ease .1s both}
 </style>
 </head>
 <body>
 
 <header>
-  <div class="wrap nav">
+  <div class="nav">
     <a class="brand" href="/">
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z"/>
-      </svg>
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z"/></svg>
       <span class="brand-text">ZUUZ</span>
     </a>
-    <a class="nav-back" href="/">Back to site</a>
+    <a class="nav-back" href="/"><span class="nav-back-arrow">←</span> Back to site</a>
   </div>
 </header>
 
-<div class="wrap">
-  <div class="page">
+<main>
+  <div class="card">
 
-    <!-- LEFT: PLAN PICKER -->
-    <div class="left-col">
-      <div class="eyebrow"><span class="pulse"></span>30-day free trial</div>
-      <h1 class="page-title">Pick your plan,<br><em>start now.</em></h1>
-      <p class="page-sub">No credit card. No setup fee. Pipeline shows up in the first 72 hours or we help you find out why.</p>
+    <!-- FORM STATE -->
+    <div id="form-wrap">
+      <div class="card-eyebrow"><span class="pulse"></span>30-day free trial</div>
+      <h1 class="card-title">Start for <em>free.</em></h1>
+      <p class="card-sub">No credit card. No setup fee. Pipeline shows up in the first 72 hours.</p>
 
-      <div class="plans" id="plan-list">
+      <div class="fields">
 
-        <div class="plan-card" data-plan="solo" data-price="$99/mo" data-mailboxes="1" onclick="selectPlan(this)">
-          <div class="plan-row">
-            <div class="plan-name">Solo</div>
-            <div class="plan-price">$99<span>/mo after trial</span></div>
+        <div class="row">
+          <div class="field">
+            <label for="f-first">First name</label>
+            <input type="text" id="f-first" placeholder="First name" autocomplete="given-name">
           </div>
-          <div class="plan-desc">For founders and solo sellers. 1 mailbox. Never miss a deal again.</div>
-          <ul class="plan-features">
-            <li>1 mailbox + 1 CRM</li>
-            <li>1,000 sales emails/mo</li>
-            <li>500 bulk replies drafted</li>
-            <li>50 meetings summarized</li>
-          </ul>
+          <div class="field">
+            <label for="f-last">Last name</label>
+            <input type="text" id="f-last" placeholder="Last name" autocomplete="family-name">
+          </div>
         </div>
 
-        <div class="plan-card selected" data-plan="growth" data-price="$349/mo" data-mailboxes="5" onclick="selectPlan(this)">
-          <div class="plan-badge">Most popular</div>
-          <div class="plan-row">
-            <div class="plan-name">Growth</div>
-            <div class="plan-price">$349<span>/mo after trial</span></div>
-          </div>
-          <div class="plan-desc">For SMB sales teams. 5 mailboxes. Full CRM writeback and team pipeline visibility.</div>
-          <ul class="plan-features">
-            <li>5 mailboxes + all CRMs</li>
-            <li>10,000 sales emails/mo</li>
-            <li>Unified Sales Assistant</li>
-            <li>Priority support</li>
-            <li>Onboarding call included</li>
-          </ul>
+        <div class="field">
+          <label for="f-email">Work email</label>
+          <input type="email" id="f-email" placeholder="you@company.com" autocomplete="email">
         </div>
 
-        <div class="plan-card" data-plan="scale" data-price="$649/mo" data-mailboxes="10" onclick="selectPlan(this)">
-          <div class="plan-row">
-            <div class="plan-name">Scale</div>
-            <div class="plan-price">$649<span>/mo after trial</span></div>
-          </div>
-          <div class="plan-desc">For growing teams. 10 mailboxes. AI deal coach and enterprise search included.</div>
-          <ul class="plan-features">
-            <li>10 mailboxes + all CRMs</li>
-            <li>15,000 sales emails/mo</li>
-            <li>AI deal coach + Agents</li>
-            <li>Dedicated CSM</li>
-            <li>Enterprise search</li>
-          </ul>
+        <div class="field">
+          <label for="f-company">Company name</label>
+          <input type="text" id="f-company" placeholder="Your company" autocomplete="organization">
         </div>
 
-        <div class="plan-card" data-plan="enterprise" data-price="Custom" data-mailboxes="unlimited" onclick="selectPlan(this)">
-          <div class="plan-row">
-            <div class="plan-name">Enterprise</div>
-            <div class="plan-price" style="font-size:18px">Custom</div>
-          </div>
-          <div class="plan-desc">Unlimited mailboxes, SSO, compliance exports, SLA uptime, white-label.</div>
-          <ul class="plan-features">
-            <li>Unlimited mailboxes</li>
-            <li>30,000+ emails/mo</li>
-            <li>SSO + audit logs</li>
-            <li>Compliance exports + SLA</li>
-          </ul>
+        <div class="field">
+          <label for="f-crm">CRM you use</label>
+          <select id="f-crm">
+            <option value="">Select your CRM</option>
+            <option value="HubSpot">HubSpot</option>
+            <option value="Salesforce">Salesforce</option>
+            <option value="Zoho CRM">Zoho CRM</option>
+            <option value="Pipedrive">Pipedrive</option>
+            <option value="Other">Other</option>
+            <option value="None yet">None yet</option>
+          </select>
         </div>
+
+        <div class="divider"></div>
+
+        <!-- MAILBOX STEPPER -->
+        <div class="mailbox-field">
+          <label>How many mailboxes to connect?</label>
+          <div class="mailbox-stepper">
+            <button class="step-btn" type="button" onclick="stepMailbox(-1)" aria-label="Decrease">−</button>
+            <div class="step-num" id="mailbox-num">1</div>
+            <button class="step-btn" type="button" onclick="stepMailbox(1)" aria-label="Increase">+</button>
+          </div>
+          <div class="mailbox-hint">
+            Suggested plan: <span class="plan-suggest" id="plan-suggest">Solo · $99/mo</span>
+          </div>
+        </div>
+
+        <div class="form-error" id="form-error"></div>
+
+        <button class="submit-btn" id="submit-btn" type="button" onclick="submitTrial()">
+          <span class="btn-text">Start free trial</span>
+          <span class="btn-text-after arrow">→</span>
+          <span class="spinner"></span>
+        </button>
 
       </div>
 
-      <div class="trust-strip">
-        <div class="trust-item">No credit card</div>
-        <div class="trust-item">30-day free trial</div>
-        <div class="trust-item">Cancel anytime</div>
-        <div class="trust-item">Live in under a week</div>
+      <div class="trust">
+        <span class="trust-item">No credit card</span>
+        <span class="trust-item">30-day free trial</span>
+        <span class="trust-item">Cancel anytime</span>
       </div>
     </div>
 
-    <!-- RIGHT: FORM -->
-    <div class="form-card" id="form-card">
-      <div id="form-body">
-        <div class="form-title">Get started</div>
-        <div class="form-plan-confirm" id="plan-confirm">↳ Growth plan selected</div>
-
-        <div class="form-fields">
-          <div class="field-row">
-            <div class="field">
-              <label for="f-first">First name</label>
-              <input type="text" id="f-first" placeholder="Avinash" autocomplete="given-name" required>
-            </div>
-            <div class="field">
-              <label for="f-last">Last name</label>
-              <input type="text" id="f-last" placeholder="Gujje" autocomplete="family-name" required>
-            </div>
-          </div>
-          <div class="field">
-            <label for="f-email">Work email</label>
-            <input type="email" id="f-email" placeholder="you@company.com" autocomplete="email" required>
-          </div>
-          <div class="field">
-            <label for="f-company">Company name</label>
-            <input type="text" id="f-company" placeholder="ZUUZ" autocomplete="organization" required>
-          </div>
-          <div class="field">
-            <label for="f-phone">Phone (optional)</label>
-            <input type="tel" id="f-phone" placeholder="+1 408 000 0000" autocomplete="tel">
-          </div>
-          <div class="field">
-            <label for="f-crm">CRM you use</label>
-            <select id="f-crm">
-              <option value="">Select your CRM</option>
-              <option value="HubSpot">HubSpot</option>
-              <option value="Salesforce">Salesforce</option>
-              <option value="Zoho CRM">Zoho CRM</option>
-              <option value="Pipedrive">Pipedrive</option>
-              <option value="Other">Other</option>
-              <option value="None yet">None yet</option>
-            </select>
-          </div>
-
-          <div class="form-error" id="form-error"></div>
-
-          <button class="submit-btn" id="submit-btn" onclick="submitTrial()">
-            <span class="btn-text">Start free trial</span>
-            <span class="arrow">→</span>
-            <span class="spinner"></span>
-          </button>
-        </div>
-
-        <div class="form-foot">
-          By signing up you agree to ZUUZ's <a href="/terms" style="color:var(--accent)">Terms</a> and <a href="/privacy" style="color:var(--accent)">Privacy Policy</a>.<br>
-          No card required. Trial ends after 30 days.
-        </div>
-      </div>
-
-      <!-- SUCCESS -->
-      <div class="success-state" id="success-state">
-        <div class="success-icon">✓</div>
-        <div class="success-title">You're in.</div>
-        <div class="success-sub" id="success-sub">Check your inbox at <strong id="success-email"></strong> — we'll send your onboarding link within the next few minutes.</div>
-        <div class="success-next">
-          <div class="success-next-title">What happens next</div>
-          <ul class="success-steps">
-            <li><span>1.</span> Welcome email with your onboarding link arrives now</li>
-            <li><span>2.</span> Connect your first mailbox in under 5 minutes</li>
-            <li><span>3.</span> Pipeline starts surfacing within 72 hours</li>
-            <li><span>4.</span> Our team reaches out on day 3 to make sure you're seeing results</li>
-          </ul>
-        </div>
+    <!-- SUCCESS STATE -->
+    <div class="success" id="success-wrap">
+      <div class="success-ring">✓</div>
+      <div class="success-title">You're in.</div>
+      <div class="success-sub">Check <strong id="success-email"></strong> — your onboarding link is on its way.</div>
+      <div class="next-steps">
+        <div class="next-label">What happens next</div>
+        <ul class="next-list">
+          <li><b>1.</b> Welcome email with onboarding link arrives now</li>
+          <li><b>2.</b> Connect your mailbox in under 5 minutes</li>
+          <li><b>3.</b> Pipeline surfaces within 72 hours</li>
+          <li><b>4.</b> We reach out on day 3 to make sure you're seeing results</li>
+        </ul>
       </div>
     </div>
 
   </div>
-</div>
+</main>
 
 <script>
-// ── Config ──────────────────────────────────────────────────────────────────
 var WEB3FORMS_KEY = '55d3cafe-c5ec-48cd-be7f-3e84dbda2281';
+var mailboxCount  = 1;
 
-// Stripe Secret Key — replace with your live key before deploying
-// IMPORTANT: Move this to a server-side function (Vercel serverless) before going live
-// See /api/create-trial.js in this repo
-var STRIPE_SECRET = 'sk_live_REPLACE_WITH_YOUR_KEY';
+var PLANS = [
+  { max:1,  label:'Solo · $99/mo',    plan:'solo'   },
+  { max:3,  label:'Team · $249/mo',   plan:'team'   },
+  { max:5,  label:'Growth · $349/mo', plan:'growth' },
+  { max:10, label:'Scale · $649/mo',  plan:'scale'  },
+  { max:999,label:'Enterprise · Custom', plan:'enterprise' }
+];
 
-var selectedPlan = 'growth';
-
-// ── Plan selection ───────────────────────────────────────────────────────────
-function selectPlan(card) {
-  document.querySelectorAll('.plan-card').forEach(function(c){ c.classList.remove('selected'); });
-  card.classList.add('selected');
-  selectedPlan = card.dataset.plan;
-  var price = card.dataset.price;
-  document.getElementById('plan-confirm').textContent =
-    '↳ ' + capitalize(selectedPlan) + ' plan selected' + (price !== 'Custom' ? ' · ' + price : '');
+function getPlan(n) {
+  for (var i = 0; i < PLANS.length; i++) {
+    if (n <= PLANS[i].max) return PLANS[i];
+  }
+  return PLANS[PLANS.length - 1];
 }
 
-function capitalize(s){ return s.charAt(0).toUpperCase() + s.slice(1); }
+function stepMailbox(delta) {
+  mailboxCount = Math.max(1, Math.min(50, mailboxCount + delta));
+  document.getElementById('mailbox-num').textContent = mailboxCount;
+  var p = getPlan(mailboxCount);
+  document.getElementById('plan-suggest').textContent = p.label;
+}
 
-// ── Submit ───────────────────────────────────────────────────────────────────
 async function submitTrial() {
-  var btn    = document.getElementById('submit-btn');
-  var errEl  = document.getElementById('form-error');
-  var first  = document.getElementById('f-first').value.trim();
-  var last   = document.getElementById('f-last').value.trim();
-  var email  = document.getElementById('f-email').value.trim();
-  var company= document.getElementById('f-company').value.trim();
-  var phone  = document.getElementById('f-phone').value.trim();
-  var crm    = document.getElementById('f-crm').value;
+  var btn     = document.getElementById('submit-btn');
+  var errEl   = document.getElementById('form-error');
+  var first   = document.getElementById('f-first').value.trim();
+  var last    = document.getElementById('f-last').value.trim();
+  var email   = document.getElementById('f-email').value.trim();
+  var company = document.getElementById('f-company').value.trim();
+  var crm     = document.getElementById('f-crm').value;
+  var plan    = getPlan(mailboxCount).plan;
 
-  // Validate
-  errEl.classList.remove('visible');
-  if (!first || !last)  { showError('Please enter your first and last name.'); return; }
-  if (!email || !email.includes('@')) { showError('Please enter a valid work email.'); return; }
-  if (!company)          { showError('Please enter your company name.'); return; }
+  errEl.classList.remove('show');
 
-  // Loading state
+  if (!first || !last) { showErr('Please enter your first and last name.'); return; }
+  if (!email || !email.includes('@')) { showErr('Please enter a valid work email.'); return; }
+  if (!company) { showErr('Please enter your company name.'); return; }
+
   btn.classList.add('loading');
   btn.disabled = true;
 
   try {
-    // 1. Create Stripe customer via Vercel serverless function
-    var stripeRes = await fetch('/api/create-trial', {
+    // Call Vercel serverless function (keeps Stripe key server-side)
+    var res = await fetch('/api/create-trial', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        name:    first + ' ' + last,
-        email:   email,
-        company: company,
-        phone:   phone || '',
-        plan:    selectedPlan,
-        crm:     crm || 'Not specified'
+        name: first + ' ' + last,
+        email, company, crm: crm || 'Not specified',
+        plan, mailboxes: mailboxCount
       })
     });
 
-    var stripeData = await stripeRes.json();
-    if (!stripeRes.ok) throw new Error(stripeData.error || 'Signup failed. Please try again.');
+    var data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Signup failed. Please try again.');
 
-    // 2. Notify via Web3Forms (non-blocking)
+    // Web3Forms notification (non-blocking)
     fetch('https://api.web3forms.com/submit', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         access_key: WEB3FORMS_KEY,
-        subject:    '🚀 New ZUUZ Trial — ' + capitalize(selectedPlan) + ' — ' + company,
-        from_name:  'ZUUZ Trial Signup',
+        subject:    '🚀 New Trial — ' + plan.charAt(0).toUpperCase() + plan.slice(1) + ' — ' + company,
+        from_name:  'ZUUZ Trial',
         name:       first + ' ' + last,
-        email:      email,
-        company:    company,
-        plan:       capitalize(selectedPlan),
-        crm:        crm || 'Not specified',
-        phone:      phone || '—',
-        stripe_id:  stripeData.customerId || '—',
-        message:    first + ' ' + last + ' from ' + company + ' signed up for the ' + capitalize(selectedPlan) + ' trial.'
+        email,
+        company,
+        plan:       plan,
+        mailboxes:  mailboxCount,
+        crm:        crm || '—',
+        stripe_id:  data.customerId || '—',
+        message:    first + ' ' + last + ' (' + company + ') — ' + mailboxCount + ' mailbox(es) — ' + plan + ' plan'
       })
     }).catch(function(){});
 
-    // 3. Show success
+    // Show success
     document.getElementById('success-email').textContent = email;
-    document.getElementById('form-body').style.display   = 'none';
-    document.getElementById('success-state').style.display = 'block';
+    document.getElementById('form-wrap').style.display  = 'none';
+    document.getElementById('success-wrap').style.display = 'block';
 
-  } catch (err) {
-    showError(err.message || 'Something went wrong. Please try again or email info@zuuz.ai.');
+  } catch(err) {
+    showErr(err.message || 'Something went wrong. Email info@zuuz.ai and we\'ll sort it.');
     btn.classList.remove('loading');
     btn.disabled = false;
   }
 }
 
-function showError(msg){
+function showErr(msg) {
   var el = document.getElementById('form-error');
   el.textContent = msg;
-  el.classList.add('visible');
+  el.classList.add('show');
 }
 </script>
 
