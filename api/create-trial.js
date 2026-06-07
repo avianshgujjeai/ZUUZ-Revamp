@@ -1,20 +1,24 @@
-// /api/create-trial.js — Vercel serverless function
-// Creates a Stripe customer with a 30-day free trial (no card required)
-// Then stores metadata for Zoho sync via Stripe webhooks
+// /api/create-trial.js — Vercel serverless function (CommonJS)
+// Creates a Stripe customer with a 30-day free trial, no card required
 
 const PLAN_PRICE_IDS = {
-  solo:       'prod_UZxrXC8HGPLTUW',    // Replace with your actual Stripe Price IDs
-  growth:     'prod_UZxuHfIjkjsBQU',  // Get from Stripe Dashboard → Products → Price ID
-  scale:      'prod_UZxxNtW2oS9A4W',
-  enterprise: null                     // Enterprise = manual, no Stripe subscription created
+  solo:       null,  // Add your Stripe Price IDs here (starts with price_)
+  team:       null,  // Stripe Dashboard → Products → click plan → copy Price ID
+  growth:     null,
+  scale:      null,
+  enterprise: null
 };
 
-export default async function handler(req, res) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
+module.exports = async function handler(req, res) {
+  // CORS headers
+  res.setHeader('Access-Control-Allow-Origin', 'https://www.zuuz.ai');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-  const { name, email, company, phone, plan, crm } = req.body;
+  if (req.method === 'OPTIONS') return res.status(200).end();
+  if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
+
+  const { name, email, company, phone, plan, crm, mailboxes } = req.body || {};
 
   if (!name || !email || !plan) {
     return res.status(400).json({ error: 'Missing required fields' });
@@ -22,77 +26,60 @@ export default async function handler(req, res) {
 
   const STRIPE_SECRET = process.env.STRIPE_SECRET_KEY;
   if (!STRIPE_SECRET) {
-    return res.status(500).json({ error: 'Stripe not configured' });
+    // Graceful fallback — still capture the lead via Web3Forms on the frontend
+    console.warn('STRIPE_SECRET_KEY not set — skipping Stripe, lead captured via Web3Forms');
+    return res.status(200).json({ success: true, customerId: null, subscriptionId: null, note: 'stripe_skipped' });
   }
 
   try {
     // 1. Create Stripe customer
-    const customerParams = new URLSearchParams({
-      name,
-      email,
-      'metadata[company]':  company || '',
-      'metadata[plan]':     plan,
-      'metadata[crm]':      crm || '',
-      'metadata[phone]':    phone || '',
-      'metadata[source]':   'trial_signup',
-      'metadata[trial_start]': new Date().toISOString(),
+    const params = new URLSearchParams();
+    params.append('name', name);
+    params.append('email', email);
+    if (phone) params.append('phone', phone);
+    params.append('metadata[company]',     company     || '');
+    params.append('metadata[plan]',        plan);
+    params.append('metadata[crm]',         crm         || '');
+    params.append('metadata[mailboxes]',   mailboxes   || '1');
+    params.append('metadata[source]',      'trial_signup');
+    params.append('metadata[trial_start]', new Date().toISOString());
+
+    const custRes = await fetch('https://api.stripe.com/v1/customers', {
+      method:  'POST',
+      headers: { 'Authorization': 'Bearer ' + STRIPE_SECRET, 'Content-Type': 'application/x-www-form-urlencoded' },
+      body:    params.toString()
     });
-    if (phone) customerParams.append('phone', phone);
+    const customer = await custRes.json();
+    if (!custRes.ok) throw new Error(customer.error?.message || 'Stripe customer creation failed');
 
-    const customerRes = await fetch('https://api.stripe.com/v1/customers', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${STRIPE_SECRET}`,
-        'Content-Type':  'application/x-www-form-urlencoded',
-      },
-      body: customerParams.toString()
-    });
-
-    const customer = await customerRes.json();
-    if (!customerRes.ok) throw new Error(customer.error?.message || 'Stripe customer creation failed');
-
-    // 2. Create subscription with 30-day trial (no card) — skip for Enterprise
+    // 2. Create 30-day trial subscription (if Price ID is configured)
     let subscriptionId = null;
     const priceId = PLAN_PRICE_IDS[plan];
 
     if (priceId) {
-      const subParams = new URLSearchParams({
-        customer:                    customer.id,
-        'items[0][price]':           priceId,
-        'trial_period_days':         '30',
-        'payment_settings[save_default_payment_method]': 'on_subscription',
-        'trial_settings[end_behavior][missing_payment_method]': 'cancel',
-        'metadata[company]':         company || '',
-        'metadata[crm]':             crm || '',
-        'metadata[source]':          'trial_signup',
-      });
+      const subParams = new URLSearchParams();
+      subParams.append('customer',                    customer.id);
+      subParams.append('items[0][price]',             priceId);
+      subParams.append('trial_period_days',           '30');
+      subParams.append('trial_settings[end_behavior][missing_payment_method]', 'cancel');
+      subParams.append('metadata[company]',           company || '');
+      subParams.append('metadata[crm]',               crm     || '');
+      subParams.append('metadata[source]',            'trial_signup');
 
       const subRes = await fetch('https://api.stripe.com/v1/subscriptions', {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${STRIPE_SECRET}`,
-          'Content-Type':  'application/x-www-form-urlencoded',
-        },
-        body: subParams.toString()
+        method:  'POST',
+        headers: { 'Authorization': 'Bearer ' + STRIPE_SECRET, 'Content-Type': 'application/x-www-form-urlencoded' },
+        body:    subParams.toString()
       });
-
       const subscription = await subRes.json();
-      if (!subRes.ok) {
-        // Non-fatal — customer created, subscription failed. Log and continue.
-        console.error('Subscription creation failed:', subscription.error?.message);
-      } else {
-        subscriptionId = subscription.id;
-      }
+      if (subRes.ok) subscriptionId = subscription.id;
+      else console.error('Subscription creation failed:', subscription.error?.message);
     }
 
-    return res.status(200).json({
-      success:        true,
-      customerId:     customer.id,
-      subscriptionId: subscriptionId,
-    });
+    return res.status(200).json({ success: true, customerId: customer.id, subscriptionId });
 
   } catch (err) {
-    console.error('Trial creation error:', err);
+    console.error('Trial creation error:', err.message);
     return res.status(500).json({ error: err.message || 'Internal server error' });
   }
-}
+};
