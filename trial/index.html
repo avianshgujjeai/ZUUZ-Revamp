@@ -183,6 +183,11 @@ main{flex:1;display:flex;align-items:center;justify-content:center;padding:48px 
         </div>
 
         <div class="field">
+          <label for="f-phone">Phone number</label>
+          <input type="tel" id="f-phone" placeholder="+1 408 000 0000" autocomplete="tel">
+        </div>
+
+        <div class="field">
           <label for="f-crm">CRM you use</label>
           <select id="f-crm">
             <option value="">Select your CRM</option>
@@ -280,6 +285,7 @@ async function submitTrial() {
   var email   = document.getElementById('f-email').value.trim();
   var company = document.getElementById('f-company').value.trim();
   var crm     = document.getElementById('f-crm').value;
+  var phone   = document.getElementById('f-phone').value.trim();
   var plan    = getPlan(mailboxCount).plan;
 
   errEl.classList.remove('show');
@@ -298,7 +304,8 @@ async function submitTrial() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         name: first + ' ' + last,
-        email, company, crm: crm || 'Not specified',
+        email, company, phone: phone || '',
+        crm: crm || 'Not specified',
         plan, mailboxes: mailboxCount
       })
     });
@@ -317,6 +324,7 @@ async function submitTrial() {
         name:       first + ' ' + last,
         email,
         company,
+        phone:      phone || '—',
         plan:       plan,
         mailboxes:  mailboxCount,
         crm:        crm || '—',
