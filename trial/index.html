@@ -4,138 +4,371 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Start Your Free Trial — ZUUZ</title>
-<meta name="description" content="Start your 30-day free trial. No credit card required. Get started in under 2 minutes.">
+<meta name="description" content="Start your 30-day free trial. No credit card required.">
 <meta name="robots" content="noindex">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232563FF'%3E%3Cpath d='M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,0..100;1,9..144,300..500,0..100&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{
-  --paper:#F4F1EA;--ink:#111110;--ink-soft:#3A3A36;--ink-mute:#7A776E;
-  --line:#1110100D;--line-strong:#11101018;
-  --accent:#2563FF;--accent-soft:#DBEAFE;
-  --navy:#0E1F6B;--signal:#0F8B4F;--card:#FBF8F1;--danger:#DC2626;
-  --shadow:0 1px 0 rgba(17,17,16,.04),0 16px 40px -20px rgba(17,17,16,.16);
-  --radius:20px;--radius-sm:10px;
+/* ── TOKENS (exact match to zuuz.ai) ───────── */
+:root {
+  --paper: #F4F1EA;
+  --ink: #111110;
+  --ink-soft: #3A3A36;
+  --ink-mute: #7A776E;
+  --line: #1110100D;
+  --line-strong: #11101018;
+  --accent: #2563FF;
+  --accent-soft: #DBEAFE;
+  --navy: #0E1F6B;
+  --signal: #0F8B4F;
+  --card: #FBF8F1;
+  --danger: #DC2626;
+  --shadow: 0 1px 0 rgba(17,17,16,.04), 0 16px 40px -20px rgba(17,17,16,.16);
+  --radius: 20px;
+  --radius-sm: 10px;
 }
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{background:var(--paper);color:var(--ink);}
-body{
-  font-family:'Instrument Sans',system-ui,sans-serif;
-  font-size:16px;line-height:1.55;letter-spacing:-0.005em;
-  -webkit-font-smoothing:antialiased;min-height:100vh;
-  display:flex;flex-direction:column;
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { min-height: 100%; }
+body {
+  font-family: 'Instrument Sans', system-ui, sans-serif;
+  font-size: 16px; line-height: 1.55; letter-spacing: -0.005em;
+  -webkit-font-smoothing: antialiased;
+  background: var(--paper); color: var(--ink);
   background-image:
-    radial-gradient(ellipse 80% 50% at 10% -10%,rgba(37,99,255,0.07),transparent),
-    radial-gradient(ellipse 60% 40% at 90% 5%,rgba(15,139,79,0.04),transparent);
+    radial-gradient(ellipse 80% 50% at 10% -10%, rgba(37,99,255,0.07), transparent),
+    radial-gradient(ellipse 60% 40% at 90% 5%, rgba(15,139,79,0.04), transparent);
+  display: flex; flex-direction: column;
 }
-body::before{
-  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.4;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.07 0 0 0 0 0.07 0 0 0 0 0.07 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+body::before {
+  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: .4;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.07 0 0 0 0 0.07 0 0 0 0 0.07 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
-::selection{background:var(--accent);color:#fff}
-a{color:inherit;text-decoration:none}
+::selection { background: var(--accent); color: #fff; }
+a { color: inherit; text-decoration: none; }
 
-/* NAV */
-header{position:relative;z-index:10;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(244,241,234,0.8);border-bottom:1px solid var(--line);}
-.nav{max-width:1100px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:64px;}
-@media(max-width:640px){.nav{padding:0 20px}}
-.brand{display:flex;align-items:center;gap:9px}
-.brand svg{width:18px;height:18px;color:var(--accent);flex-shrink:0}
-.brand-text{font-family:'Fraunces',serif;font-weight:500;font-size:22px;letter-spacing:-0.03em;font-variation-settings:"opsz" 144,"SOFT" 30;color:var(--navy);line-height:1}
-.nav-back{font-size:13px;color:var(--ink-mute);display:flex;align-items:center;gap:5px;transition:color .2s}
-.nav-back:hover{color:var(--ink)}
-.nav-back-arrow{transition:transform .2s;display:inline-block}
-.nav-back:hover .nav-back-arrow{transform:translateX(-3px)}
-
-/* MAIN */
-main{flex:1;display:flex;align-items:center;justify-content:center;padding:48px 20px;position:relative;z-index:1}
-
-/* CARD */
-.card{
-  background:var(--card);border:1px solid var(--line-strong);border-radius:var(--radius);
-  box-shadow:var(--shadow);width:100%;max-width:520px;padding:48px 44px;
+/* ── NAV ─────────────────────────────────────── */
+header {
+  position: sticky; top: 0; z-index: 50;
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  background: rgba(244,241,234,0.8);
+  border-bottom: 1px solid var(--line);
 }
-@media(max-width:600px){.card{padding:32px 24px}}
-
-/* HEADER */
-.card-eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:16px;}
-.pulse{width:6px;height:6px;border-radius:50%;background:var(--signal);animation:pulse 2s infinite;flex-shrink:0;}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(15,139,79,.5)}70%{box-shadow:0 0 0 7px rgba(15,139,79,0)}100%{box-shadow:0 0 0 0 rgba(15,139,79,0)}}
-.card-title{font-family:'Fraunces',serif;font-weight:400;font-size:36px;line-height:1.02;letter-spacing:-0.03em;font-variation-settings:"opsz" 144,"SOFT" 30;margin-bottom:8px;}
-.card-title em{font-style:italic;font-weight:300;color:var(--accent);background:linear-gradient(135deg,var(--accent),#1040ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.card-sub{font-size:14px;color:var(--ink-mute);margin-bottom:32px;line-height:1.5}
-
-/* FORM */
-.fields{display:flex;flex-direction:column;gap:14px}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-@media(max-width:480px){.row{grid-template-columns:1fr}}
-.field{display:flex;flex-direction:column;gap:5px}
-.field label{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-mute);}
-.field input,.field select{
-  width:100%;padding:11px 13px;border:1.5px solid rgba(17,17,16,0.12);border-radius:var(--radius-sm);
-  background:#fff;font-family:'Instrument Sans',sans-serif;font-size:15px;color:var(--ink);
-  outline:none;transition:border-color .18s,box-shadow .18s;-webkit-appearance:none;appearance:none;
+.nav {
+  max-width: 1100px; margin: 0 auto;
+  padding: 0 32px; height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  position: relative; z-index: 1;
 }
-.field input:focus,.field select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(37,99,255,0.09)}
-.field input::placeholder{color:var(--ink-mute);opacity:.7}
-
-/* MAILBOX STEPPER */
-.mailbox-field{display:flex;flex-direction:column;gap:5px}
-.mailbox-field label{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-mute);}
-.mailbox-stepper{display:flex;align-items:center;gap:0;border:1.5px solid rgba(17,17,16,0.12);border-radius:var(--radius-sm);background:#fff;overflow:hidden;transition:border-color .18s,box-shadow .18s;}
-.mailbox-stepper:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px rgba(37,99,255,0.09)}
-.step-btn{width:44px;height:44px;border:none;background:none;font-size:20px;color:var(--ink-soft);cursor:pointer;flex-shrink:0;transition:background .15s,color .15s;display:grid;place-items:center;font-weight:300;}
-.step-btn:hover{background:rgba(37,99,255,0.05);color:var(--accent)}
-.step-btn:active{background:rgba(37,99,255,0.1)}
-.step-num{flex:1;text-align:center;font-family:'Fraunces',serif;font-size:22px;font-weight:400;color:var(--accent);letter-spacing:-0.02em;line-height:1;padding:0 4px;}
-.mailbox-hint{font-size:11px;color:var(--ink-mute);margin-top:4px;font-family:'JetBrains Mono',monospace;letter-spacing:0.04em;}
-.plan-suggest{display:inline-flex;align-items:center;gap:6px;background:var(--accent-soft);border-radius:6px;padding:3px 10px;font-size:11px;color:var(--accent);font-weight:600;transition:opacity .2s;}
-
-/* DIVIDER */
-.divider{height:1px;background:var(--line-strong);margin:4px 0}
-
-/* SUBMIT */
-.submit-btn{
-  width:100%;padding:15px 24px;background:var(--ink);color:var(--paper);
-  border:none;border-radius:99px;font-family:'Instrument Sans',sans-serif;
-  font-size:15px;font-weight:600;cursor:pointer;margin-top:4px;
-  display:flex;align-items:center;justify-content:center;gap:10px;
-  transition:background .2s,transform .18s;
+@media(max-width:640px){ .nav { padding: 0 20px; } }
+.brand { display: flex; align-items: center; gap: 9px; }
+.brand svg { width: 18px; height: 18px; color: var(--accent); flex-shrink: 0; }
+.brand-text {
+  font-family: 'Fraunces', serif; font-weight: 500; font-size: 22px;
+  letter-spacing: -0.03em; font-variation-settings: "opsz" 144, "SOFT" 30;
+  color: var(--navy); line-height: 1;
 }
-.submit-btn:hover:not(:disabled){background:#000;transform:translateY(-1px)}
-.submit-btn:disabled{opacity:.65;cursor:not-allowed;transform:none}
-.arrow{transition:transform .2s}
-.submit-btn:hover:not(:disabled) .arrow{transform:translateX(3px)}
-.spinner{display:none;width:17px;height:17px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .65s linear infinite;flex-shrink:0}
-@keyframes spin{to{transform:rotate(360deg)}}
-.submit-btn.loading .arrow,.submit-btn.loading .btn-text-after{display:none}
-.submit-btn.loading .spinner{display:block}
+.nav-back {
+  font-size: 13px; color: var(--ink-mute);
+  display: flex; align-items: center; gap: 5px; transition: color .2s;
+}
+.nav-back:hover { color: var(--ink); }
+.back-arrow { transition: transform .2s; display: inline-block; }
+.nav-back:hover .back-arrow { transform: translateX(-3px); }
 
-/* TRUST */
-.trust{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 20px;margin-top:16px}
-.trust-item{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-mute);display:flex;align-items:center;gap:5px}
-.trust-item::before{content:"✓";color:var(--signal);font-weight:700}
+/* ── PAGE ────────────────────────────────────── */
+main {
+  flex: 1; position: relative; z-index: 1;
+  display: flex; align-items: flex-start; justify-content: center;
+  padding: 52px 24px 72px;
+}
 
-/* ERROR */
-.form-error{display:none;background:rgba(220,38,38,0.06);border:1px solid rgba(220,38,38,0.18);border-radius:8px;padding:11px 14px;font-size:13px;color:var(--danger);margin-top:2px}
-.form-error.show{display:block}
+/* ── OUTER CARD ──────────────────────────────── */
+.wrap {
+  width: 100%; max-width: 1060px;
+  background: var(--card);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  overflow: hidden;
+  animation: fadeUp .55s ease .1s both;
+}
+@keyframes fadeUp { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:none; } }
 
-/* SUCCESS */
-.success{display:none;text-align:center;padding:8px 0}
-.success-ring{width:60px;height:60px;border-radius:50%;background:rgba(15,139,79,0.1);display:grid;place-items:center;margin:0 auto 20px;font-size:26px}
-.success-title{font-family:'Fraunces',serif;font-size:28px;font-weight:400;letter-spacing:-0.025em;margin-bottom:8px}
-.success-sub{font-size:14px;color:var(--ink-soft);line-height:1.6;margin-bottom:24px}
-.next-steps{background:var(--accent-soft);border-radius:var(--radius-sm);padding:18px 20px;text-align:left}
-.next-label{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
-.next-list{list-style:none;display:flex;flex-direction:column;gap:9px}
-.next-list li{font-size:13px;color:var(--ink-soft);display:flex;gap:10px;line-height:1.45}
-.next-list li b{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--accent);font-weight:700;flex-shrink:0;margin-top:2px}
+/* ── LEFT: message ───────────────────────────── */
+.msg {
+  padding: 52px 48px 52px 52px;
+  border-right: 1px solid var(--line-strong);
+  display: flex; flex-direction: column;
+}
 
-/* Animate in */
-@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
-.card{animation:fadeUp .55s ease .1s both}
+.msg-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ink-mute); margin-bottom: 28px;
+}
+.pulse {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--signal); flex-shrink: 0;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%  { box-shadow: 0 0 0 0 rgba(15,139,79,.5); }
+  70% { box-shadow: 0 0 0 8px rgba(15,139,79,0); }
+  100%{ box-shadow: 0 0 0 0 rgba(15,139,79,0); }
+}
+
+.tagline {
+  font-family: 'Fraunces', serif; font-weight: 400;
+  font-size: clamp(34px, 3.6vw, 48px);
+  line-height: 1.04; letter-spacing: -0.03em;
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+  color: var(--ink); margin-bottom: 36px;
+}
+.tagline em {
+  font-style: italic; font-weight: 300;
+  background: linear-gradient(135deg, var(--accent) 0%, #1040ff 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+
+/* stats — proof-grid style */
+.stats {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--line-strong);
+  border-bottom: 1px solid var(--line-strong);
+  margin-bottom: 36px;
+}
+.stat {
+  padding: 24px 20px;
+  border-right: 1px solid var(--line-strong);
+}
+.stat:last-child { border-right: none; }
+.stat-n {
+  font-family: 'Fraunces', serif; font-weight: 400; font-style: italic;
+  font-size: 36px; line-height: 1; letter-spacing: -0.03em;
+  font-variation-settings: "opsz" 144, "SOFT" 60;
+  background: linear-gradient(135deg, var(--accent) 0%, #1a3fff 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  margin-bottom: 8px;
+}
+.stat-l {
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink-mute); line-height: 1.5;
+}
+
+/* carousel */
+.carousel { flex: 1; }
+.carousel-label {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent);
+  display: flex; align-items: center; gap: 12px; margin-bottom: 20px;
+}
+.carousel-label::before { content: ""; width: 24px; height: 1px; background: var(--accent); }
+
+.qcard {
+  border-top: 1px solid var(--line-strong);
+  padding: 24px 0 20px;
+  animation: qfade .35s ease both;
+}
+@keyframes qfade { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:none; } }
+
+.qtext {
+  font-size: 15px; color: var(--ink-soft); line-height: 1.65; margin-bottom: 18px;
+  font-style: italic;
+  font-family: 'Fraunces', serif; font-weight: 300;
+  font-variation-settings: "opsz" 60, "SOFT" 70;
+}
+.qtext strong { color: var(--ink); font-style: normal; font-weight: 500; }
+
+.qmeta { display: flex; align-items: center; gap: 10px; }
+.qav {
+  width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Fraunces', serif; font-size: 11px; font-weight: 500;
+  background: var(--ink); color: var(--paper);
+}
+.av2 { background: var(--accent); }
+.av3 { background: var(--navy); }
+.qname { font-family: 'Fraunces', serif; font-size: 15px; font-weight: 400; letter-spacing: -0.015em; line-height: 1.1; color: var(--ink); }
+.qtitle {
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mute);
+}
+
+.carousel-dots {
+  display: flex; align-items: center; gap: 8px; margin-top: 20px; padding-top: 20px;
+  border-top: 1px solid var(--line-strong);
+}
+.dot {
+  width: 7px; height: 7px; border-radius: 50%; border: none; cursor: pointer;
+  background: var(--line-strong); padding: 0;
+  transition: background .2s, transform .2s;
+}
+.dot.active { background: var(--accent); transform: scale(1.3); }
+
+/* ── RIGHT: form ─────────────────────────────── */
+.form-panel { padding: 52px 44px; }
+
+.card-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--ink-mute); margin-bottom: 16px;
+}
+.card-title {
+  font-family: 'Fraunces', serif; font-weight: 400; font-size: 36px;
+  line-height: 1.02; letter-spacing: -0.03em;
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+  margin-bottom: 8px;
+}
+.card-title em {
+  font-style: italic; font-weight: 300;
+  background: linear-gradient(135deg, var(--accent), #1040ff);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.card-sub { font-size: 14px; color: var(--ink-mute); margin-bottom: 32px; line-height: 1.5; }
+
+.fields { display: flex; flex-direction: column; gap: 14px; }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.field { display: flex; flex-direction: column; gap: 5px; }
+.field label {
+  font-family: 'JetBrains Mono', monospace; font-size: 9.5px;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-mute);
+}
+.field input, .field select {
+  width: 100%; padding: 11px 13px;
+  border: 1.5px solid rgba(17,17,16,0.12); border-radius: var(--radius-sm);
+  background: #fff; font-family: 'Instrument Sans', sans-serif;
+  font-size: 15px; color: var(--ink);
+  outline: none; transition: border-color .18s, box-shadow .18s;
+  -webkit-appearance: none; appearance: none;
+}
+.field input:focus, .field select:focus {
+  border-color: var(--accent); box-shadow: 0 0 0 3px rgba(37,99,255,0.09);
+}
+.field input::placeholder { color: var(--ink-mute); opacity: .7; }
+
+.mailbox-field { display: flex; flex-direction: column; gap: 5px; }
+.mailbox-field label {
+  font-family: 'JetBrains Mono', monospace; font-size: 9.5px;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-mute);
+}
+.mailbox-stepper {
+  display: flex; align-items: center;
+  border: 1.5px solid rgba(17,17,16,0.12); border-radius: var(--radius-sm);
+  background: #fff; overflow: hidden;
+  transition: border-color .18s, box-shadow .18s;
+}
+.mailbox-stepper:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(37,99,255,0.09); }
+.step-btn {
+  width: 44px; height: 44px; border: none; background: none;
+  font-size: 20px; color: var(--ink-soft); cursor: pointer; flex-shrink: 0;
+  transition: background .15s, color .15s;
+  display: grid; place-items: center; font-weight: 300;
+}
+.step-btn:hover { background: rgba(37,99,255,0.05); color: var(--accent); }
+.step-btn:active { background: rgba(37,99,255,0.1); }
+.step-num {
+  flex: 1; text-align: center;
+  font-family: 'Fraunces', serif; font-size: 22px;
+  font-weight: 400; color: var(--accent); letter-spacing: -0.02em; line-height: 1;
+}
+.mailbox-hint {
+  font-size: 11px; color: var(--ink-mute); margin-top: 4px;
+  font-family: 'JetBrains Mono', monospace; letter-spacing: 0.04em;
+}
+.plan-suggest {
+  display: inline-flex; align-items: center;
+  background: var(--accent-soft); border-radius: 6px;
+  padding: 3px 10px; font-size: 11px; color: var(--accent); font-weight: 600;
+}
+.divider { height: 1px; background: var(--line-strong); margin: 4px 0; }
+
+.submit-btn {
+  width: 100%; padding: 15px 24px;
+  background: var(--ink); color: var(--paper);
+  border: none; border-radius: 99px;
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 15px; font-weight: 600; cursor: pointer; margin-top: 4px;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  transition: background .2s, transform .18s;
+}
+.submit-btn:hover:not(:disabled) { background: #000; transform: translateY(-1px); }
+.submit-btn:disabled { opacity: .65; cursor: not-allowed; transform: none; }
+.arrow { transition: transform .2s; }
+.submit-btn:hover:not(:disabled) .arrow { transform: translateX(3px); }
+.spinner {
+  display: none; width: 17px; height: 17px;
+  border: 2px solid rgba(255,255,255,.3); border-top-color: #fff;
+  border-radius: 50%; animation: spin .65s linear infinite; flex-shrink: 0;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.submit-btn.loading .arrow,
+.submit-btn.loading .btn-text-after { display: none; }
+.submit-btn.loading .spinner { display: block; }
+
+.trust {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: 12px 20px; margin-top: 16px;
+}
+.trust-item {
+  font-family: 'JetBrains Mono', monospace; font-size: 9.5px;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mute);
+  display: flex; align-items: center; gap: 5px;
+}
+.trust-item::before { content: "✓"; color: var(--signal); font-weight: 700; }
+
+.form-error {
+  display: none; background: rgba(220,38,38,0.06);
+  border: 1px solid rgba(220,38,38,0.18); border-radius: 8px;
+  padding: 11px 14px; font-size: 13px; color: var(--danger);
+}
+.form-error.show { display: block; }
+
+.success { display: none; text-align: center; padding: 8px 0; }
+.success-ring {
+  width: 60px; height: 60px; border-radius: 50%;
+  background: rgba(15,139,79,0.1);
+  display: grid; place-items: center;
+  margin: 0 auto 20px; font-size: 26px;
+}
+.success-title {
+  font-family: 'Fraunces', serif; font-size: 28px;
+  font-weight: 400; letter-spacing: -0.025em; margin-bottom: 8px;
+}
+.success-sub { font-size: 14px; color: var(--ink-soft); line-height: 1.6; margin-bottom: 24px; }
+.next-steps { background: var(--accent-soft); border-radius: var(--radius-sm); padding: 18px 20px; text-align: left; }
+.next-label {
+  font-family: 'JetBrains Mono', monospace; font-size: 9.5px;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
+}
+.next-list { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.next-list li { font-size: 13px; color: var(--ink-soft); display: flex; gap: 10px; line-height: 1.45; }
+.next-list li b {
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  color: var(--accent); font-weight: 700; flex-shrink: 0; margin-top: 2px;
+}
+
+/* ── RESPONSIVE ──────────────────────────────── */
+@media(max-width:900px) {
+  .wrap { grid-template-columns: 1fr; }
+  .msg { border-right: none; border-bottom: 1px solid var(--line-strong); padding: 44px 36px 40px; }
+  .form-panel { padding: 40px 36px 48px; }
+}
+@media(max-width:560px) {
+  main { padding: 24px 16px 48px; }
+  .msg { padding: 36px 24px 32px; }
+  .form-panel { padding: 32px 24px 40px; }
+  .stats { grid-template-columns: 1fr 1fr; }
+  .stat:nth-child(3) { grid-column: span 2; border-top: 1px solid var(--line-strong); border-right: none; }
+  .row { grid-template-columns: 1fr; }
+  .tagline { font-size: 30px; }
+}
 </style>
 </head>
 <body>
@@ -143,108 +376,165 @@ main{flex:1;display:flex;align-items:center;justify-content:center;padding:48px 
 <header>
   <div class="nav">
     <a class="brand" href="/">
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z"/></svg>
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z"/>
+      </svg>
       <span class="brand-text">ZUUZ</span>
     </a>
-    <a class="nav-back" href="/"><span class="nav-back-arrow">←</span> Back to site</a>
+    <a class="nav-back" href="/"><span class="back-arrow">←</span> Back to site</a>
   </div>
 </header>
 
 <main>
-  <div class="card">
+  <div class="wrap">
 
-    <!-- FORM STATE -->
-    <div id="form-wrap">
-      <div class="card-eyebrow"><span class="pulse"></span>30-day free trial</div>
-      <h1 class="card-title">Start for <em>free.</em></h1>
-      <p class="card-sub">No credit card. No setup fee. Pipeline shows up in the first 72 hours.</p>
+    <!-- LEFT -->
+    <div class="msg">
 
-      <div class="fields">
+      <div class="msg-eyebrow"><span class="pulse"></span>Live in production</div>
 
-        <div class="row">
-          <div class="field">
-            <label for="f-first">First name</label>
-            <input type="text" id="f-first" placeholder="First name" autocomplete="given-name">
-          </div>
-          <div class="field">
-            <label for="f-last">Last name</label>
-            <input type="text" id="f-last" placeholder="Last name" autocomplete="family-name">
-          </div>
+      <h1 class="tagline">One caught deal<br><em>pays for a year.</em></h1>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-n">$120K</div>
+          <div class="stat-l">Pipeline in<br>30 days</div>
         </div>
-
-        <div class="field">
-          <label for="f-email">Work email</label>
-          <input type="email" id="f-email" placeholder="you@company.com" autocomplete="email">
+        <div class="stat">
+          <div class="stat-n">10:1</div>
+          <div class="stat-l">Efficiency on<br>order matching</div>
         </div>
-
-        <div class="field">
-          <label for="f-company">Company name</label>
-          <input type="text" id="f-company" placeholder="Your company" autocomplete="organization">
+        <div class="stat">
+          <div class="stat-n">72hr</div>
+          <div class="stat-l">To first<br>pipeline signal</div>
         </div>
-
-        <div class="field">
-          <label for="f-phone">Phone number</label>
-          <input type="tel" id="f-phone" placeholder="+1 408 000 0000" autocomplete="tel">
-        </div>
-
-        <div class="field">
-          <label for="f-crm">CRM you use</label>
-          <select id="f-crm">
-            <option value="">Select your CRM</option>
-            <option value="HubSpot">HubSpot</option>
-            <option value="Salesforce">Salesforce</option>
-            <option value="Zoho CRM">Zoho CRM</option>
-            <option value="Pipedrive">Pipedrive</option>
-            <option value="Other">Other</option>
-            <option value="None yet">None yet</option>
-          </select>
-        </div>
-
-        <div class="divider"></div>
-
-        <!-- MAILBOX STEPPER -->
-        <div class="mailbox-field">
-          <label>How many mailboxes to connect?</label>
-          <div class="mailbox-stepper">
-            <button class="step-btn" type="button" onclick="stepMailbox(-1)" aria-label="Decrease">−</button>
-            <div class="step-num" id="mailbox-num">1</div>
-            <button class="step-btn" type="button" onclick="stepMailbox(1)" aria-label="Increase">+</button>
-          </div>
-          <div class="mailbox-hint">
-            Suggested plan: <span class="plan-suggest" id="plan-suggest">Solo · $99/mo</span>
-          </div>
-        </div>
-
-        <div class="form-error" id="form-error"></div>
-
-        <button class="submit-btn" id="submit-btn" type="button" onclick="submitTrial()">
-          <span class="btn-text">Start free trial</span>
-          <span class="btn-text-after arrow">→</span>
-          <span class="spinner"></span>
-        </button>
-
       </div>
 
-      <div class="trust">
-        <span class="trust-item">No credit card</span>
-        <span class="trust-item">30-day free trial</span>
-        <span class="trust-item">Cancel anytime</span>
+      <div class="carousel">
+        <div class="carousel-label">What customers say</div>
+
+        <div id="qc-0" class="qcard">
+          <p class="qtext">"ZUUZ surfaced <strong>$120,000 in pipeline within 30 days</strong> of connecting to our existing HubSpot. Deals were sitting in the inbox. We had no idea."</p>
+          <div class="qmeta">
+            <div class="qav">SS</div>
+            <div>
+              <div class="qname">Subhash Sreenivasan</div>
+              <div class="qtitle">COO · RA Technologies</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="qc-1" class="qcard" style="display:none">
+          <p class="qtext">"For the first time, our pipeline reflects what's actually in motion. <strong>Real-time visibility</strong> changed how our sales team operates day to day."</p>
+          <div class="qmeta">
+            <div class="qav av2">BU</div>
+            <div>
+              <div class="qname">Bijju Unni</div>
+              <div class="qtitle">VP of Sales · Cloud Box Technologies</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="qc-2" class="qcard" style="display:none">
+          <p class="qtext">"ZUUZ cut our bulk order matching work by <strong>10x</strong>. What used to take hours now happens before the team opens their laptops."</p>
+          <div class="qmeta">
+            <div class="qav av3">N</div>
+            <div>
+              <div class="qname">Operations Team</div>
+              <div class="qtitle">Nesto · Retail &amp; Distribution</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-dots">
+          <button class="dot active" onclick="goTo(0)" aria-label="Quote 1"></button>
+          <button class="dot" onclick="goTo(1)" aria-label="Quote 2"></button>
+          <button class="dot" onclick="goTo(2)" aria-label="Quote 3"></button>
+        </div>
       </div>
+
     </div>
 
-    <!-- SUCCESS STATE -->
-    <div class="success" id="success-wrap">
-      <div class="success-ring">✓</div>
-      <div class="success-title">You're in.</div>
-      <div class="success-sub">Check <strong id="success-email"></strong> — your onboarding link is on its way.</div>
-      <div class="next-steps">
-        <div class="next-label">What happens next</div>
-        <ul class="next-list">
-          <li><b>1.</b> Welcome email with onboarding link arrives now</li>
-          <li><b>2.</b> Connect your mailbox in under 5 minutes</li>
-          <li><b>3.</b> Pipeline surfaces within 72 hours</li>
-          <li><b>4.</b> We reach out on day 3 to make sure you're seeing results</li>
-        </ul>
+    <!-- RIGHT: form -->
+    <div class="form-panel">
+      <div id="form-wrap">
+        <div class="card-eyebrow"><span class="pulse"></span>30-day free trial</div>
+        <h2 class="card-title">Start for <em>free.</em></h2>
+        <p class="card-sub">No credit card. No setup fee. Pipeline shows up in the first 72 hours.</p>
+
+        <div class="fields">
+          <div class="row">
+            <div class="field">
+              <label for="f-first">First name</label>
+              <input type="text" id="f-first" placeholder="First name" autocomplete="given-name">
+            </div>
+            <div class="field">
+              <label for="f-last">Last name</label>
+              <input type="text" id="f-last" placeholder="Last name" autocomplete="family-name">
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-email">Work email *</label>
+            <input type="email" id="f-email" placeholder="you@company.com" autocomplete="email">
+          </div>
+          <div class="field">
+            <label for="f-company">Company name</label>
+            <input type="text" id="f-company" placeholder="Your company" autocomplete="organization">
+          </div>
+          <div class="field">
+            <label for="f-phone">Phone number *</label>
+            <input type="tel" id="f-phone" placeholder="+1 408 000 0000" autocomplete="tel">
+          </div>
+          <div class="field">
+            <label for="f-crm">CRM you use</label>
+            <select id="f-crm">
+              <option value="">Select your CRM</option>
+              <option value="HubSpot">HubSpot</option>
+              <option value="Salesforce">Salesforce</option>
+              <option value="Zoho CRM">Zoho CRM</option>
+              <option value="Pipedrive">Pipedrive</option>
+              <option value="Other">Other</option>
+              <option value="None yet">None yet</option>
+            </select>
+          </div>
+          <div class="divider"></div>
+          <div class="mailbox-field">
+            <label>How many mailboxes to connect?</label>
+            <div class="mailbox-stepper">
+              <button class="step-btn" type="button" onclick="stepMailbox(-1)" aria-label="Decrease">−</button>
+              <div class="step-num" id="mailbox-num">1</div>
+              <button class="step-btn" type="button" onclick="stepMailbox(1)" aria-label="Increase">+</button>
+            </div>
+            <div class="mailbox-hint">Suggested plan: <span class="plan-suggest" id="plan-suggest">Solo · $99/mo</span></div>
+          </div>
+          <div class="form-error" id="form-error"></div>
+          <button class="submit-btn" id="submit-btn" type="button" onclick="submitTrial()">
+            <span class="btn-text">Start free trial</span>
+            <span class="btn-text-after arrow">→</span>
+            <span class="spinner"></span>
+          </button>
+        </div>
+
+        <div class="trust">
+          <span class="trust-item">No credit card</span>
+          <span class="trust-item">30-day free trial</span>
+          <span class="trust-item">Cancel anytime</span>
+        </div>
+      </div>
+
+      <div class="success" id="success-wrap">
+        <div class="success-ring">✓</div>
+        <div class="success-title">You're in.</div>
+        <div class="success-sub">Check <strong id="success-email"></strong> — your onboarding link is on its way.</div>
+        <div class="next-steps">
+          <div class="next-label">What happens next</div>
+          <ul class="next-list">
+            <li><b>1.</b> Welcome email with onboarding link arrives now</li>
+            <li><b>2.</b> Connect your mailbox in under 5 minutes</li>
+            <li><b>3.</b> Pipeline surfaces within 72 hours</li>
+            <li><b>4.</b> We reach out on day 3 to make sure you're seeing results</li>
+          </ul>
+        </div>
       </div>
     </div>
 
@@ -252,105 +542,69 @@ main{flex:1;display:flex;align-items:center;justify-content:center;padding:48px 
 </main>
 
 <script>
-var WEB3FORMS_KEY = '55d3cafe-c5ec-48cd-be7f-3e84dbda2281';
-var mailboxCount  = 1;
+/* carousel */
+var current=0, total=3, autoTimer;
+function goTo(n){
+  document.getElementById('qc-'+current).style.display='none';
+  document.querySelectorAll('.dot')[current].classList.remove('active');
+  current=n;
+  var card=document.getElementById('qc-'+current);
+  card.style.display='block';
+  card.style.animation='none'; card.offsetHeight; card.style.animation='';
+  document.querySelectorAll('.dot')[current].classList.add('active');
+  clearInterval(autoTimer); autoTimer=setInterval(function(){goTo((current+1)%total)},5000);
+}
+autoTimer=setInterval(function(){goTo((current+1)%total)},5000);
 
-var PLANS = [
-  { max:1,  label:'Solo · $99/mo',    plan:'solo'   },
-  { max:3,  label:'Team · $249/mo',   plan:'team'   },
-  { max:5,  label:'Growth · $349/mo', plan:'growth' },
-  { max:10, label:'Scale · $649/mo',  plan:'scale'  },
-  { max:999,label:'Enterprise · Custom', plan:'enterprise' }
+/* form */
+var WEB3FORMS_KEY='55d3cafe-c5ec-48cd-be7f-3e84dbda2281';
+var mailboxCount=1;
+var PLANS=[
+  {max:1,  label:'Solo · $99/mo',      plan:'solo'},
+  {max:3,  label:'Team · $249/mo',     plan:'team'},
+  {max:5,  label:'Growth · $349/mo',   plan:'growth'},
+  {max:10, label:'Scale · $649/mo',    plan:'scale'},
+  {max:999,label:'Enterprise · Custom',plan:'enterprise'}
 ];
-
-function getPlan(n) {
-  for (var i = 0; i < PLANS.length; i++) {
-    if (n <= PLANS[i].max) return PLANS[i];
-  }
-  return PLANS[PLANS.length - 1];
+function getPlan(n){for(var i=0;i<PLANS.length;i++)if(n<=PLANS[i].max)return PLANS[i];return PLANS[PLANS.length-1]}
+function stepMailbox(d){
+  mailboxCount=Math.max(1,Math.min(50,mailboxCount+d));
+  document.getElementById('mailbox-num').textContent=mailboxCount;
+  document.getElementById('plan-suggest').textContent=getPlan(mailboxCount).label;
 }
-
-function stepMailbox(delta) {
-  mailboxCount = Math.max(1, Math.min(50, mailboxCount + delta));
-  document.getElementById('mailbox-num').textContent = mailboxCount;
-  var p = getPlan(mailboxCount);
-  document.getElementById('plan-suggest').textContent = p.label;
-}
-
-async function submitTrial() {
-  var btn     = document.getElementById('submit-btn');
-  var errEl   = document.getElementById('form-error');
-  var first   = document.getElementById('f-first').value.trim();
-  var last    = document.getElementById('f-last').value.trim();
-  var email   = document.getElementById('f-email').value.trim();
-  var company = document.getElementById('f-company').value.trim();
-  var crm     = document.getElementById('f-crm').value;
-  var phone   = document.getElementById('f-phone').value.trim();
-  var plan    = getPlan(mailboxCount).plan;
-
+async function submitTrial(){
+  var btn=document.getElementById('submit-btn'),errEl=document.getElementById('form-error');
+  var first=document.getElementById('f-first').value.trim(),last=document.getElementById('f-last').value.trim();
+  var email=document.getElementById('f-email').value.trim(),company=document.getElementById('f-company').value.trim();
+  var crm=document.getElementById('f-crm').value,phone=document.getElementById('f-phone').value.trim();
+  var plan=getPlan(mailboxCount).plan;
   errEl.classList.remove('show');
-
-  if (!first || !last) { showErr('Please enter your first and last name.'); return; }
-  if (!email || !email.includes('@')) { showErr('Please enter a valid work email.'); return; }
-  if (!company) { showErr('Please enter your company name.'); return; }
-
-  btn.classList.add('loading');
-  btn.disabled = true;
-
-  try {
-    // Call Vercel serverless function (keeps Stripe key server-side)
-    var res = await fetch('/api/create-trial', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        name: first + ' ' + last,
-        email, company, phone: phone || '',
-        crm: crm || 'Not specified',
-        plan, mailboxes: mailboxCount
-      })
-    });
-
-    var data = await res.json();
-    if (!res.ok) throw new Error(data.error || 'Signup failed. Please try again.');
-
-    // Web3Forms notification (non-blocking)
-    fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        access_key: WEB3FORMS_KEY,
-        subject:    '🚀 New Trial — ' + plan.charAt(0).toUpperCase() + plan.slice(1) + ' — ' + company,
-        from_name:  'ZUUZ Trial',
-        name:       first + ' ' + last,
-        email,
-        company,
-        phone:      phone || '—',
-        plan:       plan,
-        mailboxes:  mailboxCount,
-        crm:        crm || '—',
-        stripe_id:  data.customerId || '—',
-        message:    first + ' ' + last + ' (' + company + ') — ' + mailboxCount + ' mailbox(es) — ' + plan + ' plan'
-      })
-    }).catch(function(){});
-
-    // Show success
-    document.getElementById('success-email').textContent = email;
-    document.getElementById('form-wrap').style.display  = 'none';
-    document.getElementById('success-wrap').style.display = 'block';
-
-  } catch(err) {
-    showErr(err.message || 'Something went wrong. Email info@zuuz.ai and we\'ll sort it.');
-    btn.classList.remove('loading');
-    btn.disabled = false;
+  if(!first||!last){showErr('Please enter your first and last name.');return}
+  var emailRe=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  if(!email||!emailRe.test(email)){showErr('Please enter a valid work email address (e.g. you@company.com).');return}
+  if(!company){showErr('Please enter your company name.');return}
+  if(!phone){showErr('Phone number is required.');return}
+  var phoneRe=/^[+\d][\d\s\-().]{6,19}$/;
+  if(!phoneRe.test(phone)){showErr('Please enter a valid phone number (e.g. +1 408 000 0000).');return}
+  btn.classList.add('loading');btn.disabled=true;
+  try{
+    var res=await fetch('/api/create-trial',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({name:first+' '+last,email,company,phone:phone||'',crm:crm||'Not specified',plan,mailboxes:mailboxCount})});
+    var data=await res.json();
+    if(!res.ok)throw new Error(data.error||'Signup failed. Please try again.');
+    fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({access_key:WEB3FORMS_KEY,subject:'🚀 New Trial — '+plan.charAt(0).toUpperCase()+plan.slice(1)+' — '+company,
+        from_name:'ZUUZ Trial',name:first+' '+last,email,company,phone:phone||'—',plan,mailboxes:mailboxCount,crm:crm||'—',
+        stripe_id:data.customerId||'—',message:first+' '+last+' ('+company+') — '+mailboxCount+' mailbox(es) — '+plan+' plan'})}).catch(function(){});
+    document.getElementById('success-email').textContent=email;
+    document.getElementById('form-wrap').style.display='none';
+    document.getElementById('success-wrap').style.display='block';
+  }catch(err){
+    showErr(err.message||"Something went wrong. Email info@zuuz.ai and we'll sort it.");
+    btn.classList.remove('loading');btn.disabled=false;
   }
 }
-
-function showErr(msg) {
-  var el = document.getElementById('form-error');
-  el.textContent = msg;
-  el.classList.add('show');
-}
+function showErr(msg){var el=document.getElementById('form-error');el.textContent=msg;el.classList.add('show')}
 </script>
-
 </body>
 </html>
