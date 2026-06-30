@@ -261,8 +261,8 @@ a:hover{text-decoration:underline}
 
 /* LAYOUT */
 .wrap{max-width:1180px;margin:0 auto;padding:0 32px;position:relative;z-index:2}
-.wrap-narrow{max-width:740px;margin:0 auto;padding:0 32px;position:relative;z-index:2}
-@media(max-width:740px){.wrap,.wrap-narrow{padding:0 20px}}
+.wrap-narrow{max-width:720px;margin:0 auto;padding:0 32px;position:relative;z-index:2}
+@media(max-width:720px){.wrap,.wrap-narrow{padding:0 20px}}
 
 /* HEADER */
 header{
@@ -279,16 +279,12 @@ header{
   font-variation-settings:"opsz" 144,"SOFT" 30;color:var(--navy);line-height:1;
 }
 .nav-ctas{display:flex;align-items:center;gap:8px}
-  .nav-links{display:flex;align-items:center;gap:22px;list-style:none;margin:0;padding:0;}
-  .nav-links a{font-size:13px;font-weight:500;color:var(--ink-mute);transition:color .2s;white-space:nowrap;text-decoration:none;}
-  .nav-links a:hover,.nav-links a.active{color:var(--ink);}
-  @media(max-width:960px){.nav-links{display:none;}}
-  .nav-trial{text-decoration:none;
+.nav-cta-ghost{
   display:inline-flex;align-items:center;color:var(--ink);padding:10px 18px;border-radius:999px;
   font-size:13px;font-weight:500;border:1.5px solid var(--ink);
   transition:background .2s,color .2s,transform .2s;text-decoration:none;
 }
-.nav-trial:hover{background:var(--ink);color:var(--paper);transform:translateY(-1px);text-decoration:none}
+.nav-cta-ghost:hover{background:var(--ink);color:var(--paper);transform:translateY(-1px);text-decoration:none}
 .nav-cta{
   display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--paper);
   padding:10px 18px;border-radius:999px;font-size:13px;font-weight:500;
@@ -300,7 +296,7 @@ header{
 
 /* ARTICLE */
 article{padding:64px 0 80px}
-@media(max-width:740px){article{padding:40px 0 56px}}
+@media(max-width:720px){article{padding:40px 0 56px}}
 .article-head{margin-bottom:48px}
 .article-breadcrumb{
   font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;
@@ -383,7 +379,7 @@ article h1 em{font-style:italic;color:var(--accent);font-weight:300;font-variati
   background:var(--ink);color:var(--paper);border-radius:var(--radius);padding:48px 40px;
   margin:56px 0;text-align:center;position:relative;overflow:hidden;
 }
-@media(max-width:740px){.article-cta{padding:36px 24px}}
+@media(max-width:720px){.article-cta{padding:36px 24px}}
 .article-cta::before{
   content:"";position:absolute;top:-40%;left:-10%;width:60%;height:180%;
   background:radial-gradient(ellipse,rgba(37,99,255,0.25),transparent 60%);pointer-events:none;
@@ -445,29 +441,33 @@ footer{padding:64px 0 32px;border-top:1px solid var(--line-strong)}
 .foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;padding-top:32px;border-top:1px solid var(--line-strong);font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-mute);letter-spacing:0.05em}
 .foot-bottom a{color:inherit;text-decoration:none;transition:color .2s}
 .foot-bottom a:hover{color:var(--ink)}
-  </style>
+  /* CTA color fix */
+.article-cta .cta-primary,.article-cta .cta-primary:hover,.article-cta .cta-secondary,.article-cta .cta-secondary:hover{color:#fff !important;text-decoration:none !important}
+/* breathing space: separate heavy blocks */
+/* base margins: every visual element treated as a callout */
+.article-takeaways{margin:72px 0 !important}
+.article-toc{margin:60px 0 !important}
+.article-body table{margin:72px 0 !important}
+.article-body blockquote{margin:64px 0 !important}
+.article-stat{margin:88px 0 !important}
+.article-quote-card{margin:104px 0 !important}
+.article-cta{margin:112px 0 !important}
+.article-author{margin:96px 0 !important}
+.article-related{margin:88px 0 0 !important}
+/* extra-large gap when two heavy cards are directly adjacent */
+.article-cta + .article-cta,.article-cta + .article-quote-card,.article-cta + .article-stat,.article-cta + .article-author,.article-cta + .article-related,.article-quote-card + .article-cta,.article-quote-card + .article-quote-card,.article-quote-card + .article-stat,.article-quote-card + .article-author,.article-quote-card + .article-related,.article-stat + .article-cta,.article-stat + .article-quote-card,.article-stat + .article-stat,.article-stat + .article-author,.article-stat + .article-related,.article-author + .article-cta,.article-author + .article-quote-card,.article-author + .article-stat,.article-author + .article-author,.article-author + .article-related,.article-related + .article-cta,.article-related + .article-quote-card,.article-related + .article-stat,.article-related + .article-author,.article-related + .article-related{margin-top:180px !important}
+@media(max-width:720px){.article-takeaways{margin:56px 0 !important}.article-toc{margin:44px 0 !important}.article-body table{margin:56px 0 !important}.article-body blockquote{margin:52px 0 !important}.article-stat{margin:72px 0 !important}.article-quote-card{margin:88px 0 !important}.article-cta{margin:96px 0 !important}.article-author{margin:80px 0 !important}.article-related{margin:72px 0 0 !important}.article-cta + .article-cta,.article-cta + .article-quote-card,.article-cta + .article-stat,.article-cta + .article-author,.article-cta + .article-related,.article-quote-card + .article-cta,.article-quote-card + .article-quote-card,.article-quote-card + .article-stat,.article-quote-card + .article-author,.article-quote-card + .article-related,.article-stat + .article-cta,.article-stat + .article-quote-card,.article-stat + .article-stat,.article-stat + .article-author,.article-stat + .article-related,.article-author + .article-cta,.article-author + .article-quote-card,.article-author + .article-stat,.article-author + .article-author,.article-author + .article-related,.article-related + .article-cta,.article-related + .article-quote-card,.article-related + .article-stat,.article-related + .article-author,.article-related + .article-related{margin-top:160px !important}}
+</style>
 </head>
 <body>
 <header>
   <div class="wrap nav">
-    <a href="/" class="brand">
+    <a href="https://www.zuuz.ai/" class="brand">
       <svg class="brand-spark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z"/></svg>
       <span class="brand-text">ZUUZ</span>
     </a>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="/#workflow">How it works</a></li>
-        <li><a href="/#why-zuuz">Why ZUUZ</a></li>
-        <li><a href="/#proof">Customers</a></li>
-        <li><a href="/#pricing">Pricing</a></li>
-        <li><a href="/roi-calculator">ROI Calculator</a></li>
-        <li><a href="/#team">Team</a></li>
-        <li><a href="/contact">Contact</a></li>
-        <li><a href="/blogs">Blogs</a></li>
-      </ul>
-    </nav>
-    <div class="nav-actions">
-      <a class="nav-trial" href="https://buy.stripe.com/cNi6oHaWNeAU8QS457bZe00" rel="noopener">Start 30-day free trial</a>
+    <div class="nav-ctas">
+      <a class="nav-cta-ghost" href="https://buy.stripe.com/cNi6oHaWNeAU8QS457bZe00" rel="noopener">Start free trial</a>
       <a class="nav-cta" href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Book a demo</a>
     </div>
   </div>
@@ -536,6 +536,8 @@ footer{padding:64px 0 32px;border-top:1px solid var(--line-strong)}
 
     <p>The consequence is a CRM that looks populated but reflects only 40 to 60 percent of actual account activity. Forecasting tools, BI dashboards, and pipeline review meetings then operate on that partial record. As explored in <a href="https://www.zuuz.ai/blogs/why-your-crm-pipeline-is-wrong">why your CRM pipeline is wrong</a>, the forecast gap is not a reporting failure. It is a capture failure that reporting then amplifies.</p>
 
+    <figure class="article-quote-card"><img src="https://www.zuuz.ai/uploads/avinash-gujje-quote-signal-visibility-faster-decisions-deal-movement.png" alt="Avinash Gujje, CEO of ZUUZ, on revenue signal intelligence" loading="lazy" width="600" height="600" /><figcaption>Avinash Gujje · CEO, ZUUZ</figcaption></figure>
+
     <h2 id="tools-by-layer">IT Sales Pipeline Visibility Tools, Ranked by Layer</h2>
 
     <p>The pipeline visibility stack for IT sales teams spans five distinct layers. Each layer has a job. The problem is that most teams invest in the upper layers before the foundation is solid.</p>
@@ -557,7 +559,6 @@ footer{padding:64px 0 32px;border-top:1px solid var(--line-strong)}
     <h3>Layer 5: Business Intelligence and Dashboards</h3>
     <p>BI tools like Tableau, Looker, and Power BI connect to the CRM and generate pipeline reports, trend analysis, and revenue projections. They are the final display layer. Beautiful dashboards built on incomplete CRM data do not create visibility. They create the appearance of visibility while the actual pipeline remains hidden in email.</p>
 
-    <figure class="article-quote-card"><img src="https://www.zuuz.ai/uploads/customer-voice-bijju-unni-cloud-box-technologies-pipeline-visibility.png" alt="Bijju Unni · Cloud Box Technologies, customer result with ZUUZ" loading="lazy" width="460" height="460" /><figcaption>Bijju Unni · Cloud Box Technologies</figcaption></figure>
 
     <h2 id="comparison-table">Side-by-Side Comparison of Pipeline Visibility Tool Categories</h2>
 
@@ -622,8 +623,10 @@ footer{padding:64px 0 32px;border-top:1px solid var(--line-strong)}
       <svg class="article-cta__spark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z"/></svg>
       <h2>Stop Losing Pipeline <em>in the Inbox.</em></h2>
       <p>Connect your CRM in minutes and let ZUUZ capture the signals your team never logs. Start free, with no integration project required.</p>
-      <div class="cta-row"><a class="cta-primary" href="https://buy.stripe.com/cNi6oHaWNeAU8QS457bZe00" rel="noopener">Start 30-day free trial</a><a class="cta-secondary" href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Or book a demo</a></div>
+      <div class="cta-row"><a class="cta-primary" href="https://buy.stripe.com/cNi6oHaWNeAU8QS457bZe00" rel="noopener">Start free trial</a><a class="cta-secondary" href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Or book a demo</a></div>
     </div>
+
+    <figure class="article-quote-card"><img src="https://www.zuuz.ai/uploads/customer-voice-bijju-unni-cloud-box-technologies-pipeline-visibility.png" alt="Bijju Unni, Cloud Box Technologies, on pipeline visibility with ZUUZ" loading="lazy" width="460" height="460" /><figcaption>Bijju Unni · Cloud Box Technologies</figcaption></figure>
 
     <h2 id="what-complete-visibility-requires">What Complete Pipeline Visibility Actually Requires</h2>
 
@@ -637,6 +640,8 @@ footer{padding:64px 0 32px;border-top:1px solid var(--line-strong)}
 
     <h3>Traceable Dashboards Linked to Source Conversations</h3>
     <p>Pipeline data that cannot be traced back to a specific email thread or conversation is not trustworthy. Sales managers need to see not just that a deal exists in the CRM but where that deal signal originated. Traceable dashboards also enable better coaching: managers can see which accounts have active email activity and which have gone quiet, even when the CRM record looks healthy.</p>
+
+    <figure class="article-quote-card"><img src="https://www.zuuz.ai/uploads/avinash-gujje-quote-deals-slow-down-signals-buried-in-email.png" alt="Avinash Gujje, CEO of ZUUZ, on revenue signal intelligence" loading="lazy" width="600" height="600" /><figcaption>Avinash Gujje · CEO, ZUUZ</figcaption></figure>
 
     <h2 id="how-zuuz-fills-the-gap">How ZUUZ Fills the Capture Gap for IT Sales Teams</h2>
 
@@ -654,7 +659,6 @@ footer{padding:64px 0 32px;border-top:1px solid var(--line-strong)}
 
     <p>For IT sales organizations tracking renewals across multiple product lines, the <a href="https://www.zuuz.ai/blogs/how-to-track-renewals-across-multiple-products">renewal tracking guide</a> covers how to structure multi-product visibility once the capture layer is in place.</p>
 
-    <figure class="article-quote-card"><img src="https://www.zuuz.ai/uploads/avinash-gujje-quote-signal-visibility-faster-decisions-deal-movement.png" alt="Avinash Gujje, CEO of ZUUZ, on revenue signal intelligence" loading="lazy" width="600" height="600" /><figcaption>Avinash Gujje · CEO, ZUUZ</figcaption></figure>
 
     <h2 id="deployment-approach">A Four-Week Deployment Approach</h2>
 
@@ -731,7 +735,7 @@ footer{padding:64px 0 32px;border-top:1px solid var(--line-strong)}
   <div class="wrap">
     <div class="foot-top">
       <div class="foot-brand-block">
-        <a href="/" class="brand">
+        <a href="https://www.zuuz.ai/" class="brand">
           <svg class="brand-spark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z"/></svg>
           <span class="brand-text">ZUUZ</span>
         </a>
@@ -741,7 +745,7 @@ footer{padding:64px 0 32px;border-top:1px solid var(--line-strong)}
         <a href="https://www.zuuz.ai/blogs">Blog</a>
         <a href="https://www.zuuz.ai/about">About</a>
         <a href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Book a demo</a>
-        <a href="https://buy.stripe.com/cNi6oHaWNeAU8QS457bZe00" rel="noopener">Start 30-day free trial</a>
+        <a href="https://buy.stripe.com/cNi6oHaWNeAU8QS457bZe00" rel="noopener">Start free trial</a>
       </div>
     </div>
     <div class="foot-bottom">

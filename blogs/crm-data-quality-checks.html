@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary Meta -->
+  <title>CRM Data Quality Checks: Automating What Sales Ops Did Manually</title>
+  <meta name="description" content="A per-check playbook for CRM data quality checks: duplicate detection, completeness, validation, staleness, ownership, and standardization, plus how to automate each." />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <link rel="canonical" href="https://www.zuuz.ai/blogs/crm-data-quality-checks" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="CRM Data Quality Checks: Automating What Sales Ops Did Manually" />
+  <meta property="og:description" content="A per-check playbook for CRM data quality checks: duplicate detection, completeness, validation, staleness, ownership, and standardization, plus how to automate each." />
+  <meta property="og:url" content="https://www.zuuz.ai/blogs/crm-data-quality-checks" />
+  <meta property="og:image" content="https://www.zuuz.ai/uploads/crm-data-quality-checks-og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="CRM data quality checks dashboard showing duplicate, completeness, and staleness checks automated from email capture" />
+  <meta property="og:site_name" content="ZUUZ" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="article:published_time" content="2026-06-23T00:00:00Z" />
+  <meta property="article:modified_time" content="2026-06-23T00:00:00Z" />
+  <meta property="article:author" content="https://www.zuuz.ai/about" />
+  <meta property="article:section" content="CRM Data Quality" />
+  <meta property="article:tag" content="crm data quality checks" />
+  <meta property="article:tag" content="crm data validation" />
+  <meta property="article:tag" content="crm duplicate detection" />
+  <meta property="article:tag" content="crm data completeness" />
+  <meta property="article:tag" content="automated data quality checks" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="CRM Data Quality Checks: Automating What Sales Ops Did Manually" />
+  <meta name="twitter:description" content="A per-check playbook for CRM data quality checks: duplicate detection, completeness, validation, staleness, ownership, and standardization, plus how to automate each." />
+  <meta name="twitter:image" content="https://www.zuuz.ai/uploads/crm-data-quality-checks-og.jpg" />
+  <meta name="twitter:image:alt" content="CRM data quality checks dashboard showing duplicate, completeness, and staleness checks automated from email capture" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "https://www.zuuz.ai/blogs/crm-data-quality-checks#blogposting",
+        "headline": "CRM Data Quality Checks: Automating What Sales Ops Did Manually",
+        "description": "A per-check playbook for CRM data quality checks: duplicate detection, completeness, validation, staleness, ownership, and standardization, plus how to automate each.",
+        "url": "https://www.zuuz.ai/blogs/crm-data-quality-checks",
+        "datePublished": "2026-06-23T00:00:00Z",
+        "dateModified": "2026-06-23T00:00:00Z",
+        "author": {
+          "@id": "https://www.zuuz.ai/about#avinash-gujje"
+        },
+        "publisher": {
+          "@id": "https://www.zuuz.ai/#organization"
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://www.zuuz.ai/blogs/crm-data-quality-checks"
+        },
+        "image": {
+          "@id": "https://www.zuuz.ai/uploads/crm-data-quality-checks-og.jpg#imageobject"
+        },
+        "keywords": [
+          "crm data quality checks",
+          "crm data quality metrics",
+          "crm data validation",
+          "crm duplicate detection",
+          "crm data completeness",
+          "crm data quality audit",
+          "automated data quality checks",
+          "sales ops data hygiene",
+          "email-to-CRM automation",
+          "revenue operations"
+        ],
+        "articleSection": "CRM Data Quality",
+        "wordCount": 2520,
+        "inLanguage": "en-US",
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": [
+            ".article-head h1",
+            ".article-body",
+            ".article-takeaways"
+          ]
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://www.zuuz.ai/about#avinash-gujje",
+        "name": "Avinash Gujje",
+        "jobTitle": "CEO",
+        "worksFor": {
+          "@id": "https://www.zuuz.ai/#organization"
+        },
+        "url": "https://www.zuuz.ai/about",
+        "sameAs": "https://www.linkedin.com/in/avinashgujje/"
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://www.zuuz.ai/#organization",
+        "name": "ZUUZ",
+        "url": "https://www.zuuz.ai",
+        "description": "Agentic AI for Revenue Operations: the decision-and-execution layer on top of your CRM",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.zuuz.ai/logo.png",
+          "width": 200,
+          "height": 60
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "url": "https://www.zuuz.ai/contact"
+        },
+        "sameAs": "https://www.linkedin.com/company/zuuz-ai/"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.zuuz.ai/#website",
+        "url": "https://www.zuuz.ai",
+        "name": "ZUUZ",
+        "description": "Agentic AI for Revenue Operations",
+        "publisher": {
+          "@id": "https://www.zuuz.ai/#organization"
+        }
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://www.zuuz.ai/uploads/crm-data-quality-checks-og.jpg#imageobject",
+        "url": "https://www.zuuz.ai/uploads/crm-data-quality-checks-og.jpg",
+        "width": 1200,
+        "height": 630,
+        "caption": "CRM data quality checks dashboard showing duplicate, completeness, and staleness checks automated from email capture",
+        "creditText": "ZUUZ",
+        "creator": {
+          "@id": "https://www.zuuz.ai/#organization"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What are the core CRM data quality checks every sales ops team should run?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Six checks cover most of the work: duplicate detection, field completeness, format and validation rules, staleness and recency, ownership and routing accuracy, and standardization. Each one answers a different question about whether a record can be trusted. Run together, they tell a sales ops team how much of the CRM reflects reality and how much is noise, missing data, or contradiction."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How often should CRM data quality checks run?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Duplicate detection and validation should run on write, the moment a record is created or edited. Completeness and ownership accuracy fit a daily cadence. Staleness and standardization work well weekly. A full audit across all six checks belongs on a monthly or quarterly schedule. Manual teams cannot hit these intervals, which is why most checks collapse into a rushed quarterly cleanup."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the difference between a data quality check and capture at source?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A check inspects records that already exist and flags what is wrong. Capture at source writes the record correctly the first time, from the email or document where the signal originated. The difference matters because a completeness check can find a missing field but cannot recover the value if that value never left the inbox. Capture removes whole categories of checks rather than scoring them."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can automated checks fix bad CRM data on their own?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Automated checks can fix mechanical problems like duplicate merges, format normalization, and standardization. They cannot fix missing signal. If a renewal date or deal value was never recorded because the conversation stayed in email, no check can restore it. Checks score the gap accurately, but closing the gap requires capturing data at the point it is created rather than reconstructing it later."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does ZUUZ improve CRM data quality across Salesforce, HubSpot, and Zoho?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "ZUUZ reads inbound and outbound email, extracts deal signals, and writes structured records to Salesforce, HubSpot, or Zoho within about one hour. Because records are created from the source conversation, completeness and recency checks pass by default. Fields arrive populated, timestamps reflect real activity, and duplicate creation drops because the system matches against existing accounts before writing."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What CRM data quality metrics should a sales ops team track?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Track duplicate rate, completeness percentage on required fields, validation pass rate, staleness percentage of records untouched past a threshold, ownership match rate, and standardization conformance. Each metric maps to one check. Trended over time, they show whether data quality is improving or eroding, which is more useful than a single quarterly audit snapshot."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.zuuz.ai"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://www.zuuz.ai/blogs"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "CRM Data Quality Checks: Automating What Sales Ops Did Manually",
+            "item": "https://www.zuuz.ai/blogs/crm-data-quality-checks"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232563FF'%3E%3Cpath d='M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,0..100;1,9..144,300..500,0..100&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+/* ZUUZ blog styles, mirrors live /assets/site.css + blog components.
+   Source of truth for blog look and feel (matches https://www.zuuz.ai/blogs/). */
+:root{
+  --paper:#F4F1EA;
+  --paper-warm:#EDE8DC;
+  --ink:#111110;
+  --ink-soft:#3A3A36;
+  --ink-mute:#7A776E;
+  --line:#1110100D;
+  --line-strong:#11101018;
+  --accent:#2563FF;
+  --accent-hover:#1D4ED8;
+  --accent-soft:#DBEAFE;
+  --navy:#0E1F6B;
+  --signal:#0F8B4F;
+  --card:#FBF8F1;
+  --radius:18px;
+  --shadow:0 1px 0 rgba(17,17,16,.04),0 12px 32px -16px rgba(17,17,16,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--paper);color:var(--ink);}
+body{
+  font-family:'Instrument Sans',system-ui,-apple-system,sans-serif;
+  font-size:16px;line-height:1.6;letter-spacing:-0.005em;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden;
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.45;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.07 0 0 0 0 0.07 0 0 0 0 0.07 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+::selection{background:var(--accent);color:#fff}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* LAYOUT */
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px;position:relative;z-index:2}
+.wrap-narrow{max-width:720px;margin:0 auto;padding:0 32px;position:relative;z-index:2}
+@media(max-width:720px){.wrap,.wrap-narrow{padding:0 20px}}
+
+/* HEADER */
+header{
+  position:sticky;top:0;z-index:50;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  background:rgba(244,241,234,0.82);border-bottom:1px solid var(--line-strong);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:9px;color:inherit;text-decoration:none}
+.brand:hover{text-decoration:none}
+.brand-spark{width:18px;height:18px;color:var(--accent);flex-shrink:0;transform:translateY(-1px)}
+.brand-text{
+  font-family:'Fraunces',serif;font-weight:500;font-size:22px;letter-spacing:-0.03em;
+  font-variation-settings:"opsz" 144,"SOFT" 30;color:var(--navy);line-height:1;
+}
+.nav-ctas{display:flex;align-items:center;gap:8px}
+.nav-cta-ghost{
+  display:inline-flex;align-items:center;color:var(--ink);padding:10px 18px;border-radius:999px;
+  font-size:13px;font-weight:500;border:1.5px solid var(--ink);
+  transition:background .2s,color .2s,transform .2s;text-decoration:none;
+}
+.nav-cta-ghost:hover{background:var(--ink);color:var(--paper);transform:translateY(-1px);text-decoration:none}
+.nav-cta{
+  display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--paper);
+  padding:10px 18px;border-radius:999px;font-size:13px;font-weight:500;
+  transition:transform .2s ease,background .2s;text-decoration:none;
+}
+.nav-cta:hover{transform:translateY(-1px);background:#000;text-decoration:none}
+.nav-cta::after{content:"→";transition:transform .2s}
+.nav-cta:hover::after{transform:translateX(2px)}
+
+/* ARTICLE */
+article{padding:64px 0 80px}
+@media(max-width:720px){article{padding:40px 0 56px}}
+.article-head{margin-bottom:48px}
+.article-breadcrumb{
+  font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;
+  text-transform:uppercase;color:var(--ink-mute);margin-bottom:24px;
+}
+.article-breadcrumb a{color:var(--ink-mute);text-decoration:none}
+.article-breadcrumb a:hover{color:var(--accent)}
+.article-eyebrow{
+  font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:20px;display:flex;align-items:center;gap:10px;
+}
+.article-eyebrow::before{content:"";width:20px;height:1px;background:var(--accent)}
+article h1{
+  font-family:'Fraunces',serif;font-weight:400;font-size:clamp(36px,5vw,64px);
+  line-height:1.0;letter-spacing:-0.03em;font-variation-settings:"opsz" 144,"SOFT" 30;
+  margin-bottom:20px;color:var(--ink);
+}
+article h1 em{font-style:italic;color:var(--accent);font-weight:300;font-variation-settings:"opsz" 144,"SOFT" 80}
+.article-meta{
+  font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-mute);
+  letter-spacing:0.1em;text-transform:uppercase;border-top:1px solid var(--line-strong);
+  padding-top:16px;margin-top:16px;
+}
+.article-body{padding-top:8px}
+.article-body p{font-size:17px;line-height:1.7;color:var(--ink-soft);margin-bottom:24px;max-width:68ch}
+.article-body h2{
+  font-family:'Fraunces',serif;font-weight:400;font-size:clamp(24px,2.8vw,36px);
+  line-height:1.1;letter-spacing:-0.02em;font-variation-settings:"opsz" 60,"SOFT" 40;
+  color:var(--ink);margin:48px 0 16px;scroll-margin-top:84px;
+}
+.article-body h3{
+  font-family:'Fraunces',serif;font-weight:400;font-size:clamp(18px,1.8vw,24px);
+  line-height:1.2;color:var(--ink);margin:36px 0 12px;
+}
+.article-body a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.article-body a:hover{color:var(--accent-hover)}
+.article-body ul,.article-body ol{padding-left:24px;margin-bottom:24px}
+.article-body li{font-size:17px;line-height:1.7;color:var(--ink-soft);margin-bottom:8px}
+.article-body strong{color:var(--ink);font-weight:600}
+.article-body blockquote{
+  border-left:3px solid var(--accent);padding-left:20px;margin:32px 0;font-style:italic;
+  color:var(--ink-soft);font-family:'Fraunces',serif;font-size:20px;line-height:1.5;
+}
+.article-body table{width:100%;border-collapse:collapse;margin:28px 0;font-size:15px;line-height:1.5}
+.article-body th,.article-body td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line-strong);color:var(--ink-soft)}
+.article-body th{
+  font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;
+  color:var(--ink);background:var(--paper-warm);border-bottom:1px solid var(--ink);
+}
+.article-body tr:last-child td{border-bottom:none}
+
+/* KEY TAKEAWAYS */
+.article-takeaways{background:var(--card);border:1px solid var(--line-strong);border-radius:var(--radius);padding:28px 32px;margin:8px 0 40px;box-shadow:var(--shadow)}
+.article-takeaways .kt-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.article-takeaways .kt-label::before{content:"";width:20px;height:1px;background:var(--accent)}
+.article-takeaways ul{padding-left:20px;margin:0}
+.article-takeaways li{font-size:16px;line-height:1.6;color:var(--ink-soft);margin-bottom:10px}
+
+/* TOC */
+.article-toc{border-left:2px solid var(--line-strong);padding-left:22px;margin:40px 0}
+.article-toc .toc-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:14px}
+.article-toc ol{list-style:decimal;padding-left:18px;margin:0}
+.article-toc li{margin-bottom:9px;font-size:15px;color:var(--ink-mute)}
+.article-toc a{color:var(--ink-soft);text-decoration:none}
+.article-toc a:hover{color:var(--accent)}
+
+/* STAT CALLOUT */
+.article-stat{border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:24px 0;margin:40px 0}
+.article-stat .stat-num{font-family:'Fraunces',serif;font-weight:400;font-size:48px;line-height:1;color:var(--navy);font-variation-settings:"opsz" 144}
+.article-stat .stat-text{font-size:15px;color:var(--ink-soft);margin-top:10px;max-width:60ch}
+.article-stat .stat-text a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+
+/* CUSTOMER QUOTE CARD (image) */
+.article-quote-card{margin:48px 0;text-align:center}
+.article-quote-card img{max-width:460px;width:100%;height:auto;border-radius:var(--radius);box-shadow:var(--shadow)}
+.article-quote-card figcaption{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-mute);margin-top:14px}
+
+/* ARTICLE CTA BOX (dark card, blue pill) */
+.article-cta{
+  background:var(--ink);color:var(--paper);border-radius:var(--radius);padding:48px 40px;
+  margin:56px 0;text-align:center;position:relative;overflow:hidden;
+}
+@media(max-width:720px){.article-cta{padding:36px 24px}}
+.article-cta::before{
+  content:"";position:absolute;top:-40%;left:-10%;width:60%;height:180%;
+  background:radial-gradient(ellipse,rgba(37,99,255,0.25),transparent 60%);pointer-events:none;
+}
+.article-cta h2{
+  font-family:'Fraunces',serif;font-weight:300;font-size:clamp(24px,3vw,40px);line-height:1.1;
+  letter-spacing:-0.025em;color:#fff;margin-bottom:12px;font-variation-settings:"opsz" 144,"SOFT" 50;position:relative;
+}
+.article-cta h2 em{font-style:italic;color:var(--accent)}
+.article-cta p{color:rgba(244,241,234,0.7);font-size:16px;margin-bottom:28px;position:relative;max-width:54ch;margin-left:auto;margin-right:auto}
+.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative}
+.cta-primary{
+  display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;
+  padding:16px 28px;border-radius:999px;font-size:15px;font-weight:500;transition:all .2s;text-decoration:none;position:relative;
+}
+.cta-primary:hover{transform:translateY(-2px);background:var(--accent-hover);text-decoration:none}
+.cta-primary::after{content:"→";transition:transform .2s}
+.cta-primary:hover::after{transform:translateX(3px)}
+.cta-secondary{
+  display:inline-flex;align-items:center;gap:8px;background:transparent;color:#fff;
+  border:1.5px solid rgba(244,241,234,0.4);padding:16px 28px;border-radius:999px;
+  font-size:15px;font-weight:500;text-decoration:none;transition:all .2s;position:relative;
+}
+.cta-secondary:hover{background:rgba(244,241,234,0.1);border-color:rgba(244,241,234,0.7);text-decoration:none;transform:translateY(-2px)}
+
+.article-cta__spark{width:26px;height:26px;color:var(--accent);display:block;margin:0 auto 14px;position:relative}
+  /* FAQ */
+.article-faq{margin:56px 0}
+.article-faq > .faq-head{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(24px,2.8vw,36px);color:var(--ink);margin-bottom:8px;font-variation-settings:"opsz" 60,"SOFT" 40}
+.faq-item{border-top:1px solid var(--line-strong);padding:24px 0}
+.faq-item:last-child{border-bottom:1px solid var(--line-strong)}
+.faq-item h3{font-family:'Fraunces',serif;font-weight:400;font-size:21px;color:var(--ink);margin:0 0 10px}
+.faq-item p{font-size:16px;line-height:1.65;color:var(--ink-soft);margin:0}
+
+/* AUTHOR BIO */
+.article-author{display:flex;gap:18px;align-items:flex-start;background:var(--card);border:1px solid var(--line-strong);border-radius:var(--radius);padding:24px 28px;margin:48px 0}
+.article-author img{width:60px;height:60px;border-radius:999px;flex-shrink:0;object-fit:cover}
+.article-author .au-name{font-family:'Fraunces',serif;font-size:19px;color:var(--ink);margin-bottom:6px}
+.article-author p{font-size:15px;line-height:1.6;color:var(--ink-soft);margin:0}
+.article-author a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+
+/* RELATED */
+.article-related{margin:56px 0 0}
+.article-related .rel-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.article-related .rel-label::before{content:"";width:20px;height:1px;background:var(--accent)}
+.article-related ul{list-style:none;padding:0;margin:0;display:grid;gap:16px}
+.article-related a{font-family:'Fraunces',serif;font-size:20px;color:var(--ink);text-decoration:none;line-height:1.2}
+.article-related a:hover{color:var(--accent)}
+
+/* FOOTER */
+footer{padding:64px 0 32px;border-top:1px solid var(--line-strong)}
+.foot-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:32px;margin-bottom:48px}
+.foot-brand-block{display:flex;flex-direction:column;gap:14px;max-width:36ch}
+.foot-tagline{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:15px;color:var(--ink-soft);line-height:1.4;font-variation-settings:"opsz" 24,"SOFT" 70}
+.foot-tagline span{color:var(--accent);font-style:normal;font-weight:500}
+.foot-links{display:flex;gap:28px;flex-wrap:wrap;align-items:center}
+.foot-links a{color:var(--ink-soft);font-size:14px;transition:color .2s;text-decoration:none}
+.foot-links a:hover{color:var(--ink);text-decoration:none}
+.foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;padding-top:32px;border-top:1px solid var(--line-strong);font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-mute);letter-spacing:0.05em}
+.foot-bottom a{color:inherit;text-decoration:none;transition:color .2s}
+.foot-bottom a:hover{color:var(--ink)}
+  /* CTA color fix: beat .article-body a specificity */
+.article-cta .cta-primary,.article-cta .cta-primary:hover,.article-cta .cta-secondary,.article-cta .cta-secondary:hover{color:#fff !important;text-decoration:none !important}
+{OVR}
+/* breathing space: separate heavy blocks */
+/* base margins: every visual element treated as a callout */
+.article-takeaways{margin:72px 0 !important}
+.article-toc{margin:60px 0 !important}
+.article-body table{margin:72px 0 !important}
+.article-body blockquote{margin:64px 0 !important}
+.article-stat{margin:88px 0 !important}
+.article-quote-card{margin:104px 0 !important}
+.article-cta{margin:112px 0 !important}
+.article-author{margin:96px 0 !important}
+.article-related{margin:88px 0 0 !important}
+/* extra-large gap when two heavy cards are directly adjacent */
+.article-cta + .article-cta,.article-cta + .article-quote-card,.article-cta + .article-stat,.article-cta + .article-author,.article-cta + .article-related,.article-quote-card + .article-cta,.article-quote-card + .article-quote-card,.article-quote-card + .article-stat,.article-quote-card + .article-author,.article-quote-card + .article-related,.article-stat + .article-cta,.article-stat + .article-quote-card,.article-stat + .article-stat,.article-stat + .article-author,.article-stat + .article-related,.article-author + .article-cta,.article-author + .article-quote-card,.article-author + .article-stat,.article-author + .article-author,.article-author + .article-related,.article-related + .article-cta,.article-related + .article-quote-card,.article-related + .article-stat,.article-related + .article-author,.article-related + .article-related{margin-top:180px !important}
+@media(max-width:720px){.article-takeaways{margin:56px 0 !important}.article-toc{margin:44px 0 !important}.article-body table{margin:56px 0 !important}.article-body blockquote{margin:52px 0 !important}.article-stat{margin:72px 0 !important}.article-quote-card{margin:88px 0 !important}.article-cta{margin:96px 0 !important}.article-author{margin:80px 0 !important}.article-related{margin:72px 0 0 !important}.article-cta + .article-cta,.article-cta + .article-quote-card,.article-cta + .article-stat,.article-cta + .article-author,.article-cta + .article-related,.article-quote-card + .article-cta,.article-quote-card + .article-quote-card,.article-quote-card + .article-stat,.article-quote-card + .article-author,.article-quote-card + .article-related,.article-stat + .article-cta,.article-stat + .article-quote-card,.article-stat + .article-stat,.article-stat + .article-author,.article-stat + .article-related,.article-author + .article-cta,.article-author + .article-quote-card,.article-author + .article-stat,.article-author + .article-author,.article-author + .article-related,.article-related + .article-cta,.article-related + .article-quote-card,.article-related + .article-stat,.article-related + .article-author,.article-related + .article-related{margin-top:160px !important}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a href="https://www.zuuz.ai/" class="brand">
+      <svg class="brand-spark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z"/></svg>
+      <span class="brand-text">ZUUZ</span>
+    </a>
+    <div class="nav-ctas">
+      <a class="nav-cta-ghost" href="https://buy.stripe.com/cNi6oHaWNeAU8QS457bZe00" rel="noopener">Start free trial</a>
+      <a class="nav-cta" href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Book a demo</a>
+    </div>
+  </div>
+</header>
+<article>
+  <div class="wrap-narrow article-head">
+    <nav class="article-breadcrumb" aria-label="Breadcrumb"><a href="https://www.zuuz.ai/">Home</a> / <a href="https://www.zuuz.ai/blogs">Blog</a> / CRM Data Quality</nav>
+    <div class="article-eyebrow">Blog · CRM Data Quality</div>
+    <h1>CRM Data Quality <em>Checks</em></h1>
+    <div class="article-meta">By Avinash Gujje · 2026 · 8 min read</div>
+  </div>
+  <div class="wrap-narrow article-body">
+
+    <div class="article-takeaways">
+      <div class="kt-label">Key Takeaways</div>
+      <ul>
+        <li>Six checks carry most of a sales ops team's data quality work: duplicate detection, field completeness, format and validation, staleness and recency, ownership and routing accuracy, and standardization.</li>
+        <li>Each check has a manual version that does not scale and an automated version that runs on a fixed cadence, from on-write to monthly.</li>
+        <li>A check inspects records that already exist. It can flag a missing field but cannot recover a value that never left the inbox.</li>
+        <li>Capture at source removes whole categories of checks instead of scoring them, because records arrive complete and timestamped from the conversation that created them.</li>
+        <li>ZUUZ writes structured records to Salesforce, HubSpot, or Zoho from email within about one hour, so completeness and recency checks pass by default.</li>
+        <li>RA Technologies surfaced $120,000 in previously unrecorded pipeline within 30 days by connecting their shared inbox and running a 90-day historical email lookback.</li>
+      </ul>
+    </div>
+
+    <nav class="article-toc" aria-label="Table of contents">
+      <div class="toc-label">In this article</div>
+      <ol>
+        <li><a href="#the-six-checks">The Six CRM Data Quality Checks</a></li>
+        <li><a href="#checks-table">Checks to Automation Table</a></li>
+        <li><a href="#how-often">How Often Each Check Should Run</a></li>
+        <li><a href="#limit-of-check-and-fix">The Limit of Check and Fix</a></li>
+        <li><a href="#capture-at-source">How Capture at Source Removes Checks</a></li>
+        <li><a href="#how-zuuz-helps">Data Quality Checks: How ZUUZ Removes the Work</a></li>
+        <li><a href="#faq">Frequently Asked Questions</a></li>
+      </ol>
+    </nav>
+
+    <p>A sales ops team does not lack CRM data quality checks. The team lacks the hours to run them. The duplicate scan, the completeness report, the staleness query: all of these exist as someone's recurring task, and most of them slip when the quarter gets busy.</p>
+
+    <p>This guide treats each check as a unit. What it inspects, how a sales ops team ran it by hand, and how to automate it so it runs on a schedule instead of a good intention. The goal is an operational playbook, not another argument for why clean data matters.</p>
+
+    <p>For the business case behind all of this, the cost of dirty records and the reasons it accumulates, see the pillar on <a href="https://www.zuuz.ai/blogs/crm-data-quality">CRM data quality</a>. For the software category that runs these checks, see <a href="https://www.zuuz.ai/blogs/crm-data-quality-tools">CRM data quality tools</a>. This article stays on the checks themselves.</p>
+
+    <h2 id="the-six-checks">The Six CRM Data Quality Checks</h2>
+
+    <p>Most CRM data quality audits reduce to six checks. Each answers one question about whether a record can be trusted. Below, each check appears with what it inspects, how sales ops ran it manually, and how to automate it.</p>
+
+    <h3>1. Duplicate Detection</h3>
+    <p>Duplicate detection finds records that describe the same account, contact, or deal under more than one entry. Duplicates split activity history, break reporting counts, and route the same buyer to two reps. This is the foundation of <strong>CRM duplicate detection</strong> work.</p>
+    <p>Manually, a sales ops analyst exported the contact table, sorted by email domain and last name, and eyeballed the near-matches. The work was slow, subjective, and never complete because new duplicates appeared the moment the export finished.</p>
+    <p>Automated, fuzzy matching runs on every write. It compares incoming records against existing ones on email, normalized company name, and phone, then either blocks creation or queues a merge. The check moves from a quarterly export to a real-time gate.</p>
+
+    <h3>2. Field Completeness</h3>
+    <p>A completeness check measures whether required fields are populated. <strong>CRM data completeness</strong> is the difference between a record that can be acted on and one that cannot: a deal with no amount, a contact with no title, an account with no region.</p>
+    <p>Manually, completeness was a filtered view: show every open opportunity missing a close date, then chase the owning rep to fill it. The chasing rarely finished, and the next week produced a fresh list.</p>
+    <p>Automated, a daily query reports completeness percentage per object and per required field, and a workflow can flag or hold records below a threshold. The metric becomes a tracked number rather than a one-time cleanup.</p>
+
+    <h3>3. Format and Validation Rules</h3>
+    <p>Validation checks confirm that values match an expected format: a real email address, a phone in the right pattern, a currency amount with no stray text, a date that parses. This is <strong>CRM data validation</strong> in the strict sense.</p>
+    <p>Manually, a rep caught format errors by reading records one at a time, or a downstream system rejected the data and someone traced it back. Most format errors were found by the tool that broke on them.</p>
+    <p>Automated, validation rules fire on write and reject or correct malformed input before it lands. The check shifts from cleanup after the fact to prevention at the point of entry.</p>
+
+    <h3>4. Staleness and Recency</h3>
+    <p>A staleness check finds records that have not been touched within a meaningful window: an open deal with no activity in 30 days, a contact last updated a year ago. Recency is one of the most useful <strong>CRM data quality metrics</strong> because it correlates directly with trust.</p>
+    <p>Manually, staleness was a pipeline review where a manager scrolled a report and asked which deals were still real. The answer depended on memory, and the records that had gone quiet were exactly the ones nobody remembered.</p>
+    <p>Automated, a scheduled query flags records past the recency threshold and can downgrade stage, alert the owner, or mark the record for review. The check runs on the calendar instead of in a meeting.</p>
+
+    <h3>5. Ownership and Routing Accuracy</h3>
+    <p>An ownership check confirms that each record sits with the right rep, territory, or team. Wrong ownership means a buyer gets ignored because the assigned rep no longer covers that account, or two reps both think the other has it.</p>
+    <p>Manually, ownership corrections happened after a complaint: a deal stalled, someone asked who owned it, and the routing error surfaced. The check was reactive and triggered by failure.</p>
+    <p>Automated, routing rules evaluate territory, segment, and round-robin logic on creation and reassignment, and an audit query flags records whose owner does not match the rule. The check becomes a rule the system enforces rather than a fire it puts out.</p>
+
+    <h3>6. Standardization</h3>
+    <p>Standardization confirms that values use a consistent form: "United States" not "USA" not "U.S.", a single picklist value per concept, title case where expected. Inconsistent values fragment reports and break filters even when every field is technically populated.</p>
+    <p>Manually, standardization was a find-and-replace pass across an export, reconciled against a style guide that lived in a wiki few people read. It corrected the past and did nothing for the next entry.</p>
+    <p>Automated, normalization rules map variants to a canonical value on write, and a conformance query reports how many records deviate. The check enforces the standard at entry and measures drift over time.</p>
+
+    <div class="article-cta">
+      <svg class="article-cta__spark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z"/></svg>
+      <h2>Skip the Cleanup. Write It <em>Right</em> the First Time.</h2>
+      <p>ZUUZ captures structured records from email, so completeness and recency checks pass before you ever run them. Book a 15-minute walkthrough on your own inbox.</p>
+      <div class="cta-row"><a class="cta-primary" href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Book a 15-min demo</a></div>
+    </div>
+
+    <h2 id="checks-table">Checks to Automation Table</h2>
+
+    <p>The table below maps each check to what it inspects, the manual method it replaces, and the automated equivalent. It doubles as a starting outline for a <strong>CRM data quality audit</strong>.</p>
+
+    <table aria-label="CRM data quality checks mapped to manual method and automated method">
+      <thead>
+        <tr>
+          <th>Check</th>
+          <th>What It Inspects</th>
+          <th>Manual Method</th>
+          <th>Automated Method</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Duplicate detection</td>
+          <td>Same account, contact, or deal under multiple records</td>
+          <td>Sorted export, eyeball near-matches</td>
+          <td>Fuzzy matching on write, block or queue merge</td>
+        </tr>
+        <tr>
+          <td>Field completeness</td>
+          <td>Required fields populated</td>
+          <td>Filtered view, chase the owning rep</td>
+          <td>Daily completeness query, threshold hold</td>
+        </tr>
+        <tr>
+          <td>Format and validation</td>
+          <td>Values match expected format</td>
+          <td>Found when a downstream system breaks</td>
+          <td>Validation rules fire on write, reject bad input</td>
+        </tr>
+        <tr>
+          <td>Staleness and recency</td>
+          <td>Records untouched past a time window</td>
+          <td>Pipeline review by memory</td>
+          <td>Scheduled query flags stale records, alerts owner</td>
+        </tr>
+        <tr>
+          <td>Ownership and routing</td>
+          <td>Record sits with the correct rep or territory</td>
+          <td>Corrected after a complaint</td>
+          <td>Routing rules on creation, audit query for mismatch</td>
+        </tr>
+        <tr>
+          <td>Standardization</td>
+          <td>Consistent canonical values</td>
+          <td>Find-and-replace against a style guide</td>
+          <td>Normalization on write, conformance query</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <figure class="article-quote-card"><img src="https://www.zuuz.ai/uploads/avinash-gujje-quote-uncover-buyer-signals-pipeline-velocity.png" alt="Avinash Gujje, CEO of ZUUZ, on revenue signal intelligence" loading="lazy" width="600" height="600" /><figcaption>Avinash Gujje · CEO, ZUUZ</figcaption></figure>
+
+    <h2 id="how-often">How Often Each Check Should Run</h2>
+
+    <p>Cadence is where most data quality programs fail. A check that should run on every write but instead runs quarterly is not a check. It is a backlog. The intervals below reflect how often each check stays useful.</p>
+
+    <table aria-label="Recommended cadence for each CRM data quality check">
+      <thead>
+        <tr>
+          <th>Check</th>
+          <th>Recommended Cadence</th>
+          <th>Why This Interval</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Duplicate detection</td>
+          <td>On write</td>
+          <td>A duplicate created today corrupts reporting immediately</td>
+        </tr>
+        <tr>
+          <td>Format and validation</td>
+          <td>On write</td>
+          <td>Malformed values break downstream systems the moment they land</td>
+        </tr>
+        <tr>
+          <td>Field completeness</td>
+          <td>Daily</td>
+          <td>Gaps appear constantly; a daily number keeps them visible</td>
+        </tr>
+        <tr>
+          <td>Ownership and routing</td>
+          <td>Daily</td>
+          <td>Misrouted records lose days of response time fast</td>
+        </tr>
+        <tr>
+          <td>Staleness and recency</td>
+          <td>Weekly</td>
+          <td>Deals go quiet on a rhythm that a weekly sweep catches</td>
+        </tr>
+        <tr>
+          <td>Standardization</td>
+          <td>Weekly</td>
+          <td>Drift accumulates slowly; weekly conformance is enough</td>
+        </tr>
+        <tr>
+          <td>Full audit, all six</td>
+          <td>Monthly or quarterly</td>
+          <td>A trended snapshot shows whether quality is rising or eroding</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>A manual team cannot hit these intervals. On-write checks are impossible by hand, and daily ones get skipped under quota pressure. This is why most teams collapse all six into a single quarterly cleanup that fixes the past and leaves the next quarter to rot. Automated checks, by contrast, run at their natural cadence without competing for a person's time. The economics of that swap are covered in <a href="https://www.zuuz.ai/blogs/zuuz-vs-manual-crm-entry">ZUUZ versus manual CRM entry</a>.</p>
+
+    <h2 id="limit-of-check-and-fix">The Limit of Check and Fix</h2>
+
+    <p>Every check in this article shares one boundary. A check inspects records that already exist. It cannot create a value that was never recorded.</p>
+
+    <p>A completeness check can prove that an opportunity has no close date. It cannot tell you the close date. If the buyer mentioned "we need this signed before our fiscal year ends in March" in an email that nobody logged, the check will correctly flag the empty field and remain unable to fill it. The signal left a trace, but the trace stayed in the inbox.</p>
+
+    <p>The same limit applies to staleness. A recency check flags a deal with no activity in 30 days. If the account actually sent three emails last week that never reached the CRM, the check is technically right and practically wrong. The record looks dead because the capture failed, not because the deal died.</p>
+
+    <p>This is the difference between mechanical fixes and signal recovery. Duplicate merges, format normalization, and standardization are mechanical: an automated check can fully resolve them because the information is present. Completeness and recency gaps are signal problems: the check can score them perfectly and fix nothing, because the missing data never entered the system. More on how this distorts the funnel sits in <a href="https://www.zuuz.ai/blogs/why-your-crm-pipeline-is-wrong">why your CRM pipeline is wrong</a>.</p>
+
+    <figure class="article-quote-card"><img src="https://www.zuuz.ai/uploads/avinash-gujje-quote-speed-to-signal-speed-to-revenue.png" alt="Avinash Gujje, CEO of ZUUZ, on revenue signal intelligence" loading="lazy" width="600" height="600" /><figcaption>Avinash Gujje · CEO, ZUUZ</figcaption></figure>
+
+    <h2 id="capture-at-source">How Capture at Source Removes Checks</h2>
+
+    <p>If a check cannot recover what was never captured, the better move is to capture correctly the first time. Capture at source means writing the record from the conversation that created it, rather than reconstructing it later from memory.</p>
+
+    <p>When records are created from the source email, several checks stop being necessary. A completeness check has nothing to flag if the deal amount, contact title, and next step were extracted from the thread at creation. A recency check finds no false staleness if every inbound and outbound message updates the record's activity timestamp automatically. The check still runs, but it passes by default because the gap it looks for never opens.</p>
+
+    <p>This reframes the entire program. Instead of running six checks to score how badly manual entry decayed the data, a team runs capture at source and watches whole categories of failure disappear. Validation and standardization still apply at the write step. Completeness and recency largely solve themselves. Duplicate detection improves because the system matches against existing accounts before creating anything. The work shifts from auditing decay to preventing it, a pattern detailed in <a href="https://www.zuuz.ai/blogs/best-crm-to-reduce-manual-data-entry">choosing a CRM that reduces manual data entry</a>.</p>
+
+    <div class="article-cta">
+      <svg class="article-cta__spark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z"/></svg>
+      <h2>Stop Auditing Decay. Prevent It <em>at the Source.</em></h2>
+      <p>Connect your CRM in minutes and let ZUUZ write complete, current records from every email. Start free, with no integration project required.</p>
+      <div class="cta-row"><a class="cta-primary" href="https://buy.stripe.com/cNi6oHaWNeAU8QS457bZe00" rel="noopener">Start free trial</a><a class="cta-secondary" href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Or book a demo</a></div>
+    </div>
+
+    <h2 id="how-zuuz-helps">Data Quality Checks: How ZUUZ Removes the Work</h2>
+
+    <p>ZUUZ operates as the layer between email and CRM. It reads inbound and outbound email, extracts deal signals, and writes structured records to Salesforce, HubSpot, or Zoho within about one hour. Because the record is built from the source conversation, the data quality checks that punish manual entry have far less to catch.</p>
+
+    <p>Completeness checks pass by default because fields arrive populated from the email: contact, company, deal context, and next step are extracted at creation rather than chased afterward. Recency checks pass because every message in the thread updates the record's activity timestamp, so an active account never looks stale. Duplicate creation drops because the system matches incoming signals against existing accounts before writing anything new.</p>
+
+    <p>The CRM-agnostic design matters here. A sales ops team running Salesforce in one division and HubSpot or Zoho in another does not need a separate quality program per system. ZUUZ writes structured, validated records in each platform's native format, so the same capture standard holds across all three. That removes the most common reason standardization checks fail: different tools, different conventions, no shared source of truth.</p>
+
+    <h3>RA Technologies: $120K Surfaced in 30 Days</h3>
+    <p>RA Technologies, an IT services firm in the United States, connected their shared inbox to ZUUZ and ran a 90-day historical lookback on first connection. The system surfaced $120,000 in pipeline from prior email threads that had never been recorded in Salesforce. No completeness check could have found that pipeline, because the records did not exist to be checked. Capture created them from email that the CRM had never seen.</p>
+
+    <p>That is the practical case for capture over check. A perfect audit of an empty record set returns a perfect score and zero recovered revenue. The pipeline was earned business already in motion, invisible to leadership only because it had stayed in the inbox.</p>
+
+
+    <p>Checks still have a place. Validation, standardization, and ownership rules belong in any well-run CRM, and a monthly audit keeps the team honest. But for the two checks that cost sales ops the most time, completeness and recency, capture at source changes the question from "how do we fix this faster" to "how do we stop creating it." Teams that want hands-on help can review <a href="https://www.zuuz.ai/blogs/crm-data-quality-services">CRM data quality services</a> or work with <a href="https://www.zuuz.ai/blogs/crm-data-quality-consultants">CRM data quality consultants</a> to set the standard before automating it.</p>
+
+    <section class="article-faq">
+      <h2 class="faq-head" id="faq">Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <h3>What Are the Core CRM Data Quality Checks Every Sales Ops Team Should Run?</h3>
+        <p>Six checks cover most of the work: duplicate detection, field completeness, format and validation rules, staleness and recency, ownership and routing accuracy, and standardization. Each answers a different question about whether a record can be trusted. Run together, they tell a sales ops team how much of the CRM reflects reality and how much is noise, missing data, or contradiction that reporting will then amplify.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How Often Should CRM Data Quality Checks Run?</h3>
+        <p>Duplicate detection and validation should run on write, the moment a record is created or edited. Completeness and ownership accuracy fit a daily cadence. Staleness and standardization work well weekly. A full audit across all six belongs on a monthly or quarterly schedule. Manual teams cannot hit these intervals, which is why most checks collapse into a single rushed quarterly cleanup that leaves the next quarter to decay.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What Is the Difference Between a Data Quality Check and Capture at Source?</h3>
+        <p>A check inspects records that already exist and flags what is wrong. Capture at source writes the record correctly the first time, from the email or document where the signal originated. The difference matters because a completeness check can find a missing field but cannot recover the value if that value never left the inbox. Capture removes whole categories of checks rather than scoring them after the fact.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can Automated Checks Fix Bad CRM Data on Their Own?</h3>
+        <p>Automated checks can fix mechanical problems: duplicate merges, format normalization, and standardization, because the information is already present. They cannot fix missing signal. If a renewal date or deal value was never recorded because the conversation stayed in email, no check can restore it. Checks score the gap accurately, but closing it requires capturing data at the point it is created rather than reconstructing it later.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How Does ZUUZ Improve CRM Data Quality Across Salesforce, HubSpot, and Zoho?</h3>
+        <p>ZUUZ reads inbound and outbound email, extracts deal signals, and writes structured records to Salesforce, HubSpot, or Zoho within about one hour. Because records are created from the source conversation, completeness and recency checks pass by default. Fields arrive populated, timestamps reflect real activity, and duplicate creation drops because the system matches against existing accounts before writing a new record.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What CRM Data Quality Metrics Should a Sales Ops Team Track?</h3>
+        <p>Track duplicate rate, completeness percentage on required fields, validation pass rate, staleness percentage of records untouched past a threshold, ownership match rate, and standardization conformance. Each metric maps to one check. Trended over time, they show whether data quality is improving or eroding, which is far more useful than a single quarterly audit snapshot that captures only one moment.</p>
+      </div>
+    </section>
+
+    <div class="article-cta">
+      <h2>See the Records Your Checks <em>Can't</em> Find.</h2>
+      <p>Audits score what exists. ZUUZ captures what never reached the CRM, so book 15 minutes and see the complete, current records your inbox could be writing today.</p>
+      <div class="cta-row"><a class="cta-primary" href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Book a 15-min demo</a></div>
+    </div>
+
+    <div class="article-author">
+      <img src="https://www.zuuz.ai/uploads/avinash-gujje-headshot-zuuz-ceo.png" alt="Avinash Gujje, CEO of ZUUZ" loading="lazy" width="60" height="60" />
+      <div>
+        <div class="au-name">Avinash Gujje</div>
+        <p>CEO of ZUUZ. He scaled Cloud Box Technologies from 0 to $25M ARR in IT services and distribution before building ZUUZ. <a href="https://www.linkedin.com/in/avinashgujje/" rel="noopener" target="_blank">Connect on LinkedIn</a></p>
+      </div>
+    </div>
+
+    <section class="article-related">
+      <div class="rel-label">Related Reading</div>
+      <ul>
+        <li><a href="https://www.zuuz.ai/blogs/crm-data-quality">CRM Data Quality: The Real Cost of Dirty Records</a></li>
+        <li><a href="https://www.zuuz.ai/blogs/crm-data-quality-tools">CRM Data Quality Tools That Actually Keep Data Clean</a></li>
+        <li><a href="https://www.zuuz.ai/blogs/zuuz-vs-manual-crm-entry">ZUUZ vs. Manual CRM Entry: The Real Cost Comparison</a></li>
+      </ul>
+    </section>
+
+  </div>
+</article>
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand-block">
+        <a href="https://www.zuuz.ai/" class="brand">
+          <svg class="brand-spark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z"/></svg>
+          <span class="brand-text">ZUUZ</span>
+        </a>
+        <p class="foot-tagline">Forged by Insight. <span>Driven by Precision.</span></p>
+      </div>
+      <div class="foot-links">
+        <a href="https://www.zuuz.ai/blogs">Blog</a>
+        <a href="https://www.zuuz.ai/about">About</a>
+        <a href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Book a demo</a>
+        <a href="https://buy.stripe.com/cNi6oHaWNeAU8QS457bZe00" rel="noopener">Start free trial</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ZUUZ, Inc. · Sunnyvale · Dubai · Hyderabad</span>
+      <span>Forged by Insight · Driven by Precision</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

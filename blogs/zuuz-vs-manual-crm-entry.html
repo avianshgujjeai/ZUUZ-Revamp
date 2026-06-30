@@ -240,8 +240,8 @@ a:hover{text-decoration:underline}
 
 /* LAYOUT */
 .wrap{max-width:1180px;margin:0 auto;padding:0 32px;position:relative;z-index:2}
-.wrap-narrow{max-width:740px;margin:0 auto;padding:0 32px;position:relative;z-index:2}
-@media(max-width:740px){.wrap,.wrap-narrow{padding:0 20px}}
+.wrap-narrow{max-width:720px;margin:0 auto;padding:0 32px;position:relative;z-index:2}
+@media(max-width:720px){.wrap,.wrap-narrow{padding:0 20px}}
 
 /* HEADER */
 header{
@@ -258,16 +258,12 @@ header{
   font-variation-settings:"opsz" 144,"SOFT" 30;color:var(--navy);line-height:1;
 }
 .nav-ctas{display:flex;align-items:center;gap:8px}
-  .nav-links{display:flex;align-items:center;gap:22px;list-style:none;margin:0;padding:0;}
-  .nav-links a{font-size:13px;font-weight:500;color:var(--ink-mute);transition:color .2s;white-space:nowrap;text-decoration:none;}
-  .nav-links a:hover,.nav-links a.active{color:var(--ink);}
-  @media(max-width:960px){.nav-links{display:none;}}
-  .nav-trial{text-decoration:none;
+.nav-cta-ghost{
   display:inline-flex;align-items:center;color:var(--ink);padding:10px 18px;border-radius:999px;
   font-size:13px;font-weight:500;border:1.5px solid var(--ink);
   transition:background .2s,color .2s,transform .2s;text-decoration:none;
 }
-.nav-trial:hover{background:var(--ink);color:var(--paper);transform:translateY(-1px);text-decoration:none}
+.nav-cta-ghost:hover{background:var(--ink);color:var(--paper);transform:translateY(-1px);text-decoration:none}
 .nav-cta{
   display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--paper);
   padding:10px 18px;border-radius:999px;font-size:13px;font-weight:500;
@@ -279,7 +275,7 @@ header{
 
 /* ARTICLE */
 article{padding:64px 0 80px}
-@media(max-width:740px){article{padding:40px 0 56px}}
+@media(max-width:720px){article{padding:40px 0 56px}}
 .article-head{margin-bottom:48px}
 .article-breadcrumb{
   font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;
@@ -362,7 +358,7 @@ article h1 em{font-style:italic;color:var(--accent);font-weight:300;font-variati
   background:var(--ink);color:var(--paper);border-radius:var(--radius);padding:48px 40px;
   margin:56px 0;text-align:center;position:relative;overflow:hidden;
 }
-@media(max-width:740px){.article-cta{padding:36px 24px}}
+@media(max-width:720px){.article-cta{padding:36px 24px}}
 .article-cta::before{
   content:"";position:absolute;top:-40%;left:-10%;width:60%;height:180%;
   background:radial-gradient(ellipse,rgba(37,99,255,0.25),transparent 60%);pointer-events:none;
@@ -424,29 +420,33 @@ footer{padding:64px 0 32px;border-top:1px solid var(--line-strong)}
 .foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;padding-top:32px;border-top:1px solid var(--line-strong);font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-mute);letter-spacing:0.05em}
 .foot-bottom a{color:inherit;text-decoration:none;transition:color .2s}
 .foot-bottom a:hover{color:var(--ink)}
-  </style>
+  /* CTA color fix */
+.article-cta .cta-primary,.article-cta .cta-primary:hover,.article-cta .cta-secondary,.article-cta .cta-secondary:hover{color:#fff !important;text-decoration:none !important}
+/* breathing space: separate heavy blocks */
+/* base margins: every visual element treated as a callout */
+.article-takeaways{margin:72px 0 !important}
+.article-toc{margin:60px 0 !important}
+.article-body table{margin:72px 0 !important}
+.article-body blockquote{margin:64px 0 !important}
+.article-stat{margin:88px 0 !important}
+.article-quote-card{margin:104px 0 !important}
+.article-cta{margin:112px 0 !important}
+.article-author{margin:96px 0 !important}
+.article-related{margin:88px 0 0 !important}
+/* extra-large gap when two heavy cards are directly adjacent */
+.article-cta + .article-cta,.article-cta + .article-quote-card,.article-cta + .article-stat,.article-cta + .article-author,.article-cta + .article-related,.article-quote-card + .article-cta,.article-quote-card + .article-quote-card,.article-quote-card + .article-stat,.article-quote-card + .article-author,.article-quote-card + .article-related,.article-stat + .article-cta,.article-stat + .article-quote-card,.article-stat + .article-stat,.article-stat + .article-author,.article-stat + .article-related,.article-author + .article-cta,.article-author + .article-quote-card,.article-author + .article-stat,.article-author + .article-author,.article-author + .article-related,.article-related + .article-cta,.article-related + .article-quote-card,.article-related + .article-stat,.article-related + .article-author,.article-related + .article-related{margin-top:180px !important}
+@media(max-width:720px){.article-takeaways{margin:56px 0 !important}.article-toc{margin:44px 0 !important}.article-body table{margin:56px 0 !important}.article-body blockquote{margin:52px 0 !important}.article-stat{margin:72px 0 !important}.article-quote-card{margin:88px 0 !important}.article-cta{margin:96px 0 !important}.article-author{margin:80px 0 !important}.article-related{margin:72px 0 0 !important}.article-cta + .article-cta,.article-cta + .article-quote-card,.article-cta + .article-stat,.article-cta + .article-author,.article-cta + .article-related,.article-quote-card + .article-cta,.article-quote-card + .article-quote-card,.article-quote-card + .article-stat,.article-quote-card + .article-author,.article-quote-card + .article-related,.article-stat + .article-cta,.article-stat + .article-quote-card,.article-stat + .article-stat,.article-stat + .article-author,.article-stat + .article-related,.article-author + .article-cta,.article-author + .article-quote-card,.article-author + .article-stat,.article-author + .article-author,.article-author + .article-related,.article-related + .article-cta,.article-related + .article-quote-card,.article-related + .article-stat,.article-related + .article-author,.article-related + .article-related{margin-top:160px !important}}
+</style>
 </head>
 <body>
 <header>
   <div class="wrap nav">
-    <a href="/" class="brand">
+    <a href="https://www.zuuz.ai/" class="brand">
       <svg class="brand-spark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z"/></svg>
       <span class="brand-text">ZUUZ</span>
     </a>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="/#workflow">How it works</a></li>
-        <li><a href="/#why-zuuz">Why ZUUZ</a></li>
-        <li><a href="/#proof">Customers</a></li>
-        <li><a href="/#pricing">Pricing</a></li>
-        <li><a href="/roi-calculator">ROI Calculator</a></li>
-        <li><a href="/#team">Team</a></li>
-        <li><a href="/contact">Contact</a></li>
-        <li><a href="/blogs">Blogs</a></li>
-      </ul>
-    </nav>
-    <div class="nav-actions">
-      <a class="nav-trial" href="https://buy.stripe.com/cNi6oHaWNeAU8QS457bZe00" rel="noopener">Start 30-day free trial</a>
+    <div class="nav-ctas">
+      <a class="nav-cta-ghost" href="https://buy.stripe.com/cNi6oHaWNeAU8QS457bZe00" rel="noopener">Start free trial</a>
       <a class="nav-cta" href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Book a demo</a>
     </div>
   </div>
@@ -516,12 +516,15 @@ footer{padding:64px 0 32px;border-top:1px solid var(--line-strong)}
     <p>The deals that close on manual entry are the ones the rep was already tracking closely. The deals that close later than they should, or not at all, are the ones that surfaced as ambiguous signals and never made it into the CRM in the first place.</p>
     <p>For IT services firms and distributors managing multi-product accounts with renewal cycles, this pattern is especially costly. A single missed renewal thread on a $200,000 account can absorb months of new-business effort to replace. The full analysis of <a href="https://www.zuuz.ai/blogs/missed-sales-leads-in-email-how-to-fix-it">how missed leads accumulate in email</a> and what that costs in closed revenue is covered separately.</p>
 
+    <figure class="article-quote-card"><img src="https://www.zuuz.ai/uploads/avinash-gujje-quote-speed-to-signal-speed-to-revenue.png" alt="Avinash Gujje, CEO of ZUUZ, on revenue signal intelligence" loading="lazy" width="600" height="600" /><figcaption>Avinash Gujje · CEO, ZUUZ</figcaption></figure>
+
     <h2 id="data-quality-gap">The Data Quality and Pipeline Visibility Gap</h2>
     <p>The discipline problem produces a downstream data problem. When five reps on the same team log the same type of activity in five different ways, three different definitions of "pipeline" emerge from the same CRM. Stage names mean different things. Opportunity values reflect different assumptions. Close dates reflect optimism rather than conversation content.</p>
     <p>Pipeline review meetings absorb the cost directly. The first ten to fifteen minutes of a weekly call typically go to resolving what is actually in the pipeline, rather than deciding what to do about it. According to <a href="https://www.gartner.com/en/data-analytics/topics/data-quality" rel="noopener noreferrer" target="_blank">Gartner research on CRM data quality</a>, poor CRM data costs organizations an average of $12.9 million annually in lost productivity and missed revenue, driven primarily by inconsistent manual entry across teams.</p>
     <p>There is also a forecasting problem. When CRM data lags the inbox by ten to fourteen days, the revenue forecast is built on a view of the pipeline that is already two weeks out of date. A deal that moved to procurement on Tuesday does not appear in the forecast until a rep logs it, which may not happen until the following Monday's prep for pipeline review.</p>
 
-    <figure class="article-quote-card"><img src="https://www.zuuz.ai/uploads/customer-voice-subhash-sreenivasan-ra-technologies-120k-pipeline.png" alt="Subhash Sreenivasan · RA Technologies, customer result with ZUUZ" loading="lazy" width="460" height="460" /><figcaption>Subhash Sreenivasan · RA Technologies</figcaption></figure>
+
+    <figure class="article-quote-card"><img src="https://www.zuuz.ai/uploads/customer-voice-subhash-sreenivasan-ra-technologies-120k-pipeline.png" alt="Subhash Sreenivasan, RA Technologies, on $120K pipeline surfaced with ZUUZ" loading="lazy" width="460" height="460" /><figcaption>Subhash Sreenivasan · RA Technologies</figcaption></figure>
 
     <h2 id="side-by-side-comparison">ZUUZ vs Manual CRM Entry: Side-by-Side Comparison</h2>
     <p>The comparison below is based on a representative week of 80 inbound emails containing approximately 20 sales-relevant signals across an IT services or distribution sales team.</p>
@@ -594,7 +597,7 @@ footer{padding:64px 0 32px;border-top:1px solid var(--line-strong)}
       <svg class="article-cta__spark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z"/></svg>
       <h2>Stop Losing Pipeline <em>in the Inbox.</em></h2>
       <p>Connect your CRM in minutes and let ZUUZ capture the signals your team never logs. Start free, with no integration project required.</p>
-      <div class="cta-row"><a class="cta-primary" href="https://buy.stripe.com/cNi6oHaWNeAU8QS457bZe00" rel="noopener">Start 30-day free trial</a><a class="cta-secondary" href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Or book a demo</a></div>
+      <div class="cta-row"><a class="cta-primary" href="https://buy.stripe.com/cNi6oHaWNeAU8QS457bZe00" rel="noopener">Start free trial</a><a class="cta-secondary" href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Or book a demo</a></div>
     </div>
 
     <h2 id="how-zuuz-captures-signals">How ZUUZ Captures What Manual Entry Misses</h2>
@@ -612,7 +615,8 @@ footer{padding:64px 0 32px;border-top:1px solid var(--line-strong)}
     <h3>90-Day Lookback on Deployment</h3>
     <p>When ZUUZ deploys, it runs a historical lookback across the prior 90 days of email. Signals that were never logged surface immediately as pipeline that already exists but was invisible to the CRM. At RA Technologies, an IT services firm in the United States, this lookback surfaced $120,000 in pipeline in the first 30 days. These were not new opportunities. They were earned conversations from active accounts that the team had conducted over email but never recorded.</p>
 
-    <figure class="article-quote-card"><img src="https://www.zuuz.ai/uploads/avinash-gujje-quote-speed-to-signal-speed-to-revenue.png" alt="Avinash Gujje, CEO of ZUUZ, on revenue signal intelligence" loading="lazy" width="600" height="600" /><figcaption>Avinash Gujje · CEO, ZUUZ</figcaption></figure>
+
+    <figure class="article-quote-card"><img src="https://www.zuuz.ai/uploads/avinash-gujje-quote-revenue-slows-buying-signals-hidden-inbox.png" alt="Avinash Gujje, CEO of ZUUZ, on revenue signal intelligence" loading="lazy" width="600" height="600" /><figcaption>Avinash Gujje · CEO, ZUUZ</figcaption></figure>
 
     <h2 id="what-sales-reports-look-like">What Sales Reports Look Like With Automated Capture</h2>
     <p>The most visible operational change when teams move from manual CRM entry to ZUUZ is what happens to the pipeline review. With manual entry, the first portion of any review meeting is spent validating the data: which deals are real, which stage updates are current, which close dates are actual commitments versus carry-overs from previous weeks. Managers develop workarounds, like pre-call check-ins with individual reps, to build a picture of the pipeline before the formal discussion even starts.</p>
@@ -695,7 +699,7 @@ footer{padding:64px 0 32px;border-top:1px solid var(--line-strong)}
   <div class="wrap">
     <div class="foot-top">
       <div class="foot-brand-block">
-        <a href="/" class="brand">
+        <a href="https://www.zuuz.ai/" class="brand">
           <svg class="brand-spark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0 C12.5 7 13 9 14 10 C15 11 17 11.5 24 12 C17 12.5 15 13 14 14 C13 15 12.5 17 12 24 C11.5 17 11 15 10 14 C9 13 7 12.5 0 12 C7 11.5 9 11 10 10 C11 9 11.5 7 12 0 Z"/></svg>
           <span class="brand-text">ZUUZ</span>
         </a>
@@ -705,7 +709,7 @@ footer{padding:64px 0 32px;border-top:1px solid var(--line-strong)}
         <a href="https://www.zuuz.ai/blogs">Blog</a>
         <a href="https://www.zuuz.ai/about">About</a>
         <a href="https://cal.com/avinashgujje/15min" target="_blank" rel="noopener">Book a demo</a>
-        <a href="https://buy.stripe.com/cNi6oHaWNeAU8QS457bZe00" rel="noopener">Start 30-day free trial</a>
+        <a href="https://buy.stripe.com/cNi6oHaWNeAU8QS457bZe00" rel="noopener">Start free trial</a>
       </div>
     </div>
     <div class="foot-bottom">
