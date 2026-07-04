@@ -24,6 +24,30 @@ module.exports = async function handler(req, res) {
     return res.status(400).json({ error: 'Missing required fields' });
   }
 
+  // Brevo — add contact to trial nurture list (runs regardless of Stripe config/result below)
+  if (process.env.BREVO_API_KEY) {
+    fetch('https://api.brevo.com/v3/contacts', {
+      method: 'POST',
+      headers: {
+        'api-key': process.env.BREVO_API_KEY,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email,
+        attributes: {
+          FIRSTNAME: name.split(' ')[0],
+          LASTNAME:  name.split(' ').slice(1).join(' ') || '',
+          COMPANY:   company || '',
+          PLAN:      plan,
+          CRM:       crm || '',
+          MAILBOXES: mailboxes || 1
+        },
+        listIds: [Number(process.env.BREVO_TRIAL_LIST_ID)],
+        updateEnabled: true
+      })
+    }).catch(function (err) { console.error('Brevo contact error:', err.message); });
+  }
+
   const STRIPE_SECRET = process.env.STRIPE_SECRET_KEY;
   if (!STRIPE_SECRET) {
     // Graceful fallback — still capture the lead via Web3Forms on the frontend
