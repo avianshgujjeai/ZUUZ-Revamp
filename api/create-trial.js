@@ -18,10 +18,38 @@ module.exports = async function handler(req, res) {
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  const { name, email, company, phone, plan, crm, mailboxes } = req.body || {};
+  const { name, email, company, phone, plan, crm, mailboxes, mailboxProvider } = req.body || {};
 
-  if (!name || !email || !plan) {
-    return res.status(400).json({ error: 'Missing required fields' });
+  if (!name || String(name).trim().split(/\s+/).length < 2) {
+    return res.status(400).json({ error: 'Please provide your first and last name.' });
+  }
+  if (!email) {
+    return res.status(400).json({ error: 'Email is required.' });
+  }
+  if (!company) {
+    return res.status(400).json({ error: 'Company name is required.' });
+  }
+  if (!phone) {
+    return res.status(400).json({ error: 'Phone number is required.' });
+  }
+  if (!mailboxProvider) {
+    return res.status(400).json({ error: 'Mailbox provider is required.' });
+  }
+  if (!plan) {
+    return res.status(400).json({ error: 'Plan is required.' });
+  }
+
+  // Reject free / personal email providers — a business email is required
+  const FREE_EMAIL_DOMAINS = [
+    'gmail.com', 'googlemail.com',
+    'outlook.com', 'hotmail.com', 'live.com', 'msn.com',
+    'icloud.com', 'me.com', 'mac.com',
+    'yahoo.com', 'ymail.com', 'rocketmail.com',
+    'aol.com', 'gmx.com', 'protonmail.com', 'proton.me'
+  ];
+  const emailDomain = (String(email).split('@')[1] || '').toLowerCase();
+  if (FREE_EMAIL_DOMAINS.indexOf(emailDomain) !== -1) {
+    return res.status(400).json({ error: 'Please use a company email address.' });
   }
 
   // Brevo — add contact to trial nurture list (runs regardless of Stripe config/result below)
@@ -40,7 +68,8 @@ module.exports = async function handler(req, res) {
           COMPANY:   company || '',
           PLAN:      plan,
           CRM:       crm || '',
-          MAILBOXES: mailboxes || 1
+          MAILBOXES: mailboxes || 1,
+          MAILBOX_PROVIDER: mailboxProvider || ''
         },
         listIds: [Number(process.env.BREVO_TRIAL_LIST_ID)],
         updateEnabled: true
@@ -65,6 +94,7 @@ module.exports = async function handler(req, res) {
     params.append('metadata[plan]',        plan);
     params.append('metadata[crm]',         crm         || '');
     params.append('metadata[mailboxes]',   mailboxes   || '1');
+    params.append('metadata[mailbox_provider]', mailboxProvider || '');
     params.append('metadata[source]',      'trial_signup');
     params.append('metadata[trial_start]', new Date().toISOString());
 

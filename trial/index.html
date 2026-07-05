@@ -465,11 +465,11 @@ main {
         <div class="fields">
           <div class="row">
             <div class="field">
-              <label for="f-first">First name</label>
+              <label for="f-first">First name *</label>
               <input type="text" id="f-first" placeholder="First name" autocomplete="given-name">
             </div>
             <div class="field">
-              <label for="f-last">Last name</label>
+              <label for="f-last">Last name *</label>
               <input type="text" id="f-last" placeholder="Last name" autocomplete="family-name">
             </div>
           </div>
@@ -478,7 +478,7 @@ main {
             <input type="email" id="f-email" placeholder="you@company.com" autocomplete="email">
           </div>
           <div class="field">
-            <label for="f-company">Company name</label>
+            <label for="f-company">Company name *</label>
             <input type="text" id="f-company" placeholder="Your company" autocomplete="organization">
           </div>
           <div class="field">
@@ -498,14 +498,27 @@ main {
             </select>
           </div>
           <div class="divider"></div>
-          <div class="mailbox-field">
-            <label>How many mailboxes to connect?</label>
-            <div class="mailbox-stepper">
-              <button class="step-btn" type="button" onclick="stepMailbox(-1)" aria-label="Decrease">−</button>
-              <div class="step-num" id="mailbox-num">1</div>
-              <button class="step-btn" type="button" onclick="stepMailbox(1)" aria-label="Increase">+</button>
-            </div>
-            <div class="mailbox-hint">Suggested plan: <span class="plan-suggest" id="plan-suggest">Solo · $99/mo</span></div>
+          <div class="field">
+            <label for="f-mailbox-provider">Mailbox provider *</label>
+            <select id="f-mailbox-provider">
+              <option value="">Select your mailbox provider</option>
+              <option value="google_workspace">Google Workspace</option>
+              <option value="microsoft_365">Microsoft 365</option>
+              <option value="zoho_mail">Zoho Mail</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-mailbox-count">How many mailboxes? *</label>
+            <select id="f-mailbox-count" onchange="updatePlan()">
+              <option value="">Select mailbox count</option>
+              <option value="1">1</option>
+              <option value="3">2–3</option>
+              <option value="5">4–5</option>
+              <option value="10">6–10</option>
+              <option value="15">10+</option>
+            </select>
+            <div class="mailbox-hint">Suggested plan: <span class="plan-suggest" id="plan-suggest">Select a count</span></div>
           </div>
           <div class="form-error" id="form-error"></div>
           <button class="submit-btn" id="submit-btn" type="button" onclick="submitTrial()">
@@ -558,7 +571,6 @@ autoTimer=setInterval(function(){goTo((current+1)%total)},5000);
 
 /* form */
 var WEB3FORMS_KEY='55d3cafe-c5ec-48cd-be7f-3e84dbda2281';
-var mailboxCount=1;
 var PLANS=[
   {max:1,  label:'Solo · $99/mo',      plan:'solo'},
   {max:3,  label:'Team · $249/mo',     plan:'team'},
@@ -567,35 +579,41 @@ var PLANS=[
   {max:999,label:'Enterprise · Custom',plan:'enterprise'}
 ];
 function getPlan(n){for(var i=0;i<PLANS.length;i++)if(n<=PLANS[i].max)return PLANS[i];return PLANS[PLANS.length-1]}
-function stepMailbox(d){
-  mailboxCount=Math.max(1,Math.min(50,mailboxCount+d));
-  document.getElementById('mailbox-num').textContent=mailboxCount;
-  document.getElementById('plan-suggest').textContent=getPlan(mailboxCount).label;
+var FREE_EMAIL_DOMAINS=['gmail.com','googlemail.com','outlook.com','hotmail.com','live.com','msn.com','icloud.com','me.com','mac.com','yahoo.com','ymail.com','rocketmail.com','aol.com','gmx.com','protonmail.com','proton.me'];
+function updatePlan(){
+  var v=document.getElementById('f-mailbox-count').value;
+  document.getElementById('plan-suggest').textContent=v?getPlan(Number(v)).label:'Select a count';
 }
 async function submitTrial(){
   var btn=document.getElementById('submit-btn'),errEl=document.getElementById('form-error');
   var first=document.getElementById('f-first').value.trim(),last=document.getElementById('f-last').value.trim();
   var email=document.getElementById('f-email').value.trim(),company=document.getElementById('f-company').value.trim();
   var crm=document.getElementById('f-crm').value,phone=document.getElementById('f-phone').value.trim();
+  var mailboxCount=Number(document.getElementById('f-mailbox-count').value);
+  var mailboxProvider=document.getElementById('f-mailbox-provider').value;
   var plan=getPlan(mailboxCount).plan;
   errEl.classList.remove('show');
   if(!first||!last){showErr('Please enter your first and last name.');return}
   var emailRe=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
   if(!email||!emailRe.test(email)){showErr('Please enter a valid work email address (e.g. you@company.com).');return}
+  var emailDomain=(email.split('@')[1]||'').toLowerCase();
+  if(FREE_EMAIL_DOMAINS.indexOf(emailDomain)!==-1){showErr("Please use your company email address. Personal email providers (Gmail, Outlook, iCloud, Yahoo, etc.) aren't accepted for trial signups.");return}
   if(!company){showErr('Please enter your company name.');return}
   if(!phone){showErr('Phone number is required.');return}
   var phoneRe=/^[+\d][\d\s\-().]{6,19}$/;
   if(!phoneRe.test(phone)){showErr('Please enter a valid phone number (e.g. +1 408 000 0000).');return}
+  if(!mailboxProvider){showErr('Please select your mailbox provider.');return}
+  if(!mailboxCount){showErr('Please select how many mailboxes you want to connect.');return}
   btn.classList.add('loading');btn.disabled=true;
   try{
     var res=await fetch('/api/create-trial',{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({name:first+' '+last,email,company,phone:phone||'',crm:crm||'Not specified',plan,mailboxes:mailboxCount})});
+      body:JSON.stringify({name:first+' '+last,email,company,phone:phone||'',crm:crm||'Not specified',plan,mailboxes:mailboxCount,mailboxProvider})});
     var data=await res.json();
     if(!res.ok)throw new Error(data.error||'Signup failed. Please try again.');
     fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json'},
       body:JSON.stringify({access_key:WEB3FORMS_KEY,subject:'🚀 New Trial — '+plan.charAt(0).toUpperCase()+plan.slice(1)+' — '+company,
-        from_name:'ZUUZ Trial',name:first+' '+last,email,company,phone:phone||'—',plan,mailboxes:mailboxCount,crm:crm||'—',
-        stripe_id:data.customerId||'—',message:first+' '+last+' ('+company+') — '+mailboxCount+' mailbox(es) — '+plan+' plan'})}).catch(function(){});
+        from_name:'ZUUZ Trial',name:first+' '+last,email,company,phone:phone||'—',plan,mailboxes:mailboxCount,mailbox_provider:mailboxProvider,crm:crm||'—',
+        stripe_id:data.customerId||'—',message:first+' '+last+' ('+company+') — '+mailboxCount+' mailbox(es) via '+mailboxProvider+' — '+plan+' plan'})}).catch(function(){});
     document.getElementById('success-email').textContent=email;
     document.getElementById('form-wrap').style.display='none';
     document.getElementById('success-wrap').style.display='block';
