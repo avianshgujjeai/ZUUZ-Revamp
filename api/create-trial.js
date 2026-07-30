@@ -11,7 +11,11 @@ const PLAN_PRICE_IDS = {
 
 module.exports = async function handler(req, res) {
   // CORS headers
-  res.setHeader('Access-Control-Allow-Origin', 'https://www.zuuz.ai');
+  const ALLOWED_ORIGINS = ['https://zuuz.ai', 'https://www.zuuz.ai'];
+  const reqOrigin = req.headers.origin;
+  res.setHeader('Access-Control-Allow-Origin',
+    ALLOWED_ORIGINS.indexOf(reqOrigin) !== -1 ? reqOrigin : 'https://zuuz.ai');
+  res.setHeader('Vary', 'Origin');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
