@@ -11,6 +11,8 @@ const PLAN_PRICE_IDS = {
 
 module.exports = async function handler(req, res) {
   // CORS headers
+  // zuuz.ai is the apex origin and www 301s to it, so the browser Origin is
+  // https://zuuz.ai. Hardcoding www failed every CORS preflight.
   const ALLOWED_ORIGINS = ['https://zuuz.ai', 'https://www.zuuz.ai'];
   const reqOrigin = req.headers.origin;
   res.setHeader('Access-Control-Allow-Origin',
