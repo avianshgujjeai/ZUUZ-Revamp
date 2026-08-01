@@ -17,6 +17,8 @@
     { "source": "/products/:path*", "destination": "/", "permanent": true },
     { "source": "/about/:path*", "destination": "/", "permanent": true },
     { "source": "/customers/:path*", "destination": "/", "permanent": true },
-    { "source": "/sol-vp-cro", "destination": "/", "permanent": true }
+    { "source": "/sol-vp-cro", "destination": "/", "permanent": true },
+    { "source": "/", "destination": "https://zuuz.ai/", "permanent": true },
+    { "source": "/:path((?!api/).*)", "destination": "https://zuuz.ai/:path", "permanent": true }
   ]
 }
